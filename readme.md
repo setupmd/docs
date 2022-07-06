@@ -7,7 +7,9 @@ The initial phase of this project is data consolidation and defining frameworks 
 
 ### Contributions
 
-Ensuring a unified standard for all KB articles is essentials, without this formatting will break on https://brain.setup.md. (The web interface for this repository.) We're using [obsidian](https://help.obsidian.md/How+to/Format+your+notes) for our front end and therefore require their styling formats are used.
+Ensuring a unified standard for all KB articles is essential, without standardisation formatting will break on https://brain.setup.md. (The web interface for this repository.) 
+
+As we're using [obsidian](https://help.obsidian.md/How+to/Format+your+notes) for our front end there is a requirement to use their styling guides, all pages should subsequently be utilising the above formatting.
 
 
 #### Style Guide
