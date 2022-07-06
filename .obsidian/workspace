@@ -1,0 +1,91 @@
+{
+  "main": {
+    "id": "3fd7623d3b68490b",
+    "type": "split",
+    "children": [
+      {
+        "id": "9fe1d1d6a8e59ab5",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "77fcc340b0d6c846",
+    "type": "split",
+    "children": [
+      {
+        "id": "7c3f0ea283a7f5e5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a75a0132e57148cc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "93ce90f0488e1b65",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": true,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ba46a8e35228e6a6",
+    "type": "split",
+    "children": [
+      {
+        "id": "29908f62a1ced3f4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ab578d67ae28248b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "9fe1d1d6a8e59ab5",
+  "lastOpenFiles": [
+    "_Start Here.md",
+    "Minecraft Server Setup/Deploying Your Server/Mods VS Plugins.md",
+    "Minecraft Server Setup/Deploying Your Server/What is a 'Server JAR'.md"
+  ]
+}
