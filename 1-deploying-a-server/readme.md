@@ -6,12 +6,13 @@ This section is designed to help you understand the fundermentals of Minecraft s
 
 Within this section the following topics are covered :
 
-- [Hardware - CPU, RAM & Disk requirements](hardware.md)
-- [Operating Systems - Windows & Linux](operating-systems.md)
-- [Server Types - Spigot / Paper / Purpur & Fabric / Forge](types-of-jars.md)
+- Server Fundamentals 
+  - [Spigot / Paper / Purpur & Fabric / Forge](types-of-jars.md)
   - [What is a 'mod'](mods.md)
   - [What is a 'plugin'](plugins.md)
-- [Server Hosting](hosting.md)
-	- [Server Panels](panels.md)
-	- [Shared vs Dedicated Compute](hardware.md#shared)
-	- [VPS / VDS Instances](metal.md)
+
+- Server Hosting
+	- [Hardware - CPU, RAM & Disk requirements](_hosting/hardware.md)
+	- [Operating Systems - Windows & Linux](_hosting/operating-systems.md)
+	- [Server Panels](_hosting/panels.md)
+	- [Types of Hosting](_hosting/types-of-hosting.md)

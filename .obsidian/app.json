@@ -1,5 +1,11 @@
 {
   "promptDelete": false,
+  "legacyEditor": false,
+  "livePreview": true,
+  "fileSortOrder": "alphabetical",
   "alwaysUpdateLinks": true,
-  "legacyEditor": false
+  "spellcheck": true,
+  "spellcheckLanguages": [
+    "en-GB"
+  ]
 }
