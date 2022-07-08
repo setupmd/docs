@@ -16,7 +16,7 @@ Deploying a Server | [Start Here](1-deploying-a-server/readme.md) |
 Understanding Config Files | [Start Here](2-understanding-config-files/readme.md) |
 Server Enhancements | [Start Here](3-server-enhancements/readme.md) |
 
-
+---
 
 ### Contributions
 
@@ -24,6 +24,7 @@ Ensuring a unified standard for all KB articles is essential, without standardis
 
 As we're using [obsidian](https://help.obsidian.md/How+to/Format+your+notes) for our front end there is a requirement to use their styling guides. All pages should subsequently be utilising the above formatting.
 
+---
 
 ### Style Guide
 
@@ -39,7 +40,7 @@ For unification, all titles should use the below when it comes to marking up hea
 
 Example formatting below :
 
-```
+```md
 # Title
 ### Sub-Heading
 #### Sub Sub-Heading
@@ -47,6 +48,26 @@ Example formatting below :
 ##### Sub Sub Sub-Heading Two
 ```
 
+
+#### Separator Lines
+
+When using multiple 'three-hash' sub-headings you should use a single line break to signifiy there is a change within the pages contents.
+
+Example formatting below :
+
+```md
+...
+
+....this is the final sentence of the previous section.
+
+---
+
+### New Sub-Heading
+
+New topic continued here...
+
+...
+```
 
 #### Code Blocks
 
