@@ -5,6 +5,19 @@ Welcome to 'the brain', this is a community knowledge repository with a single g
 The initial phase of this project is data consolidation and defining frameworks / standards that will be used throughout this knowledgebase. For those looking to contribute the below will have information on the formatting, PR process and more.
 
 
+### Finding Content
+
+Things are going to get hectic here which is why this table of contents will host links to the primary index file of each folder.
+
+
+Section Name | Link to ReadMe |
+------------ | ------------ | 
+Deploying a Server | [Start Here](1-deploying-a-server/readme.md) |
+Understanding Config Files | [Start Here](2-understanding-config-files/readme.md) |
+Server Enhancements | [Start Here](3-server-enhancements/readme.md) |
+
+
+
 ### Contributions
 
 Ensuring a unified standard for all KB articles is essential, without standardisation formatting will break on https://brain.setup.md. (The web interface for this repository.) 

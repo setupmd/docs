@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1-deploying-a-server/readme.md",
+            "file": "readme.md",
             "mode": "preview",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-deploying-a-server/readme.md",
+                "file": "readme.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +89,7 @@
   },
   "active": "3f4488dfd415b604",
   "lastOpenFiles": [
+    "readme.md",
     "1-deploying-a-server/readme.md",
     "metal.md",
     "1-deploying-a-server/metal.md",
@@ -97,7 +98,6 @@
     "1-deploying-a-server/operating-systems.md",
     "1-deploying-a-server/plugins.md",
     "1-deploying-a-server/setup.md",
-    "1-deploying-a-server/hardware.md",
-    "1-deploying-a-server/hosting.md"
+    "1-deploying-a-server/hardware.md"
   ]
 }
