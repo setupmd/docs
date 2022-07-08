@@ -1,29 +1,33 @@
 {
   "main": {
-    "id": "3fd7623d3b68490b",
+    "id": "bdbac419e17d5c0f",
     "type": "split",
     "children": [
       {
-        "id": "9fe1d1d6a8e59ab5",
+        "id": "3f4488dfd415b604",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "1-deploying-a-server/readme.md",
+            "mode": "preview",
+            "source": false
+          }
         }
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "77fcc340b0d6c846",
+    "id": "136c5197b265ca40",
     "type": "split",
     "children": [
       {
-        "id": "7c3f0ea283a7f5e5",
+        "id": "8416e6859ce100b1",
         "type": "tabs",
         "children": [
           {
-            "id": "a75a0132e57148cc",
+            "id": "33c8cffdd706bcb9",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -31,13 +35,13 @@
             }
           },
           {
-            "id": "93ce90f0488e1b65",
+            "id": "c90909ffa58090bf",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
                 "query": "",
-                "matchingCase": true,
+                "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -52,19 +56,20 @@
     "width": 300
   },
   "right": {
-    "id": "ba46a8e35228e6a6",
+    "id": "2bce53c01fe97d09",
     "type": "split",
     "children": [
       {
-        "id": "29908f62a1ced3f4",
+        "id": "52058107a3e4f280",
         "type": "tabs",
         "children": [
           {
-            "id": "ab578d67ae28248b",
+            "id": "0d608c1d261950bd",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "1-deploying-a-server/readme.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -82,10 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "9fe1d1d6a8e59ab5",
+  "active": "3f4488dfd415b604",
   "lastOpenFiles": [
-    "_Start Here.md",
-    "Minecraft Server Setup/Deploying Your Server/Mods VS Plugins.md",
-    "Minecraft Server Setup/Deploying Your Server/What is a 'Server JAR'.md"
+    "1-deploying-a-server/readme.md",
+    "metal.md",
+    "1-deploying-a-server/metal.md",
+    "1-deploying-a-server/mods.md",
+    "1-deploying-a-server/panels.md",
+    "1-deploying-a-server/operating-systems.md",
+    "1-deploying-a-server/plugins.md",
+    "1-deploying-a-server/setup.md",
+    "1-deploying-a-server/hardware.md",
+    "1-deploying-a-server/hosting.md"
   ]
 }
