@@ -21,4 +21,4 @@ Within this section the following topics are covered :
 - [Startup Scripts](2-putting-things-together/startup.md)
 
 #### Extras
-- [Deploying a server for free using Oracle Cloud](_extras/oci.md)
+- [Deploying a server for free using Oracle Cloud](oracle-cloud.md)

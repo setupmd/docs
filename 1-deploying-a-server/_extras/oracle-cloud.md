@@ -304,3 +304,9 @@ This guide has been modified slightly to cater for the needs of this project, se
 - Moved from Oracle Linux to Ubuntu LTS
 - Moved some Optional Configuration topics to either their own pages within our KB / hyperlinked to existing documents (this prevents topic duplication).
 - Ordering / Combining of steps in relation to EULA and port forwarding.
+
+---
+
+### Additional Note
+
+While Oracle cloud is great, ARM CPUs will fall short in high-demand workloads when it comes to Minecraft servers. If you find yourself outgrowing the Oracle instance you can check out the following [hosting guide](/1-deploying-a-server/_hosting/types-of-hosting.md).
