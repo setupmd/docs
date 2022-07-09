@@ -1,0 +1,306 @@
+# Deploy a Server in Oracle Cloud
+This guide originally comes from the Admincraft subreddit user [u/Belaboy1095969](https://www.reddit.com/r/admincraft/comments/qo78be/creating_a_minecraft_server_with_oracle_cloud/), with full prior permission we have re-uploaded this tutorial into our central repository.
+
+If you're looking to host a basic server that is kept online (for free, 24/7) that you and your friends can play on then this is the guide for you. This guide comes with the following expectations, further expansion on some of these points can be requested within the setup.md [discord server](https://discord.gg/pXaQgzneed) if required.
+
+### You Will Need
+
+- A ~~Java Minecraft Account~~ Minecraft license, as of 07 June 2022 these games are now [bundled together](https://www.minecraft.net/en-us/article/java---bedrock-edition-pc-out-june-7).
+- A credit / debit card for oracle account verification (anti-bot process)
+
+---
+
+### Getting Started
+
+This guide will assume you have already gone through the sign-up process for the [OCI console](https://signup.cloud.oracle.com/?sourceType=_ref_coc-asset-opcSignIn&language=en_US). Once this step has been completed you can follow the rest of this guide.
+
+#### Creating a Virtual Machine instance.
+Don't Panic! This part isn't as complicated as it sounds. Once you have finished setting up your account, click the "Create a VM instance" panel.
+
+![img1](https://preview.redd.it/lb6qbe1fd0y71.png?width=912&format=png&auto=webp&s=eb13c09a39b8c9b4d8e8d6a7de588d96a4847afe)
+
+Give your VM instance a name. Anything will work, but make it easily identifiable. You can leave the default (Root) compartment selected.
+
+![img2](https://preview.redd.it/z0fcocxpd0y71.png?width=792&format=png&auto=webp&s=99637b502a83ff60f5189a73a77cfb5a88304e7f)
+
+Now, Scroll down to the "Image and Shape" section. Make sure "Ubuntu LTS 22.04 (Or just the latest build)" Is selected. Then click "Change shape". Under "Shape series", Select "Ampere". Now set the amount of Ram and CPU Cores you would like. 
+
+> [!note]
+> You should allocate no less than 2 CPU Cores and 8GB of ram to the VPS. After you have finished selecting the shape, make sure the "Always free eligible" Tag is showing.
+> 
+> ![img3](https://preview.redd.it/32bkfk8te0y71.png?width=757&format=png&auto=webp&s=d7f50ceae622064c9590c9ef41f82afdce809fed)
+
+Next, we need to create a VCN (Or Virtual Cloud Network). If you already have a VCN, use that. If not, select "Create a Virtual Cloud Network" Copy the settings in the picture below!
+
+![img4](https://preview.redd.it/xtozv7u9f0y71.png?width=766&format=png&auto=webp&s=6d1c1643aa182fc52b418854d95763bc19996c90)
+
+We'll need an SSH Key pair to access the server remotely. To generate a keypair, tick the box that says "Generate a new keypair" and then download both the public and private keys. Don't lose these, or else you won't be able to connect to your server remotely!
+
+![img5](https://preview.redd.it/rzk6yq65g0y71.png?width=791&format=png&auto=webp&s=1fcc085a62f2235d9fd179bb9bff1625ed95055b)
+
+Leave the boot volume settings alone and hit "Create"!
+
+Once you hit "Create", you will be redirected to your VM details and your VM will be in a "Provisioning" state. Wait for it to be in a running state, which should take 30-60 seconds. Under the "Instance access", you should see an IP Address. Copy it.
+
+#### Connecting to your VM with SSH.
+
+There are multiple SSH clients out there from classics such as PuTTY and newer clients such as Termius. For simplicity and universal sake we will use a command prompt / terminal window.
+
+Open a command prompt / terminal window and type in the following command : 
+
+```bash
+...
+
+ssh root@<public-ip> -i "path-to-ssh-private.key"
+
+...
+```
+
+As this is your first time connecting you'll need to 'accept' either by pressing `Y` or typing `Yes` in the confirmation box. You should then see a screen similar to the below.
+
+![img6](https://preview.redd.it/ix7ilvzyl0y71.png?width=970&format=png&auto=webp&s=580fa11dcbce68b0dc12bb9e2ddd8e3d832830fc)
+
+Our VM is now deployed and ready to configure with Java and our server.
+
+#### Installing Java
+
+Ubuntu uses the `APT` package manager, it's generally considered a good idea to run the following commands before trying to install an application for the first time.
+
+```bash
+...
+
+sudo apt update
+sudo apt upgrade -y
+
+...
+```
+
+Once you've ensured the package list has been updated and installed packaged upgraded you can proceed with installing java depending on which Minecraft version you're looking to install you may need to change this command slightly.
+
+To identify which versions of JRE are installable you can run the following command.
+
+```bash
+...
+
+apt search "jre-headless"
+
+...
+```
+
+This should result in the following output.
+
+```bash
+...
+
+Sorting... Done
+Full Text Search... Done
+
+default-jre-headless/stable,stable 2:1.11-72 amd64
+  Standard Java or Java compatible Runtime (headless)
+
+openjdk-11-jre-headless/stable,stable-security,stable,stable-security 11.0.14+9-1~deb11u1 amd64
+  OpenJDK Java runtime, using Hotspot JIT (headless)
+
+openjdk-17-jre-headless/stable,stable-security,stable,stable-security 17.0.2+8-1~deb11u1 amd64
+  OpenJDK Java runtime, using Hotspot JIT (headless)
+
+...
+```
+
+> [!NOTE]
+> Java 16 was not an LTS release and therefore isn't present in the list.
+
+You can now run the following command changing the `version-number` to determine if you would like to install Java 8, Java 11 or Java 17.
+
+```bash
+...
+
+sudo apt install "openjdk-17-jre-headless" -y
+
+...
+```
+
+The above command will install Java 17 and will allow for us to create a server using the latest builds. You can confirm this has installed successfully by running the following command.
+
+```bash
+...
+
+java --version
+
+...
+```
+
+The above command should print out the latest build number for the Java 17 release we have just installed. If you have any errors you can checkout the following guide [troubleshooting java](/1-deploying-a-server/_troubleshooting/java-install.md).
+
+#### Creating the Minecraft server
+
+We are nearing the end of this guide, only a few more things to do!
+
+Before we download anything, we should make a directory to put our server in. You can do this by typing the following commands.
+
+```bash
+...
+
+mkdir minecraft-server-folder
+cd minecraft-server-folder
+
+...
+```
+
+Now we can deploy the server jar we're wanting to use, this tutorial will reference [purpur](https://purpurmc.org) but there are plenty of other server platforms and [this page](../1-picking-your-tools/types-of-jars.md) explains the pros and cons of the major ones.
+
+```bash
+...
+
+wget https://api.purpurmc.org/v2/purpur/1.19/latest/download --content-disposition
+
+...
+```
+
+By adding the `--content-disposition` we're preventing the downloaded file being an extension-less file called `download`. 
+
+To confirm the file has downloaded correctly you can use the `ls -al` command to display the contents of the `minecraft-server-folder`.
+
+```bash
+...
+
+root@vps:~/minecraft-server-folder# ls -al
+total 41348
+drwxr-xr-x 2 root root     4096 Jul  9 16:59 .
+drwx------ 7 root root     4096 Jul  9 16:59 ..
+-rw-r--r-- 1 root root 42329978 Jul  9 08:07 purpur-1.19-1708.jar
+
+...
+```
+
+In order to start our server we need to create a file that accepts the EULA for Mojang. This can be done with the following command.
+
+```bash
+...
+
+bash -c 'echo "eula=true" > eula.txt'
+
+...
+```
+
+We can now run the following command from the console in order to start our server, this will start the server and create all of the files it needs to run as expected.
+
+```bash
+...
+
+java -Xmx6G -Xms6G -jar purpur-1.19-1708.jar nogui
+
+...
+```
+
+Once you see the line `Done in (seconds)` you can press `shift + c` to end the session or type `stop` like a normal server.
+
+So now technically everything is setup and ready - If your newly created VPS was sitting in your house you would be able to play right now... but it's not - so we need to open the 25565 port to the internet.
+
+#### Making it accessible over the internet (Port Forwarding)
+
+While we're still connected via SSH it will save time later for us to configure the servers local firewall now. 
+
+> [!warning]
+> This tutorial uses Ubuntu and UFW. If you chose another another distro at the start of this guide you will most likely have a different wrapper, if this is the case you will need to consult the docs for how best to open ports 25565 for TCP and UDP traffic.
+
+To open TCP and UDP traffic within Ubuntu we need to use the following commands.
+
+```bash
+...
+
+sudo ufw allow 22/tcp #this will allow us to continue SSH access
+sudo ufw allow 25565/tcp #this will open the tcp port 25565 (minecraft game)
+sudo ufw allow 25565/udp #this will open the udp port 25565 (minecraft query)
+sudo ufw enable
+
+...
+```
+
+You can check UFW has successfully deployed and enabled by typing the following command.
+
+```bash
+...
+
+sudo ufw status
+
+...
+```
+
+The next steps are to do the same things within the Oracle Cloud interface. You will need to look for the category "Primary VNIC". Click the "Public Subnet" link.
+
+![img7](https://preview.redd.it/puhdgco6s0y71.png?width=724&format=png&auto=webp&s=62c56c8262c55129000a90726e05aa4de4039d19)
+
+Then click the "Default Security list" link.
+
+![img8](https://preview.redd.it/2poaepmcs0y71.png?width=537&format=png&auto=webp&s=3fa87f551aa084e5fb23699c670dab2a4d6c4d8a)
+
+And Add an "Ingress Rule". Copy the configuration shown here ,Then create another ingress rule with the same configuration, but change the "IP Protocol" to TCP, as shown below.
+
+![img9](https://preview.redd.it/23cjw70hs0y71.png?width=756&format=png&auto=webp&s=e33b04dab55c625d3fc68fd15c1d6adc7871c78c)
+
+Switching back to the server, you should now be able to start the server again using the same command we used previously.
+
+```bash
+...
+
+java -Xmx6G -Xms6G -jar purpur-1.19-1708.jar nogui
+
+...
+```
+
+You are now technically complete, you should be able to join your newly created server and share the IP with your friends... There's a couple of things to note in the below 'Optional Configuration' settings which will help you down the line.
+
+#### Optional Configuration
+
+The above steps will get you up and running with the basics, but some settings can be adjusted further to make life easier for yourself as an admin.
+
+
+##### Adjusting RAM Allocation
+
+We go over adjusting the RAM allocation in more depth [here](/1-deploying-a-server/2-putting-things-together/startup.md).
+
+##### Installing 'Screen'
+
+Screen is an application that allows for you to run your server in the background even after you close your SSH session.
+
+To install screen run the following command.
+
+```bash
+...
+
+sudo apt install screen -y
+
+...
+```
+
+Now screen has been installed you can run the following commands to launch your server within screen.
+
+```bash
+...
+
+screen
+java -Xmx6G -Xms6G -jar purpur-1.19-1708.jar nogui
+
+...
+```
+
+To exit the screen session you should press `CTRL + A + D`. You should now be able to close the command prompt window without the server crashing. If you need to return to your screen windows you can use the command `screen -r`.
+
+##### Installing Plugins
+
+We go over installing plugins in more depth [here](/1-deploying-a-server/2-putting-things-together/adding-plugins.md).
+
+##### JVM Flags (Aikar)
+
+We go over adjusting the start-up flags in more depth [here](/1-deploying-a-server/2-putting-things-together/startup.md).
+
+---
+
+### __Disclaimer__
+
+This guide has been modified slightly to cater for the needs of this project, setup.md has adjusted the following from the original article. 
+
+- Moved from Oracle Linux to Ubuntu LTS
+- Moved some Optional Configuration topics to either their own pages within our KB / hyperlinked to existing documents (this prevents topic duplication).
+- Ordering / Combining of steps in relation to EULA and port forwarding.
