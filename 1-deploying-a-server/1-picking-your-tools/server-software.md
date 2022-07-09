@@ -7,7 +7,7 @@ Over the years, quite a few teams have developed Minecraft Server software. Ther
 - Server features
 - Plugin extendability
 
-## Plugins vs Mods
+### Plugins vs Mods
 
 First off, what on earth is the difference between a plugin and a mod?
 While this is not true for all mods, usually mods are also supposed to be used on the client. They add additional functionality to the game that you cannot access without the mod on your client. Take a new type of ore for example. There are also server-side mods, but your options with them, besides performance enhancement mods, is quite low.
@@ -24,7 +24,9 @@ For you as a server owner it means that if you are looking to use [Forge](https:
 
 - [SpongeForge](sponge_guide)
 
-## Performance
+---
+
+### Performance
 
 There is a sacrifice to be made between features and performance. We'll list a few along with the features you will and won't get.
 
