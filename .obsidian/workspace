@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1-deploying-a-server/_extras/oci.md",
-            "mode": "preview",
+            "file": "1-deploying-a-server/getting-started.md",
+            "mode": "source",
             "source": true
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-deploying-a-server/_extras/oci.md",
+                "file": "1-deploying-a-server/getting-started.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,8 +89,8 @@
   },
   "active": "3f4488dfd415b604",
   "lastOpenFiles": [
-    "1-deploying-a-server/_extras/oci.md",
     "1-deploying-a-server/getting-started.md",
+    "1-deploying-a-server/_extras/oci.md",
     "1-deploying-a-server/2-putting-things-together/adding-plugins.md",
     "1-deploying-a-server/2-putting-things-together/startup.md",
     "1-deploying-a-server/_hosting/operating-systems.md",
