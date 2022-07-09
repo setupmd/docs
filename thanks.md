@@ -1,6 +1,6 @@
 # A Special Thanks
 
-Running an open source project isn't cheap so when companies agree to give us a hand absorbing a portion of their monthly subscription(s) it means a lot to us. This is also a transparency report for those who 
+Running an open source project isn't cheap so when companies agree to give us a hand absorbing a portion of their monthly subscription(s) it means a lot to us.
 
 This list is produced in the order from newest to oldest.
 
