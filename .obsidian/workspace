@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "1-deploying-a-server/readme.md",
+            "file": "thanks.md",
             "mode": "source",
             "source": true
           }
@@ -53,7 +53,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 252
   },
   "right": {
     "id": "2bce53c01fe97d09",
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-deploying-a-server/readme.md",
+                "file": "thanks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +89,15 @@
   },
   "active": "3f4488dfd415b604",
   "lastOpenFiles": [
-    "1-deploying-a-server/readme.md",
-    "1-deploying-a-server/setup.md",
+    "thanks.md",
     "readme.md",
-    "1-deploying-a-server/server-hosting/shared-hosting.md",
-    "metal.md",
-    "1-deploying-a-server/metal.md",
-    "1-deploying-a-server/mods.md",
-    "1-deploying-a-server/panels.md",
-    "1-deploying-a-server/operating-systems.md",
-    "1-deploying-a-server/plugins.md"
+    "1-deploying-a-server/_hosting/oci.md",
+    "_assets/1-deploying-a-server/_hosting/oci/lb6qbe1fd0y71.webp",
+    "2-understanding-config-files/readme.md",
+    "1-deploying-a-server/getting-started.md",
+    "1-deploying-a-server/_hosting/hardware.md",
+    "1-deploying-a-server/setup.md",
+    "3-server-enhancements/readme.md",
+    "1-deploying-a-server/server-hosting/shared-hosting.md"
   ]
 }

@@ -12,7 +12,7 @@ Things are going to get hectic here which is why this table of contents will hos
 
 Section Name | Link to ReadMe |
 ------------ | ------------ | 
-Deploying a Server | [Start Here](1-deploying-a-server/readme.md) |
+Deploying a Server | [Start Here](getting-started.md) |
 Understanding Config Files | [Start Here](2-understanding-config-files/readme.md) |
 Server Enhancements | [Start Here](3-server-enhancements/readme.md) |
 
