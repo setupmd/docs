@@ -34,6 +34,8 @@ There is a sacrifice to be made between features and performance. We'll list a f
 [Fabric](fabric_guide) with [Optimization mods](mods_guide) is the simplest solution for a very performant server. It doesn't allow you to use any plugins, but for a very simple server like an SMP the mod alternatives may just be "good enough".
 [PurpurMC](purpur_guide) is a server software based on the feature rich Paper and the performant Pufferfish.
 
+---
+
 ### Server features
 
 When we talk about server features we mostly talk about configurability. In the Paper config for example, you will find a lot of options that will make your life easier. You can take the Anti-Xray as an example. It also has a lot of options that allow you to tweak the server for better performance.
