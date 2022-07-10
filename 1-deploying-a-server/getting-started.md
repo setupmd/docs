@@ -18,6 +18,8 @@ Within this section the following topics are covered :
 - [Server Panels](_hosting/panels.md)
 - [Types of Hosting](_hosting/types-of-hosting.md)
 
-#### Extras
+#### Deployment
+- [Startup Scripts](2-putting-things-together/startup.md)
 
+#### Extras
 - [Deploying a server for free using Oracle Cloud](_hosting/oci.md)
