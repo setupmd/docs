@@ -5,7 +5,6 @@ Over the years, quite a few teams have developed Minecraft Server software. Ther
 - Wether you want to use mods
 - Hardware Performance
 - Server features
-- Plugin extendability
 
 ### Plugins vs Mods
 
@@ -33,4 +32,13 @@ There is a sacrifice to be made between features and performance. We'll list a f
 [Minestom](https://minestom.net/) is a Minecraft server software that doesn't contain any mojang code, and that is extremely fast. The catch is that it REQUIRES you to code in all the Minecraft features yourself.
 
 [Fabric](fabric_guide) with [Optimization mods](mods_guide) is the simplest solution for a very performant server. It doesn't allow you to use any plugins, but for a very simple server like an SMP the mod alternatives may just be "good enough".
-[PurpurMC](purpur_guide) is a server software based on Paper, which is based on Spigot, which is based on Bukkit.
+[PurpurMC](purpur_guide) is a server software based on the feature rich Paper and the performant Pufferfish.
+
+### Server features
+
+When we talk about server features we mostly talk about configurability. In the Paper config for example, you will find a lot of options that will make your life easier. You can take the Anti-Xray as an example. It also has a lot of options that allow you to tweak the server for better performance.
+While more options may sound better in every case, there is a tradeoff to be made between more features and performance, not to mention the fact that you have to spend the time actually tweaking the files.
+If you care a lot about features, Paper is your go to. Purpur has all the Paper features as it's based on it, but it also has a huge amount of configurability on it's own. It allows you to tweak everything from the way entities behave to how certain enchantments and status effects work. They also have [great docs](https://purpurmc.org/docs/Configuration) on the topic.
+
+- [PaperMC](https://papermc.io/)
+- [PurpurMC](https://purpurmc.org/)
