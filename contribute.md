@@ -1,6 +1,6 @@
 # Contributions
 
-Ensuring a unified standard for all KB articles is essential, without standardisation formatting will break on https://brain.setup.md. (The web interface for this repository.) 
+Ensuring a unified standard for all KB articles is essential, without standardisation formatting will break on https://setup.md. (The web interface for this repository.) 
 
 As we're using [obsidian](https://help.obsidian.md/How+to/Format+your+notes) for our front end there is a requirement to use their styling guides. All pages should subsequently be utilising the above formatting.
 
