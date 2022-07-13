@@ -66,7 +66,7 @@ Note that the `spigot.yml` settings are not necessary if `allow-flight` is true.
   - EUR 22.49
   - Bad combat and movement checks
   - Resource hog
-  - GUI config 🤮
+  - GUI config
 
 ###### Please don't use Spartan. Not worth it.
 ---
