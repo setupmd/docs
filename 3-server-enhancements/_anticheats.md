@@ -1,4 +1,4 @@
-# Anticheats
+# AntiCheats
 Anticheats are an integral part of any public server and help with catching hackers. This page consists of a list of anticheats and some other notes.
 
 Before we begin, since Minecraft's built-in anticheat is practically useless, it's better to turn it off than to endure the constant false positives it spews out. In `server.properties`,
@@ -9,6 +9,8 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
 ```
 > [!NOTE]
 > The `spigot.yml` settings are not necessary if `allow-flight` is true.
+
+[For Anti-Xrays, click on me!](el-page)
 ### Anticheats
 ---
 #### [NoCheatPlus](https://github.com/Updated-NoCheatPlus/NoCheatPlus)
@@ -119,4 +121,3 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
   - Lacks some important checks. (No Elytra Checks, NoSlow Checks)
 
 ###### Pretty decent temporary anticheat, perhaps good as a replacement for NCP as it has a decent default config.
----
