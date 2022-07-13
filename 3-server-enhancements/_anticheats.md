@@ -7,7 +7,8 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
      moved-wrongly-threshold: 100000.0
      moved-too-quickly-multiplier: 100000.0
 ```
-Note that the `spigot.yml` settings are not necessary if `allow-flight` is true.
+> [!NOTE]
+> The `spigot.yml` settings are not necessary if `allow-flight` is true.
 ### Anticheats
 ---
 #### [NoCheatPlus](https://github.com/Updated-NoCheatPlus/NoCheatPlus)
