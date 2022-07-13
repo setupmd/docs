@@ -35,7 +35,7 @@ Within the `spigot.yml` file you should also set the following values.
 
 This list consists common ACs and some pros and cons of each.
 
-#### [NoCheatPlus](https://github.com/Updated-NoCheatPlus/NoCheatPlus)
+#### NoCheatPlus
 
 ##### Pros
   - Free and Opensource
@@ -44,8 +44,11 @@ This list consists common ACs and some pros and cons of each.
 ##### Cons
   - Default configuration will spam false movement positives all over the place, you should buy a good config (eg. [MarkElf's](https://www.mc-market.org/resources/475/)) OR make your own
   - Mediocre combat checks
+
+##### Links 
+[Github](https://github.com/Updated-NoCheatPlus/NoCheatPlus)
   
-#### [AdvancedAntiCheat](https://www.spigotmc.org/resources/6442/)
+#### AdvancedAntiCheat
 
 ##### Pros
   - Good movement and combat checks
@@ -54,7 +57,10 @@ This list consists common ACs and some pros and cons of each.
 ##### Cons
   - GBP 20.00
 
-#### [Grim](https://github.com/MWHunter/Grim)
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/6442/)
+
+#### Grim
 
 ##### Pros
   - Opensource
@@ -65,7 +71,10 @@ This list consists common ACs and some pros and cons of each.
   - Currently WIP, not ready for production servers
   - Mediocre combat checks
 
-#### [Vulcan](https://www.spigotmc.org/resources/83626/)
+##### Links 
+[Github](https://github.com/MWHunter/Grim)
+
+#### Vulcan
 
 ##### Pros
   - Great movement and combat checks
@@ -74,7 +83,10 @@ This list consists common ACs and some pros and cons of each.
 ##### Cons
   - USD 20.00 (Totally worth it though)
 
-#### [Spartan](https://www.spigotmc.org/resources/25638/)
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/83626/)
+
+#### Spartan
 
 ##### Pros
   - 14-day money-back guarantee
@@ -85,7 +97,10 @@ This list consists common ACs and some pros and cons of each.
   - Resource hog
   - GUI config
 
-#### [Matrix](https://matrix.rip)
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/25638/)
+
+#### Matrix
 
 ##### Pros
   - Free with premium options.
@@ -95,7 +110,10 @@ This list consists common ACs and some pros and cons of each.
   - Bad default config, but there are some [good ones](https://github.com/QuantumSuite/MatrixChecks) out there
   - Player limit on free plan (75), paid plans are expensive
 
-#### [Themis](https://www.spigotmc.org/resources/themis-anti-cheat-1-17-1-18-bedrock-support-paper-compatibility-free-optimized.90766/)
+##### Links 
+[Website](https://matrix.rip)
+
+#### Themis
 
 ##### Pros
   - Free.
@@ -105,10 +123,13 @@ This list consists common ACs and some pros and cons of each.
   - Bad Combat & Mediocre Movement checks (Bad Elytra, Timer, KillAura Checks)
   - Lack of checks in general.
 
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/themis-anti-cheat-1-17-1-18-bedrock-support-paper-compatibility-free-optimized.90766/)
+
 > [!warning]
 > This anticheat is only for bedrock players, java players will not be affected.
 
-#### [SoaromaSAC (Config 6)](https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/)
+#### SoaromaSAC (Config 6)
 
 ##### Pros
   - Free.
@@ -118,7 +139,10 @@ This list consists common ACs and some pros and cons of each.
   - Infinite False Positives
   - Fake Open Source Link. Leads to a Rick Roll.
 
-#### [Negativity v1](https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/)
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/)
+
+#### Negativity v1
 
 ##### Pros
   - Free & Open Source.
@@ -127,4 +151,7 @@ This list consists common ACs and some pros and cons of each.
 
 ##### Cons
   - Lacks some important checks. (No Elytra Checks, NoSlow Checks)
+
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/)
 
