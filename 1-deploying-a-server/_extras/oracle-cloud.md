@@ -130,7 +130,7 @@ java --version
 ...
 ```
 
-The above command should print out the latest build number for the Java 17 release we have just installed. If you have any errors you can checkout the following guide [troubleshooting java](/1-deploying-a-server/_troubleshooting/java-install.md).
+The above command should print out the latest build number for the Java 17 release we have just installed. If you have any errors you can checkout the following guide [troubleshooting java](java-install.md).
 
 #### Creating the Minecraft server
 
