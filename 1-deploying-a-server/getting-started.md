@@ -6,6 +6,9 @@ This section is designed to help you understand the fundamentals of Minecraft se
 
 Within this section the following topics are covered :
 
+#### Complete Guides
+- [Deploying a server for free using Oracle Cloud](0-complete-guides/oracle-cloud.md)
+
 #### Server Fundamentals 
   - [Server Jar types](1-picking-your-tools/types-of-jars.md)
 
@@ -16,8 +19,6 @@ Within this section the following topics are covered :
 - [SFTP - Getting connected](_hosting/sftp.md)
 - [Types of Hosting](_hosting/types-of-hosting.md)
 
-#### Deployment
+#### Server Setup
 - [Startup Scripts](2-putting-things-together/startup.md)
 
-#### Extras
-- [Deploying a server for free using Oracle Cloud](oracle-cloud.md)
