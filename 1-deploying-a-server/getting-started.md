@@ -7,14 +7,13 @@ This section is designed to help you understand the fundamentals of Minecraft se
 Within this section the following topics are covered :
 
 #### Server Fundamentals 
-  - [Spigot / Paper / Purpur & Fabric / Forge](1-picking-your-tools/types-of-jars.md)
-  - [What is a 'mod'](1-picking-your-tools/mods.md)
-  - [What is a 'plugin'](1-picking-your-tools/plugins.md)
+  - [Server Jar types](1-picking-your-tools/types-of-jars.md)
 
 #### Server Hosting
 - [Hardware - CPU, RAM & Disk requirements](_hosting/hardware.md)
 - [Operating Systems - Windows & Linux](_hosting/operating-systems.md)
 - [Server Panels](_hosting/panels.md)
+- [SFTP - Getting connected](_hosting/sftp.md)
 - [Types of Hosting](_hosting/types-of-hosting.md)
 
 #### Deployment
