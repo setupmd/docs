@@ -1,5 +1,9 @@
 # Welcome
 
+> [!Warning]
+> **SETUP.MD IS NOT PRODUCTION READY**
+> We're actively working on adding content, clarity and more to this site but in the meantime you can checkout the [Admincraft](https://discord.gg/admincraft) Discord server for support and advice.
+
 This is setup.md, a single pane of glass for all your Minecraft server administration needs. The goal of this website is to collate as much useful information for novice server owners in one place as possible. We know that this site won't contain **everything** but our goal is to cover as much as we physically can.
 
 
