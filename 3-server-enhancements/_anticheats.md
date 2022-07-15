@@ -1,19 +1,42 @@
 # AntiCheats
-Anticheats are an integral part of any public server and help with catching hackers. This page consists of a list of anticheats and some other notes.
 
-Before we begin, since Minecraft's built-in anticheat is practically useless, it's better to turn it off than to endure the constant false positives it spews out. In `server.properties`,
-set `allow-flight=true`. In `spigot.yml`, set the following:
+> [!Info]
+> Throughout this guide 'AntiCheat(s)' may be referred to as 'AC' or 'ACs'
+
+ACs are an integral part of any public server and help with catching hackers. Since Minecraft's built-in anticheat is practically useless, it's better to turn it off than to endure the constant false positives it spews out. 
+
+You should change the following settings within the  `server.properties` file.
+
 ```yml
+...
+
+allow-flight=true
+
+...
+
+```
+
+Within the `spigot.yml` file you should also set the following values.
+
+```yml
+...
+
      moved-wrongly-threshold: 100000.0
      moved-too-quickly-multiplier: 100000.0
+     
+...
 ```
-> [!NOTE]
-> The `spigot.yml` settings are not necessary if `allow-flight` is true.
 
-[For Anti-Xrays, click on me!](el-page)
-### Anticheats
----
-#### [NoCheatPlus](https://github.com/Updated-NoCheatPlus/NoCheatPlus)
+> [!NOTE]
+> The above settings within the `spigot.yml` file are not necessary if `allow-flight` is set to true.
+
+[Click here to visit the Anti-Xray Page](el-page)
+
+### Common Anticheats
+
+This list consists common ACs and some pros and cons of each.
+
+#### NoCheatPlus
 
 ##### Pros
   - Free and Opensource
@@ -23,9 +46,10 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
   - Default configuration will spam false movement positives all over the place, you should buy a good config (eg. [MarkElf's](https://www.mc-market.org/resources/475/)) OR make your own
   - Mediocre combat checks
 
-###### Highly recommended if you're looking for a free anticheat and don't mind configuring it yourself.
----
-#### [AdvancedAntiCheat](https://www.spigotmc.org/resources/6442/)
+##### Links 
+[Github](https://github.com/Updated-NoCheatPlus/NoCheatPlus)
+  
+#### AdvancedAntiCheat
 
 ##### Pros
   - Good movement and combat checks
@@ -34,9 +58,10 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
 ##### Cons
   - GBP 20.00
 
-###### Solid AntiCheat, but there are better ones at the same price point.
----
-#### [Grim](https://github.com/MWHunter/Grim)
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/6442/)
+
+#### Grim
 
 ##### Pros
   - Opensource
@@ -46,10 +71,11 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
 ##### Cons
   - Currently WIP, not ready for production servers
   - Mediocre combat checks
-  
-###### Only use in Development Environments for now.
-  ---
-#### [Vulcan](https://www.spigotmc.org/resources/83626/)
+
+##### Links 
+[Github](https://github.com/MWHunter/Grim)
+
+#### Vulcan
 
 ##### Pros
   - Great movement and combat checks
@@ -58,9 +84,10 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
 ##### Cons
   - USD 20.00 (Totally worth it though)
 
-###### Pretty much the best.
----
-#### [Spartan](https://www.spigotmc.org/resources/25638/)
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/83626/)
+
+#### Spartan
 
 ##### Pros
   - 14-day money-back guarantee
@@ -71,9 +98,10 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
   - Resource hog
   - GUI config
 
-###### Please don't use Spartan. Not worth it.
----
-#### [Matrix](https://matrix.rip)
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/25638/)
+
+#### Matrix
 
 ##### Pros
   - Free with premium options.
@@ -83,9 +111,10 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
   - Bad default config, but there are some [good ones](https://github.com/QuantumSuite/MatrixChecks) out there
   - Player limit on free plan (75), paid plans are expensive
 
-###### One Word: Vulcan.
----
-#### [Themis](https://www.spigotmc.org/resources/themis-anti-cheat-1-17-1-18-bedrock-support-paper-compatibility-free-optimized.90766/)
+##### Links 
+[Website](https://matrix.rip)
+
+#### Themis
 
 ##### Pros
   - Free.
@@ -95,9 +124,13 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
   - Bad Combat & Mediocre Movement checks (Bad Elytra, Timer, KillAura Checks)
   - Lack of checks in general.
 
-###### Only use for Bedrock Players.
----
-#### [SoaromaSAC (Config 6)](https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/)
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/themis-anti-cheat-1-17-1-18-bedrock-support-paper-compatibility-free-optimized.90766/)
+
+> [!warning]
+> This anticheat is only for bedrock players, java players will not be affected.
+
+#### SoaromaSAC (Config 6)
 
 ##### Pros
   - Free.
@@ -105,12 +138,12 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
 ##### Cons
   - Bad Checks
   - Infinite False Positives
-  - Fake Open Source Link. Leads to a Rick Roll... ~~but hey, not like anyone will want to copy these checks.~~
+  - Fake Open Source Link. Leads to a Rick Roll.
 
-###### Do you want every player to get flagged (falsely) for everything? Use SAC! 
----
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/)
 
-#### [Negativity v1](https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/)
+#### Negativity v1
 
 ##### Pros
   - Free & Open Source.
@@ -120,4 +153,6 @@ set `allow-flight=true`. In `spigot.yml`, set the following:
 ##### Cons
   - Lacks some important checks. (No Elytra Checks, NoSlow Checks)
 
-###### Pretty decent temporary anticheat, perhaps good as a replacement for NCP as it has a decent default config.
+##### Links 
+[Spigot](https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/)
+
