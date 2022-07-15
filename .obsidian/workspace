@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "3-server-enhancements/anticheat.md",
+            "file": "3-server-enhancements/antixray.md",
             "mode": "source",
             "source": true
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3-server-enhancements/anticheat.md",
+                "file": "3-server-enhancements/antixray.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,14 +90,14 @@
   "active": "3f4488dfd415b604",
   "lastOpenFiles": [
     "3-server-enhancements/anticheat.md",
+    "3-server-enhancements/readme.md",
+    "3-server-enhancements/antixray.md",
     "1-deploying-a-server/_hosting/types-of-hosting.md",
     "1-deploying-a-server/_hosting/sftp.md",
     "readme.md",
-    "3-server-enhancements/readme.md",
     "1-deploying-a-server/_hosting/hardware.md",
     "1-deploying-a-server/_hosting/operating-systems.md",
     "1-deploying-a-server/_hosting/panels.md",
-    "1-deploying-a-server/_extras/oracle-cloud.md",
-    "1-deploying-a-server/3-server-troubleshooting/java-install.md"
+    "1-deploying-a-server/_extras/oracle-cloud.md"
   ]
 }
