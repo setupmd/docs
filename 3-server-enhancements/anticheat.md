@@ -30,10 +30,11 @@ Within the `spigot.yml` file you should also set the following values.
 > [!NOTE]
 > The above settings within the `spigot.yml` file are not necessary if `allow-flight` is set to true.
 
+[Click here to visit the Anti-Xray Page](el-page)
 
 ### Common Anticheats
 
-This list consists common ACs and some pros and cons of each.
+This list consists common ACs and some pros and cons of each AC.
 
 #### NoCheatPlus
 
