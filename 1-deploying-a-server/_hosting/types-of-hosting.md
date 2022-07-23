@@ -17,7 +17,7 @@ Traditionally this space was dominated by the likes of Nitrado, MCProHosting, Sh
 
 #### Virtual Private Servers
 
-The other common response you'll see people mention is 'grab yourself a VPS from Digital Ocean or Linode'. While you certainly can, it won't be much better than using [oracle cloud](/1-deploying-a-server/_extras/oracle-cloud.md) on ARM (which is free). 
+The other common response you'll see people mention is 'grab yourself a VPS from Digital Ocean or Linode'. While you certainly can, it won't be much better than using [oracle cloud](/0-complete-guides/oracle-cloud.md) on ARM (which is free). 
 
 VPS instances have some differences to shared hosting, the core differences are.
 - Linux knowledge is required for setup

@@ -29,7 +29,7 @@ Example formatting below :
 
 #### Separator Lines
 
-When using multiple 'three-hash' sub-headings you should use a single line break to signifiy there is a change within the pages contents.
+When using multiple 'three-hash' sub-headings you must use a single line break to signify there is a change within the pages contents. When using 'four-hash' sub-headings it is not required and should be evaluated based on presentation.
 
 Example formatting below :
 

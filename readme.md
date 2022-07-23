@@ -18,6 +18,12 @@ The second method of searching is the search bar, if you type in terms like 'Luc
 
 Finally the last option is to manually search each section using the below as reference guides to the main index file of each category. 
 
+#### Section 0 - Complete Guides
+
+This first section consists only of complete guides which will run you through all the required steps from start to finish. Some documents within this area might be brief but they will contain links to additional pages to explain certain tasks within more detail.
+
+To get started you can [click here](0-complete-guides/guide-list.md).
+
 #### Section 1 - Deploying a Server
 
 This section is for those who are starting from fresh. We cover topics such as identifying your tools, understanding the difference between a 'paper server' and a 'modded server' all the way through to picking the right hosting environment, deploying your server and troubleshooting common deployment errors you could come across.

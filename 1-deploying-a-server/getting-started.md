@@ -6,9 +6,6 @@ This section is designed to help you understand the fundamentals of Minecraft se
 
 Within this section the following topics are covered :
 
-#### Complete Guides
-- [Deploying a server for free using Oracle Cloud](0-complete-guides/oracle-cloud.md)
-
 #### Server Fundamentals 
   - [Server Jar types](1-picking-your-tools/types-of-jars.md)
 
