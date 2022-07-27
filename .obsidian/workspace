@@ -7,12 +7,8 @@
         "id": "6b96a137defd260f",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "1-deploying-a-server/_hosting/operating-systems.md",
-            "mode": "source",
-            "source": true
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "1-deploying-a-server/_hosting/operating-systems.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,16 +82,16 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "6b96a137defd260f",
+  "active": "33c8cffdd706bcb9",
   "lastOpenFiles": [
+    "1-deploying-a-server/_hosting/operating-systems.md",
+    "1-deploying-a-server/_hosting/hardware.md",
     "1-deploying-a-server/_hosting/panels.md",
     "1-deploying-a-server/_hosting/sftp.md",
     "1-deploying-a-server/_hosting/types-of-hosting.md",
     "1-deploying-a-server/1-picking-your-tools/mods.md",
     "1-deploying-a-server/1-picking-your-tools/plugins.md",
     "1-deploying-a-server/1-picking-your-tools/types-of-jars.md",
-    "1-deploying-a-server/_hosting/operating-systems.md",
-    "1-deploying-a-server/_hosting/hardware.md",
     "contribute.md",
     "readme.md"
   ]
