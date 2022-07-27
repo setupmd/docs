@@ -1,9 +1,5 @@
 # Welcome
 
-> [!Warning]
-> **SETUP.MD IS NOT PRODUCTION READY**
-> We're actively working on adding content, clarity and more to this site but in the meantime you can checkout the [Admincraft](https://discord.gg/admincraft) Discord server for support and advice.
-
 This is setup.md, a single pane of glass for all your Minecraft server administration needs. The goal of this website is to collate as much useful information for novice server owners in one place as possible. We know that this site won't contain **everything** but our goal is to cover as much as we physically can.
 
 
@@ -12,11 +8,7 @@ If you need assistance with a topic we don't don't yet cover head on over to our
 
 ### Topic Breakdowns
 
-This site will get quite hectic but there's a couple of solid ways to navigate your way around. The first option is to always use the spider diagram on the right hand side of this page, anytime we link to another document within a page it will create a spider diagram of things to checkout.
-
-The second method of searching is the search bar, if you type in terms like 'LuckPerms' or 'Oracle' you'll find previous pages that we've written however if it doesn't appear chances are we've either used different terms or we don't have a document for it yet.
-
-Finally the last option is to manually search each section using the below as reference guides to the main index file of each category. 
+We've attempted to break things down into a few core sections outlined below in order to make finding documentation easy.
 
 #### Section 0 - Complete Guides
 

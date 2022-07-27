@@ -15,6 +15,8 @@ The most common type you'll find is 'Shared Hosting', this is where a hosting pr
 
 Traditionally this space was dominated by the likes of Nitrado, MCProHosting, Shockbyte etc... but in recent years players like [Bloom](https://bloom.host), [DedicatedMC](https://dedicatedmc.io) & [EnviroMC](https://enviromc.host) have dominated in this space offering Ryzen based solutions instead of the old school Xeons used by the legacy giants.
 
+---
+
 #### Virtual Private Servers
 
 The other common response you'll see people mention is 'grab yourself a VPS from Digital Ocean or Linode'. While you certainly can, it won't be much better than using [oracle cloud](/0-complete-guides/oracle-cloud.md) on ARM (which is free). 
@@ -28,6 +30,8 @@ VPS instances have some differences to shared hosting, the core differences are.
 - You can install a custom panel such as [Pterodactyl](panels.md#Pterodactyl)
 
 There are times when a VPS can make sense, a prime example is using a VPS provider that uses consumer 'Gaming Grade' CPUs (Intel Core i9 / AMD Ryzen 7 / 9). These would provide the same experience for Minecraft as using a regular 'shared hosting' provider and it would allow you to host say a web / database server, a discord bot or anything else you could imagine.
+
+---
 
 #### Bare Metal / VDS
 

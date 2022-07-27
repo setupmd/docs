@@ -4,11 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "6b96a137defd260f",
+        "id": "2d114714c77e3560",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "readme.md",
+            "mode": "source",
+            "source": true
+          }
         }
       }
     ],
@@ -65,13 +69,14 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "readme.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "unlinkedCollapsed": false
               }
             }
           }
@@ -79,20 +84,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
-  "active": "33c8cffdd706bcb9",
+  "active": "2d114714c77e3560",
   "lastOpenFiles": [
+    "readme.md",
+    "thanks.md",
+    "contribute.md",
+    "1-deploying-a-server/getting-started.md",
     "1-deploying-a-server/_hosting/operating-systems.md",
     "1-deploying-a-server/_hosting/hardware.md",
-    "1-deploying-a-server/_hosting/panels.md",
-    "1-deploying-a-server/_hosting/sftp.md",
+    "0-complete-guides/guide-list.md",
     "1-deploying-a-server/_hosting/types-of-hosting.md",
-    "1-deploying-a-server/1-picking-your-tools/mods.md",
-    "1-deploying-a-server/1-picking-your-tools/plugins.md",
-    "1-deploying-a-server/1-picking-your-tools/types-of-jars.md",
-    "contribute.md",
-    "readme.md"
+    "1-deploying-a-server/2-putting-things-together/startup.md",
+    "1-deploying-a-server/2-putting-things-together/adding-plugins.md"
   ]
 }
