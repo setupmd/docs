@@ -1,0 +1,17 @@
+name: WIP
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - labeled
+      - unlabeled
+      - synchronize
+
+jobs:
+  WIP:
+    runs-on: main
+    steps:
+      - uses: wow-actions/wip@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
