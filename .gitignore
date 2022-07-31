@@ -3,7 +3,7 @@
 .obsidian/graph.json
 .obsidian/core-plugins.json
 .obsidian/app.json
-.obsidian/workspace
+.obsidian/appearance.json
+.obsidian/workspace/
 *.json
-.obsidian/workspace
 publish.css
