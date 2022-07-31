@@ -30,7 +30,7 @@ Within the `spigot.yml` file you should also set the following values.
 > [!NOTE]
 > The above settings within the `spigot.yml` file are not necessary if `allow-flight` is set to true.
 
-[Click here to visit the Anti-Xray Page](el-page)
+[Click here to visit the Anti-Xray Page](antixray.md)
 
 ### Common Anticheats
 
