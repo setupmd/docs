@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "readme.md",
-            "mode": "source",
+            "file": "3-server-enhancements/readme.md",
+            "mode": "preview",
             "source": true
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "readme.md",
+                "file": "3-server-enhancements/readme.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,19 +84,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "active": "2d114714c77e3560",
   "lastOpenFiles": [
+    "3-server-enhancements/anticheat.md",
+    "3-server-enhancements/readme.md",
+    "1-deploying-a-server/_hosting/operating-systems.md",
+    "1-deploying-a-server/_hosting/hardware.md",
+    "1-deploying-a-server/getting-started.md",
     "readme.md",
     "thanks.md",
     "contribute.md",
-    "1-deploying-a-server/getting-started.md",
-    "1-deploying-a-server/_hosting/operating-systems.md",
-    "1-deploying-a-server/_hosting/hardware.md",
     "0-complete-guides/guide-list.md",
-    "1-deploying-a-server/_hosting/types-of-hosting.md",
-    "1-deploying-a-server/2-putting-things-together/startup.md",
-    "1-deploying-a-server/2-putting-things-together/adding-plugins.md"
+    "1-deploying-a-server/_hosting/types-of-hosting.md"
   ]
 }
