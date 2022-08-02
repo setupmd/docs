@@ -7,6 +7,7 @@ For a guide on what plugins to use, check out [our server enhancements guide](..
 
 Within this section the following topics are covered :
 
+
 #### Server Fundamentals
 
 - [Spigot / Paper / Purpur & Fabric / Forge](1-picking-your-tools/server-software.md)
@@ -16,10 +17,10 @@ Within this section the following topics are covered :
 - [Hardware - CPU, RAM & Disk requirements](_hosting/hardware.md)
 - [Operating Systems - Windows & Linux](_hosting/operating-systems.md)
 - [Server Panels](_hosting/panels.md)
+- [SFTP - Getting connected](_hosting/sftp.md)
 - [Types of Hosting](_hosting/types-of-hosting.md)
 
-#### Deployment
+#### Server Setup
 - [Startup Scripts](2-putting-things-together/startup.md)
 
-#### Extras
-- [Deploying a server for free using Oracle Cloud](_hosting/oci.md)
+
