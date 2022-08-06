@@ -5,12 +5,12 @@ There are usually two reasons why you would want to use Fabric for your server:
 If your needs are neither of those, you should not use Fabric as your server software, as Paper/Purpur offers way more customization and choice in plugins.
 Though there is a project called [Cardboard](https://github.com/CardboardPowered/cardboard) that allows running plugins on Fabric, it's still heavily in development and does not support the newest Minecraft versions.
 
-## Base server setup
+### Base server setup
 To install Fabric on your server, download a .jar from fabricmc.net/use/server and launch it like you would with any other server .jar. It will automaticially downlod the needed libraries and create a mods folder.
 
 ---
 
-## Server optimization mods
+### Server optimization mods
 Fabric, unlike Paper and such, does not carry any optimizations in itself, so it's not going to perform any better than vanilla.
 Luckily, Fabric offers a choice of mods to optimize your server and/or replicate some of Paper's core features. The following is a list of the most notable server-side optimization mods - those are the ones you should have on your server 100% of the time, they won't change vanilla mechanics or cause any instability at all.
 
@@ -32,41 +32,41 @@ Now, those mods are less tested and more likely to cause issues/break vanilla pa
 
 ---
 
-## Server utility mods
+### Server utility mods
 
 Other notable mods for server customization/moderating.
 
-## Chat customization
+### Chat customization
 
 - [Styled Chat](https://modrinth.com/mod/styled-chat)
 - [Regional Chat](https://modrinth.com/mod/regional-chat)
 
-### Preventing 1.19.1+ chat reporting
+#### Preventing 1.19.1+ chat reporting
 
 - [No Chat Reports](https://modrinth.com/mod/no-chat-reports) - the most publicly approved mod
 - [Simply No Report](https://modrinth.com/mod/simply-no-report)
 - [No Chat Report](https://modrinth.com/mod/no-chat-report)
 
-### Discord integration
+#### Discord integration
 
 - [McDiscordChat](https://modrinth.com/mod/mcdiscordchat)
 - [Discord Integration](https://modrinth.com/mod/dcintegration)
 - [Fabric-Discord-Link](https://modrinth.com/mod/fabric-discord-link)
 
-## Moderation
+### Moderation
 
 - [BanHammer]()
 
-## Webmap
+### Webmap
 
 - [BlueMap](https://modrinth.com/mod/bluemap) - (uses up a lot of resuorces on rendering, don't use unless you have a few CPU cores to spare!)
 - [JourneyMap](https://modrinth.com/mod/journeymap)
 
-## World generation
+### World generation
 
 - [Terra](https://modrinth.com/mod/terra) - ([requires additional setup to take effect](https://terra.polydev.org/install/mod-server-world-creation.html))
 
-### Structures
+#### Structures
 
 - [Mo' Structures](https://modrinth.com/mod/mo-structures)
 - [Repurposed Structures](https://modrinth.com/mod/repurposed-structures-fabric)
