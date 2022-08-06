@@ -5,6 +5,9 @@ There are usually two reasons why you would want to use Fabric for your server:
 If your needs are neither of those, you should not use Fabric as your server software, as Paper/Purpur offers way more customization and choice in plugins.
 Though there is a project called [Cardboard](https://github.com/CardboardPowered/cardboard) that allows running plugins on Fabric, it's still heavily in development and does not support the newest Minecraft versions.
 
+## Base server setup
+To install Fabric on your server, download a .jar from fabricmc.net/use/server and launch it like you would with any other server .jar. It will automaticially downlod the needed libraries and create a mods folder.
+
 ## Server optimization mods
 Fabric, unlike Paper and such, does not carry any optimizations in itself, so it's not going to perform any better than vanilla.
 Luckily, Fabric offers a choice of mods to optimize your server and/or replicate some of Paper's core features. The following is a list of the most notable server-side optimization mods - those are the ones you should have on your server 100% of the time, they won't change vanilla mechanics or cause any instability at all.
