@@ -10,7 +10,7 @@ Though there is a project called [Cardboard](https://github.com/CardboardPowered
 ### Base server setup
 To install Fabric on your server, download a .jar from [fabricmc.net/use/server](fabricmc.net/use/server) and launch it like you would with any other server .jar. It will automaticially downlod the needed libraries and create a mods folder.
 
-> [Startup](Startup)
+- [Startup](startup_guide)
 
 ---
 
