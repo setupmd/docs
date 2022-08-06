@@ -1,5 +1,7 @@
 
-### Adjusting Startup Scripts
+# Adjusting Startup Scripts
+
+### Basics
 
 This is how your most bare-bones startup script looks like.
 
@@ -13,9 +15,9 @@ java -Xmx<change-me>G -Xms<match-me-to-Xmx-value>G -jar <server-jar-name>.jar no
 
 `-Xmx` sets the maximum amount of memory the Java Virtual Machine is allowed to use. Don't set this over the amount of memory you have on your machine/given to you by the hosting provider.
 
-`-Xms` sets the minimum amount of memory the JVM is allowed to allocate.
+`-Xms` sets the minimum amount of memory the JVM is allowed to use.
 
-Setting them both to the same value usually imporves perfomance as no calculations need to be done regarding the memory allocation, but know that if you are running other programs on your host machine, they won't be able to use the memory your server does not need at a given moment (as the server will reserve all memory you have given to it for itself). 
+Setting them both to the same value usually imporves perfomance as no calculations need to be done regarding the memory allocation, but know that if you are running other programs on your host machine, they won't be able to use the memory your server has allocated, but does not need at a given moment (as the server will reserve all memory you have given to it for itself at all times). 
 
 You should set your RAM allocation according to your top player count and average server load - allocating more memory than your server needs is likely to cause GC lag spikes. For example, if you are a starting out server with 0-2 players most of the time, you'll be fine with 2 GB, but if you have 5-10 players online at once, you'll need 4-5 GB.
 
