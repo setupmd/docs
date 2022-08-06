@@ -8,7 +8,7 @@ If your needs are neither of those, you should not use Fabric as your server sof
 Though there is a project called [Cardboard](https://github.com/CardboardPowered/cardboard) that allows running plugins on Fabric, it's still heavily in development and does not support the newest Minecraft versions.
 
 ### Base server setup
-To install Fabric on your server, download a .jar from [fabricmc.net/use/server](fabricmc.net/use/server) and launch it like you would with any other server .jar. It will automaticially downlod the needed libraries and create a mods folder.
+To install Fabric on your server, download a .jar from [fabricmc.net/use/server](fabricmc.net/use/server) and launch it like you would with any other server .jar. It will automaticially download the needed libraries and create a mods folder.
 
 - [Startup](startup_guide)
 
@@ -18,7 +18,7 @@ To install Fabric on your server, download a .jar from [fabricmc.net/use/server]
 Fabric, unlike Paper and such, does not carry any optimizations in itself, so it's not going to perform any better than vanilla.
 Luckily, Fabric offers a choice of mods to optimize your server and/or replicate some of Paper's core features. The following is a list of the most notable server-side optimization mods - those are the ones you should have on your server 100% of the time, they won't change vanilla mechanics or cause any instability at all.
 
-When installing any mods, look out for dependencies - usually it's at least [Fabric API]()
+When installing any mods, look out for dependencies - usually it's at least [Fabric API]().
 
 - [Lithium](https://modrinth.com/mod/lithium) - arguably the most important server-side optimization mod, applies overall optimizations to ticking, chunk loading, AI and more.
 - [FerriteCore](https://modrinth.com/mod/ferrite-core) - optimizes memory usage, works on both client and server. Can help you save up on RAM.
