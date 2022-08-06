@@ -8,9 +8,13 @@ Though there is a project called [Cardboard](https://github.com/CardboardPowered
 ## Base server setup
 To install Fabric on your server, download a .jar from fabricmc.net/use/server and launch it like you would with any other server .jar. It will automaticially downlod the needed libraries and create a mods folder.
 
+---
+
 ## Server optimization mods
 Fabric, unlike Paper and such, does not carry any optimizations in itself, so it's not going to perform any better than vanilla.
 Luckily, Fabric offers a choice of mods to optimize your server and/or replicate some of Paper's core features. The following is a list of the most notable server-side optimization mods - those are the ones you should have on your server 100% of the time, they won't change vanilla mechanics or cause any instability at all.
+
+When installing any mods, look out for dependencies - usually it's at least [Fabric API]()
 
 - [Lithium]() - arguably the most important server-side optimization mod, applies overall optimizations to ticking, chunk loading, AI and more.
 - [FerriteCore]() - optimizes memory usage, works on both client and server. Can help you save up on RAM.
@@ -24,6 +28,9 @@ Now, those mods are less tested and more likely to cause issues/break vanilla pa
 - [C2ME]() - applies experimental chunk loading and storage optimizations to the server, notably making more chunk loading and ticking run in parallel threads. It has a configuration file which lets you toggle all its optimizations on and off.
 - [VMP]() - applies experimental networking and ticking optimizations to help servers on high player counts.
 - [FastLoad]() - lets the server load less chunks on startup, improving startup times.
+- [Memory Leak Fix]() - fixes memory leaks and applies misc optimizations to the game.
+
+---
 
 ## Server utility mods
 
