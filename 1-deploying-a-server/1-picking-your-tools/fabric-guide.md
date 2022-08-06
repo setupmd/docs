@@ -38,7 +38,7 @@ Now, those mods are less tested and more likely to cause issues/break vanilla pa
 
 ### Server utility mods
 
-Other notable mods for server customization/moderating.
+Other notable mods for server customization/moderation.
 
 #### Chat customization
 
@@ -59,7 +59,8 @@ Other notable mods for server customization/moderating.
 
 #### Moderation
 
-- [BanHammer]()
+- [BanHammer](https://modrinth.com/mod/banhammer)
+- [Ledger](https://modrinth.com/mod/ledger) - (CoreProtect alternative)
 
 #### Webmap
 
