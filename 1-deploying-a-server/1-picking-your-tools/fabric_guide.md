@@ -1,12 +1,16 @@
 # Fabric server setup
 There are usually two reasons why you would want to use Fabric for your server:
+
 - Getting good perfomance and keeping Vanilla parity.
 - Hosting a server with content mods.
+
 If your needs are neither of those, you should not use Fabric as your server software, as Paper/Purpur offers way more customization and choice in plugins.
 Though there is a project called [Cardboard](https://github.com/CardboardPowered/cardboard) that allows running plugins on Fabric, it's still heavily in development and does not support the newest Minecraft versions.
 
 ### Base server setup
-To install Fabric on your server, download a .jar from fabricmc.net/use/server and launch it like you would with any other server .jar. It will automaticially downlod the needed libraries and create a mods folder.
+To install Fabric on your server, download a .jar from [fabricmc.net/use/server](fabricmc.net/use/server) and launch it like you would with any other server .jar. It will automaticially downlod the needed libraries and create a mods folder.
+
+> [Startup](Startup)
 
 ---
 
