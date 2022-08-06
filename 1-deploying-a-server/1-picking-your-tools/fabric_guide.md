@@ -36,37 +36,37 @@ Now, those mods are less tested and more likely to cause issues/break vanilla pa
 
 Other notable mods for server customization/moderating.
 
-### Chat customization
+#### Chat customization
 
 - [Styled Chat](https://modrinth.com/mod/styled-chat)
 - [Regional Chat](https://modrinth.com/mod/regional-chat)
 
-#### Preventing 1.19.1+ chat reporting
+##### Preventing 1.19.1+ chat reporting
 
 - [No Chat Reports](https://modrinth.com/mod/no-chat-reports) - the most publicly approved mod
 - [Simply No Report](https://modrinth.com/mod/simply-no-report)
 - [No Chat Report](https://modrinth.com/mod/no-chat-report)
 
-#### Discord integration
+##### Discord integration
 
 - [McDiscordChat](https://modrinth.com/mod/mcdiscordchat)
 - [Discord Integration](https://modrinth.com/mod/dcintegration)
 - [Fabric-Discord-Link](https://modrinth.com/mod/fabric-discord-link)
 
-### Moderation
+#### Moderation
 
 - [BanHammer]()
 
-### Webmap
+#### Webmap
 
 - [BlueMap](https://modrinth.com/mod/bluemap) - (uses up a lot of resuorces on rendering, don't use unless you have a few CPU cores to spare!)
 - [JourneyMap](https://modrinth.com/mod/journeymap)
 
-### World generation
+#### World generation
 
 - [Terra](https://modrinth.com/mod/terra) - ([requires additional setup to take effect](https://terra.polydev.org/install/mod-server-world-creation.html))
 
-#### Structures
+##### Structures
 
 - [Mo' Structures](https://modrinth.com/mod/mo-structures)
 - [Repurposed Structures](https://modrinth.com/mod/repurposed-structures-fabric)
