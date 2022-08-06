@@ -27,7 +27,7 @@ You should set your RAM allocation according to your top player count and averag
 
 ### Advanced JVM options
 
-The JVM also offers a lot of additional options for startup - those are the JVM "flags" or "arguments". You might want to set those up for the best perfomance. For this, see the guide [Java Minecraft Flags](https://github.com/brucethemoose/Minecraft-Java-Performance-Flags) - it's a constantly updated collection of up-to-date flags for both Minecraft servers and clients. It also contains a small guide on GraalVM (an optimized JVM distribution). 
+The JVM also offers a lot of additional options for startup - those are the JVM "flags" or "arguments". For this, see the guide [Java Minecraft Flags](https://github.com/brucethemoose/Minecraft-Java-Performance-Flags) from brucethemoose - it's a constantly updated collection of up-to-date flags for both Minecraft servers and clients. It also contains a small guide on GraalVM - the best perfomance JVM distribution. 
 
 JVM flags go _before_ the `-jar` flag.
 
@@ -44,56 +44,56 @@ Minecraft also has quite a few startup options that affect the server in some wa
 The following infomation is from [the wiki](https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server#Minecraft_options)
 
 #### Minecraft options
-
-- `--bonusChest`
+- --bonusChest
 
 If a bonus chest should be generated, when the world is first generated.
 
-- `--demo`
+- --demo
 
 If the server is in demo mode. (Shows the players a demo pop-up, and players cannot break or place blocks or eat if the demo time has expired)
 Equivalent to playing minecraft without a account, you have about 5 in-game days before your trial ends.
 
-- `--eraseCache`
+- --eraseCache
 
 Erases the lighting caches, etc. Same option as when optimizing single player worlds.
 
-- `--forceUpgrade`
+- --forceUpgrade
 
 Forces upgrade on all the chunks, such that the data version of all chunks matches the current server version (same as with sp worlds).
 This option significantly increases the time needed to start the server.
 
-- `--initSettings`
+- --initSettings
 
 Loads the settings from 'server.properties' and 'eula.txt', then quits.
 
-- `--jfrprofile`
+- --jfrprofile
 
 Initializes the Java Flight Recorder on the server. Only available on 1.18+.
 
-- `--port <Integer>`
+- --port <Integer>
   
 Which port to listen on, overrides the server.properties value. (default: -1, read from server.properties)
   
 See Server.properties for restrictions on this value.
   
-- `--safeMode`
+- --safeMode
   
 Loads level with vanilla datapack only.
   
-- `--serverId <String>`
+- --serverId <String>
   
 Gives an ID to the server. (??)
+  
 Seemingly no effect ??
   
-- `--singleplayer <String>`
+- --singleplayer <String>
   
 Runs the server in offline mode (unknown where <String> is used for, probably used internally by mojang?)
   
-- `--universe <String>`
+- --universe <String>
   
 The folder in which to look for world folders. (default: .)
   
-- `--world <String>`
+- --world <String>
   
 The name of the world folder in which the level.dat resides.
