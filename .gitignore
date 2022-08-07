@@ -1,9 +1,24 @@
-.obsidian
-.obsidian/workspace
-.obsidian/graph.json
-.obsidian/core-plugins.json
-.obsidian/app.json
-.obsidian/appearance.json
-.obsidian/workspace/
-*.json
-publish.css
+# Dependencies
+/node_modules
+/docs/angular-ui-kit
+/docs/react-ui-kit
+/docs/ui-kit
+
+# Production
+/build
+.env
+
+# Generated files
+.docusaurus
+.cache-loader
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
