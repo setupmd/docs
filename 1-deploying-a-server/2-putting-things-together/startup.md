@@ -13,19 +13,21 @@ java -Xmx<change-me>G -Xms<match-me-to-Xmx-value>G -jar <server-jar-name>.jar no
 ...
 ```
 
-`-Xmx` sets the maximum amount of memory the Java Virtual Machine is allowed to use. Don't set this over the amount of memory you have on your machine/given to you by the hosting provider.
+`-Xmx` sets the maximum amount of memory the Java Virtual Machine is allowed to reserve. Don't set this over the amount of memory you have on your machine/given to you by the hosting provider.
 
-`-Xms` sets the minimum amount of memory the JVM is allowed to use.
+`-Xms` sets the minimum amount of memory the JVM is allowed to reserve. It should always be below or equal to the `-Xmx` value.
 
-For example, `-Xmx3G -Xms1G` would set the maximum heap (memory allocation) size to 3 gigabytes and the minimum to 1 gigabyte. You can also use the letters M and K - megabytes and kilobyes (though the latter is not usually used) to set the value more precisely, e.t `-Xmx512M`.
+The JVM only uses memory in its heap space - an area of memory that is reserved for the Java application (in our case, the server) - and the flags `-Xms` and `-Xmx`  determine the possible bounds of this area. The heap size may be dynamically changed depending on how much memory the application actually needs, but it will always stay within those bounds. 
+
+For example, `-Xmx3G -Xms1G` would set the maximum heap size to 3 gigabytes and the minimum to 1 gigabyte. You can also use the letters M and K - megabytes and kilobyes (though the latter is not usually used) to set the value more precisely, e.t `-Xmx512M`.
 
 Setting them both to the same value usually imporves perfomance as no calculations need to be done regarding the memory allocation, but know that if you are running other programs on your host machine, they won't be able to use the memory your server has allocated, but does not need at a given moment (as the server will reserve all memory you have given to it for itself at all times). 
 
-You should set your RAM allocation according to your top player count and average server load - allocating more memory than your server needs is likely to cause GC lag spikes. For example, if you are a starting out server with 0-2 players most of the time, you'll be fine with 2 GB, but if you have 5-10 players online at once, you'll need 4-5 GB.
+You should set your RAM allocation according to your average server load - allocating more memory than your server needs is likely to cause GC lag spikes. For example, if you are a starting out server with 0-2 players most of the time, you'll be fine with 2 GB, but if you have 5-10 players online at once, you'll need 4-5 GB.
 
 `nogui` hides the Minecraft server GUI panel, only leaving the console visible. Remove the flag if you choose to use the panel. It has basic features like a player list, perfomance metrics and console output.
 
-`-jar <server-jar-name>.jar` points to the server .jar - it's what you download from Paper/Purpur websites to run the server.
+`-jar <server-jar-name>.jar` points to the server .jar - it's what you download from Paper/Purpur or other server software websites to run the server.
 
 ---
 
