@@ -57,7 +57,7 @@ export default function Homepage() {
           <DyteButton onClick={() => router.push('/enhancements/intro')}>
               Read More
           </DyteButton>
-
+          <br/>
           <GuidesSection title="📖 Completed Guides" />
           <DyteButton onClick={() => router.push('/guides/')}>
               View All Guides
