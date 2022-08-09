@@ -8,6 +8,7 @@ import {
   HomepageSection as Section,
 } from '../components/HomepageComponents';
 import GuidesSection from '../components/GuidesSection';
+import EnhancementSection from '../components/EnhancementSection';
 
 export default function Homepage() {
   const router = useHistory();
@@ -51,6 +52,11 @@ export default function Homepage() {
               to="https://github.com/YouHaveTrouble/minecraft-optimization"
             />
           </Section>
+
+          <EnhancementSection title="✨ Server Enhancements" />
+          <DyteButton onClick={() => router.push('/enhancements/intro')}>
+              Read More
+          </DyteButton>
 
           <GuidesSection title="📖 Completed Guides" />
           <DyteButton onClick={() => router.push('/guides/')}>
