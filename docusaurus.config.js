@@ -28,7 +28,7 @@ function defineSection(section, version = {}, options = {}) {
       id: section,
       sidebarPath: require.resolve('./sidebars-default.js'),
       breadcrumbs: false,
-      editUrl: 'https://github.com/setupmd/docs/tree/main/',
+      editUrl: 'https://github.com/setupmd/docs/tree/v2/',
       versions: version && {
         current: {
           label: version.label,
@@ -85,7 +85,7 @@ const config = {
           breadcrumbs: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/setupmd/docs/tree/main/',
+          editUrl: 'https://github.com/setupmd/docs/tree/v2/',
           ...defaultSettings,
         },
         blog: false,
