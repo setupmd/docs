@@ -54,10 +54,7 @@ export default function Homepage() {
           </Section>
 
           <EnhancementSection title="✨ Server Enhancements" />
-          <DyteButton onClick={() => router.push('/enhancements/intro')}>
-              Read More
-          </DyteButton>
-          <br/>
+          
           <GuidesSection title="📖 Completed Guides" />
           <DyteButton onClick={() => router.push('/guides/')}>
               View All Guides
