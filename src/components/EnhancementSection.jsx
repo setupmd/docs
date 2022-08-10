@@ -8,14 +8,19 @@ export default function EnhancementSection({ title, className }) {
   return (
     <Section title={title} className={className}>
       <Card
-        title="Deploy a server in OCI"
-        description="Learn how to configure a Minecraft server utilising Oracle Cloud free tier."
-        to="/enhancements/anticheat"
+        title="Anti-X Tools"
+        description="Understand the types of preventative plugins / configurations that exist for Java servers."
+        to="/enhancements/anti-x/intro"
       />
       <Card
-        title="Deploy Pterodactyl"
-        description="Learn how to deploy Pterodactyl control panel (and wings) using Ubuntu LTS."
-        to="/guides/pterodactyl"
+        title="Server Permissions"
+        description="Understand the concept of permission files, recommended permission plugins and storage types."
+        to="/enhancements/permissions/intro"
+      />
+      <Card
+        title="Server Plugins"
+        description="A collection of essential plugins that can be used for every server 'type' and a breakdown of their configuration files."
+        to="/enhancements/plugins/intro"
       />
     </Section>
   );
