@@ -21,9 +21,9 @@ export default function Homepage() {
       <div className="pad">
         <div className="center homepage-content">
           <div id="hero">
-            <h2>setup.md</h2>
+            <h2>V2 DOCS ARE HERE 🥳</h2>
             <p>
-              Your one stop shop for everything Minecraft administration, this site is not yet entirely production ready our goal by the end of the year is to cover most of the core functionality and utilities. You will most likely find placeholder pages for things we're working on including but there are complete documents within this mess too!
+              Welcome to our modernised home for documentation, V2 docs aim to be faster and better designed for modern browsing. We are not a complete site and never will be, as things change our documentation will improve for the better.
             </p>
             <DyteButton onClick={() => router.push('/getting-started')}>
               Get Started &rarr;
