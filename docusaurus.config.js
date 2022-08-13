@@ -200,13 +200,6 @@ const config = {
       liveCodeBlock: {
         playgroundPosition: 'bottom',
       },
-      algolia: {
-        appId: 'HL0HSV62RK',
-        apiKey: '72ebf02146698733b7114c7b36da0945',
-        indexName: 'docs',
-        contextualSearch: true,
-        searchParameters: {},
-      },
       posthog: {
         apiKey: 'c1X6knGkGuxT4WFysAWi6chjtoMmTzILKO7inv7hIgs',
       },
