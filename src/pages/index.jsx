@@ -23,7 +23,7 @@ export default function Homepage() {
           <div id="hero">
             <h2>setup.md</h2>
             <p>
-              Your one stop shop for everything Minecraft administration.
+              Your one stop shop for everything Minecraft administration, this site is not yet entirely production ready our goal by the end of the year is to cover most of the core functionality and utilities. You will most likely find placeholder pages for things we're working on including but there are complete documents within this mess too!
             </p>
             <DyteButton onClick={() => router.push('/getting-started')}>
               Get Started &rarr;
