@@ -156,10 +156,6 @@ const config = {
             className: 'pseudo-icon discord-icon',
             position: 'right',
           },
-          {
-            type: 'search',
-            position: 'right',
-          },
         ],
       },
       footer: {
