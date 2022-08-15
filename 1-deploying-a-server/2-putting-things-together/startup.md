@@ -92,9 +92,9 @@ Loads level with vanilla datapack only.
 Gives an ID to the server. (??)
 Seemingly no effect ??
   
-- `--singleplayer <String>`
+- `--singleplayer`
   
-Runs the server in offline mode (unknown where <String> is used for, probably used internally by mojang?)
+Runs the server in offline mode.
   
 - `--universe <String>`
   
