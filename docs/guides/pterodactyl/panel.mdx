@@ -12,8 +12,8 @@ The panel communicates with Wings, which allows for interaction with game server
 This guide assumes that you have the following, for further assistance consult the setup.md [Discord server](https://discord.gg/pXaQgzneed)  
 
 ## You Will Need
-* An Ubuntu server with at least 4 CPUs, 8GB RAM and 100GB disk - this tutorial assumes that the panel and Wings are running on the same machine.
-OpenVZ or LXC servers will not work with Docker, which is required for the Wings backend to work properly. This tutorial uses Ubuntu 20.04 as the base OS.
+* An Ubuntu server with root access - this tutorial assumes that the panel and Wings are running on the same machine.
+OpenVZ or LXC servers will not work with Docker, which is required for the Wings backend to work properly.
 * Root access to the aforementioned server
 * A computer with Internet access - required to SSH into the server and interact with the panel
 
@@ -21,12 +21,15 @@ OpenVZ or LXC servers will not work with Docker, which is required for the Wings
 
 ## Getting Started
 
+:::info
+This tutorial uses Ubuntu 20.04 LTS as the base operating system and UFW as the firewall.
+PHP 8.1, MariaDB and Nginx will be used as the server stack.
+
 ### Installing Dependencies for the Panel
 
 The following packages are required for the panel to work
 
 * PHP >=7.4 with the following extensions: `cli`, `openssl`, `gd`, `mysql`, `PDO`, `mbstring`, `tokenizer`, `bcmath`, `xml` or `dom`, `curl`, `zip`, `fpm`
-This tutorial assumes the use of PHP 8.1
 * MySQL >=5.7.22 (8 recommended) or **MariaDB >=10.2**
 * Redis
 * A web server e.g Apache, **Nginx**, Caddy
@@ -184,8 +187,10 @@ systemctl restart pteroq
 
 This part assumes we are using Nginx with SSL enabled. To generate SSL certificates, we need to use certbot:
 ```bash
-apt install -y certbot python3-certbot-nginx
-certbot certonly --nginx -d <domain>
+sudo ufw allow 'Nginx Full' # allow 80 and 443 connections
+
+sudo apt install -y certbot python3-certbot-nginx
+sudo certbot certonly --nginx -d <domain>
 ```
 
 To automatically renew your certificates, create another cron job:
