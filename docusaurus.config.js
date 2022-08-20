@@ -137,13 +137,13 @@ const config = {
             position: 'left',
           },
           {
-            label: 'Contributing',
-            to: '/contribute',
+            label: 'Guides',
+            to: '/guides/',
             position: 'left',
           },
           {
-            label: 'Tutorials',
-            to: '/guides/',
+            label: 'Contributing',
+            to: '/contribute',
             position: 'left',
           },
           {
