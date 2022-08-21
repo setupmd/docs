@@ -154,5 +154,5 @@ This list consists common ACs and some pros and cons of each AC.
   - Lacks some important checks. (No Elytra Checks, NoSlow Checks)
 
 ##### Links 
-[Spigot](https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/)
+[Spigot](https://www.spigotmc.org/resources/48399/)
 
