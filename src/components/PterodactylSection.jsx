@@ -17,6 +17,11 @@ export default function PterodactylSection({ title, className }) {
         description="This section focuses on the docker agent (Wings)."
         to="/guides/pterodactyl/wings"
       />
+      <Card
+        title="Node Setup"
+        description="This section focuses on configuring the node, required for creating servers"
+        to="/guides/pterodactyl/node"
+      />
     </Section>
   );
 }
