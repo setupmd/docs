@@ -1,0 +1,47 @@
+---
+slug: /tools/gc
+description: Java Garbage Collection
+---
+
+# Java Garbage Collection
+
+Over the years, Java has implemented different garbage collectors.
+
+## Concurrent Mark Sweep
+
+This early Java garbage collector was introduced to the HotSpot JVM on version 1.4.1, using [naive mark-and-sweep](https://en.wikipedia.org/wiki/Tracing_garbage_collection#Na%C3%AFve_mark-and-sweep) garbage collection.
+
+It was deprecated in Java 9 and could be enabled with the `-XX:EnableConcMarkSweepGC` JVM flag up until Java 14.
+
+## Garbage-First (G1GC)
+
+The most popular garbage collector among Minecraft developers, the generational G1 garbage collector was added to Java 7 and made default in Java 9 - it aimed to lower pause times with concurrent and parallel phases.
+To use it in Java 7-8, pass `-XX:+UseG1GC` to your JVM flags.
+
+PaperMC core team member Aikar has curated a set of flags that tunes G1 to its maximum performance:
+
+```
+java -Xms${XMS}M -Xmx${XMX}M -Dterminal.jline=false -Dterminal.ansi=true -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar server.jar nogui
+```
+
+:::tip
+**Memory**
+
+For optimal performance, make your Xms (minimum heap) equal to your Xmx (maximum heap)
+:::
+
+### Shenandoah
+
+Shenandoah is a relatively new garbage collector introduced in Java 12 that aims to further improve on G1's pause times by collecting garbage concurrently with the program - pause times are thus no longer proportional to the heap size
+
+Developer Hilltty has created a set of Shenandoah flags using large pages to increase responsiveness, which you can find [here](https://github.com/hilltty/hilltty-flags/blob/main/english-lang.md)
+
+### ZGC
+
+An experimental, almost fully concurrent garbage collector introduced with Java 11 and improved with Java 13+, ZGC aims for the following:
+* Sub-millisecond pause times that do not grow with heap size
+* Handling of heaps 8MB-16TB in size
+
+[Here](https://krusic22.com/2020/03/25/higher-performance-crafting-using-jdk11-and-zgc/) is a tick-accurate comparison between the performance of the G1 and Z garbage collectors.
+
+To boost your server with ZGC, use [these flags](https://github.com/FroggeMC/MC-Java-Flags), courtesy of FroggeMC
