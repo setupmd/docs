@@ -1,0 +1,33 @@
+---
+sidebar_position: 1
+description: Pterodactyl introuction page, understand what the product is and when it's ideal to use it.
+slug: /pterodactyl
+---
+
+# Pterodactyl Breakdown
+
+If you're new to hosting you first need to understand a couple of concepts before you continue here.
+
+Recommended topics to read are:
+
+- [Types of Hosting](/hosting/types)
+- [Control panels](/hosting/panels)
+
+Now with a basic understanding of control panels and hosting types what will help you understand the principles behind Pterodactyl. Pterodactyl is a PHP/Golang-based web panel that allows for easy management of game servers in isolated Docker containers with a simplistic UI.
+The panel communicates with Wings, which allows for interaction with game servers and web/SFTP file access through the panel.  
+
+### Who is Pterodactyl for 
+
+The primary focus group of Pterodactyl is hosting providers or those with large environments who need easier central management of their network but it can be used by anyone who doesn't want to deal with command lines on a day to day basis.
+
+### Why would you use it 
+
+With time and knowledge you can make Pterodactyl work entirely for your needs due to its modular nature. You don't need to use all of it's functionality, you can change it's functionality with third party modifications from various different marketplaces and it's also scalable. Third-party SaaS provider [WISP](https://wisp.gg) is a geo-replicated version of Pterodactyl with many modifications that can ensure close to 100% uptime.
+
+Those with multiple bare metal servers (such as hosting providers) just have one management interface to look after for their clients and everything else is managed in the background using the Wings docker agent, WISP however does automates the process of updating this service which otherwise could still be a lenghty manual task.
+
+### Next steps
+
+import PterodactylSection from '@site/src/components/PterodactylSection';
+
+<PterodactylSection className="two-cols" />
