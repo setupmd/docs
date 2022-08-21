@@ -1,0 +1,154 @@
+---
+slug: /pterodactyl/wings
+description: Set up Wings on Ubuntu
+sidebar_position: 3
+---
+
+# Wings Setup
+
+Now that we've set up our panel, we need to install Wings to create servers via the panel. This guide is based on the Pterodactyl [official guide](https://pterodactyl.io/wings/1.0/installing.html), and assumes that Ubuntu 20.04 LTS is the base operating system.  
+Without further ado, let's get started!
+
+### You Will Need
+
+* Refer to the list of requirements from the previous article, where you set up the panel.
+
+:::info
+**Supported Operating Systems**
+
+Wings does not support Windows environments. Any Linux distribution release after around 2017 may work.
+However, according to Pterodactyl's documentation, the following are guaranteed to work:
+* Ubuntu >=18.04  
+* RHEL-based >=7
+* Debian >=9
+
+It is almost certain that newer releases of the supported OSes will work with no restrictions.  
+:::
+
+### A Primer on Virtualization
+
+Wings requires that its server can run Docker containers, which is the case for *most* VPSes and almost, if not all dedicated servers.
+
+If your provider uses OpenVZ or LXC for virtualization, you'll most likely be unable to run Docker, ruling out the ablility to run Wings - unless your provider has made changes to allow nested virtualization, which is what Docker requires when running on virtual machines.
+KVM-based servers are guaranteed to work. If in doubt, contact your hosting provider.
+
+To check your virtualization type, run the following command as root:
+
+```bash
+cobalt@ptero-server:~$ sudo dmidecode -s system-manufacturer
+QEMU
+```
+
+### Installing Docker
+
+Docker can be installed in a single line, it's easy!
+
+```bash
+cobalt@ptero-server:~$ sudo bash -c $(curl -ssL get.docker.com)
+...
+```
+
+If you'd rather install Docker manually, consult the official documentation:
+* [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+* [RHEL-based](https://docs.docker.com/engine/install/centos/)
+* [Debian](https://docs.docker.com/engine/install/debian/)
+
+:::info
+**Custom Kernels**
+
+Some hosts may install a modified kernel that may not support Docker features required by Wings. Check your kernel by running `uname -r` in the terminal. If it ends in `-xxxx-grs-ipv6-64` or `-xxxx-mod-std-ipv6-64` you may be using an unsupported kernel.
+:::
+
+#### Start on Boot
+
+To have Docker start on machine boot, just run the following command:
+```bash
+cobalt@ptero-server:~$ sudo systemctl enable --now docker
+...
+```
+
+#### (Optional) Swap
+
+This step is optional purely because it is recommended if you are hosting for others and want to avoid out-of-memory errors.
+
+Open `/etc/default/grub` in your favourite editor as root/sudo and find the line that says `GRUB_CMDLINE_LINUX_DEFAULT` - inside the quotes, add `swapaccount=1` to the space-separated options list.
+
+Run `sudo update-grub` and reboot your machine to finish up.
+
+:::info
+**Distro-Specific GRUB Config**
+
+If for whatever reason `GRUB_CMDLINE_LINUX_DEFAULT` doesn't work, try `GRUB_CMDLINE_LINUX`. Some distros may ignore the former.
+:::
+
+### Installing Wings
+
+Next, we need to set up Wings itself. Just run the following commands to create the config directory and install the Wings binary:
+
+```bash
+cobalt@ptero-server:~$ sudo mkdir -p /etc/pterodactyl
+cobalt@ptero-server:~$ sudo curl -sLo /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
+...
+cobalt@ptero-server:~$ sudo chmod +x /usr/local/bin/wings
+```
+
+:::info
+**OVH Servers**
+
+If you're running a server with OVH, SoYouStart or Kimsufi, your main drive space may be allocated to `/home`. In that case, consider using `/home/daemon-data` for server data. This can be set when creating the node, which we will go over in the next document.
+:::
+
+#### Starting Wings
+
+To start Wings, run the below command:
+
+```bash
+cobalt@ptero-server:~$ sudo wings
+...
+```
+
+Depending on your server's Internet connection, pulling Wings when starting for the first time may take up to a few minutes.
+
+:::tip
+Use `CTRL+C` to terminate the Wings process.
+To run Wings in debug mode, pass the `--debug` flag to the command line.
+:::
+
+Assuming Wings ran without error, let's move on to the next step.
+
+#### Systemd Service
+
+To run Wings in the background, let's create a systemd service.
+
+```ini
+# /etc/systemd/system/wings.service
+
+[Unit]
+Description=Pterodactyl Wings Daemon
+After=docker.service
+Requires=docker.service
+PartOf=docker.service
+
+[Service]
+User=root
+WorkingDirectory=/etc/pterodactyl
+LimitNOFILE=4096
+PIDFile=/var/run/wings/daemon.pid
+ExecStart=/usr/local/bin/wings
+Restart=on-failure
+StartLimitInterval=180
+StartLimitBurst=30
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Finally, we can enable our service to start Wings.
+
+```bash
+cobalt@ptero-server:~$ sudo systemctl enable --now wings
+...
+```
+
+Nice one! You have set up Wings on your server, ready for use with the Panel! The next and final step is to configure a node from your newly-installed panel.
