@@ -19,7 +19,7 @@ This tutorial will use Ubuntu Jammy 22.04 LTS as the operating system, and Cloud
 
 To install the dependencies, you will need to run the following commands:
 
-```
+```bash
 sudo apt update && sudo apt upgrade
 sudo apt install nginx certbot python3-certbot-nginx
 ```
@@ -36,7 +36,7 @@ For this, we will want to go to Cloudflare, and create an A record for our domai
 # Setting nginx virtual host
 
 To enable this, we will need to edit the file `/etc/nginx/sites-enabled/pufferpanel.conf`, and we will use nano to edit it. To edit it, run the following command:
-```
+```bash
 sudo nano /etc/nginx/sites-enabled/pufferpanel.conf
 ```
 
@@ -74,13 +74,13 @@ If you're using PuTTY, you can right click on the terminal to paste it, and if y
 To save now, you have to press `Ctrl + X`, and then `Y`.
 
 Now you'll want to restart nginx, to do that, run the following command:
-```
+```bash
 sudo systemctl restart nginx
 ```
 
 We also need to open ports 80 and 443, so we can access the panel.
 
-```
+```bash
 sudo ufw allow 80
 sudo ufw allow 443
 sudo ufw reload
