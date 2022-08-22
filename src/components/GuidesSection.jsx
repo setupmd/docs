@@ -17,6 +17,11 @@ export default function GuidesSection({ title, className }) {
         description="Learn how to deploy Pterodactyl control panel (and wings) using Ubuntu LTS."
         to="/guides/pterodactyl"
       />
+      <Card
+        title="Deploy Pufferpanel"
+        description="Learn how to deploy Pufferpanel (and Pufferd) using Ubuntu LTS."
+        to="/guides/pufferpanel"
+      />
     </Section>
   );
 }
