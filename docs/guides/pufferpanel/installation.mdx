@@ -14,41 +14,26 @@ PufferPanel is a open source web-based Game Server Management System. PufferPane
 * SSH access to the server
 * sudo privileges
 * One of the following operating systems:
-+-------------------------+-------+----------------+
+
 | OS/Version              | AMD64 | ARM            |
-+=========================+=======+================+
+|------|-----|------|
 | Centos 7                | Yes   | No             |
-+-------------------------+-------+----------------+
 | Centos 8                | Yes   | No             |
-+-------------------------+-------+----------------+
 | Fedora 33               | Yes   | No             |
-+-------------------------+-------+----------------+
 | Ubuntu Bionic (18.04)   | Yes   | No             |
-+-------------------------+-------+----------------+
 | Ubuntu Cosmic (18.10)   | Yes   | No             |
-+-------------------------+-------+----------------+
 | Ubuntu Disco (19.04)    | Yes   | No             |
-+-------------------------+-------+----------------+
 | Ubuntu Eoan (19.10)     | Yes   | No             |
-+-------------------------+-------+----------------+
 | Ubuntu Focal (20.04)    | Yes   | ARM64 Only     |
-+-------------------------+-------+----------------+
 | Ubuntu Groovy (20.10)   | Yes   | ARM64 Only     |
-+-------------------------+-------+----------------+
 | Ubuntu Jammy (22.04)    | Yes   | ARM64 Only     |
-+-------------------------+-------+----------------+
 | Debian Jessie (8)       | Yes   | No             |
-+-------------------------+-------+----------------+
 | Debian Stretch (9)      | Yes   | No             |
-+-------------------------+-------+----------------+
 | Debian Buster (10)      | Yes   | No             |
-+-------------------------+-------+----------------+
 | Debian Bullseye (11)    | Yes   | No             |
-+-------------------------+-------+----------------+
 | Raspbian Buster (10)    | No    | ARM64 & ARM32  |
-+-------------------------+-------+----------------+
 | Raspbian Bullseye (11)  | No    | ARM64 & ARM32  |
-+-------------------------+-------+----------------+
+
 * The following ports open:
     8080 - For web access
     5657 - For SFTP
@@ -65,7 +50,7 @@ This tutorial will use Ubuntu Jammy 22.04 LTS as the operating system and UFW as
 
 To install PufferPanel, you will need to run the following commands:
 
-```
+```bash
 # Update the system packages
 sudo apt update -y && sudo apt upgrade -y
 
@@ -85,7 +70,7 @@ sudo systemctl enable pufferpanel
 
 After the installation is complete, you will need to configure your firewall.
 
-```
+```bash
 # Open ports 8080, 5657 and 22 for Web access, SSH and SFTP 
 sudo ufw allow 8080/tcp
 sudo ufw allow 5657/tcp
@@ -101,7 +86,7 @@ You will also need to add those ports to your ingress rules in your hosting prov
 
 To add the admin user, you will need to run the following command:
 
-```
+```bash
 sudo pufferpanel user add
 ```
 
