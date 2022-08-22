@@ -47,6 +47,11 @@ export default function Homepage() {
               to="/contribute"
             />
             <Card
+              title="Microsoft Signed Chat"
+              description="A well documented understanding of the signed chat in 1.19.1, hosted externally to setup.md"
+              to="https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md"
+            />
+            <Card
               title="YouHaveTrouble's Optimisation Guide"
               description="A well respected config optimisation resource, hosted externally to setup.md"
               to="https://github.com/YouHaveTrouble/minecraft-optimization"
