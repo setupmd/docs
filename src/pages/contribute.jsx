@@ -15,39 +15,85 @@ export default function Homepage() {
           <div id="hero">
             <h2>Contribute to the project</h2>
             <p>
-              This section is for the Minecraft server admin with knowledge, the plugin developer wanting centralise their wiki or perhaps you just want to give us some feedback.
+              Firstly, thank you for wanting to make the project even better. Before we let you run riot there's a couple of ground rules this page aims to cover. 
             </p>
           </div>
-
           <div id="">
-            <h3>🔊 Feedback</h3>
-            <p>
-              If you're looking to submit user feedback on our repo you can do so in the following ways:
-            </p>
+            <h3>Contribution Guidelines</h3>
+            <h4>
+              Currently accepted contributions
+            </h4>
             <ul>
-              <li>Let us know via Discord - We have a #feedback channel for everything related to our documentation.</li>
-              <li>Let us know via Github Issues - We have Issue and Pull templates with fields relating to your feedback.</li>
-              <li>Let us know via Email - We have a single address oss@setup.md for legal / dmca bound requests.</li>
+              <li><h4>New Articles</h4> - Informational pages and / or complete guides are welcome</li>
+              <li><h4>New Plugin Documentation</h4> - Premium and Free plugins are both accepted into the repo</li>
+              <li><h4>Document Corrections</h4> - While we aim to review documents atleast once a year if you notice something isn't right we encourage you to submit a change</li>
             </ul>
+            <p><strong>We require all contributions to be be completed via a Github PR and should follow our below styling guide.</strong></p>
           </div>
           <br/>
           <div id="">
-            <h3>🛠 Contributing</h3>
+            <h3>Documentation Formatting</h3>
             <p>
-              Currently at this time we accept the following contributions:
+              Currently we request all documents follow our below styling format, you can find an example file <a href="#">here</a> which can be downloaded from our templates repository.
             </p>
             <ul>
-              <li><h4>New Articles</h4></li>
-              <p>If you're looking to write a new document for a topic not yet covered such as a tutorial, informational piece e.g. <a href="https://smd.gg/anticheat" target="_blank">https://smd.gg/anticheat</a> you should raise an issue with this template selected.</p>
-              <li><h4>New Plugin Documentation</h4></li>
-              <p>This section is split into two areas, free and premium plugins - both are accepted and for any premium plugin we ask you to list the sale price within the H1 tag e.g. # [5$] Plugin Name. You are also <strong>NOT</strong> required to be the plugin author to add information to our repository, for any plugin authors using setup.md as their new documentation home let us know on Discord and we'll highlight your work.</p>
-              <li><h4>Corrections</h4></li>
-              <p>No single document will remain good-for-life and changes will need to be made, normally this will be something like a typo or small versioning change but there maybe times when entire sections need to be re-written as the project matures and some legacy information turns to misinformation.</p>
-            </ul>
-            <p><strong>All contributions should be submitted via Github, any contributions submitted via other channels will be ignored. The Github repo also contains a styling guide for continuity across pages.</strong></p>
-          </div>
-          <br/>
+              <li><strong>Title Tags</strong> - For unification, all titles should use the below when it comes to marking up headers</li>
+              <ul>
+                <li><strong>Headings</strong> - Headings should use a single `#`. No more than one per page</li>
+                <li><strong>Sub-Headings</strong> - Subheadings should use either 3 `###`, 4 `####` or 5 `#####` depending on how nested they are. No sub-heading limit per page</li>
+              </ul>
+              <p>Example formatting below</p>
+              ```md
+              
+              # Title
+              ### Sub-Heading
+              #### Sub-Sub-Heading
+              #### Sub-Sub-Heading Two
+              ##### Sub-Sub-Sub-Heading
 
+              ```
+              <li><strong>Separator Lines</strong> - When using multiple 'three-hash' sub-headings you must use a single line break to signify there is a change within the pages contents</li>
+              ```md
+              ... 
+
+              ....this is the final sentence of the previous section.
+
+              ---
+
+              ### New Sub-Heading
+
+              New topic continued here...
+
+              ...
+
+              ```
+              <li><strong>Code Blocks</strong> - Code blocks must be used when breaking down config files or displaying single lines of code that users are expected to put into a command line</li>
+              ```yml
+
+                ...
+
+                ############################################################
+                # +------------------------------------------------------+ #
+                # |                   EssentialsHelp                     | #
+                # +------------------------------------------------------+ #
+                ############################################################
+                 
+                # Show other plugins commands in help.
+                non-ess-in-help: true
+                 
+                # Hide plugins which do not give a permission.
+                # You can override a true value here for a single plugin by adding a permission to a user/group.
+                # The individual permission is: essentials.help.<plugin>, anyone with essentials.* or '*' will see all help regardless.
+                # You can use negative permissions to remove access to just a single plugins help if the following is enabled.
+                hide-permissionless-help: true
+
+                ...
+
+              ```
+              <li><strong>Strikethrough</strong> - Strikethrough can be used to signify redundant information that no longer holds true in the latest release but may still be relevant in previous releases</li>
+              <li><strong>Info Blocks</strong> - Info blocks should be used when audience needs their attention drawn to a specific point within the document.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </Layout>

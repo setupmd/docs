@@ -32,23 +32,13 @@ export default function Homepage() {
 
           <Section title="🔗 Quick Links">
             <Card
-              title="About This Project"
-              description="Learn about the setup.md project and the objective it tries to achieve."
-              to="/about"
-            />
-            <Card
               title="Admincraft Discord"
               description="A Minecraft server administration community with over 5000 members."
               to="https://discord.gg/admincraft"
             />
             <Card
-              title="Github Contribution"
-              description="This is the section for those looking to enhance our current resources."
-              to="/contribute"
-            />
-            <Card
-              title="Microsoft Signed Chat"
-              description="A well documented understanding of the signed chat in 1.19.1, hosted externally to setup.md"
+              title="KennyTV's Explaining Signed Chat"
+              description="Your guide to understanding signed chat and reporting in 1.19.1, hosted externally to setup.md"
               to="https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md"
             />
             <Card

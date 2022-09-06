@@ -132,7 +132,7 @@ const config = {
         },
         items: [
           {
-            label: 'Quick Start',
+            label: 'Getting Started',
             to: '/getting-started',
             position: 'left',
           },
@@ -142,7 +142,12 @@ const config = {
             position: 'left',
           },
           {
-            label: 'Contributing',
+            label: 'FAQ',
+            to: '/faq',
+            position: 'left',
+          },
+          {
+            label: 'Contribute',
             to: '/contribute',
             position: 'left',
           },
