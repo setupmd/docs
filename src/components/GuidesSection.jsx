@@ -8,6 +8,11 @@ export default function GuidesSection({ title, className }) {
   return (
     <Section title={title} className={className}>
       <Card
+        title="Configure Dynmap"
+        description="Introductory breakdown of the popular Dynmap plugin for your server."
+        to="/guides/dynmap"
+      />
+      <Card
         title="Deploy a server in OCI"
         description="Learn how to configure a Minecraft server utilising Oracle Cloud free tier."
         to="/guides/oracle-cloud"
