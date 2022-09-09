@@ -34,7 +34,7 @@ export default function Homepage() {
           <div id="">
             <h3>Documentation Formatting</h3>
             <p>
-              Currently we request all documents follow our below styling format, you can find an example file <a href="#">here</a> which can be downloaded from our templates repository.
+              Currently we request all documents follow our below styling format, you can find an example file <a href="https://github.com/setupmd/templates/blob/main/Docs/blank.md">here</a> which can be downloaded from our templates repository.
             </p>
             <ul>
               <li><strong>Title Tags</strong> - For unification, all titles should use the below when it comes to marking up headers</li>
@@ -43,7 +43,7 @@ export default function Homepage() {
                 <li><strong>Sub-Headings</strong> - Subheadings should use either 3 `###`, 4 `####` or 5 `#####` depending on how nested they are. No sub-heading limit per page</li>
               </ul>
               <p>Example formatting below</p>
-              ```md
+              <code>
               
               # Title
               ### Sub-Heading
@@ -51,9 +51,9 @@ export default function Homepage() {
               #### Sub-Sub-Heading Two
               ##### Sub-Sub-Sub-Heading
 
-              ```
+              </code>
               <li><strong>Separator Lines</strong> - When using multiple 'three-hash' sub-headings you must use a single line break to signify there is a change within the pages contents</li>
-              ```md
+              <code>
               ... 
 
               ....this is the final sentence of the previous section.
@@ -66,9 +66,9 @@ export default function Homepage() {
 
               ...
 
-              ```
+              </code>
               <li><strong>Code Blocks</strong> - Code blocks must be used when breaking down config files or displaying single lines of code that users are expected to put into a command line</li>
-              ```yml
+              <code>
 
                 ...
 
@@ -89,7 +89,7 @@ export default function Homepage() {
 
                 ...
 
-              ```
+              </code>
               <li><strong>Strikethrough</strong> - Strikethrough can be used to signify redundant information that no longer holds true in the latest release but may still be relevant in previous releases</li>
               <li><strong>Info Blocks</strong> - Info blocks should be used when audience needs their attention drawn to a specific point within the document.</li>
             </ul>
