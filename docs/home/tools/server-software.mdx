@@ -1,0 +1,99 @@
+---
+description: This page covers a list of well known server.jars.
+---
+
+# Server Software
+
+When creating a server, you may choose between multiple server softwares. Each server software (also referred to as a server jar) has it's own advantages and disadvantages. [Vanilla](https://www.minecraft.net/en-us/download/server), [Spigot](https://getbukkit.org/download/spigot) and [Paper](https://papermc.io/downloads) are some of the famous ones.
+
+Server Software might be referred to as "Server Engine" or "Server Jar".
+
+Note that a "Fork" is basically a copy of another project, but with extra modifications. i.e. Paper is a fork of Spigot. A fork usually supports plugins made for whatever the parent project is.
+
+### Types of Software
+
+### Normal Servers
+
+Normal Servers is the type of server on which players actually play the game. This is the main server type. A couple examples have been shown below:
+
+#### [Vanilla](https://getbukkit.org/download/vanilla)
+
+As the name suggests, it is a completely Vanilla server from Mojang itself without any modifications. Great for those who want to host a small server for a couple of friends without altering any mechanics, but definitely not good for large servers. It uses datapacks instead of plugins.
+
+#### [CraftBukkit](https://getbukkit.org/download/craftbukkit)
+
+This jar supports plugins. Probably the second worst option, since it has extremely poor performance. Use at least Spigot if possible.
+
+#### [Spigot](https://getbukkit.org/download/spigot)
+
+A fork of CraftBukkit, so it supports plugins as well using the Bukkit API alongside Spigot's own API. Spigot is the second most popular Server Jar (according to [bstats](https://bstats.org)). Not recommended for most servers as it skips ticks and is generally badly unoptimized. Use Paper if possible.
+
+#### [Paper](https://papermc.io/downloads)
+
+Paper is the most popular Server Jar these days. A fork of Spigot with it's own API, tons of glitch/dupe fixes alongside the numerous optimizations, Paper is the optimal choice for most server owners.
+
+#### [Pufferfish](https://pufferfish.host/downloads)
+
+Pufferfish is a high-performance fork of Paper (or Purpur, depending on the jar you choose). Easily the best choice at the very moment, especially for larger servers.
+
+#### [Purpur](https://purpurmc.org/downloads)
+
+A fork of Paper which is made for providing numerous gameplay-enhancing features without having to download/create plugins. Only has a couple of optimization options, but it does allow you to toggle some dupes.
+
+#### [1.8 Spigots]
+
+Some popular 1.8 Spigots are:
+ - [NachoSpigot](
+ - [BurritoSpigot](https://github.com/CobbleSword/BurritoSpigot)
+ - [SportPaper](https://github.com/Electroid/SportPaper)
+ - [PandaSpigot](https://github.com/hpfxd/PandaSpigot)
+ - [WindSpigot](https://github.com/Wind-Development/WindSpigot)
+ 
+I highly recommend that you do not use versions at are [so damn old](https://howoldisminecraft188.today/) but if you must, then these are the best jars to pick from.
+
+#### [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/)
+
+Forge is a modding API and server jar. It is most commonly used for servers with large modpacks. However, it is not very optimized and suffers from poor performance.
+
+#### [Fabric](https://fabricmc.net/)
+
+Fabric is similar to forge (but not a fork) in the sense that it also supports mods. These mods can change practically every mechanic of the game. Fabric also has a great amount of optimization mods such as Lithium, Starlight, Phosphor etc. Take a look at [this list](https://github.com/NordicGamerFE/usefulmods)
+
+#### [Any Jar that combines Plugins & Mods](https://m.media-amazon.com/images/I/51NLpWkDL3L._AC_SX425_.jpg)
+
+Do not use any server software such as Magma or Mohist. These are generally unstable.
+
+
+### Proxies
+
+Proxies are used to connect multiple Normal Servers (such as Spigot servers) together. It is used by servers which have multiple gamemodes i.e. Survival, Minigames and Prison etc.
+
+#### [Bungeecord](https://github.com/SpigotMC/BungeeCord)
+
+Bungeecord is the basis for most other proxies. Made by the same guys at Spigot, it is used to let players hop between multiple servers seamlessly. Bungeecord uses plugins, just like CraftBukkit.
+
+#### [Waterfall](https://papermc.io/downloads#Waterfall)
+
+A fork of Bungeecord run by the Paper guys, Waterfall also supports most, if not all Bungeecord plugins. It also comes with a couple of networking optimizations. Probably the go-to jar for most people.
+
+#### [Velocity](https://papermc.io/downloads#Velocity)
+
+A more recent project, also run by the lads at Paper. Velocity uses it's own API and does not work with Bungeecord (Unless you use SNAP!, which allows you to use Bungeecord plugins on Velocity. Not recommended, though.) Velocity is pretty much a superior version of Spigot (unless you're hosting <1.13 servers.) However, most developers haven't bothered adding Velocity support to their plugins.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
