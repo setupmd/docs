@@ -1,5 +1,5 @@
 # Default owners of the repository
-*       @dyte-in/docs
+*       @setupmd/docs
 
 # Owners for JS, JSX, TS, and TSX files
 *.js    @dyte-in/web
