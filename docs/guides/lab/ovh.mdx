@@ -14,7 +14,7 @@ You must also have atleast one failover IP in the same region as atleast one of 
 
 <ul>
     <li>x1 Failover IP</li>
-    <li>x2 Bare Metal Nodes (Adv-1 G2)</li>
+    <li>x1 Bare Metal Node</li>
     <li>10 minutes for configuration</li>
 </ul>
 
@@ -37,7 +37,7 @@ You can easily deploy Proxmox using the default template settings for OVH withou
  - As we're turning off SSH entirely and managaing it from the web-ui only we will not configure an SSH Key
 - Press 'Confirm' and this will start the image process 
 
-If you have further host servers you should also configure those now changing VS01 to the repsective number.
+If you have more than VS server you should also configure those now repeating the same steps but changing VS01 to the repsective sequential number.
 
 ---
 
@@ -57,7 +57,7 @@ To configure the vRACK follow the documentation provided by OVH <a href="https:/
 
 #### OVH Firewall 
 
-:::info
+:::warn
 Do not activate the firewall rules until you have deployed the pfSense VM otherwise you will not be able to access the Proxmox UI
 :::
 
@@ -67,9 +67,9 @@ Add the following rules for each of the VS hosts, each rule can only be applied 
 
 Priority     | Action  | Protocol | Source IP | Source Port | Destination Port | Options | Status
 ------------ | ------- | -------- | --------- | ----------- | ---------------- | ------- | -------
-0            | Authorise  | TCP   | all       | blank       | blank            | established | Enabled
-1            | Authorise  | IPv4  | Failover IP |    blank  | blank            | blank    | Enabled
-19           | Refuse  | IPv4  | All |    blank  | blank            | blank    | Enabled
+0            | Authorise  | TCP   | All       |        |             | Established | Enabled
+1            | Authorise  | IPv4  | Failover IP |      |             |     | Enabled
+19           | Refuse  | IPv4  | All |      |             |     | Enabled
 
 
 After completing all of the above you should have the following setup.
