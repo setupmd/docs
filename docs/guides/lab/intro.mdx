@@ -1,0 +1,36 @@
+---
+sidebar_position: 1
+description: A breakdown of how our contributor lab was deployed in the cloud.
+slug: /lab
+---
+
+# Our Lab
+
+In the process of making our project better to work on one of our first tasks was ensuring all our contributors had access to a clean workspace when they needed it. This encouraged the development of our 'Lab' environment that consists of the following hardware:
+
+<ul>
+    <li>x2 E-3286G Xeon CPUs</li>
+    <li>64GB DDR4 3200Mhz RAM</li>
+    <li>1 TB NVMe SSD</li>
+</ul>
+
+The above hardware was chosen with one important factor in mind, VM lifespan is relatively short and while high-core count and large ram capacity servers are great we don't have the demand for that caliber of server.
+
+### Cloud Provider 
+
+We chose to utilise 'OVH' for a few reasons highlighted below, yes other hosting providers can also deliver on a few of the points listed at the time of enquiring only OVH was able to deliver all of them.
+
+<ul>
+    <li> Hardware - current-gen Xeon-E CPUs</li>
+    <li> Location - London, UK</li>
+    <li> Price - Cheap IPv4 addresses & summer sale hardware deal</li>
+    <li> Software - OVH is an official proxmox hosting partner</li>
+</ul>
+
+---
+
+### Software Used
+
+For this project we chose to use Proxmox as our base virtualisation layer primarily for the ability to deploy LXC environments which is considerably lighter compared to full blown KVM. This project does require it's own router so because pfSense were offering 'Tac Plus Lite' for free we chose this but may end up moving to Sophos XG when the premium license expires. 
+
+While completely optional for replicating yourself setup.md also has an M365 tenancy that syncs AD users for Azure-AD sign-on. LDAP authentication is only used as a last resort but authentication will be explained further on in this setup.
