@@ -6,3 +6,207 @@ slug: /lab/proxmox
 
 # Proxmox Setup
 
+Now we have a working instance within about 20 minutes you should have received an email from OVH with a link to obtain the root password. We will use this password to login to the web-ui, you will also need to use it should you wish to interact with the shell as Proxmox does not allow for non PAM root shell access.
+
+### Login to the UI 
+
+To get started you can head to https://publicip:8006 or https://customdomain.tld:8006 if you've configured this. You will now be presented with a login screen, use the username of `root` and the password that was sent via email.
+
+---
+
+### Change the default password
+
+Once you're logged in, in the top right corner select `root@pam` where you will see a dropdown for 'password'. At this screen you can define a new password and confirm it once before you are able to use it. While you can also configure 2FA at this stage you will have issues with joining clusters, once AAD authentication is configured we will be disabling the root account anyways so it will not be configured during this tutorial.
+
+### Configuring SAML / AAD Authentication
+
+:::info
+This step is entirely optional but as we have a dev enviornment for testing it makes sense to utilise as much as we can from it.
+:::
+
+#### Azure Portal Setup
+
+First thing we need to do is configure ourselves a new 'Enterprise Application' within the <a href="https://aad.portal.azure.com">AAD Portal</a>. Once logged into the azure portal you'll need to do the following steps:
+
+- Go to 'App Registrations' on the left-hand menu
+- Select 'New Registration'
+  - A new window will appear, you'll need to complete the following bits of information
+    - Application Name - 'Proxmox Console'
+    - Supported Account Types - 'Single Tenant'
+    - Redirect URL - 'https://vs01.public.ip:8006' (This will be the domain you wish to access the proxmox interface from)
+- Select 'Register' to create the Application
+  - <strong>Optional</strong>: You can now add additional proxmox interfaces for the other servers if you so chose
+- Select 'Certificates & Secrets' from the left-hand menu, this is where we generate the app-secret
+- Select 'New Client Secret'
+  - Define a 'name' and 'duration' (The name does not matter but duration will depend when you need to issue a new secret)
+
+Copy the 'Secret' into a notepad file as we will use this later in the process, select the 'Overview' tab to find the 'Application (client) ID' and 'Directory (tenant) ID', copy both of these IDs too as they will be used within Proxmox.
+
+#### Proxmox OpenID Connect Setup
+
+To make changes to authentication on the left-hand menu select 'Datacentre'. Once you've selected the datacentre tab a new UI with another menu will appear, find 'Permissions' and then select the 'Realms' sub option.
+
+- Select 'Add' at the top of the page and from the dropdown select 'OpenID Connect'
+- Ensure your page has the following information filled out
+  - Issuer URL - 'https://login.microsoftonline.com/{TenantID}/v2.0'
+  - Realm - 'AzureAD'
+  - Client ID - 'Copied Application ID'
+  - Client Key - 'Copied Client Secret'
+  - Default - Enable tickbox
+  - Autocreate Users - Enable (disable after your first admin user has logged in)
+  - Username Claim - 'Default / Username' (either option should work without isssues)
+  - Scopes - 'Blank'
+  - Prompt - 'Blank'
+- Log out of the `root@PAM` user account and attempt to login using the `AzureAD` realm at logon
+
+A full tutorial on how to configure OpenID and Proxmox can be found <a href="https://www.reddit.com/r/Proxmox/comments/pqxu2o/proxmox_oidc_authentication_azure_ad/">here</a>.
+
+#### Proxomx Users and Groups 
+
+The following changes are made under the 'Groups', 'Roles' and 'Users' tabs within the 'Permissions' section on the Proxmox interface, if you've just tested out your OpenID authentication you'll need to login with the `root@PAM` account a few more times before everything is as needed.
+
+When you're logged in you should do the following:
+
+- Select 'Create'
+- Name the group something informative, we will use 'GlobalAdmin' in this instance
+- Select 'Permissions' on the left-hand menu and select 'Add'
+- Select 'Group Permission'
+- Ensure your page has the following information filled out
+  - Path - '/'
+  - Group - 'GlobalAdmin'
+  - Role - 'Administrator'
+  - Propagate - 'Enable'
+- Select 'Add'
+
+Proxmox has a fantastic permission system and can be configured exactly as you need by using the right combination of 'Path' and 'Roles' variables.
+
+Now the group has been created you need to assign the group to your administrator account 
+
+- Select 'Users' on the left-hand menu
+- Find your recently logged in AzureAD realm user
+- Double click to bring up the properties field
+- Select the 'Groups' dropdown 
+- Select the 'GlobalAdmin' group created
+- Press 'OK' to apply changes
+
+:::info
+If you're not going to add multiple nodes you can disable the root account by selecting 'users' and unticking 'Enabled' in the properties section.
+:::
+
+---
+
+### Configuring SSL
+
+Currently our Proxmox servers are using self-signed SSL certifictates but we will be utilising lets encrypt that lets us issue certificates for free.
+
+#### ACME Configuration
+
+Within 'Datacentre' select 'ACME' which will be our provisioning tool of choice, under 'Accounts' select 'Add'
+
+- Ensure your page has the following information filled out
+  - Account Name - 'ProxmoxACME'
+  - Email - 'you@example.com'
+  - ACME Directory - 'Lets Encrypt V2'
+  - Accept ToS - 'Enable'
+- Select 'Register'
+
+This will create an account in the background that will allow for us to make signing requests to LE, this window can be closed when it's completed and underneath we utilise the CloudflareDNS plugin which uses DNS based authentication for domains.
+
+Press 'Add' under 'Challenge Plugins' 
+- Ensure your page has the following information filled out
+  - Plugin ID - 'CloudflareDNS'
+  - Validation Delay - '30 (default)'
+  - DNS API - 'Cloudflare Managed DNS'
+    - Depending on the API module used you will need to provide certain information from your DNS provider, this will normally be an email address and api key
+- Select 'Add' once you have provided the required information
+
+#### Generate Certificate
+
+In order to generate the certificate we need to ensure 'VS01' is selected then under 'System' go to 'Certificates'
+
+The following is configured under the 'ACME' heading
+
+- Select 'Add'
+- Ensure your page has the following information filled out
+  - Challenge Type - 'DNS'
+  - Plugin - '{One You Just Configured}'
+  - Domain - 'FQDN Without HTTPS://'
+- Select 'Add'
+- Next to the words 'Using Account: None' press the 'Edit' button
+- From the dropdown select 'ProxmoxACME'
+- Press 'Apply'
+- Press 'Order Certificates Now'
+- Wait for the steps to finish on the screen, wait until you see the words 'TASK OK'
+
+The webserver should have just rebooted and you will now be using a signed certificate from the R3 / ISRG Root X1 authority.
+
+---
+
+### Adding Another Host
+
+Now we have Azure auth and SSL configured we can now create a cluster and add another server to datacentre, this will allow you to Migrate VMs between hosts and allows for high-availability.
+
+:::info
+This step is entirely optional if you either have a single host server or prefer complete isolation of your host devices.
+:::
+
+#### Patching
+
+It's recommended that you update all of your VS host devices before joining them into a cluster to ensure no package mismatches. 
+
+- Select 'VS01' from the left-hand menu
+- Select 'Updates'
+- Select 'Refresh'
+  - Wait for the 'TASK OK' prompt before pressing 'Upgrade'
+- Select 'Upgrade'
+- Press 'Y' on your keyboard and then press 'Enter'
+- Press 'Enter' on any yes prompts to install / reboot your PC
+
+Once your VS01 server is back online we can create a cluster 
+
+#### Creating a Cluster 
+
+Clusters are created at 'Datacentre' level, you will then see a 'Cluster' option on the left hand menu. 
+
+- Select 'Create Cluster'
+- Cluster Name '{Name of Choice}'
+- Cluster Network - 'Link 0 (ensure public ip is listed)'
+- Select 'Create'
+- Select 'Join Information'
+  - Copy this somewhere safe, you'll need it to add other nodes to your cluster
+
+Once this has been created you will notice VS01 has been automatically enrolled into the cluster, this is intended so don't panic.
+
+#### Joining a Cluster 
+
+You will need to open a new tab, navigate to the second host and login with the `root@PAM` account. You will need to navigate to the same page you was previously at, 'Datacentre' > 'Cluster'
+
+- Select 'Join Cluster'
+- Paste the 'Join Information' key into the box provided
+- Enter your `root@PAM` password in the box highlighted red
+- Cluster Network - 'From the dropdown select the public IP of VS02'
+- Select 'Join {Cluster Name}'
+
+You will then need to wait for the join process to complete, this could take a few minutes.
+
+Refresh the page and you should be able to login again with AzureAD, you can now re-complete the 'Generate Certificates' step for the second host to ensure it has a trusted SSL cert.
+
+---
+
+### Virtual Networking Configuration
+
+Unfortunately, the following steps will need to be created on a per host level, we now need to create a virtual adaptor that sits on the OVH vRACK MAC Address. This will allow us for across host communication within our cluster but without going over the public internet.
+
+- Select 'VS0X' from the left-hand menu
+- Select 'System' > 'Network'
+- Select 'Create'
+- Select 'Linux Bridge'
+  - Name - 'vmbr1'
+  - Autostart - 'Tick'
+  - Bridge Ports - '{second network adaptor name here that isn't already bridged}'
+- Select 'Create'
+- Select 'Apply Configuration'
+
+Repeat for all 'VS0X' servers
+
+We are now at the VM creation stage, once we have deployed a router all other VMs are super simple to deploy.
