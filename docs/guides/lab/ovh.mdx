@@ -49,7 +49,7 @@ While the OS is configuring we can assign the Failover IP and create the vRACK w
 
 To assign the failover IP to a host go to 'IP' tab on the left-hand side bar, when you're at the IP Manager do the following steps outlined <a href="https://docs.ovh.com/gb/en/dedicated/ip-fo-move/" target="_blank">here</a>.
 
-Once this has been completed you will see a 'Virtual MAC Address', keep a note of this as it will be important when configuring pfSense.
+Once this has been completed you will see a 'Virtual MAC Address', keep a note of this as it will be important when configuring the router.
 
 #### vRACK Configuration
 
@@ -58,7 +58,7 @@ To configure the vRACK follow the documentation provided by OVH <a href="https:/
 #### OVH Firewall 
 
 :::warning
-Do not activate the firewall rules until you have deployed the pfSense VM otherwise you will not be able to access the Proxmox UI
+Do not activate the firewall rules until you have deployed the router VM otherwise you will not be able to access the Proxmox UI
 :::
 
 Navigate back to the 'IP' tab on the left-hand side bar and select the three dots next to the public IPs of your host machines, you will want to select 'Configure Firewall'.

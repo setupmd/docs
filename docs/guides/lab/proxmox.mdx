@@ -195,7 +195,7 @@ Refresh the page and you should be able to login again with AzureAD, you can now
 
 ### Virtual Networking Configuration
 
-Unfortunately, the following steps will need to be created on a per host level, we now need to create a virtual adaptor that sits on the OVH vRACK MAC Address. This will allow us for across host communication within our cluster but without going over the public internet.
+Unfortunately, the following steps will need to be created on a per host level, we now need to create a virtual adapter that sits on the OVH vRACK MAC Address. This will allow us for across host communication within our cluster but without going over the public internet.
 
 - Select 'VS0X' from the left-hand menu
 - Select 'System' > 'Network'
@@ -203,7 +203,7 @@ Unfortunately, the following steps will need to be created on a per host level, 
 - Select 'Linux Bridge'
   - Name - 'vmbr1'
   - Autostart - 'Tick'
-  - Bridge Ports - '{second network adaptor name here that isn't already bridged}'
+  - Bridge Ports - '{second network adapter name here that isn't already bridged}'
 - Select 'Create'
 - Select 'Apply Configuration'
 

@@ -31,6 +31,6 @@ We chose to utilise 'OVH' for a few reasons highlighted below, yes other hosting
 
 ### Software Used
 
-For this project we chose to use Proxmox as our base virtualisation layer primarily for the ability to deploy LXC environments which is considerably lighter compared to full blown KVM. This project does require it's own router so because pfSense were offering 'Tac Plus Lite' for free we chose this but may end up moving to Sophos XG when the premium license expires. 
+For this project we chose to use Proxmox as our base virtualisation layer primarily for the ability to deploy LXC environments which is considerably lighter compared to full blown KVM. This project does require it's own router so due to professional exposure with the hardware solutions we will be deploying Sophos XG inside a VM. If you also chose to use Sophos you <strong>must</strong> have an Intel CPU otherwise you will need to use pfSense.
 
 While completely optional for replicating yourself setup.md also has an M365 tenancy that syncs AD users for Azure-AD sign-on. LDAP authentication is only used as a last resort but authentication will be explained further on in this setup.
