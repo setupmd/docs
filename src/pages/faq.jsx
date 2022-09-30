@@ -35,7 +35,7 @@ export default function Homepage() {
           <div id="">
             <h3>I have an idea for something not covered, how can I suggest it?</h3>
             <p>
-              For this we'd recommend using our Discord bot, we'd like to keep all suggestions in one place and our <a href="https://smd.gg/discord">Discord server</a> is the best place for that. When you're in our server head over to the `#feedback` channel and use the `-suggest` command to put ideas forward.
+              For this we'd recommend using our <a href="https://smd.gg/discord">Discord server</a>, we utilise the forum channels for clarity and consolidation to a single location. Once enough information has been fed into the channel a project contributor will submit the idea along with supporting comments for documenting, at this stage the initial thread will be locked and closed.
             </p>
             <p>
               <small>A full list of commands for our bot can be found <a href="https://smd.gg/dscsg">here</a>.</small>
