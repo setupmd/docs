@@ -181,7 +181,7 @@ const config = {
               },
               {
                 label: 'Github',
-                href: 'https://smd.gg/docs',
+                href: 'https://smd.gg/github',
               },
             ],
           },
