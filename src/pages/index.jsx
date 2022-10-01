@@ -42,6 +42,11 @@ export default function Homepage() {
               to="https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md"
             />
             <Card
+              title="Luckperms Web Config Generator"
+              description="An easy web tool for generating luckperms config.yml files that can be uploaded to your server."
+              to="https://mc.tools/dashboard/permissions/luckperms"
+            />
+            <Card
               title="Understanding Spark"
               description="Spark isn't the easiest to understand but the official documentation is the best place to start"
               to="https://spark.lucko.me/docs/guides/Finding-lag-spikes"

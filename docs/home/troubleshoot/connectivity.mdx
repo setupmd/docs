@@ -1,0 +1,69 @@
+---
+description: Welcome to the setup.md one stop shop Minecraft index.
+slug: /troubleshoot/connection
+---
+
+If you're having trouble connecting to your Minecraft server there's a process you should follow in order to try and understand where the issue lies. If you're running on a third party hosting provider it's recommended to reach out to them directly or check their status page.
+
+### Server Binding to Port 
+
+The first thing to check is that your server binds to the right port when you start it up, firstly you should see some errors in the console. This error will normally come from having two server processes running at the same time or you run an application on the same port as your Minecraft server.
+
+```bash
+
+... 
+
+**** FAILED TO BIND PORT! ****
+The exception was: java.net.BindException: Address already in use
+Perhaps a server is already running on that port? 
+
+... 
+
+```
+
+You can fix this by going to the `server.properties` file and look for the `server-port` variable and increase the number by 1. When you restart the server you should see the server start up without issues.
+
+
+If you don't see the above error message first check the following command(s) depending on the OS
+
+Windows - `netstat -ano | find "{SERVER-PORT}" | find "LISTEN"`
+Linux - `netstat -anpe | grep "{SERVER-PORT}" |grep "LISTEN"`
+
+You should see one entry bound to 0.0.0.0, if you don't go back and ensure the `server-port` variable has been set.
+
+---
+
+### OS Firewalls 
+
+Now we know that the server is running on the right port you should check that the connection is allowed to break out past 'localhost' (the pc the server is running on). You can run the following command(s) depending on your OS to ensure the local firewall is configured.
+
+Windows - `netsh advfirewall firewall add rule name= "Open Port 25565" dir=in action=allow protocol=TCP localport=25565`
+Linux - `sudo iptables -I INPUT -p tcp -m tcp --dport 25565 -j ACCEPT` 
+
+To ensure things are all working locally within your network, attempt to connect from another device in your house to the internal LAN address. e.g. `192.168.1.58:25565`
+
+You can find your host devices internal LAN address by running `ipconfig` within command prompt (`ip addr` / `ifconfig` will work on Linux using terminal)
+
+---
+
+### External Port Forwarding 
+
+Providing you can connect internally to your server, the issue most likely falls with either your router and port forwarding or your IPS and their use of CGNAT.
+
+The first thing we need to check is port forwarding is configured correctly, you will need to slightly adjust the below steps as the wording on every router model / firewall is different.
+
+- Login to the admin interface (normally on http(s)://192.168.1.254 or http(s)://192.168.1.1)
+  - Admin username and password is normally on the bottom but a Google search may also help
+- Look for a 'Port Forwarding / NAT folder'
+  - You may need to go into any 'Advanced Settings' tab first
+- You should ensure the rule has been configured as expected 
+  - Service Name - 'Minecraft'
+  - Protocol - 'TCP'
+  - Internal IP - '{Internal LAN IP of Host Device}'
+  - Internal Port - '{Match server.properties file}'
+  - External Port - '{Match server.properties file}'
+- Save changes 
+
+It might not be possible to reach your external IP from inside your own network so a tool like <a href="https://portchecker.co/canyouseeme">canyouseeme</a> can help check the port 25565 from an external source.
+
+If all has been successful you should see 'OPEN' in green letters, if you still see a 'CLOSED' in red letters it could be possible you're running behind CGNAT. You can find a great explanation on CGNAT by Draytek <a href="https://www.draytek.co.uk/information/blog/what-is-cgnat">here</a>.
