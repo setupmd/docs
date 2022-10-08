@@ -16,6 +16,10 @@ In the process of making our project better to work on one of our first tasks wa
 
 The above hardware was chosen with one important factor in mind. VM lifespan is relatively short and while high-core count and large ram capacity servers are great, we don't have the demand for that caliber of server.
 
+:::note
+If you also select OVHCloud as your provider, vRACK support is NOT offered on their Rise or ECO ranges.
+:::
+
 ### Cloud Provider 
 
 We chose to utilise 'OVH' for a few reasons highlighted below, yes other hosting providers can also deliver on a few of the points listed at the time of enquiring only OVH was able to deliver all of them.
@@ -31,6 +35,17 @@ We chose to utilise 'OVH' for a few reasons highlighted below, yes other hosting
 
 ### Software Used
 
-For this project we chose to use Proxmox as our base virtualisation layer primarily for the ability to deploy LXC environments which is considerably lighter compared to full blown KVM. This project does require it's own router so due to professional exposure with the hardware solutions we will be deploying Sophos XG inside a VM. If you also chose to use Sophos you <strong>must</strong> have an Intel CPU otherwise you will need to use pfSense.
+This is a brief summary of the application stack we're utilising to make the Lab environment work for our needs, most are not required but the ones that are have been highlighted with a ✔ symbol
 
-While completely optional for replicating yourself setup.md also has an M365 tenancy that syncs AD users for Azure-AD sign-on. LDAP authentication is only used as a last resort but authentication will be explained further on in this setup.
+Required | Tool | Purpose | Alternatives | Summary
+------------ |------------ | ------- | -------- | -------
+✔ | Proxmox | Hypervisor | HYPER-V, ESXI | Proxmox was the easiest solution to get up and running without the need for ESXi hosts and enhanced Windows configuration.
+✔ | Sophos XG | Firewall | pfSense, OpnSense | Product familiarity and ease of use compared to other OSS products, support included with all licenses.
+ | Windows Server | Domain Controller | None | Utilises AD w/ AAD Sync and provides DHCP and DNS for the network.
+✔ | Docker | Containerisation | k8s | Containers are much lighter than running full blown VMs for every application.
+✔ | Portainer | Management | Rancher | Management interface for Docker containers utilising M365 Auth.
+ | Nginx Proxy Manager | Reverse Proxy | Apache2, Caddy | NPM is a docker file ready to go purpose built for our needs.
+ | InfluxDB | Monitoring | Prometheus | Ingest server for event logs and live data.
+ | Grafana | Monitoring | None | Viewing data in nice fancy formats and sending alerts to webhooks.
+ | Homer | QoL | Heimdall | Single pane of glass for shortcuts to services.
+
