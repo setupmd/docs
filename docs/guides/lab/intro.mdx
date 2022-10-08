@@ -35,17 +35,17 @@ We chose to utilise 'OVH' for a few reasons highlighted below, yes other hosting
 
 ### Software Used
 
-This is a brief summary of the application stack we're utilising to make the Lab environment work for our needs, most are not required but the ones that are have been highlighted with a ✔ symbol
+This is a brief summary of the application stack we're utilising to make the Lab environment work for our needs, most are not required but the ones that are have been highlighted with a ✔ symbol.
 
-Required | Article | Tool | Purpose | Alternatives | Summary
------------- |------------ |------------ | ------- | -------- | -------
-✔ | [Core/Proxmox](https://setup.md/guides/lab/proxmox) | Proxmox | Hypervisor | HYPER-V, ESXI | Proxmox was the easiest solution to get up and running without the need for ESXi hosts and enhanced Windows configuration.
-✔ | [Core/Virtual Machines](https://setup.md/guides/lab/vms#router-vm) | Sophos XG | Firewall | pfSense, OpnSense | Product familiarity and ease of use compared to other OSS products, support included with all licenses.
-❌ | N/A | Windows Server | Domain Controller | None | Utilises AD w/ AAD Sync and provides DHCP and DNS for the network.
-✔ | [Optional/Docker](https://setup.md/guides/lab/docker) | Docker | Containerisation | k8s | Containers are much lighter than running full blown VMs for every application.
-✔ | [Optional/Docker](https://setup.md/guides/lab/docker#portainer) | Portainer | Management | Rancher | Management interface for Docker containers utilising M365 Auth.
-❌ | N/A | Nginx Proxy Manager | Reverse Proxy | Apache2, Caddy | NPM is a docker file ready to go purpose built for our needs.
-❌ | [Optional/Monitoring](https://setup.md/guides/lab/monitoring#influxdb) | InfluxDB | Monitoring | Prometheus | Ingest server for event logs and live data.
-❌ | [Optional/Monitoring](https://setup.md/guides/lab/monitoring#grafana) | Grafana | Monitoring | None | Viewing data in nice fancy formats and sending alerts to webhooks.
-❌ | N/A | Homer | QoL | Heimdall | Single pane of glass for shortcuts to services.
+Required | Article | Tool | Purpose | Summary
+------------ |------------ |------------ | ------- | -------
+✔ | [Core/Proxmox](https://setup.md/guides/lab/proxmox) | Proxmox | Hypervisor | Proxmox was the easiest solution to get up and running without the need for ESXi hosts and enhanced Windows configuration.
+✔ | [Core/Virtual Machines](https://setup.md/guides/lab/vms#router-vm) | Sophos XG | Firewall | Product familiarity and ease of use compared to other OSS products, support included with all licenses.
+❌ | N/A | Windows Server | Domain Controller | Utilises AD w/ AAD Sync and provides DHCP and DNS for the network.
+✔ | [Optional/Docker](https://setup.md/guides/lab/docker) | Docker | Containerisation | Containers are much lighter than running full blown VMs for every application.
+✔ | [Optional/Docker](https://setup.md/guides/lab/docker#portainer) | Portainer | Management | Management interface for Docker containers utilising M365 Auth.
+❌ | N/A | Nginx Proxy Manager | Reverse Proxy | NPM is a docker file ready to go purpose built for our needs.
+❌ | [Optional/Monitoring](https://setup.md/guides/lab/monitoring#influxdb) | InfluxDB | Monitoring | Ingest server for event logs and live data.
+❌ | [Optional/Monitoring](https://setup.md/guides/lab/monitoring#grafana) | Grafana | Monitoring | Viewing data in nice fancy formats and sending alerts to webhooks.
+❌ | N/A | Homer | QoL | Single pane of glass for shortcuts to services.
 
