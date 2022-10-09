@@ -1,0 +1,21 @@
+---
+description: Device hardening guide and and explantion of the tools used to complete such activities.
+slug: /lab/hardening
+---
+
+# Device Hardening
+
+Depending on how 'public' your instances are going to be you can get away with more or less hardening, we will be securing our instances to a level accepted to hold 'OFFICIAL' data. More information about sensitivity levels we have chosen to use can be found [here](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/286667/FAQ2_-_Managing_Information_Risk_at_OFFICIAL_v2_-_March_2014.pdf).
+
+
+### NCSC Guidelines 
+
+Our gudielines that we have chosen to use are published straight from the NCSC and we can easily apply them using Group Policy and for our Ubuntu servers they provide a single post-install.sh script that we can run. These gudielines should be a 'guide' and are not definitive, you can chose to go beyond if deemed necessary for your workloads and/or local laws.
+
+#### Windows Policies 
+
+If you're using a Professional / Enterprise version of Windows you can download the GPOs from [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/raw/main/Microsoft/Windows/GPO/NCSC_Windows_GPO.zip) and upload them to your environment making adjustments as needed.
+
+#### Ubuntu Script
+
+If you're using Ubuntu you should download the following files from the repo [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/tree/main/Linux/UbuntuLTS) and manually run them on the device.
