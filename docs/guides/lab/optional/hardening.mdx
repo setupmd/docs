@@ -5,20 +5,16 @@ slug: /lab/hardening
 
 # Device Hardening
 
-First things first, let's get an understanding of what's going on. This part of the documentation is designed specifcally for those who want to tighten up windows and add some preventative measures to lock down their machine, it should be made known that the more you lock down a machine the less functionality it will have. You should find a balance for your own environment that works best for you by either disabling, removing or enhancing the steps provided below, it should also be made known that this page uses the NCSC guidelines published for systems in the UK hosting 'OFFICAL' data. More information about sensitivity levels we have chosen to use can be found [here](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/286667/FAQ2_-_Managing_Information_Risk_at_OFFICIAL_v2_-_March_2014.pdf).
+This document is designed specifcally for those who want to tighten up windows and add some preventative measures to lock down their machine, it should be made known that the more you lock down a machine the less functionality it will have. 
+<br/>
+You should find a balance for your own environment that works best for you by either disabling or enhancing the provided policies, this page breaks down the NCSC guidelines for systems hosting 'OFFICAL' data. 
+<br/>
+More information about sensitivity levels we have chosen to use can be found [here](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/286667/FAQ2_-_Managing_Information_Risk_at_OFFICIAL_v2_-_March_2014.pdf).
 
 
-### NCSC Guidelines 
+### Windows Home Considerations 
 
-While the NCSC provides guidelines you do not need to include every policy, you should not configure additional security for the sake of security and it should be beneficial to the systems at hand.
-
-#### Windows Policies 
-
-If you're using a Professional / Enterprise version of Windows you can download the GPOs from [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/raw/main/Microsoft/Windows/GPO/NCSC_Windows_GPO.zip).
-
-##### Explanation of Policies 
-
-Unfortunately these policies will not work on Home machines due to no access to 'Group Policy', you should be able to google the respective registry entries that match the group policy entry if you wish to replicate the below on a Home machine. The easier (but less secure) option would be to ensure the following principles have been considered.
+As home based editions of Windows cannot use Group Policy below are some things you should look into securing and enabling.
 
 - Principle of least privilege 
 - Configure NTFS permissions on additional network drives / shares that are available
@@ -38,20 +34,23 @@ Unfortunately these policies will not work on Home machines due to no access to 
 - Autoplay settings 
 - Disable 24/7 Bluetooth discoverability
 
+### Windows Policies 
 
-##### App Guard Policies 
+You can download the Group Policy template files from [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/raw/main/Microsoft/Windows/GPO/NCSC_Windows_GPO.zip).
+
+#### App Guard Policies 
 
 The Windows App Guard policy will make the following changes to your PC.
 
 - General hardening of Defender App Guard policies.
 
-##### App Locker Policies 
+#### App Locker Policies 
 
 The Windows App Locker policy will make the following changes to your PC.
 
 - Allows execution of Microsoft signed applications, dlls, installers, scripts and appx
 
-##### Bitlocker Policies 
+#### Bitlocker Policies 
 
 The Windows bitlocker policy will make the following changes to your PC.
 
@@ -61,7 +60,7 @@ The Windows bitlocker policy will make the following changes to your PC.
 - TPM bitlocker settings are configured 
 - Deny write access to removable media for devices configured to work with another organisation
 
-##### Computer Policies 
+#### Computer Policies 
 
 The Windows computer policy will make the following changes to your PC.
 
@@ -103,7 +102,7 @@ The Windows computer policy will make the following changes to your PC.
 - Edge extension sideloading disabled 
 - Blocks non-admins from enterting the device into safe-mode 
 
-##### Device Guard 
+#### Device Guard 
 
 The Windows device guard policy will make the following changes to your PC.
 
@@ -112,13 +111,13 @@ The Windows device guard policy will make the following changes to your PC.
 - Ensures credential guard is configured 
 - Ensures secure boot and direct memory access protection is configured
 
-##### Device Health 
+#### Device Health 
 
 This policy can be considered optional unless the device is enrolled into SCCM or another MDM platform.
 
 - Enables Device Health monitoring and reporting services
 
-##### Firewall Settings 
+#### Firewall Settings 
 
 You should add further rules here if additional services are required for the network otherwise additional device / group based policies should be created using the 'Duplicate' feature and adding additional policies.
 
@@ -133,19 +132,19 @@ You should add further rules here if additional services are required for the ne
   - LDAP
   - NCSI Probe
 
-##### OneDrive Settings 
+#### OneDrive Settings 
 
 This policy is entirely optional for home / lab environments where Office 365 business / dev subscriptions are not present.
 
 - Prevents personal OneDrive accounts syncing
 
-##### User Settings 
+#### User Settings 
 
 This policy is entirely optional but recommended for laptops / busy environments.
 
 - Ensures screen lockout time is set to 600 seconds
 
-##### Windows Defender 
+#### Windows Defender 
 
 The Windows defender policy will make the following changes to your PC.
 
@@ -158,6 +157,8 @@ The Windows defender policy will make the following changes to your PC.
 - Ensures smart screen is configured for Edge 
 - Prevents you from being able to bypass the smartscreen prompt 
 
-#### Ubuntu Script
+---
+
+### Ubuntu Script
 
 If you're using Ubuntu you should download the following files from the repo [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/tree/main/Linux/UbuntuLTS) and manually run them on the device.
