@@ -6,10 +6,8 @@ slug: /lab/hardening
 # Device Hardening
 
 This document is designed specifcally for those who want to tighten up windows and add some preventative measures to lock down their machine, it should be made known that the more you lock down a machine the less functionality it will have. 
-<br/>
-You should find a balance for your own environment that works best for you by either disabling or enhancing the provided policies, this page breaks down the NCSC guidelines for systems hosting 'OFFICAL' data. 
-<br/>
-More information about sensitivity levels we have chosen to use can be found [here](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/286667/FAQ2_-_Managing_Information_Risk_at_OFFICIAL_v2_-_March_2014.pdf).
+
+You should find a balance for your own environment that works best for you by either disabling or enhancing the provided policies, this page breaks down the NCSC guidelines for systems hosting '[OFFICAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/286667/FAQ2_-_Managing_Information_Risk_at_OFFICIAL_v2_-_March_2014.pdf)' data. 
 
 
 ### Windows Home Considerations 
@@ -157,8 +155,55 @@ The Windows defender policy will make the following changes to your PC.
 - Ensures smart screen is configured for Edge 
 - Prevents you from being able to bypass the smartscreen prompt 
 
+#### Installation Guide 
+
+For Active Directory deployments you should use `Group Policy Management Editor` to import the policies.
+
+For single machine deployments you should consider `Powershell` to import the policies, the below command may help.
+
+```powershell 
+
+... 
+
+import-gpo -BackupId {folder-name} -TargetName {gpo} -path {c:\full\path\to\folder} -CreateIfNeeded 
+
+... 
+```
+
+#### Closing Thoughts 
+
+From using these settings within our own environment you will want to make some changes, most specifically in the following areas.
+
+- Windows Firewall (opening RDP will prevent you needing to use proxmox viewer)
+- App Guard (you will want to add any core non-ms apps you use in this policy e.g. chrome, firefox, vscode... anything that isn't published by Microsoft Corporation)
+
 ---
 
 ### Ubuntu Script
 
-If you're using Ubuntu you should download the following files from the repo [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/tree/main/Linux/UbuntuLTS) and manually run them on the device.
+You can download the post-deployment bash script from [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/tree/main/Linux/UbuntuLTS) and manually run it on the server.
+
+Ubuntu, unlike Microsoft, does not require a certain edition for the script to work, at the time of writing this script worked on the latest LTS build of Ubuntu.
+
+#### Script break down
+
+- Firstly the script must be run as 'sudo'
+- Secondly it will fetch the admin user
+- You will then need to select the administrator account that you created during installation
+- You will confirm the app repositories 
+- The system will complete an update, upgrade and install app armour
+- Grub password is configured 
+- Automatic updates are configured 
+- Prevents standard users executing as `super user`
+- Protects home directories 
+- Modified shell access for other users on the machine except admin account specified
+- Configures pw complexity
+- Enables app armour 
+- Enables system audting
+- Disables error reporting service 
+- Option to disable Bluetooth
+- Configures 600s lock screen timer 
+- Modifies lockscreen behaviour
+- Optional settings for location services, privacy and usb restrictions
+- Fixes folder permissions
+- Sets up UFW without any rules
