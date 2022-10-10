@@ -5,16 +5,158 @@ slug: /lab/hardening
 
 # Device Hardening
 
-Depending on how 'public' your instances are going to be you can get away with more or less hardening, we will be securing our instances to a level accepted to hold 'OFFICIAL' data. More information about sensitivity levels we have chosen to use can be found [here](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/286667/FAQ2_-_Managing_Information_Risk_at_OFFICIAL_v2_-_March_2014.pdf).
+First things first, let's get an understanding of what's going on. This part of the documentation is designed specifcally for those who want to tighten up windows and add some preventative measures to lock down their machine, it should be made known that the more you lock down a machine the less functionality it will have. You should find a balance for your own environment that works best for you by either disabling, removing or enhancing the steps provided below, it should also be made known that this page uses the NCSC guidelines published for systems in the UK hosting 'OFFICAL' data. More information about sensitivity levels we have chosen to use can be found [here](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/286667/FAQ2_-_Managing_Information_Risk_at_OFFICIAL_v2_-_March_2014.pdf).
 
 
 ### NCSC Guidelines 
 
-Our gudielines that we have chosen to use are published straight from the NCSC and we can easily apply them using Group Policy and for our Ubuntu servers they provide a single post-install.sh script that we can run. These gudielines should be a 'guide' and are not definitive, you can chose to go beyond if deemed necessary for your workloads and/or local laws.
+While the NCSC provides guidelines you do not need to include every policy, you should not configure additional security for the sake of security and it should be beneficial to the systems at hand.
 
 #### Windows Policies 
 
-If you're using a Professional / Enterprise version of Windows you can download the GPOs from [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/raw/main/Microsoft/Windows/GPO/NCSC_Windows_GPO.zip) and upload them to your environment making adjustments as needed.
+If you're using a Professional / Enterprise version of Windows you can download the GPOs from [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/raw/main/Microsoft/Windows/GPO/NCSC_Windows_GPO.zip).
+
+##### Explanation of Policies 
+
+Unfortunately these policies will not work on Home machines due to no access to 'Group Policy', you should be able to google the respective registry entries that match the group policy entry if you wish to replicate the below on a Home machine. The easier (but less secure) option would be to ensure the following principles have been considered.
+
+- Principle of least privilege 
+- Configure NTFS permissions on additional network drives / shares that are available
+- Ensuring automatic updates are configured 
+- Disable legacy features 
+  - Internet Explorer 
+  - SMB 1.0
+- Every useless program is another entry point for malware
+- Configure Windows Security
+  - Enable reputation based scanning
+  - Core Isolation
+    - Memory Integrity 
+  - Exploit Protection 
+    - Control Flow Guard
+    - Data Execution Protection 
+    - Mandatory ASLR 
+- Autoplay settings 
+- Disable 24/7 Bluetooth discoverability
+
+
+##### App Guard Policies 
+
+The Windows App Guard policy will make the following changes to your PC.
+
+- General hardening of Defender App Guard policies.
+
+##### App Locker Policies 
+
+The Windows App Locker policy will make the following changes to your PC.
+
+- Allows execution of Microsoft signed applications, dlls, installers, scripts and appx
+
+##### Bitlocker Policies 
+
+The Windows bitlocker policy will make the following changes to your PC.
+
+- Disables standby mode when sleeping
+- Encrypts the drive with XTS-AES 128
+- Disables devices such as thunderbolt that have direct memory access while a device is sleeping
+- TPM bitlocker settings are configured 
+- Deny write access to removable media for devices configured to work with another organisation
+
+##### Computer Policies 
+
+The Windows computer policy will make the following changes to your PC.
+
+- Prevents login with personal Microsoft accounts 
+- Disables user trusted root CAs
+- Disables the ability for users to trust certificates
+- Defines trusted root CAs for the device to use 
+- Prevents lock screen camera
+- Requires a domain admin to change network location
+- Defines proxy values 
+- Prevents installation of devices that match X hardware IDs
+- Prevents installation of devices that use drivers matching X setup classes 
+- Disables Windows 'PC-Phone' link 
+- Disables sign-in with picture login 
+- Disables clipboard history
+- Disables clipboard sync across devices 
+- Disables upload and publishing of user activities
+- Disables activity feed 
+- Blocks universal windows apps from launching with Windows runtime API 
+- Removes the display password button on login forms 
+- Disables telemetry gathering
+- Disables diagnostic data viewer
+- Disables windows-to-go 
+- Disables cortana 
+- Disables search the web in windows start menu 
+- Disables all store applications within the MS Store 
+- Disables the MS Store 
+- Disables syncronisation of windows settings 
+- Ensures defender is enabled
+- Disables windows error reporting 
+- Ensures Windows Hello is enabled for TPM 2.0 and disables lower 
+- Removes access to 'pause windows updates'
+- Disables preview builds of windows
+- Ensures a semi-annual release channel is configured using Windows update for business 
+- Disables Edge data collection
+- Disables further telemetry 
+- Removes local password reset questions
+- Edge pre-loading tabs disabled
+- Edge extension sideloading disabled 
+- Blocks non-admins from enterting the device into safe-mode 
+
+##### Device Guard 
+
+The Windows device guard policy will make the following changes to your PC.
+
+- Enables virtualisation based securty 
+- Ensures code integrity
+- Ensures credential guard is configured 
+- Ensures secure boot and direct memory access protection is configured
+
+##### Device Health 
+
+This policy can be considered optional unless the device is enrolled into SCCM or another MDM platform.
+
+- Enables Device Health monitoring and reporting services
+
+##### Firewall Settings 
+
+You should add further rules here if additional services are required for the network otherwise additional device / group based policies should be created using the 'Duplicate' feature and adding additional policies.
+
+- Enables Windows firewall 
+- Blocks inbound connections (unless explicitly stated)
+- Allows outbound connections
+- For both 'Private' and 'Personal' network settings outbound connections are blocked
+- Configures outbound rules for the following services
+  - DHCP
+  - DNS
+  - Kerbose
+  - LDAP
+  - NCSI Probe
+
+##### OneDrive Settings 
+
+This policy is entirely optional for home / lab environments where Office 365 business / dev subscriptions are not present.
+
+- Prevents personal OneDrive accounts syncing
+
+##### User Settings 
+
+This policy is entirely optional but recommended for laptops / busy environments.
+
+- Ensures screen lockout time is set to 600 seconds
+
+##### Windows Defender 
+
+The Windows defender policy will make the following changes to your PC.
+
+- Enables block on first sight
+- Enrolls device to Microsoft MAPs (requirement for 'block on first sight' to work)
+- Send sample file analysis
+- Ensures real-time protection is enabled
+- Prevents app installation from sources outside of the Microsoft Store
+- Ensures smart screen is configured for Windows
+- Ensures smart screen is configured for Edge 
+- Prevents you from being able to bypass the smartscreen prompt 
 
 #### Ubuntu Script
 

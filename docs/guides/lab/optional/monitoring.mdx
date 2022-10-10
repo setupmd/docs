@@ -1,0 +1,25 @@
+---
+description: How we monitor our infrastructure using InfluxDB, Grafana and Discord Webhooks.
+slug: /lab/monitoring
+---
+
+# Monitoring 
+
+If you're following this guide from fresh, let's have a quick re-cap of the tools and services we have deployed so far. 
+
+- We configured our CSP (OVH) as required
+- We deployed a hypervisor and required virtual networking
+- We deployed a software-based router and gave it a base configuration
+- We configured a jumpbox PC that can be used for any administration
+- We configured split-tunnel VPNs to access the 'OVLAN' network 
+
+In order for us to call the lab complete we need to do a couple of things, they are as follows:
+
+- Configure monitoring of the infrastructure
+- Open certain ports to the web 
+
+### Monitoring Tools 
+
+First things first we need to decide on what tools we'd like to use for, because Proxmox utilises InfluxDB rather than Prometheus we will be using and running all of our services via InfluxDB to minimise our stack, Telegraf is our syslog monitoring agent created by InfluxData and we will use this to bring in metrics of our VMs and Minecraft services.
+
+We're going to be running everything via Docker and Portainer which gives us a nicer management front-end, it's entirely optional but makes life easier.
