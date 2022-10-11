@@ -10,29 +10,59 @@ This document is designed specifcally for those who want to tighten up windows a
 You should find a balance for your own environment that works best for you by either disabling or enhancing the provided policies, this page breaks down the NCSC guidelines for systems hosting '[OFFICAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/286667/FAQ2_-_Managing_Information_Risk_at_OFFICIAL_v2_-_March_2014.pdf)' data. 
 
 
-### Windows Home Considerations 
+### Windows Home 
 
 As home based editions of Windows cannot use Group Policy below are some things you should look into securing and enabling.
 
-- Principle of least privilege 
-- Configure NTFS permissions on additional network drives / shares that are available
-- Ensuring automatic updates are configured 
-- Disable legacy features 
+#### Permissions 
+
+When setting up a new environment it's easy to give anything and everything full admin credentials in order to get something up and running but <strong>STOP</strong> and take the time to do things right. You should consider implementing a [principle of least privilege](https://www.f5.com/labs/articles/education/what-is-the-principle-of-least-privilege-and-why-is-it-important) from the get-go as it:
+
+- Enables greater control over who can manage / change a system
+- Reduces the level of damage compromised accounts can cause
+- Reduces the attack surface (entry points) 
+- Reduces risk through error / negligence / internal malicious attacks
+
+While Home users can't use Group Policy for file permissions it can all be easily controlled via the Windows UI, as part of the least privilege principle this will assist in ensuring data access is only performed on a 'need to know' / 'required for function', you can find a good explanation for this [here](https://youtu.be/S-tTcRC5Q2A?t=123)
+
+#### Patching 
+
+Patch Tuesday, the second Tuesday of every month is the most important Tuesday in the calendar for your computer. It's the day that Microsoft delivers important updates that will address potentially dangerous exploits that can give an attacker full complete access to your machine, unless the machine will never see the internet again after being configured you should go into your settings and enable 'Automatically check for Windows Updates' (in Windows 10/11 you shouldn't be able to disable this via the UI).
+
+#### Applications 
+
+Firstly, every application on your system is a potential entry point for an attacker, if you're never going to use it then uninstall it! This includes Windows features too, it's recommended that you atleast uninstall the following Windows features:
+
   - Internet Explorer 
   - SMB 1.0
-- Every useless program is another entry point for malware
-- Configure Windows Security
-  - Enable reputation based scanning
-  - Core Isolation
-    - Memory Integrity 
-  - Exploit Protection 
-    - Control Flow Guard
-    - Data Execution Protection 
-    - Mandatory ASLR 
-- Autoplay settings 
-- Disable 24/7 Bluetooth discoverability
 
-### Windows Policies 
+This can be done by going to 'Control Panel' > 'Uninstall a program' > 'Turn Windows features on or off' and removing the tickbox next to the above entries.
+
+:::tip
+A reboot will be required after completing this step
+:::
+
+#### Windows (Defender) Security 
+
+The following settings are configured within 'Windows Security' application and *should* be enabled by default but regardless it's important to check.
+
+- Reputation based scanning is configured under the 'App and Browser control' setting
+- Core Isolation is configured under the 'Device security' setting
+  - Memory Integrity is also a feature enabled within this section but you will need to 'View details' before you can toggle this on
+- Exploit protection is configured under the 'Device security' setting along side the below nested items for this category
+  - Control Flow Guard
+  - Data Execution Protection
+  - Mandatory ASLR 
+
+#### Windows OS 
+
+There are a couple of things that are recommended if you're not actively using these features, firstly disable bluetooth if you're not using it and secondly turn off auto play as it has previously been used to exploit systems.
+
+- Autoplay settings can be found under 'Settings' > 'Devices' > 'Autoplay'
+
+---
+
+### Windows Pro / Enterprise 
 
 You can download the Group Policy template files from [here](https://github.com/ukncsc/Device-Security-Guidance-Configuration-Packs/raw/main/Microsoft/Windows/GPO/NCSC_Windows_GPO.zip).
 
