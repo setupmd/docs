@@ -76,7 +76,11 @@ The Windows App Guard policy will make the following changes to your PC.
 
 The Windows App Locker policy will make the following changes to your PC.
 
-- Allows execution of Microsoft signed applications, dlls, installers, scripts and appx
+- Allows only execution of Microsoft signed applications, dlls, installers, scripts and appx 
+
+:::tip 
+Development machines should be excluded from this policy otherwise they may end up not being able to run the required tools.
+:::
 
 #### Bitlocker Policies 
 
@@ -137,7 +141,11 @@ The Windows device guard policy will make the following changes to your PC.
 - Enables virtualisation based securty 
 - Ensures code integrity
 - Ensures credential guard is configured 
-- Ensures secure boot and direct memory access protection is configured
+- Ensures secure boot and direct memory access protection is configured 
+
+:::tip 
+When enabling this policy you will need to ensure the VMs are created with Nested support otherwise Credential guard will fail to deploy. Option B would be to disable the 'Turn on Virtualisation Based Security' policy located in 'Computer Configuration' > 'Policies' > 'Administrative Templates' > 'System' > 'Device Guard'
+:::
 
 #### Device Health 
 
