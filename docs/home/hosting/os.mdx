@@ -4,34 +4,19 @@ When running a Minecraft server on [bare metal](types#bare-metal--vds), or a [VP
 
 This page will explain the common choices available.
 
-### OSes Discussed
-- Windows (10 / 11)
-- Windows Server 2019 / 2022
-- Debian 11 Bullseye
-- Ubuntu 22.04 LTS Jammy Jellyfish
+- Windows (Destop and Server)
+- Ubuntu LTS
 
-#### Windows (10/11)
+### Windows
 
-The first OS and probably the one you interact with the most on a day to day basis is the desktop version of Windows. For complete novices who are just looking to get something working for a couple of friends, this can be more than sufficient and you'll probably already have this installed on either your personal desktop or a secondary pc if you have an old machine you want to put to use.
+If you're looking to host a server for your friends then the easiest option for self-hosting is Windows, you're already using it and if you're going to a CPS for a server they will include a monthly fee for Windows Server. At their core both OSes are 'the same' and for Minecraft running a personal server within Windows 10/11 from your home PC will be fine.
 
-There's a lot of support around the internet for Windows based devices and fundamentally every install is exactly the same meaning every Windows based tutorial will work for you. For those with multiple servers or even a Minecraft network it would be advisable to look into a Linux based deployment to avoid leaving performance on the table.
+Moving to Windows Server will give you a couple of advantages, primarily longer OS support - these tend to follow a N+10 policy when discussing depreciation which is normally a good few years more than standard desktop releases. A server OS will also be lighter, out of the box these images are bare with nothing but the core files needed to get Windows functional which compared to the desktop OS could see a perf gain with less resource wastage and reduces your attack surface slightly by ensuring there are no unnecessary products installed / configured.
 
 ---
 
-#### Windows Server 2019 / 2022
+### Ubuntu LTS
 
-Windows Server is more of an additional note rather than a full blown recommendation, if you have brought a cloud server from a provider such as Hetzner or OVH and requested a 'Windows based install' at checkout due to licensing constraints you'll be provided either Windows Server Standard or Datacentre depending on their agreements.
+Unoffically you can also throw the base 'Debian' into this arguement too however with Ubuntu Pro now becoming a free feature it's a huge win for the home lab. Ubuntu Pro offers 10 years of LTS patches so now follows a Windows Server like support plan which will save alot of hassle needing to move your Instance from one release to another.
 
-From a Minecraft perspective these operating systems will perform near identical to desktop releases such as '10' and '11' but a fresh install of Windows server contains zero additional bloatware and contains only the core files required to get it up and running. Some noticeable differences will be 'Server Manager' where you'll have access to the core tools and utilities to help you manage the device and secondly the lack of a Windows Store, if you need WUP applications they can be sideloaded with Powershell and the msixbundle file.
-
----
-
-#### Debian 11
-
-The lightest OS on the list is Debian, most commonly used in Minecraft production hosting environments it makes a perfect candidate for those who need a mainstream OS with minimal performance hits due to OS bloat.  A Debian based distribution has a wealth of support forums on the internet should you face any issues you will normally receive a better response than if you used another Linux distribution e.g. Arch, Fedora, RHEL or Oracle Linux.
-
-Debain boasts two install types, desktop and server (the latter being entirely command line based). Being a minimal OS sometimes you'll find that it doesn't come with all of the packages ubuntu comes with and some tutorials don't mention this,  thankfully as Ubuntu is a Debian based distro everything that runs on Ubuntu will also run on Debian (once any additional packages / alternative directories are accounted for).
-
----
-
-#### Ubuntu
+If you want to get into the more professional side of hosting, Linux is the way to go - it's further optimised and will let you get the absolute most performance out of the hardware as possible. Day-to-day you will be interfacing with this OS through a command line but unlike Windows Server if you got to a CSP you won't be charged for these, web-based game management portals do exist for those on Linux who don't want to manage everything via the CLI.

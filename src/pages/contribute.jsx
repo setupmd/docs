@@ -26,7 +26,7 @@ export default function Homepage() {
             <ul>
               <li><strong>New Articles</strong> - Informational pages and / or complete guides are welcome</li>
               <li><strong>New Plugin Documentation</strong> - Premium and Free plugins are both accepted into the repo</li>
-              <li><strong>Document Corrections</strong> - While we aim to review documents atleast once a year if you notice something isn't right we encourage you to submit a change</li>
+              <li><strong>Document Corrections</strong> - Document corrections can be suggested for any reason</li>
             </ul>
             <p><strong>We require all contributions to be be completed via a Github PR and should follow our below styling guide.</strong></p>
           </div>
