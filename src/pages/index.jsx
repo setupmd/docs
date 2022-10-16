@@ -25,7 +25,7 @@ export default function Homepage() {
             <p>
               The one-stop-shop index site for all your Minecraft needs, the goal with this project is collate the best possible information into one central location. If we cannot find documentation that is clear to understand, updated with relevant information as times progresses and is consise with minimal additional bloat then we will write our own documentation.
             </p>
-            <DyteButton onClick={() => router.push('/getting-started')}>
+            <DyteButton onClick={() => router.push('/docs')}>
               Get Started &rarr;
             </DyteButton>
           </div>
