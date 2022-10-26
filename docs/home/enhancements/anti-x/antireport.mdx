@@ -1,0 +1,63 @@
+# Anti-Report
+
+Minecraft 1.19.1 introduced a player chat reporting feature that was met by unsurprisingly negative fanfare for several reasons. 
+This document serves as a guide for those who want to protect their players from Mojang's controversial chat
+
+---
+
+### What is chat reporting?
+
+Since Minecraft 1.19.1, players can now report chat messages to Mojang via the social interactions screen. 
+Selected messages as well as surrounding ones are included for better context in the report, as well as a specific reason and additional notes.
+
+Cryptographic signatures are used to verify the integrity of the message before sending to Mojang, you can read more about them [here](https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md)
+
+Once a report is sent, it is reviewed by Mojang's moderation team who will gauge an appropriate punishment for the offender(s). This can range from a temporary suspension to an outright permanent ban, not just from that server, but <strong>all of Minecraft multiplayer</strong> - one of the reasons why the system was met with such bad press
+
+Below is a list of ways server owners and players can protect themselves from Mojang's moderation if they wish to.
+
+---
+
+### For Forge/Fabric/Quilt
+
+#### No Chat Reports
+
+No Chat Reports is a Minecraft mod created by Aizistral that works on both the client and server sides. It strips cryptographic signatures from player chat messages, effectively converting them to system messages, thus making them unreportable.
+
+:::note
+Joining a server with `enforce-secure-profile=true` on a client with No Chat Reports installed will display a prompt warning the user that chat will be signed if they agree to it.
+:::
+
+<div>
+<a class="button button--outline button--primary" href="https://modrinth.com/mod/no-chat-reports">Modrinth</a>
+</div>
+
+---
+
+### For Spigot and forks
+
+:::danger
+The plugin *NoEncryption* is not recommended as it has a tendency to break other chat plugins such as DiscordSRV. Use the below plugin as a tested alternative.
+:::
+
+#### FreedomChat
+
+FreedomChat effectively serves the same purpose as No Chat Reports would on a modded server, it converts player chat messages to system messages at the packet level, making them once again unreportable by players.
+
+<strong>This is the de facto standard for disabling player chat reporting on Spigot+ servers as it is perfectly compatible with tested chat plugins.</strong>
+
+<div>
+<a class="button button--outline button--primary" href="https://modrinth.com/mod/freedomchat">Modrinth</a>
+</div>
+
+#### AntiPopup
+
+:::caution
+While this plugin works, manual setup is required in a way - the command `/antipopup setup` must be ran in console unless `enforce-secure-profile` is set to `false` already.  
+
+This plugin also has a tendency to spew warnings in console, and is not guaranteed to be compatible with some chat plugins
+:::
+
+<div>
+<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/%E2%9C%A8-antipopup-no-chat-reports-and-popup-%E2%9C%A8.103782/">SpigotMC</a>
+</div>
