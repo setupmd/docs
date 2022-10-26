@@ -1,0 +1,80 @@
+---
+sidebar_position: 1
+description: Changes we needed to make within OVH in order for our setup to work as expected.
+slug: /lab/ovh
+---
+
+# OVH Setup
+
+While everything in this list is scalable, it's recommended to add hypervisors in odd-numbers e.g. 1, 3, 5 etc. unless you're not looking to use high-availability. 
+
+:::info
+You must also have atleast one failover IP in the same region as atleast one of your bare metal nodes, this will be the Proxmox VMs gateway address.
+:::
+
+<ul>
+    <li>x1 Failover IP</li>
+    <li>x1 Bare Metal Node</li>
+    <li>10 minutes for configuration</li>
+</ul>
+
+If you haven't already please acquire the above list of tools needed for this deployment.
+
+### Installing Proxmox in OVHCloud
+
+You can easily deploy Proxmox using the default template settings for OVH without any major issues, you can if you desire configure the disks to use RAID 0 rather than RAID 1 however we chose to use RAID 1 because if one disk dies the node won't go offline.
+
+- Login to the 'OVH Manager'
+- Select 'Bare Metal Cloud' from the top navigation bar
+- Select 'Dedicated Server' from the left-hand side bar
+  - Select one of your bare metal nodes here to view it's configuration page (we will refer to this as VS01 going forward)
+- From this screen you will need to select the three dots under 'last os deployed by OVH Cloud'
+- In the pop-up window that appears select 'Install'
+- A new window will appear, select 'Install from OVHCloud templates'
+ - Under 'Type of OS' select 'Virtualisation' and under 'Linux' select 'Proxmox 7 64Bit'
+ - You can configure a different language and alternative disk partitions at this stage but it's not required
+- Press 'Next' to reach the summary page the only option worth changing here is 'HOSTNAME' which should be set to VS01
+ - As we're turning off SSH entirely and managaing it from the web-ui only we will not configure an SSH Key
+- Press 'Confirm' and this will start the image process 
+
+If you have more than VS server you should also configure those now repeating the same steps but changing VS01 to the repsective sequential number.
+
+---
+
+### Network Configuration
+
+While the OS is configuring we can assign the Failover IP and create the vRACK which is a private network used for inter-ovh device communication.
+
+#### Failover IP
+
+To assign the failover IP to a host go to 'IP' tab on the left-hand side bar, when you're at the IP Manager do the following steps outlined <a href="https://docs.ovh.com/gb/en/dedicated/ip-fo-move/" target="_blank">here</a>.
+
+Once this has been completed you will see a 'Virtual MAC Address', keep a note of this as it will be important when configuring the router.
+
+#### vRACK Configuration
+
+To configure the vRACK follow the documentation provided by OVH <a href="https://docs.ovh.com/gb/en/dedicated/configuring-vrack-on-dedicated-servers/#step-1-ordering-the-vrack" target="_blank">here</a>. You should stop after you have completed everything in step 2.
+
+#### OVH Firewall 
+
+:::warning
+Do not activate the firewall rules until you have deployed the router VM otherwise you will not be able to access the Proxmox UI
+:::
+
+Navigate back to the 'IP' tab on the left-hand side bar and select the three dots next to the public IPs of your host machines, you will want to select 'Configure Firewall'.
+
+Add the following rules for each of the VS hosts, each rule can only be applied one at a time.
+
+Priority     | Action  | Protocol | Source IP | Source Port | Destination Port | Options | Status
+------------ | ------- | -------- | --------- | ----------- | ---------------- | ------- | -------
+0            | Authorise  | TCP   | All       |        |             | Established | Enabled
+1            | Authorise  | IPv4  | Failover IP |      |             |     | Enabled
+19           | Refuse  | IPv4  | All |      |             |     | Enabled
+
+
+After completing all of the above you should have the following setup.
+
+- Bare metal servers deployed with Proxomx 7
+- Failover IP assigned to VS01
+- vRACK configured with bare metal hosts
+- OVH Firewall configured

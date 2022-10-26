@@ -21,11 +21,11 @@ export default function Homepage() {
       <div className="pad">
         <div className="center homepage-content">
           <div id="hero">
-            <h2>V2 DOCS ARE HERE 🥳</h2>
+            <h2>Welcome to setup.md</h2>
             <p>
-              Welcome to our modernised home for documentation, V2 docs aim to be faster and better designed for modern browsing. We are not a complete site and never will be, as things change our documentation will improve for the better.
+              The one-stop-shop index site for all your Minecraft needs, the goal with this project is collate the best possible information into one central location. If we cannot find documentation that is clear to understand, updated with relevant information as times progresses and is consise with minimal additional bloat then we will write our own documentation.
             </p>
-            <DyteButton onClick={() => router.push('/getting-started')}>
+            <DyteButton onClick={() => router.push('/docs')}>
               Get Started &rarr;
             </DyteButton>
           </div>
@@ -34,12 +34,22 @@ export default function Homepage() {
             <Card
               title="Admincraft Discord"
               description="A Minecraft server administration community with over 5000 members."
-              to="https://discord.gg/admincraft"
+              to="https://discord.gg/WYYxXBRUwE"
             />
             <Card
               title="KennyTV's Explaining Signed Chat"
               description="Your guide to understanding signed chat and reporting in 1.19.1, hosted externally to setup.md"
               to="https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md"
+            />
+            <Card
+              title="Luckperms Web Config Generator"
+              description="An easy web tool for generating luckperms config.yml files that can be uploaded to your server."
+              to="https://mc.tools/dashboard/permissions/luckperms"
+            />
+            <Card
+              title="Understanding Spark"
+              description="Spark isn't the easiest to understand but the official documentation is the best place to start"
+              to="https://spark.lucko.me/docs/guides/Finding-lag-spikes"
             />
             <Card
               title="YouHaveTrouble's Optimisation Guide"

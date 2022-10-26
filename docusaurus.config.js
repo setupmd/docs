@@ -49,7 +49,7 @@ const SECTIONS = [
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'setup.md',
-  tagline: 'The Minecraft Knowledgebase',
+  tagline: 'Minecraft Server Knowledgebase',
   // TODO: Update base url
   url: 'https://setup.md',
   baseUrl: '/',
@@ -132,8 +132,8 @@ const config = {
         },
         items: [
           {
-            label: 'Getting Started',
-            to: '/getting-started',
+            label: 'Documentation',
+            to: '/docs',
             position: 'left',
           },
           {
@@ -152,7 +152,7 @@ const config = {
             position: 'left',
           },
           {
-            href: 'https://smd.gg/docs',
+            href: 'https://smd.gg/github',
             className: 'pseudo-icon github-icon',
             position: 'right',
           },
@@ -181,7 +181,7 @@ const config = {
               },
               {
                 label: 'Github',
-                href: 'https://smd.gg/docs',
+                href: 'https://smd.gg/github',
               },
             ],
           },

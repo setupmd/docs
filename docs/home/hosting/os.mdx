@@ -1,0 +1,27 @@
+---
+description: Let's discuss the major operating systems that you will come across when hosting a Minecraft server.
+slug: /hosting/os
+---
+
+# Operating Systems
+
+When running a Minecraft server on [bare metal](types#bare-metal--vds), or a [VPS](types#virtual-private-servers) you'll need to install a base operating system before you can get started. Unless you're running an apple device your options are Windows / Windows Server or Linux and the abundance of distros that come along with it.
+
+This page will explain the common choices available.
+
+- Windows (Destop and Server)
+- Ubuntu LTS
+
+### Windows
+
+If you're looking to host a server for your friends then the easiest option for self-hosting is Windows, you're already using it and if you're going to a CPS for a server they will include a monthly fee for Windows Server. At their core both OSes are 'the same' and for Minecraft running a personal server within Windows 10/11 from your home PC will be fine.
+
+Moving to Windows Server will give you a couple of advantages, primarily longer OS support - these tend to follow a N+10 policy when discussing depreciation which is normally a good few years more than standard desktop releases. A server OS will also be lighter, out of the box these images are bare with nothing but the core files needed to get Windows functional which compared to the desktop OS could see a perf gain with less resource wastage and reduces your attack surface slightly by ensuring there are no unnecessary products installed / configured.
+
+---
+
+### Ubuntu LTS
+
+Unoffically you can also throw the base 'Debian' into this arguement too however with Ubuntu Pro now becoming a free feature it's a huge win for the home lab. Ubuntu Pro offers 10 years of LTS patches so now follows a Windows Server like support plan which will save alot of hassle needing to move your Instance from one release to another.
+
+If you want to get into the more professional side of hosting, Linux is the way to go - it's further optimised and will let you get the absolute most performance out of the hardware as possible. Day-to-day you will be interfacing with this OS through a command line but unlike Windows Server if you got to a CSP you won't be charged for these, web-based game management portals do exist for those on Linux who don't want to manage everything via the CLI.

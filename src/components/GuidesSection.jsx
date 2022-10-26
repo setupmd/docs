@@ -27,6 +27,11 @@ export default function GuidesSection({ title, className }) {
         description="Learn how to deploy Pufferpanel (and Pufferd) using Ubuntu LTS."
         to="/guides/pufferpanel"
       />
+      <Card
+        title="Lab Deployment"
+        description="A walkthrough on how we configured the setup.md vm lab environment."
+        to="/guides/lab"
+      />
     </Section>
   );
 }

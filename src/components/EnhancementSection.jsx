@@ -9,17 +9,22 @@ export default function EnhancementSection({ title, className }) {
     <Section title={title} className={className}>
       <Card
         title="Anti-X Tools"
-        description="Understand the types of preventative plugins / configurations that exist for Java servers."
+        description="A way to disable certain mechanisms / change functionality for your Java based server."
         to="/enhancements/anti-x"
       />
       <Card
+        title="Server Economy"
+        description="A crash course into server economics and highly adopted plugins for you to try."
+        to="/enhancements/economy"
+      />
+      <Card
         title="Server Permissions"
-        description="Understand the concept of permission files, recommended permission plugins and storage types."
+        description="A crash course into server permissions, recommended plugins and storage types."
         to="/enhancements/permissions"
       />
       <Card
         title="Server Plugins"
-        description="Essential plugins that can be used for every server 'type' and a breakdown of their configuration files."
+        description="Recommended plugins that give your players an enhanced experience."
         to="/enhancements/plugins"
       />
     </Section>
