@@ -1,26 +1,91 @@
-# Anti-Report
+---
+description: 1.19.1 overhaulled the current reporting features and therefore caused alot of panic, this page is written to cut through the misinformation and provide the facts.
+title: Signed Chat
+---
 
-Minecraft 1.19.1 introduced a player chat reporting feature that was met by unsurprisingly negative fanfare for several reasons. 
-This document serves as a guide for those who want to stop reports going out from servers to Mojang.
+# Signed Chat
+
+First things first, it's important to set the story straight. Mojang had always had a reporting toolset for anyone who wished to use it however with the introduction of 1.19.1 changes were made to this system that a reasonable portion of the community didn't like.
+
+This patch specically introduces a couple of new features being:
+
+- In-Game UI reporting 
+- Cryptography and signing
+
+The purpose of this page serves as an advisory for those who wish to understand further what this means and what options are available to them.
 
 ---
 
-### What is chat reporting?
+### How does it work
 
-Since Minecraft 1.19.1, players can now report chat messages to Mojang via the social interactions screen. 
-Selected messages as well as surrounding ones are included for better context in the report, as well as a specific reason and additional notes.
+This is accurate to the best of our abilities, if there is someone with a better understanding of cryptography that can help improve this page please submit a PR.
 
-Cryptographic signatures are used to verify the integrity of the message before sending to Mojang, you can read more about them [here](https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md)
+#### Technical aspects
 
-Once a report is sent, it is reviewed by Mojang's moderation team who will gauge an appropriate punishment for the offender(s). This can range from a temporary suspension to an outright permanent ban, not just from that server, but <strong>all of Minecraft multiplayer</strong> - one of the reasons why the system was met with such bad press
+These new keys are stored in .json format under the '%appdata%/.minecraft/profilekeys' folder on your PC.
 
-Below is a list of ways server owners and players can effectively disable the new chat reporting feature
+:::info 
+These keys are regenerated after 48 hours
+:::
+
+The 'process' now works as follows:
+
+- User opens up their Minecraft client
+- Check for keys / generation of new keys occurs if required
+- User launches Game
+- User joins their desired Minecraft server
+  - On join the client also makes it's public key available to the server
+- User sends a message in chat
+  - Client signs the message using the private key providing a level of authenticity
+  - Signed message is sent to the server
+  - Server can validate the message came from your client using your public key 
+- Server displays the chat messages 
+
+Every time a message is sent in chat the last 2 steps are repeated.
+
+<img src="https://camo.githubusercontent.com/55063c3d3a211b6bf5648f559ee00579f03b1bd651e3980aa358d203a0ca7443/68747470733a2f2f692e696d6775722e636f6d2f6c6a69666d79302e706e67"/>
+
+#### User Reports 
+
+When a user is reported via the new in-game screen ui the following process occurs:
+
+- User selects the offending user and messages they wish to report
+- The message in question and surrounding message are also sent to Microsoft for review
+
+Once a report is sent, it is reviewed by Mojang's moderation team who will gauge an appropriate punishment for the offender(s). Any Microsoft punishment is in-line with it's current community guidelines and effect your entire account not just the single Minecraft server, these punishments can result in removal of your Multiplayer access.
+
+#### In-depth Review
+
+The best current source of data for the chat reporting is on Github created by KennyTV. A link to the document can be found [here](http://smd.gg/signed-chat)
+
+
+Below is a list of ways server owners and players can effectively disable the new chat reporting feature, by using one or more of these features you may limit either your own or your communities functionality.
 
 ---
 
-### For Forge/Fabric/Quilt
+### Options
 
-#### No Chat Reports
+#### Client Side 
+
+Option one is disabling 'chat-signing' within your client, this will prevent you from joining any server where this setting is enforced.
+
+#### Server Side 
+
+If you're running your own server there are a few options that can be used depending if you're running vanilla, modded or a plugin based server, these are as follows.
+
+##### Edit server.properties file
+
+You can edit the following switch to 'false' which will disable the requirement for users to use chat-signing. 
+
+```yaml
+...
+
+enforce-secure-profile = false
+
+...
+```
+
+##### No Chat Reports
 
 No Chat Reports is a Minecraft mod created by Aizistral that works on both the client and server sides. It strips cryptographic signatures from player chat messages, effectively converting them to system messages, thus making them unreportable.
 
@@ -32,15 +97,7 @@ Joining a server with `enforce-secure-profile=true` on a client with No Chat Rep
 <a class="button button--outline button--primary" href="https://modrinth.com/mod/no-chat-reports">Modrinth</a>
 </div>
 
----
-
-### For Spigot and forks
-
-:::danger
-The plugin *NoEncryption* is not recommended as it has a tendency to break other chat plugins such as DiscordSRV. Use the below plugin as a tested alternative.
-:::
-
-#### FreedomChat
+##### FreedomChat
 
 FreedomChat effectively serves the same purpose as No Chat Reports would on a modded server, it converts player chat messages to system messages at the packet level, making them once again unreportable by players.
 
@@ -50,14 +107,17 @@ FreedomChat effectively serves the same purpose as No Chat Reports would on a mo
 <a class="button button--outline button--primary" href="https://modrinth.com/mod/freedomchat">Modrinth</a>
 </div>
 
-#### AntiPopup
+##### AntiPopup
 
-:::caution
-While this plugin works, manual setup is required in a way - the command `/antipopup setup` must be ran in console unless `enforce-secure-profile` is set to `false` already.  
+While this plugin works, manual setup is required - the command `/antipopup setup` must be ran in console unless `enforce-secure-profile` is set to `false` already.  
 
 This plugin also has a tendency to spew warnings in console, and is not guaranteed to be compatible with some chat plugins
-:::
 
 <div>
 <a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/%E2%9C%A8-antipopup-no-chat-reports-and-popup-%E2%9C%A8.103782/">SpigotMC</a>
 </div>
+
+
+:::danger
+The plugin *NoEncryption* is not recommended as it has a tendency to break other chat plugins such as DiscordSRV. Use the below plugin as a tested alternative.
+:::
