@@ -43,7 +43,7 @@ export default function Homepage() {
             />
             <Card
               title="Luckperms Web Config Generator"
-              description="An easy web tool for generating luckperms config.yml files that can be uploaded to your server."
+              description="A web tool for generating luckperms config.yml files that can be uploaded to your server."
               to="https://mc.tools/dashboard/permissions/luckperms"
             />
             <Card
