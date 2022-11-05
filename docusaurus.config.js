@@ -10,7 +10,7 @@ const config = {
   tagline: 'The Minecraft Knowledgebase',
   url: 'https://setup.md',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'setupmd', // Usually your GitHub org/user name.
@@ -23,7 +23,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          path: 'docs/home',
+          path: 'docs',
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars-home.js'),
           breadcrumbs: false,
@@ -31,15 +31,22 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/setupmd/docs/tree/v2/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl: 'https://github.com/setupmd/docs/edit/main',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
+    ],
+  ],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'guides',
+        path: 'guides',
+        routeBasePath: 'guides',
+        sidebarPath: require.resolve('./sidebars-guides.js'),
+        // ... other options
+      },
     ],
   ],
 
