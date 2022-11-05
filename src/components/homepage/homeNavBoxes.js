@@ -4,90 +4,43 @@ import styles from './homeNavBoxes.module.css';
 
 const FeatureList = [
   {
-    title: 'Getting Started',
+    title: 'Project Information',
     icon: 'img/icons/getting-started.svg',
     items: [
-      {url: "docs/getting-started/browser-extension-installation", text: "Browser extension installation"},
-      {url: "docs/getting-started/pwa", text: "Progressive web app"}
+      {url: "docs", text: "Project Information"},
+      {url: "release", text: "Java Releases"},
+      {url: "discord", text: "Discord Server"}
     ]
   },
   {
-    title: 'Setting up your feed',
+    title: 'Server Enhancements',
     icon: 'img/icons/setting-up-feed.svg',
     items: [
-      {url: "docs/settingyourfeed/filtering-content-feed", text: "Filtering content"},
-      {url: "docs/settingyourfeed/advanced-filtering-options", text: "Advanced filtering"},
-      {url: "docs/settingyourfeed/blocking-tags-sources", text: "Blocking tags and sources"},
+      {url: "enhancements/anti-x", text: "Preventative Tools"},
+      {url: "enhancements/economy", text: "In-Game Economy"},
+      {url: "enhancements/permissions", text: "In-Game Permissions"},
+      {url: "enhancements/plugins", text: "Essential Plugins"}
     ]
   },
   {
-    title: 'Key features',
+    title: 'Hosting Tips',
     icon: 'img/icons/key-features.svg',
     items: [
-      {url: "docs/key-features/default-feeds", text: "Feeds"},
-      {url: "docs/key-features/upvotes", text: "Upvotes"},
-      {url: "docs/key-features/discussions", text: "Discussions"},
-      {url: "docs/key-features/bookmarks", text: "Bookmarks"},
-      {url: "docs/key-features/search", text: "Search"},
-      {url: "docs/key-features/do-not-disturb", text: "Do not disturb"},
-      {url: "docs/key-features/the-companion", text: "The Companion Widget"},
-      {url: "docs/key-features/community-picks", text: "Community Picks"},
+      {url: "hosting", text: "Hosting Introduction"},
+      {url: "hosting/advice", text: "Chosing a Provider"},
+      {url: "hosting/hardware", text: "Hardware"},
+      {url: "hosting/os", text: "Operating Systems"},
+      {url: "hosting/panels", text: "Panels"},
+      {url: "hosting/types", text: "Types of Hosting"},
     ]
   },
   {
-    title: 'Your profile',
-    icon: 'img/icons/your-profile.svg',
-    items: [
-      {url: "docs/your-profile/registration", text: "Registration"},
-      {url: "docs/your-profile/activity", text: "Activity"},
-      {url: "docs/your-profile/reading-history", text: "Reading history"},
-      {url: "docs/your-profile/weekly-goal", text: "Weekly Reading Goal"},
-      {url: "docs/your-profile/devcard", text: "DevCard"},
-      {url: "docs/your-profile/account-details", text: "Account details"},
-      {url: "docs/your-profile/deleting-your-profile", text: "Deleting your profile"},
-    ]
-  },
-  {
-    title: 'Customization',
-    icon: 'img/icons/customization.svg',
-    items: [
-      {url: "docs/customize-your-feed/layout", text: "Layout"},
-      {url: "docs/customize-your-feed/theme", text: "Theme"},
-      {url: "docs/customize-your-feed/density", text: "Density"},
-      {url: "docs/customize-your-feed/preferences", text: "Preferences"},
-    ]
-  },
-  {
-    title: 'Useful guides',
-    icon: 'img/icons/useful-guides.svg',
-    items: [
-      {url: "docs/how-does-daily-dev-work/dailydev-101", text: "What is daily.dev?​​​​"},
-      {url: "docs/how-does-daily-dev-work/how-to-get-featured", text: "How to get featured?"},
-      {url: "docs/how-does-daily-dev-work/reputation", text: "Reputation explained"},
-      {url: "docs/how-does-daily-dev-work/community-picks-submission-guidelines", text: "Community Picks Guidelines"},
-    ]
-  },
-  {
-    title: 'Integrations',
+    title: 'Tools & Troubleshooting',
     icon: 'img/icons/integration.svg',
     items: [
-      {url: "docs/integrations/sharing-bookmarks", text: "Sharing bookmarks"},
-    ]
-  },
-  {
-    title: 'For content creators',
-    icon: 'img/icons/content-creator.svg',
-    items: [
-      {url: "docs/for-content-creators/content-guidelines", text: "Content guidelines"},
-      {url: "docs/for-content-creators/suggest-new-source", text: "How to suggest a new source"},
-      {url: "docs/for-content-creators/claiming-ownership-on-article", text: "Special features for creators"},
-    ]
-  },
-  {
-    title: 'For OSS contributors',
-    icon: 'img/icons/oss-contributors.svg',
-    items: [
-      {url: "docs/for-oss-contributors/how-to%20contribute-to-daily-dev", text: "How to contribute to daily.dev"},
+      {url: "tools/databases", text: "Databases"},
+      {url: "tools/server-software", text: "Server Jars"},
+      {url: "troubleshoot/connection", text: "Connection Troubleshooting"},
     ]
   },
 ];
