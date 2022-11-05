@@ -1,12 +1,8 @@
 # Dependencies
 /node_modules
-/docs/angular-ui-kit
-/docs/react-ui-kit
-/docs/ui-kit
 
 # Production
 /build
-.env
 
 # Generated files
 .docusaurus
