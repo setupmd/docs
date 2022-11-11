@@ -22,13 +22,18 @@ const FeatureList = [
       {url: "troubleshoot/java", text: "Common Java Errors"},
       {url: "troubleshoot/connection", text: "Connection Troubleshooting"},
       {url: "https://www.anyjson.in/yaml-formatter", text: "YAML Formatter"},
-      {url: "troubleshoot/performance", text: "Performance Issues"}
+      {url: "troubleshoot/performance", text: "Performance Issues"},
+      {url: "https://github.com/PaperMC/Paper/issues/3854", text: "PaperMC Duping"},
     ]
   },
   {
     title: 'Server Enhancements',
     icon: 'img/icons/key-features.svg',
     items: [
+      {url: "enhancements/anti-x", text: "Prevent Mechanics"},
+      {url: "enhancements/economy", text: "Server Economy"},
+      {url: "enhancements/permissions", text: "Ranks and Permissions"},
+      {url: "enhancements/plugins", text: "Essential Server Plugins"},
 
     ]
   },
