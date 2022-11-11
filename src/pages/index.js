@@ -13,7 +13,7 @@ function HomepageHeader() {
     
     <header className={clsx(styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">The Minecraft Knowledgebase</h1>
+        <h2 className="hero__title">Minecraft Admin Wiki</h2>
       </div>
     </header>
   );
@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <Layout
       title={`Welcome`}
-      description="Description will go into a meta tag in <head />">
+      description="We are setup.md, a community focused around documenting the important parts of Minecraft server administration and ensuring everything can be found in one single place.">
       <HomepageHeader />
       <main>
         <HomeNavBoxes/>

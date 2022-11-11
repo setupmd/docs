@@ -4,43 +4,44 @@ import styles from './homeNavBoxes.module.css';
 
 const FeatureList = [
   {
-    title: 'Project Information',
+    title: 'Getting Started',
     icon: 'img/icons/getting-started.svg',
     items: [
-      {url: "docs", text: "Project Information"},
-      {url: "release", text: "Java Releases"},
-      {url: "discord", text: "Discord Server"}
+      {url: "discord", text: "Community Support"},
+      {url: "tools/server-software", text: "Server Jars"},
+      {url: "hosting/hardware", text: "Hosting Hardware"},
+      {url: "hosting/types", text: "Types of Hosting"},
+      {url: "hosting/advice", text: "Chosing a Provider"},
+      {url: "hosting/self", text: "Self Hosting Guide"},
+    ]
+  },
+  {
+    title: 'Setup Troubleshooting',
+    icon: 'img/icons/setting-up-feed.svg',
+    items: [
+      {url: "troubleshoot/java", text: "Common Java Errors"},
+      {url: "troubleshoot/connection", text: "Connection Troubleshooting"},
+      {url: "https://www.anyjson.in/yaml-formatter", text: "YAML Formatter"},
+      {url: "troubleshoot/performance", text: "Performance Issues"}
     ]
   },
   {
     title: 'Server Enhancements',
-    icon: 'img/icons/setting-up-feed.svg',
-    items: [
-      {url: "enhancements/anti-x", text: "Preventative Tools"},
-      {url: "enhancements/economy", text: "In-Game Economy"},
-      {url: "enhancements/permissions", text: "In-Game Permissions"},
-      {url: "enhancements/plugins", text: "Essential Plugins"}
-    ]
-  },
-  {
-    title: 'Hosting Tips',
     icon: 'img/icons/key-features.svg',
     items: [
-      {url: "hosting", text: "Hosting Introduction"},
-      {url: "hosting/advice", text: "Chosing a Provider"},
-      {url: "hosting/hardware", text: "Hardware"},
-      {url: "hosting/os", text: "Operating Systems"},
-      {url: "hosting/panels", text: "Panels"},
-      {url: "hosting/types", text: "Types of Hosting"},
+
     ]
   },
   {
-    title: 'Tools & Troubleshooting',
+    title: 'Useful External Links',
     icon: 'img/icons/integration.svg',
     items: [
-      {url: "tools/databases", text: "Databases"},
-      {url: "tools/server-software", text: "Server Jars"},
-      {url: "troubleshoot/connection", text: "Connection Troubleshooting"},
+      {url: "https://discord.gg/WYYxXBRUwE", text: "Admincraft Discord"},
+      {url: "https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md", text: "KennyTV's Signed Chat Gist"},
+      {url: "https://github.com/YouHaveTrouble/minecraft-optimization", text: "Config Optimisation Guide"},
+      {url: "https://spark.lucko.me/docs/guides/Finding-lag-spikes", text: "Understanding Spark"},
+      {url: "https://help.minecraft.net/hc/en-us/articles/4416199399693-Security-Vulnerability-in-Minecraft-Java-Edition", text: "Apache Log4J RCEs"},
+      {url: "https://madelinemiller.dev/blog/root-minecraft-server/", text: "Never run as Root"},
     ]
   },
 ];
