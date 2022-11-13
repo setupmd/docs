@@ -4,7 +4,7 @@ import styles from './guideNavBoxes.module.css';
 
 const FeatureList = [
   {
-    title: 'Cloud Tutorials',
+    title: 'Infrastructure Tutorials',
     items: [
       {url: "guides/oracle-cloud", text: "Oracle Cloud"},
       {url: "guides/lab", text: "OVH Lab"},
