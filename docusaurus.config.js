@@ -1,212 +1,190 @@
-/* eslint-disable */
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
-
-const UIKitReferencePlugins = require('./plugins/ui-kit-reference-plugin.cjs');
-const { webpackPlugin } = require('./plugins/webpack-plugin.cjs');
-const posthogPlugin = require('./plugins/posthog-plugin.cjs');
-
-/** @type {import('@docusaurus/preset-classic').Options} */ defaultSettings = {
-  remarkPlugins: [
-    [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
-  ],
-};
-
-/**
- * Defines a section with overridable defaults
- * @param {string} section
- * @param {import('@docusaurus/plugin-content-docs').Options} options
- */
-function defineSection(section, version = {}, options = {}) {
-  return [
-    '@docusaurus/plugin-content-docs',
-    /** @type {import('@docusaurus/plugin-content-docs').Options} */
-    ({
-      path: `docs/${section}`,
-      routeBasePath: section,
-      id: section,
-      sidebarPath: require.resolve('./sidebars-default.js'),
-      breadcrumbs: false,
-      editUrl: 'https://github.com/setupmd/docs/tree/v2/',
-      versions: version && {
-        current: {
-          label: version.label,
-        },
-      },
-      ...defaultSettings,
-      ...options,
-    }),
-  ];
-}
-
-
-const SECTIONS = [
-  defineSection('guides'),
-
-];
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'setup.md',
-  tagline: 'Minecraft Server Knowledgebase',
-  // TODO: Update base url
+  tagline: 'The Minecraft Knowledgebase',
   url: 'https://setup.md',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
-  favicon: '/favicon.ico',
-  trailingSlash: false,
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
+  favicon: 'img/favicon.ico',
   organizationName: 'setupmd', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en-gb',
-    locales: ['en-gb'],
-  },
-
-  clientModules: [require.resolve('./src/client/define-ui-kit.js')],
+  trailingSlash: false,
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          path: 'docs/home',
+          path: 'docs',
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars-home.js'),
           breadcrumbs: false,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/setupmd/docs/tree/v2/',
-          ...defaultSettings,
         },
-        blog: false,
         theme: {
-          customCss: [
-            require.resolve('./src/css/custom.css'),
-            require.resolve('./src/css/api-reference.css'),
-          ],
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
   ],
-
   plugins: [
-    ...SECTIONS,
-    ...UIKitReferencePlugins,
-    webpackPlugin,
-    posthogPlugin,
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'guides',
+        path: 'guides',
+        routeBasePath: 'guides',
+        sidebarPath: require.resolve('./sidebars-guides.js'),
+        // ... other options
+      },
+    ],
   ],
-
-  themes: ['@docusaurus/theme-live-codeblock'],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: '/img/dyte-docs-card.png',
+      algolia: {
+
+        appId: 'Y9DSYUPTUW',
+
+        apiKey: 'ee4cd78d14b03b95a8b6b85635f8b401',
+  
+        indexName: 'prod_smd'
+      },
       colorMode: {
         defaultMode: 'dark',
-      },
-      docs: {
-        sidebar: {
-          hideable: true,
-        },
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
       },
       navbar: {
-        hideOnScroll: true,
+        // title: 'My Site',
         logo: {
-          href: '/',
-          src: '/logo/light.png',
-          srcDark: '/logo/dark.png',
-          alt: 'setup.md',
-          height: '50px',
-          width: '120px',
+          alt: 'setup.md Logo',
+          src: 'img/logo.png',
         },
         items: [
           {
-            label: 'Documentation',
+            label: 'Server Docs',
             to: '/docs',
             position: 'left',
           },
           {
             label: 'Guides',
-            to: '/guides/',
-            position: 'left',
+            to: 'guides',
+            position: 'left'
           },
           {
-            label: 'FAQ',
-            to: '/faq',
+            label: 'FAQs',
+            to: 'faqs',
             position: 'left',
           },
           {
             label: 'Contribute',
-            to: '/contribute',
+            to: 'contribute',
             position: 'left',
           },
           {
-            href: 'https://smd.gg/github',
-            className: 'pseudo-icon github-icon',
-            position: 'right',
-          },
-          {
-            href: 'https://smd.gg/discord',
-            className: 'pseudo-icon discord-icon',
+            href: 'https://github.com/setupmd/docs',
+            label: 'GitHub',
             position: 'right',
           },
         ],
       },
       footer: {
-        logo: {
-          href: '/',
-          src: '/logo/light.png',
-          srcDark: '/logo/dark.png',
-          alt: 'setup.md',
-          height: '36px',
-        },
+        style: 'dark',
         links: [
           {
-            title: 'On The Web',
+            title: 'Documentation',
             items: [
               {
-                label: 'Discord',
-                href: 'https://smd.gg/discord',
+                label: 'Enhancements',
+                to: '/enhancements',
               },
               {
-                label: 'Github',
-                href: 'https://smd.gg/github',
+                label: 'Hosting',
+                to: '/hosting',
+              },
+              {
+                label: 'Tools & Utilities',
+                to: '/tools',
+              },
+              {
+                label: 'Troubleshooting',
+                to: '/troubleshoot',
               },
             ],
           },
-          
+          {
+            title: 'Complete Guides',
+            items: [
+              {
+                label: 'Cloud Deployments',
+                to: '/guides/cloud',
+              },
+              {
+                label: 'Plugin Configurations',
+                to: '/guides/plugins',
+              },
+              {
+                label: 'Service Tutorials',
+                to: '/guides/service',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Become a contributor',
+                to: 'https://github.com/setupmd/.github/blob/master/CONTRIBUTING.md',
+              },
+              {
+                label: 'Content Guidelines',
+                to: 'https://setup.md/contribute',
+              },
+            ],
+          },
+          {
+            title: 'Social Links',
+            items: [
+              {
+                label: 'GitHub',
+                to: 'https://smd.gg/github',
+              },
+              {
+                label: 'Discord',
+                to: 'https://smd.gg/discord',
+              },
+              {
+                label: 'BuyMeACoffee',
+                to: 'https://buymeacoffee.com/daaan',
+              },
+            ],
+          },
         ],
-        copyright: 'Copyright © setup.md since 2022. All rights reserved.',
+        copyright: `Copyright © ${new Date().getFullYear()} setup.md  All rights reserved.`,
+      },
+      announcementBar: {
+        id: 'support_us',
+        content:
+          '🎉 setup.md has a new look, <a href="https://github.com/setupmd/docs/issues/new/choose">let us know your thoughts</a>!',
+        backgroundColor: '#fafbfc',
+        textColor: '#091E42',
+        isCloseable: true,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: [
-          'dart',
-          'ruby',
-          'groovy',
-          'kotlin',
-          'java',
-          'swift',
-          'objectivec',
-        ],
-      },
-      liveCodeBlock: {
-        playgroundPosition: 'bottom',
-      },
-      posthog: {
-        apiKey: 'c1X6knGkGuxT4WFysAWi6chjtoMmTzILKO7inv7hIgs',
       },
     }),
 };

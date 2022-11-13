@@ -1,16 +1,13 @@
 # Dependencies
 /node_modules
-/docs/angular-ui-kit
-/docs/react-ui-kit
-/docs/ui-kit
 
 # Production
 /build
-.env
 
 # Generated files
 .docusaurus
 .cache-loader
+package-lock.json
 
 # Misc
 .DS_Store
