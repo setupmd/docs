@@ -76,7 +76,7 @@ Thanks a lot for spending your time in helping daily.dev grow. Thanks a lot! ❤
  </a>
 
 ## 📑 License
-Licensed under [AGPL-3.0](https://github.com/setupmd/daily/blob/master/LICENSE).
+Licensed under [AGPL-3.0](https://github.com/setupmd/docs/blob/master/LICENSE).
 
 ## ⭐️ One more thing
 
