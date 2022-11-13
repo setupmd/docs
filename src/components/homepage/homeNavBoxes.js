@@ -47,6 +47,7 @@ const FeatureList = [
       {url: "https://spark.lucko.me/docs/guides/Finding-lag-spikes", text: "Understanding Spark"},
       {url: "https://help.minecraft.net/hc/en-us/articles/4416199399693-Security-Vulnerability-in-Minecraft-Java-Edition", text: "Apache Log4J RCEs"},
       {url: "https://madelinemiller.dev/blog/root-minecraft-server/", text: "Never run as Root"},
+      {url: "https://github.com/Blank-Cheque/Slurs", text: "Slur Regex Templates"},
     ]
   },
 ];
