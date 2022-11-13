@@ -70,7 +70,7 @@ $ yarn serve
 The server is available by default on port `3000`.
 
 ## 🙏 Thanks to all Contributors
-Thanks a lot for spending your time in helping daily.dev grow. Thanks a lot! ❤️
+Thanks a lot for spending your time in helping setup.md grow. Thanks a lot! ❤️
  <a href = "https://github.com/setupmd/docs/graphs/contributors">
    <img src = "https://contrib.rocks/image?repo=setupmd/docs" alt="Contributors to setup.md docs"/>
  </a>
