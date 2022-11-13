@@ -56,6 +56,11 @@ export default function Homepage() {
               description="A well respected config optimisation resource, hosted externally to setup.md"
               to="https://github.com/YouHaveTrouble/minecraft-optimization"
             />
+            <Card
+              title=" Blank-Cheque's regex filter for slurs "
+              description="A repository with several configs regarding slurs, hosted externally to setup.md"
+              to="https://github.com/Blank-Cheque/Slurs"
+            />
           </Section>
 
           <EnhancementSection title="✨ Server Enhancements" />
