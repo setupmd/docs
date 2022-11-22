@@ -11,7 +11,7 @@ const FeatureList = [
       {url: "tools/server-software", text: "Server Jars"},
       {url: "hosting/hardware", text: "Hosting Hardware"},
       {url: "hosting/types", text: "Types of Hosting"},
-      {url: "hosting/advice", text: "Chosing a Provider"},
+      {url: "hosting/providers", text: "Chosing a Provider"},
       {url: "hosting/self", text: "Self Hosting Guide"},
     ]
   },

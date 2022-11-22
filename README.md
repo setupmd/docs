@@ -76,7 +76,7 @@ Thanks a lot for spending your time in helping setup.md grow. Thanks a lot! ❤�
  </a>
 
 ## 📑 License
-Licensed under [AGPL-3.0](https://github.com/setupmd/docs/blob/master/LICENSE).
+Licensed under [MIT](https://github.com/setupmd/docs/blob/master/LICENSE).
 
 ## ⭐️ One more thing
 

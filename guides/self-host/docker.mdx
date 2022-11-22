@@ -1,0 +1,24 @@
+---
+description: Docker is the simplest option when it comes to getting yourself a server spun up in seconds in 2022.
+slug: /self-host/docker
+title: Deploying with Docker
+---
+
+It's 2022, per application VMs are out and containers are in! We're at chapter 2 of the tech buzzword catalogue except Docker is actually cool. [NetworkChuck](https://youtu.be/eGz9DS-aIeY) has a great introductory video for Docker and [Docker networking](https://youtu.be/bKFMS5C4CG0) and it's recommended to watch those first before continuing.
+
+### Deployment 
+
+Within this tutorial we will deploy a Minecraft server, configure backups and a monitoring dashboard with a single compose file.
+
+You will need the following:
+- A copy of our [Docker compose template](https://raw.githubusercontent.com/setupmd/templates/main/Server%20Configurations/docker/compose-stack.yml)
+- A VPS / Dedicated host with sudo / root access 
+- A working Docker deployment
+
+#### Installing Docker 
+
+We have already covered how to deploy Docker to a VPS within our [lab series](/guides/lab/docker#deployment), you should follow this guide if you have not got a working instance. Another great resources for this exist within the [DigitalOcean Community forum](https://www.digitalocean.com/community).
+
+#### Using Compose
+
+Compose is a wonderful utility that lets us spin up pre-made containers with a configuration file, below is a sample configuration file however you can edit it by utilising the ENV variables located [here](https://github.com/itzg/docker-minecraft-server#versions).
