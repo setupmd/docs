@@ -1,0 +1,109 @@
+---
+description: How to setup, configure and deploy Azure Arc for patch management.
+slug: /lab/arc
+---
+
+# Azure Arc 
+
+Azure is a wonderful platform and everything we are currently doing in Azure could be done with either group policy or standalone packages within linux. Azure was chosen due to it already being apart of our product stack for Azure AD authentication and it's universal.
+
+### Requirements
+
+Before we continue with this guide you will need the following already completed.
+
+- An [Azure](https://azure.com) account
+- An internet connection
+- A VM that you want to configure patching on 
+
+:::note 
+Everything performed in this tutorial is free on Azure but other tools, functionality not specifically mentioned in this tutorial could be billable
+:::
+
+---
+
+### Configuration 
+
+These steps are completed within the Azure portal, if you are not already logged into the portal you can do so via [https://portal.azure.com](https://portal.azure.com).
+
+#### Azure Subscription
+
+The first step is to create an Azure subscription, this is basically a master folder used to store and assocaite all of our later objects under and without one you cannot proceed.
+
+- Search for 'Subscriptions'
+- Select 'Add'
+- Complete the fields as required
+  - Name - 'Azure Tutorial'
+  - Billing Account - 'Leave as default'
+    - Both billing profile & invoice sections should be auto populated
+  - Plan - Default 
+- Select 'Review & Create'
+- Select 'Create'
+
+
+#### Maintenance Configuration
+
+First step is to define what types of patches we want to automate the management of and at what times.
+
+- Search for 'Maintenance Configuration'
+- Select 'Create'
+- Complete the fields as required
+  - Subscription - {Subscription created above}
+  - Resource Group - {Newly created group}
+    - If you don't already have a resource group you can select 'create new resource group' to make one
+  - Configuration Name - {Use anything you like}
+  - Region - {Select closest region to your server}
+  - Maintenance Scope - 'Guest'
+  - Reboot Setting - 'Reboot if required'
+  - Schedule - Define as below
+    - Start on - {Today's Date}
+    - Maintenance Window - '3hrs 55m'
+    - Repeats - {Set as required}
+      - Recommended values
+      - 1
+      - Week
+    - End Date - 'None'
+    - Select Save
+- Select 'Updates' tab at the top
+- Select 'Include update classification'
+  - Ensure both 'select all' values are selected
+- Select 'Review & Create'
+
+---
+
+### Deployment
+
+Now the baseline is configured we need to add our servers to Arc and assign the newly created profiles to the object
+
+#### Device Enrollment
+
+To bring our on-prem servers into Azure for management we need to deploy Arc using the following steps
+
+- Search for 'Servers - Azure Arc'
+- Select 'Add'
+- Select 'Add Single Server'
+- Select 'Next'
+- Complete the fields as required
+  - Subscription - {Subscription created above}
+  - Resource Group - {Same resource group as the maintenance configuration}
+  - Region - {Select closest region to your server}
+  - OS - {Select as required}
+  - Connectivity Method - 'Public Endpoint'
+- Select 'Next'
+- Tags are optional 
+- Select 'Next'
+- Copy the script provided by MS and run using the provided steps if you're on Windows / Linux
+
+#### Device Assignment
+
+The final step is now to assign the policy to our newly enrolled server to Azure. This is completed within the 'Update Management Centre (Preview)'
+
+- Search for 'Update Management Centre (Preview)'
+- Select 'Machines'
+- Select the server you've just enrolled
+- Select 'Scheduling' from the new window that's just opened
+- Select 'Assign existing maintenance schedule'
+- From the dropdown select the configuration you created earlier.
+
+:::tip
+You can stack configuration profiles for servers which allows for more granular patching of certain types. e.g. if you want to patch criticial patches once per day you can create a new profile purely for patches marked as critical and edit the first profile to remove it from the cycle.
+:::
