@@ -1,12 +1,12 @@
 ---
-description: Docker is the simplest option when it comes to getting yourself a server spun up in seconds in 2022.
+description: If you've already got a Docker deployment that you're able to access then using our Compose template is the quickest and easiest way to get your server up and running.
 slug: /self-host/docker
-title: Deploying with Docker
+title: Docker Compose
 ---
 
 It's 2022, per application VMs are out and containers are in! We're at chapter 2 of the tech buzzword catalogue except Docker is actually cool. [NetworkChuck](https://youtu.be/eGz9DS-aIeY) has a great introductory video for Docker and [Docker networking](https://youtu.be/bKFMS5C4CG0) and it's recommended to watch those first before continuing.
 
-### Deployment 
+### Pre-Requisite 
 
 Within this tutorial we will deploy a Minecraft server, configure backups and a monitoring dashboard with a single compose file.
 
@@ -17,8 +17,78 @@ You will need the following:
 
 #### Installing Docker 
 
-We have already covered how to deploy Docker to a VPS within our [lab series](/guides/lab/docker#deployment), you should follow this guide if you have not got a working instance. Another great resources for this exist within the [DigitalOcean Community forum](https://www.digitalocean.com/community).
+We have already covered how to deploy Docker to a VPS within our [lab series](/guides/lab/docker#deployment), you should follow this guide if you have not got a working instance. Other great resources for this exist within the [DigitalOcean Community forum](https://www.digitalocean.com/community).
 
-#### Using Compose
+---
 
-Compose is a wonderful utility that lets us spin up pre-made containers with a configuration file, below is a sample configuration file however you can edit it by utilising the ENV variables located [here](https://github.com/itzg/docker-minecraft-server#versions).
+### Deployment 
+
+For the sake of simplicity this tutorial will be entirely from the linux command line however it should work without any issues in platforms such as Portainer, if you haven't already SSH into your server.
+
+The first step is to download a copy of our compose.yml file, you can fetch a copy using the following cURL command.
+
+```bash
+...
+
+curl https://smd.gg/compose-template -output compose.yml
+
+...
+```
+
+Using `nano` or `vi` you can edit the contents of the file and make changes as required
+
+```bash
+...
+
+nano compose.yml
+
+...
+```
+
+There are a couple of lines that you should pay attention to when it comes to customising how this file works.
+
+The first line for consideration is line 7 `"25565:25565"`. 
+ - Editing these values will change what ports are exposed on your local machine. You only normally need to change this if you're running multiple Minecraft servers e.g. Bungeecord.
+
+The next line you can alter is line 10 `MEMORY: 4G`.
+ - Setting this value to something between 4G and 12G tend to offer the best results, the avg server shouldn't need more than 8G assigned.
+
+The next line you can alter is line 13 `TYPE: PURPUR`.
+ - This defines the jar file used to host your Minecraft server, two of the most common types are `PAPER` and `PURPUR` but there are multiple other values that can be assigned her based on the type of server you wish to run.
+
+The next line you can alter is line 27 `"8180:8080"`.
+ - It's only recommended you change the left hand value for this service if you're currently using it for an alternative solution. You should take note of these port changes as you may need to reference them later on.
+
+The next line you can alter is line 27 `"80:3000"`.
+ - It's only recommended you change the left hand value for this service if you're currently using it for an alternative solution. You should take note of these port changes as you may need to reference them later on.
+
+The final line you may wish to alter is line 53 `BACKUP_INTERVAL: "1d"`.
+ - Define how frequently your server is backed up, for a small server 1d is more than enough but for larger public environments you may wish to move this to every 4 hours.
+
+Now that the config has been adjusted as required the next thing to do is to spin up your containers, this can be done using the below command.
+
+```bash
+...
+
+docker compose up
+
+...
+```
+
+You can confirm if the containers have been started by using the `docker ps` command. 
+
+If one or more services produces an error, you should try using the below command to ensure nothing is currently running on the specified port.
+
+ ```bash
+ ...
+ 
+ netstat -anpe | grep "{PORT}" |grep "LISTEN"
+ 
+ ...
+ ```
+
+ ---
+
+ ### Importing Worlds 
+
+ This step is optional if you don't have an existing world you wish to bring to Multiplayer. For those who do have a server world you wish to play on 

@@ -136,6 +136,10 @@ const config = {
                 to: '/guides/plugins',
               },
               {
+                label: 'Self Hosting',
+                to: '/guides/self-host',
+              },
+              {
                 label: 'Service Tutorials',
                 to: '/guides/service',
               },
@@ -145,7 +149,7 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Become a contributor',
+                label: 'Become a Contributor',
                 to: 'https://github.com/setupmd/.github/blob/master/CONTRIBUTING.md',
               },
               {
@@ -165,10 +169,6 @@ const config = {
                 label: 'Discord',
                 to: 'https://smd.gg/discord',
               },
-              {
-                label: 'BuyMeACoffee',
-                to: 'https://buymeacoffee.com/daaan',
-              },
             ],
           },
         ],
@@ -183,7 +183,7 @@ const config = {
         isCloseable: true,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
