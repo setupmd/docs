@@ -58,6 +58,8 @@ const config = {
         appId: 'Y9DSYUPTUW',
 
         apiKey: 'ee4cd78d14b03b95a8b6b85635f8b401',
+
+        contextualSearch: false,
   
         indexName: 'prod_smd'
       },
