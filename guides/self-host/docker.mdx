@@ -91,4 +91,42 @@ If one or more services produces an error, you should try using the below comman
 
  ### Importing Worlds 
 
- This step is optional if you don't have an existing world you wish to bring to Multiplayer. For those who do have a server world you wish to play on 
+Ensure your docker instance is stopped before you change the world file to prevent corruptions.
+
+:::info 
+
+If you do not have a Minecraft world you would like to bring over you can skip this step
+
+:::
+
+Firstly navigate to where your world is stored, if you're world is in a singleplayer state this will be located in your `.minecraft\saves` folder.
+
+ - You should compress your world utilising a `zip` folder, the steps will vary slightly based on OS
+ - Start a SFTP shell using `sftp <username>@<server-ip>`
+ - Navigate to `/svr/minecraft` using `cd /svr/minecraft`
+ - Upload the file by using `put /path/to/folder/world.zip /svr/minecraft/world.zip`
+   - This may take a few minutes depending on your internet upload speeds
+ - Exit the SFTP session using `exit`
+ - Start an SSH sessions using `ssh <username>@<server-ip>`
+ - Install the `unzip` package using `sudo apt install unzip`
+ - Unzip the world we just uploaded using `unzip /svr/minecraft/world.zip`
+
+Now the world has been uploaded you can start the server and your world should be loaded, if your server is not using your uploaded world ensure you have the correct foldername specified within the server.properties file (this is case sensitive).
+
+--- 
+
+### Monitoring 
+
+This section is optional however as our docker-compose file already contains the required info to configure this we will do so in this guide. If you do not care for monitoring this can be ignored.
+
+#### Prometheus 
+
+Prometheus is very similar tool to InfluxDB (a tool we use in our lab series) and it is used for metric collection for a given source. Everything within our docker instance should already be configured as required you only need to ensure `prometheus` is running when you use the `docker ps` command.
+
+
+#### Grafana 
+
+For our installation Grafana can be found in the browser via http://<server-ip> (utilising port 80 by default unless changed within the compose file). 
+
+The process of setting up Grafana and adding sources / dashboards can be found within our (lab series)[/guides/lab/monitoring].
+

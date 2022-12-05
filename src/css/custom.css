@@ -531,7 +531,7 @@ div[class^='announcementBar_'] {
 
 @media screen and (max-width: 1200px) {
   main .col--3{
-    display: none;
+    display: 1;
   }
   main .row > div{
     max-width: 100%!important;
