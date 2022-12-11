@@ -13,7 +13,7 @@ function HomepageHeader() {
     
     <header className={clsx(styles.heroBanner)}>
       <div className="container">
-        <h2 className="hero__title">Minecraft Admin Wiki</h2>
+        <h2 className="hero__title">Complete Tutorials</h2>
       </div>
     </header>
   );

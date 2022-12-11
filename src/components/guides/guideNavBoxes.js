@@ -6,9 +6,11 @@ const FeatureList = [
   {
     title: 'Infrastructure Tutorials',
     items: [
-      {url: "guides/oracle-cloud", text: "Oracle Cloud"},
-      {url: "guides/lab", text: "OVH Lab"},
-      {url: "guides/self-host", text: "Self-Hosting"},
+      {url: "guides/self-host/docker", text: "Deploy using Docker"},
+      {url: "guides/oracle-cloud", text: "Deploy with Oracle Cloud"},
+      {url: "guides/self-host/win", text: "Deploy using Windows"},
+      {url: "guides/lab/monitoring", text: "Monitoring your server"},
+      {url: "guides/lab/hardening", text: "Securing your infrastructure"},
     ]
   },
   {

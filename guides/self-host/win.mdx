@@ -1,0 +1,109 @@
+---
+description: If you're just looking to setup a Minecraft server within Windows on your own personal machine then this is the tutorial for you.
+slug: /self-host/win
+title: Windows
+---
+
+If you're in the position where you want to host a Minecraft server but you don't want to learn or interface with the command line too frequently then Windows will most likely be your OS of choice either on your own PC or a spare machine you have around the house.
+
+This guide will not cover the basics of deploying Windows, securing your OS and patch automation as we have already covered those within our [lab](https://smd.gg/labs) series.
+
+### Installing Java
+
+The first thing you need to do is ensure you have installed the relevant Java JDK version for your desired Minecraft version. The latest release of Minecraft (1.19.2) currently uses Java 17 so that is the version we will be installing in this tutorial.
+
+Head on over to google and you'll want to search for `Java SE Development Kit <Java Version>`, in our case it would be `Java SE Development Kit 17` for Java 17.
+
+You will want to select the result that's hosted on `https://oracle.com`, from this page you will need to download the relevant version. In our case either Win X64 release for 17.0.5 will do (MSI / EXE).
+
+Once the latest release has finished downloading you'll want to double click the file to run the installer and complete the following steps.
+
+- Select 'Yes' on any user account control prompts
+- Select 'Next / Continue' on all prompts provided by the Installer
+- Once the install is complete, select 'close'
+
+:::note
+It's recommended that you **do not use a user account with administrator access** for the rest of this tutorial. Microsoft have provided [a guide](https://support.microsoft.com/en-us/windows/create-a-local-user-or-administrator-account-in-windows-20de74e0-ac7f-3502-a866-32915af2a34d) for this specific scenario.
+:::
+
+---
+
+### Setting up the server 
+
+Now that Java is installed the following steps will focus on downloading and configure the local files and ensuring your Windows firewall won't cause you problems.
+
+#### Local setup
+
+First thing we need to do is download our server jar file, depending on the distrubution you have decided to run the download location will be unique to the time of following this tutorial.
+
+The most common projects as of late 2022 are.
+ - SpigotMC
+ - PaperMC
+ - Purpur
+ - Fabric (Modded)
+ - Forge
+
+For our tutorial we're using 'PaperMC' however the general commands will remain the same.
+
+Once the file is downloaded it's recommended to create a new folder in a directory not backed up by a cloud sync service (e.g. google drive / onedrive) and place the jar file there to prevent issues with world corruption. 
+
+Some places you can put the folder are `C:\Minecraft` or `C:\Users\%USERNAME%\Minecraft`. For ease of access it's recommended to add the folder to the Quick access within file explorer, this can be done with a simple right click and pin to quick access.
+
+:::tip
+For easier maintenance down the road it's general practice to rename the file from `distro-build-number.jar` to something like `server.jar` as we can reuse this name easily when updating.
+:::
+
+Now the files been downloaded and renamed we need to ceate a launch script that can be called upon when we want to use our server.
+
+Open up a notepad file and paste the following line of text
+
+```java
+...
+
+java -Xmx4G -Xms4G -jar server.jar nogui
+
+...
+```
+
+When you go to save the file select 'File' > 'Save As' and then call this `run.bat`, ensure the .bat extension is present as without it we cannot run the file. This file must be saved in the same directory as the jar file you previously renamed.
+
+:::tip 
+You can check a file has been renamed using the right extension by displaying known file types. In windows open file explorer select 'view' and ensure the 'View file extensions tickbox' has been pressed.
+:::
+
+Run the new file you've just created and let it complete until you see an error about the EULA. From here, close the command prompt window and open up the folder that contains your server contents.
+
+Open the file titled `eula.txt` as we need to make a single change which will allow the server to start.
+
+Look for the line `EULA=false` and change this value to `true`.
+
+Restart the server by running the previous file, you should now see this complete with a line saying 'Done in X seconds'.
+
+This should be enough for most people to get things up and running but in more secure environments it maybe necessary to also add in local port rules for Windows firewall to ensure the connection is not blocked at host level.
+
+#### Firewall
+
+Upon starting your server for the first time you'll see a prompt for adding the app to your local firewall, in 99.9% of instances only selecting private network is sufficient.
+
+:::info
+If you're using a machine that's connected to an AAD or AD domain then also ensure 'domain network' is selected too.
+
+By opening 'Control Panel' > 'Network & Internet' > 'Network & Sharing Centre' you will see under 'View your active networks' if it says either 'domain', 'private' or 'public'.
+:::
+
+Once this is completed search for 'Defender with Advanced Security' and on the left hand side select 'Inbound Rules'.
+
+Select 'Add Rule'
+
+From the new window that appears ensure the following information is completed
+
+ - Select 'Port'
+ - Select Next
+ - Select 'TCP'
+ - Select 'Specfic Local Port'
+   - Enter '25565' or change to the port used by your server if different
+- Select 'Allow the connection'
+- Select the same location as defined in the 'Network & Sharing Centre'
+- Give the rule a name you'll identify e.g. 'Minecraft TCP'
+
+While optional you can also add a second rule for 25565 over UDP as this is sometimes used for voice traffic with certain plugins / mods.
