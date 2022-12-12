@@ -15,7 +15,7 @@
   --site-primary-hue-saturation: 1, 1%;
   --site-primary-hue-saturation-light: 167, 56%;
   --ifm-font-size-base: 112.5%;
-  --ifm-font-family-base: system-ui, 'Segoe UI', Tahoma, sans-serif;
+  --ifm-font-family-base: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
 
   --doc-sidebar-width: 330px !important;
 
