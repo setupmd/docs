@@ -179,7 +179,7 @@ const config = {
       announcementBar: {
         id: 'support_us',
         content:
-          '🎉 setup.md has a new look, <a href="https://github.com/setupmd/docs/issues/new/choose">let us know your thoughts</a>!',
+          '🎆 Happy new year from the entire setup.md team!',
         backgroundColor: '#fafbfc',
         textColor: '#091E42',
         isCloseable: true,

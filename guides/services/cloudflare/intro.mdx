@@ -1,0 +1,20 @@
+---
+sidebar_position: 1
+description: An introduction and short deployment guide for configuring your environment with Cloudflare Zero Trust, a tunnel based solution that lets you expose services to the internet without port forwarding.
+slug: /cloudflare
+title: What is Zero Trust
+---
+
+Before you ever implement a solution, you should understand what it is and why you're implementing it especially when it comes to security products. 
+
+Cloudflare Zero Trust is a platform that can be used for restricting access to services you need accessible over the internet without exposing the ip and port directly, it should be made known that not every application can be placed behind an argo tunnel.
+
+### Why Zero Trust
+
+Zero Trust solutions enforce the idea of "measure twice, cut once", in other words don't assume everything is secure and confirm it first before granting access. In a world where we're owning less of our own infrastructure and moving to shared compute in the cloud this starts to make more sense, Zero Trust builds on the principle of least privilege and no one gets unrestricted access to the network, lateral movement from device to device is minimised and only direct connections with authentication made via IdPs are approved.
+
+You should also consider that in an environment where you're sharing perhaps source code over the internet and enabling remote working as an administrator you've lost the ability to ensure a level of compliance, you would traditionally have with a vpn / provided end user compute.
+
+### Considerations
+
+If you deploy services with Docker you should know that Docker networking by default does not respect `UFW` and will modify iptables directly completely bypassing any restrictions you have currently configured. 
