@@ -37,33 +37,12 @@ const config = {
       }),
     ],
   ],
-  plugins: [
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'guides',
-        path: 'guides',
-        routeBasePath: 'guides',
-        sidebarPath: require.resolve('./sidebars-guides.js'),
-        // ... other options
-      },
-    ],
-  ],
+  
+  plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      algolia: {
-
-        appId: 'Y9DSYUPTUW',
-
-        apiKey: 'ee4cd78d14b03b95a8b6b85635f8b401',
-
-        contextualSearch: false,
-  
-        indexName: 'prod_smd'
-      },
-      colorMode: {
+    ({colorMode: {
         defaultMode: 'dark',
         disableSwitch: true,
         respectPrefersColorScheme: false,
@@ -110,19 +89,19 @@ const config = {
             items: [
               {
                 label: 'Enhancements',
-                to: '/enhancements',
+                to: '/e',
               },
               {
                 label: 'Hosting',
-                to: '/hosting',
+                to: '/h',
               },
               {
                 label: 'Tools & Utilities',
-                to: '/tools',
+                to: '/t',
               },
               {
                 label: 'Troubleshooting',
-                to: '/troubleshoot',
+                to: '/ts',
               },
             ],
           },
@@ -165,11 +144,11 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                to: 'https://smd.gg/github',
+                to: 'https://mcadm.in/github',
               },
               {
                 label: 'Discord',
-                to: 'https://smd.gg/discord',
+                to: 'https://mcadm.in/discord',
               },
             ],
           },
@@ -179,7 +158,7 @@ const config = {
       announcementBar: {
         id: 'support_us',
         content:
-          '🎆 Happy new year from the entire setup.md team!',
+          '🔎 New content search is live!',
         backgroundColor: '#fafbfc',
         textColor: '#091E42',
         isCloseable: true,

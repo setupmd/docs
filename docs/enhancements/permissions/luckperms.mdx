@@ -1,6 +1,6 @@
 ---
 description: Learn about the Luckperms plugin and how to get a basic configuration up and running.
-slug: /enhancements/permissions/luckperms
+slug: /e/perms/luckperms
 ---
 
 # LuckPerms
@@ -9,25 +9,27 @@ LuckPerms is probably the most feature-rich permissions plugin in existence curr
 
 ### The Basics 
 LuckPerms embraces many concepts like "Inheritance" or " Contexts" that might be confusing for a beginner. Consider this section a breakdown of those.
+
 :::info
-For a more indepth explanation of the plugin, one might use the [official wiki](https://luckperms.net/wiki).
+For a more in depth explanation of the plugin, one might use the [official wiki](https://luckperms.net/wiki).
 
 #### Permissions
 A permission is simply put just a piece of text that plugins use to determine what a player can do. They are usually split by periods (like `minecraft.command.kick` for the vanilla /kick command). A permission can have 3 states: 
 * `true`: the player can then use the feature which is associated to the permission
-* `false` the player is explicitely revoked access to this command or feature.
+* `false` the player is explicitly revoked access to this command or feature.
 * undefined: this permission has not been set for this group and defaults to either `true` or `false`, depending how the plugin which uses the permission has determined.
 #### Groups
-A group (or a "rank" as some prefer to call it) is a collection of permissions and other kinds of data which can be given to a player. This simplifies management of, lets say, the staff team as you can simply create a group `admin` and grant it `*` (this permission automatically allows access to everything) which can then be given to your admins and they will all have the same permissions. In this example it might seem counterintuitive, but for ranks with 100s of different permissions, it will become useful. 
+A group (or a "rank" as some prefer to call it) is a collection of permissions and other kinds of data which can be given to a player. This simplifies management of, lets say, the staff team as you can simply create a group `admin` and grant it `*` (this permission automatically allows access to everything) which can then be given to your admins and they will all have the same permissions. In this example it might seem counter intuitive, but for ranks with 100s of different permissions, it will become useful. 
 :::
+
 One Group always exists: `default`. As its name implies, everybody is in this group, and it is used to give out permissions which every player should have.  
 #### Inheritance
 Inheritance is very useful to minimise repeated work. Let us consider the following example:
 You have a group `VIP` and a group `MVP`. The group `VIP` is only used to **add** features on top of the `MVP` group. Yet by setting the users group to `MVP`, they would have the permissions from `VIP` revoked. This is where inheritance comes into play. You can make `MVP` inherit `VIP`, so every permission that is granted to `VIP` is automatically reflected in the permissions of `MVP`.
 #### Contexts
-Contexts define the cirumstances under which a permission or other data is applied. Still confused? 
+Contexts define the circumstances under which a permission or other data is applied. Still confused? 
 
-Lets take the `gamemode` context as an example. Giving a permission to a player with the context `gamemode=creative` means that they player shall only have that permission if they are in gamemode creative. Quite simple, isn't it? Many plugins add their own contexts, such as EssentialsX' `vanished` pr `god`.  
+Lets take the `gamemode` context as an example. Giving a permission to a player with the context `gamemode=creative` means that they player shall only have that permission if they are in game-mode creative. Quite simple, isn't it? Many plugins add their own contexts, such as EssentialsX' `vanished` pr `god`.  
 
 ---
 ### First Steps with LuckPerms
@@ -35,9 +37,9 @@ Lets take the `gamemode` context as an example. Giving a permission to a player 
 #### Storage
 
 Your first step with LuckPerms will be choosing a storage solution. This is a very extensive topic, as each of the storage types come with their own advantages and disadvantages. 
-A good writeup on this would be the [official article](https://luckperms.net/wiki/Storage-types) in the LuckPerms wiki. Essentially there are 3 types of storage:
-* Flatfile (In-memory-databases, they work out-of-box)
-* Text Files (Slower than flatfile, but editable and readable in plain text)
+A good write up on this would be the [official article](https://luckperms.net/wiki/Storage-types) in the LuckPerms wiki. Essentially there are 3 types of storage:
+* Flat file (In-memory-databases, they work out-of-box)
+* Text file (Slower than flat-file, but editable and readable in plain text)
 * Database (fastest, readable, but requires an external Database Server)
 
 In case you run a multi-server setup (e.g. BungeeCord) your only option is a Database!
@@ -71,5 +73,3 @@ There is no end to the list of chat formatting plugins. Most of them offer suppo
 The entire story is a different one when we move to the Tablist part of this guide. There are only really 2 options:
 * [NameTagEdit](https://www.spigotmc.org/resources/nametagedit.3836/)
 * [TAB](https://github.com/NEZNAMY/TAB)
-
-I will not go into extreme detail about the differences of the two plugins, as it should be rather obvious how they work. But, and this is vastly my personal experience, i found TAB to be a more pleasurable experience. Because, if you were to simply setup TAB to give everybody the LuckPerms Prefix Placeholder from PlaceholderAPI, it will just work with the data set in the `meta` submenu without having to edit any other plugins data.

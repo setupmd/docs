@@ -1,6 +1,6 @@
 ---
 description: Picking the right hardware is the most important thing when it comes to hosting as it will determine how far you can push your ideas before you have to throttle back or risk destroying the user experience.
-slug: /hosting/hardware
+slug: /h/hardware
 ---
 
 # Hardware
@@ -8,7 +8,7 @@ slug: /hosting/hardware
 If you're at this part of our hosting tips, we assume you've already decided on the type of hosting you want to go for. If you haven't identified the type of hosting you wish to go for it's highly recommended to read our [types of hosting](types.mdx) document first.
 
 :::note
-The first point we want to stress is **do not go out and buy the latest flagship CPU for your own single Minecraft server**. This is a complete waste of money and you will not be able to utilise the full CPU, you should howerver find a hosting provider that offers the desired CPU lineup and use 'shared hosting'.
+The first point we want to stress is **do not go out and buy the latest flagship CPU for your own single Minecraft server**. This is a complete waste of money and you will not be able to utilise the full CPU, you should however find a hosting provider that offers the desired CPU line up and use 'shared hosting'.
 :::
 
 ### CPU 
@@ -17,7 +17,7 @@ When it comes to finding a CPU (for Minecraft) the most important factor is the 
 
 Depending on your workload, CPU Cache & Instruction Sets should also be considered as one CPU might be better at a particular set than another (it's important to complete your own research based on your needs). 
 
-The myth of clock speed being the sole performance factor has been disproven many times over, Apple being the most famous example that often compared a lower clock speed PowerPC to the newer Pentium 3/4 lineups from IBM and similar.
+The myth of clock speed being the sole performance factor has been disproven many times over, Apple being the most famous example that often compared a lower clock speed PowerPC to the newer Pentium 3/4 line ups from IBM and similar.
 
 At its core Minecraft's main logic loop is a single thread this is a fundamental issue that dictates how it runs. Consequently, Minecraft is primarily concerned with single core performance. You still need at least two cores however, the second is to offload things like Garbage Collection and non core logic threads (networking, io) to so they don't steal time from the main loop.
 
@@ -37,6 +37,6 @@ If you're running in Docker consider overhead for the JVM, this should be about 
 
 ### Storage 
 
-For your server's live application data it's the current consensus to atleast be using some form of flash storage as the random read/write speeds can help massively when it comes to users spawning in chunks all over the map.
+For your server's live application data it's the current consensus to at least be using some form of flash storage as the random read/write speeds can help massively when it comes to users spawning in chunks all over the map.
 
 For backups you are still more than welcome to use spinning disks as this data hopefully isn't used as often - it's also possible to configure archival s3 based storage (cold-site) which could end up cheaper than buying and protecting your own disks.

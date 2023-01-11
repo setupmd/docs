@@ -1,13 +1,14 @@
 ---
-description: 1.19.1 overhaulled the current reporting features and therefore caused alot of panic, this page is written to cut through the misinformation and provide the facts.
+description: 1.19.1 overhauled the current reporting features and therefore caused a lot of panic, this page is written to cut through the misinformation and provide the facts.
 title: Signed Chat
+slug: /t/signed-chat
 ---
 
 # Signed Chat
 
 First things first, it's important to set the story straight. Mojang had always had a reporting toolset for anyone who wished to use it however with the introduction of 1.19.1 changes were made to this system that a reasonable portion of the community didn't like.
 
-This patch specically introduces a couple of new features being:
+This patch specially introduces a couple of new features being:
 
 - In-Game UI reporting 
 - Cryptography and signing
@@ -56,7 +57,7 @@ Once a report is sent, it is reviewed by Mojang's moderation team who will gauge
 
 #### In-depth Review
 
-The best current source of data for the chat reporting is on Github created by KennyTV. A link to the document can be found [here](http://smd.gg/signed-chat)
+The best current source of data for the chat reporting is on Github created by KennyTV. A link to the document can be found [here](https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md)
 
 
 Below is a list of ways server owners and players can effectively disable the new chat reporting feature, by using one or more of these features you may limit either your own or your communities functionality.
@@ -87,7 +88,7 @@ enforce-secure-profile = false
 
 ##### No Chat Reports
 
-No Chat Reports is a Minecraft mod created by Aizistral that works on both the client and server sides. It strips cryptographic signatures from player chat messages, effectively converting them to system messages, thus making them unreportable.
+No Chat Reports is a Minecraft mod created by Aizistral that works on both the client and server sides. It strips cryptographic signatures from player chat messages, effectively converting them to system messages, thus making them non-reportable.
 
 :::note
 Joining a server with `enforce-secure-profile=true` on a client with No Chat Reports installed will display a prompt warning the user that chat will be signed if they agree to it.
@@ -99,7 +100,7 @@ Joining a server with `enforce-secure-profile=true` on a client with No Chat Rep
 
 ##### FreedomChat
 
-FreedomChat effectively serves the same purpose as No Chat Reports would on a modded server, it converts player chat messages to system messages at the packet level, making them once again unreportable by players.
+FreedomChat effectively serves the same purpose as No Chat Reports would on a modded server, it converts player chat messages to system messages at the packet level, making them once again non-reportable by players.
 
 <strong>This is the de facto standard for disabling player chat reporting on Spigot+ servers as it is perfectly compatible with tested chat plugins.</strong>
 
