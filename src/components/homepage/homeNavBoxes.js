@@ -8,21 +8,23 @@ const FeatureList = [
     icon: 'img/icons/getting-started.svg',
     items: [
       {url: "discord", text: "Community Support"},
-      {url: "tools/server-software", text: "Server Jars"},
-      {url: "hosting/hardware", text: "Hosting Hardware"},
-      {url: "hosting/types", text: "Types of Hosting"},
-      {url: "hosting/providers", text: "Chosing a Provider"},
-      {url: "hosting/self", text: "Self Hosting Guide"},
+      {url: "t/server-software", text: "Server Jars"},
+      {url: "h/hardware", text: "Hosting Hardware"},
+      {url: "h/types", text: "Types of Hosting"},
+      {url: "h/providers", text: "Chosing a Provider"},
+      {url: "h/self", text: "Self Hosting Guide"},
+      {url: "t/database", text: "Databases"},
     ]
   },
   {
     title: 'Setup Troubleshooting',
     icon: 'img/icons/setting-up-feed.svg',
     items: [
-      {url: "troubleshoot/java", text: "Common Java Errors"},
-      {url: "troubleshoot/connection", text: "Connection Troubleshooting"},
+      {url: "ts/java", text: "Common Java Errors"},
+      {url: "ts/connection", text: "Connection Troubleshooting"},
       {url: "https://www.anyjson.in/yaml-formatter", text: "YAML Formatter"},
-      {url: "troubleshoot/performance", text: "Performance Issues"},
+      {url: "e/anti-x/al#guides-to-optimisation", text: "Performance Troubleshooting"},
+      {url: "ts/latency", text: "Latency Troubleshooting"},
       {url: "https://github.com/PaperMC/Paper/issues/3854", text: "PaperMC Duping"},
     ]
   },
@@ -30,10 +32,12 @@ const FeatureList = [
     title: 'Server Enhancements',
     icon: 'img/icons/key-features.svg',
     items: [
-      {url: "enhancements/anti-x", text: "Prevent Mechanics"},
-      {url: "enhancements/economy", text: "Server Economy"},
-      {url: "enhancements/permissions", text: "Ranks and Permissions"},
-      {url: "enhancements/plugins", text: "Essential Server Plugins"},
+      {url: "e/anti-x/ac", text: "Anti-Cheat"},
+      {url: "e/anti-x/al", text: "Anti-Lag"},
+      {url: "e/eco/shop", text: "Shop Plugins"},
+      {url: "e/pl/essentialsx", text: "EssentialsX"},
+      {url: "e/pl/litebans", text: "Litebans"},
+      {url: "e/perms", text: "Permissions"},
 
     ]
   },
