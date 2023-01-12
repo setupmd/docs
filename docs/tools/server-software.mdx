@@ -5,17 +5,17 @@ description: This page covers a list of well known server.jars.
 
 # Server Software
 
-When creating a server there will be multiple different names you come across, each server software (also referred to as a server jar) has it's own advantages and disadvantages.
+When creating a server there are multiple different names you will come across. Each server software has its own uses.
 
-Server Software might be referred to as "Server Engine" or "Server Jar".
+Server Software is very often referred to as "Server Jar(s)".
 
 :::note 
-A "Fork" is basically a modified version of a previous variant, they will normally share the same codebase and will often patch in their own changes on top of the previous projects code.
+A "Fork" is a modified version of server software. These often share the same codebase and will sometimes patch in their own changes on top of the previous projects' code. An example of "forks" is something such as "Bukkit > CraftBukkit > Spigot > Paper > Purpur".
 :::
 
 ### Backend Servers
 
-There are hundreds (if not thousands) of different forks, this document will only include recommended stable jars.
+There are hundreds (if not thousands) of different forks. This document will only include the recommended, stable, widely-used ones.
 
 #### [Vanilla](https://getbukkit.org/download/vanilla)
 
@@ -23,15 +23,15 @@ As the name suggests, it is a completely Vanilla server from Mojang itself witho
 
 #### [Paper](https://papermc.io/downloads)
 
-Paper is the most popular Server Jar these days. A fork of Spigot with it's own API, tons of glitch/dupe fixes alongside the numerous optimizations, Paper is the optimal choice for most server owners.
+Paper is the most widely-used Server Jar nowadays. A fork of Spigot with its own API, numerous optimizations alongside tons of glitch/dupe fixes make Paper the main choice for most server owners.
 
 #### [Purpur](https://purpurmc.org/downloads)
 
-A fork of Paper which is made for providing numerous gameplay-enhancing features without having to download/create plugins. Only has a couple of optimization options, but it does allow you to toggle some dupes.
+A fork of Paper which provides numerous gameplay-enhancing features without having to download/create plugins. These include being able to adjust gameplay behaviors not seen in Paper, mob health, and more. Only has a couple of optimization options, but it does allow you to toggle some dupes.
 
 #### Legacy 1.8 Jars
 
-It is highly recommended that you do not use 1.8 or any of it's point releases however if it's a requirement for whatever reason these are the better jars to use.
+It is highly recommended that you do not use 1.8 or any of its other releases. However, if it's a requirement for whatever reason these are the better jars to use.
  - [NachoSpigot](https://github.com/CobbleSword/NachoSpigot)
  - [BurritoSpigot](https://github.com/CobbleSword/BurritoSpigot)
  - [SportPaper](https://github.com/Electroid/SportPaper)
@@ -44,7 +44,7 @@ Forge is a modding API and server jar. It is most commonly used for servers with
 
 #### [Fabric](https://fabricmc.net/)
 
-Fabric is similar to forge (but not a fork) in the sense that it also supports mods. These mods can change practically every mechanic of the game. Fabric also has a great amount of optimization mods such as Lithium, Starlight, Phosphor etc. Take a look at [this list](https://github.com/NordicGamerFE/usefulmods)
+Fabric is similar to Forge (but not a fork) in the sense that it also supports mods. These mods can change practically any mechanic of the game. Fabric also has a great amount of optimization mods such as Lithium, Starlight, Phosphor etc. Take a look at [this list](https://github.com/NordicGamerFE/usefulmods)
 
 :::danger
 #### Any Jar that combines Plugins & Mods
@@ -56,16 +56,17 @@ Do not use any server software such as Magma or Mohist. These are generally unst
 
 ### Proxies
 
-Proxies are used to connect multiple Normal Servers (such as Spigot servers) together. It is used by servers which have multiple game-modes i.e. Survival, mini-games and Prison etc.
-
-#### [Waterfall](https://papermc.io/downloads#Waterfall)
-
-A fork of Bungeecord run by the Paper guys, Waterfall also supports most, if not all Bungeecord plugins. It also comes with a couple of networking optimizations. Probably the go-to jar for most people.
+Proxies are used to connect multiple regular servers (such as Paper servers) together. These are what power "networks" and are used by servers which have multiple gamemodes separated in their own subservers. I.E. Survival, Minigames, Prison, etc. all in one "server".
 
 #### [Velocity](https://papermc.io/downloads#Velocity)
 
-A more recent project, also run by the lads at Paper. Velocity uses it's own API and does not work with Bungeecord (Unless you use SNAP!, which allows you to use Bungeecord plugins on Velocity. Not recommended, though.) Velocity is pretty much a superior version of Bungeecord & Waterfall (unless you're hosting <1.13 servers.) However, most developers haven't bothered adding Velocity support to their plugins.
+A more recent project, now run by the Paper developers. Velocity uses its own API, meaning it does not work with Bungeecord / Waterfall (Unless you use [SNAP!](https://forums.papermc.io/threads/snap-run-bungeecord-plugins-on-velocity.31/), which allows you to use Bungeecord plugins on Velocity. Not recommended, though.)
 
+Velocity is practically superior to Bungeecord / Waterfall unless you're hosting <1.13 servers. However, many developers haven't added Velocity support to their plugins.
+
+#### [Waterfall](https://papermc.io/downloads#Waterfall)
+
+A fork of Bungeecord run by the Paper developers, Waterfall supports most if not all Bungeecord plugins. It also comes with a couple of networking optimizations.
 
 
 
