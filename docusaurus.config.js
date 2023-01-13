@@ -37,8 +37,25 @@ const config = {
       }),
     ],
   ],
-  
-  plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'guides',
+        path: 'guides',
+        routeBasePath: 'guides',
+        sidebarPath: require.resolve('./sidebars-guides.js'),
+        // ... other options
+      },
+    ],
+    [
+      '@cmfcmf/docusaurus-search-local',
+      {
+        language: "en",
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -144,7 +161,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                to: 'https://mcadm.in/github',
+                to: 'https://mcadm.in/repo',
               },
               {
                 label: 'Discord',
