@@ -154,6 +154,10 @@ const config = {
                 label: 'Content Guidelines',
                 to: 'https://setup.md/contribute',
               },
+              {
+                label: 'Sponsor via Github',
+                to: 'https://github.com/sponsors/setupmd'
+              }
             ],
           },
           {
