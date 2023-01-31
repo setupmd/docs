@@ -1,0 +1,293 @@
+---
+description: Learn how to setup a PXE boot environment and save time on all new VMs
+slug: /lab/maas
+title: MaaS
+---
+
+When it comes to your LAB spinning up and spinning down VMs becomes part of the job, the most common problem you'll face is deploying VM and finding out you have an old ISO that needs a multiple patches before it's fit for business. This is where MAAS or 'Machines as a Service' come in, it's a product developed by the Ubuntu team allows you to deploy a management environment for all of your network bootable devices. Right out of the box MAAS ensures your images remain up-to-date and periodically will fetch the latest ISOs from their respective download locations.
+
+Our environment will focus on Ubuntu deployments however MAAS can be used for multiple distros and even includes CentOS out of the box, using the Ubuntu Pro config tool you can provision nearly any operating system you can imagine.
+
+Before you begin it's important you have the following settings setup within your lab environment:
+
+- VLAN aware bridges
+- VLAN configured within pfSense
+
+### Requirements
+
+This first section can be skipped if you already use them in production environments.
+
+#### VLAN Aware bridge
+
+To configure a VLAN aware bridge, you will need to login to your Proxmox VE interface and select the 'PVE' node. From here select 'Settings' then 'Network'.
+
+:::info
+You now need to find your 'internal' Bridge adaptor, if you've followed our previous tutorials this will be vmbr1.
+:::
+
+- Select your internal network adaptor
+- Enable the 'VLAN aware' tickbox
+- Select 'OK'
+- Select 'Apply Configuration'
+
+It's recommended you now reboot the host(s) where you have made this change unless you want to re-create the vmbr1 adaptor on your current pfSense instance. This is because the VM is not aware of the change until the adaptor is 'physically' reset.
+
+#### Creating a VLAN in pfSense
+
+Now we have created our VLAN aware bridge it's important that we now create our VLAN within our virtual appliance.
+
+Login to your router appliance, from here select 'Interfaces'.
+
+- Select 'VLANS'
+- Select 'Add'
+- Complete the fields as required
+  - Parent Interface - 'vmbr1 - lan'
+  - VLAN Tag - '100'
+    - You do not need to define a priority as we only have one VLAN created.
+  - Description - 'PXE'
+- Select 'Interfaces'
+- Available Network Ports - {Select your created VLAN}
+- Select the newly created 'OPTX' interface 
+- Select 'Enable'
+- IPv4 Configuration - Static
+- Static IPv4 Configuration - '192.168.100.1' /24
+- Save changes
+
+#### Firewall Routes
+
+We now need to make a firewall rule to allow the traffic, you can spend the time to refine what traffic you wish to allow from VLAN 100 however for simplicity sake we will allow all traffic using the following steps.
+
+- Select 'Firewall'
+- Select 'Rules'
+- Select 'OPTX'
+- Select 'Add'
+- Complete the fields as required
+  - Action - Pass
+  - Interface - OPTX
+  - Address Family - IPv4
+  - Protocol - 'Any'
+  - Source - 'Any'
+  - Destination - 'Any'
+  - Description - 'Allow PXE'
+- Save the rule 
+
+Now our environment is prepared we can create a new VM.
+
+---
+
+### Creating MAAS VM
+
+Our deployment has the following specification:
+
+- 2 vCores
+- 2GB RAM
+- 32GB Storage 
+
+You should configure this VM in the same way the (jumpbox vm)[https://setup.md/guides/lab/vms#creating-the-vm-1] was configured in our previous guide.
+
+Once this has been created, power up the VM and complete the standard out of box setup process for Ubuntu ensuring the values are correct for your region. You should be able to press 'Next' on all of the settings as the installer is pretty good at determining defaults.
+
+:::note
+Because we have not configured pfSense to deliver DHCP for this VLAN you should set a static IP using the following settings.
+
+- Subnet - 192.168.100.0/24
+- Gateway - 192.168.100.1
+- IP Address - 192.168.100.2
+- Name Servers - 1.1.1.1, 1.0.0.1
+- Search Domain - {lab.local}
+:::
+
+Once the installer has completed you will need to reboot your VM and login using the credentials you configured during setup.
+
+:::danger
+From our personal testing you will not be able to create 1GB RAM VMs as they will run out of resources during device enrolment.
+:::
+
+#### Installing MAAS
+
+Now we're logged in and have a VM ready for installation we can install the MAAS snap package and test databases to quick start our deployment. If you decide to run this in high availability environments you can have multiple region and rack controllers installed separately compared to the combo install we're performing in this guide.
+
+It's recommended that you ensure all packages are updated before you install anything via snapd.
+
+You can check and install updates using the following command.
+
+```bash
+...
+
+sudo apt update && apt upgrade
+
+...
+```
+
+Next you'll be able to install MAAS via snap (this is the easiest way to get started).
+
+If you don't have snap installed you can use the following command
+
+```bash
+...
+
+sudo apt install snapd
+
+...
+```
+
+Now we can install MAAS using the latest non-beta build with the following command.
+
+```bash
+...
+
+sudo snap install --channel=3.2 maas
+
+...
+```
+
+Now we can deploy the demo database to get ourselves up and running, in a production environment where you need high availability you can configure MAAS to use a PSQL cluster.
+
+```bash
+...
+
+sudo snap install maas-test-db
+
+...
+```
+
+You can now run the database and ensure that the database is present with the following commands
+
+```bash
+...
+
+sudo maas-test-db.psql
+
+\l
+
+\q
+
+...
+```
+
+The next step is to initialise our rack+region combo device and our local database using the following command
+
+```bash
+...
+
+sudo maas init region+rack --database-uri maas-test-db:///
+
+...
+```
+
+You can press 'enter' on the default values, this may take a moment but once it's completed we will need to create our web ui user account, you can do this with the following command.
+
+You should note the MAAS service url, this should be http://192.168.100.2:5240/MAAAS if you used the same network settings we provided during the setup process. 
+
+```bash
+...
+
+sudo maas createadmin
+
+...
+```
+
+#### Configuring MAAS
+
+You will need to fill in all the fields except for importing ssh keys (this can be uploaded from within the panel manually).
+
+You can now open a browser and navigate to the MAAS service url and login with the account you just created.
+
+Within the UI you have few settings that need to be configured
+
+Complete the below fields as required
+
+- Region Name - {define own value}
+- DNS Forwarder - 1.1.1.1, 1.0.0.1
+- Leave Ubuntu archive and extra as default
+- Proxy Server - {only configure if you have on-prem proxy}
+
+Select 'Next'
+
+You can now define the versions of Ubuntu / CentOS you wish to keep up-to-date deployments of.
+
+Once you have synced your chosen Ubuntu images select 'continue' to finish the setup, here you can manually upload an SSH key if you haven't already done so.
+
+
+#### Configuring MAAS DHCP
+
+In order to get our VMs in VLAN 100 network booting we need to configure a few more settings.
+
+These settings are all configured within the 'Subnets' tab
+
+- Select 'VLAN'
+- Select 'Edit'
+- Complete the fields as required
+  - VID - 100
+  - NAME - PXE
+  - MTU - 1500
+  - Fabric - fabric-0
+- Select 'Save Summary'
+
+The next thing we need to is configure DHCP, you can press the 'Configure DHCP button' just below to configure this
+
+- Ensure 'MAAS provides DHCP' is ticked
+- Ensure maas.maas is your active rack controller (you can rename this later)
+- Configure a DHCP range `.100 - .200` should be sufficient
+- Ensure the Gateway IP is `192.168.100.1`
+
+Our MAAS environment should now be ready for our first PXE guest, let's create another VM in Proxmox but using a few different settings.
+
+- Select the blue 'Create VM' button
+- Complete the fields as required
+  - Node - PVE
+  - VM ID - {auto}
+  - NAME - {insert VM name}
+- Select 'Next'
+- Complete the fields as required
+  - Select 'Do not use any media'
+- System tab you can leave as default
+- Select 'Next'
+- Create a disk bigger than 8GB
+- Complete the fields as required
+  - Sockets - '1'
+  - Cores - '{user defined value}'
+  - Type - 'Host'
+- Select 'Next'
+- Memory use no less than 2GB
+- Select 'Next'
+- Complete the fields as required
+  - Bridge - vmbr1
+  - Firewall - Disabled
+  - VLAN Tag - 100
+  - Model - auto
+- Select 'Next'
+- Select 'Start after created'
+- Select 'Finish'
+
+The VM will now automatically start to boot into the MAAS PXE environment, if you refresh the UI you should see this server appear.
+
+This first boot is a device discovery task, MAAS uses this startup to learn about the VM / bare metal and when it's complete it will power itself down.
+
+Within the MAAS UI select the new VM and from the 'Take Action' button press 'Commission', if you're running a VM remove the `smartctl-validate` script as this will fail.
+
+Before you can press 'Start commissioning for machine' go to the 'Configuration' type and set the Power configuration to `Manual`.
+
+Once you've pressed 'Start commissioning' power the VM back online and it should resume it's enrolment process.
+
+:::info
+This may feel like it's more effort than just manually configuring a virtual machine however performing things via MAAS means you don't need to go through the process of creating multiple VMs you can instead recycle previous ones you no longer use (similar to a VPS control panel for a cloud service provider).
+:::
+
+Once this device is enrolled, it will shut down again. This is the final step before we can deploy the server for production.
+
+Select the green button once again but this time select 'Deploy', ensure you're happy with the selected defaults and press start deployment.
+
+You will need to power up the VM one more time and await for the VM to finish deploying.
+
+You can now SSH into your new VM using the IP found within the MAAS UI dashboard, an example command can be found below.
+
+```bash
+...
+
+ssh root@192.168.100.x -i \path\to\ssh.key
+
+...
+```
+
+
