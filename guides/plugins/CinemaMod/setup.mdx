@@ -1,0 +1,133 @@
+---
+slug: /CinemaMod/setup/
+description: A short guide on how to add the Dynamp plugin to your server and some basic configuration lines you should change. 
+sidebar_position: 2
+---
+# Setup
+
+---
+
+## Requirements
+
+- [WorldEdit](https://dev.bukkit.org/projects/worldedit/files)
+- [WorldGuard](https://dev.bukkit.org/projects/worldguard/files/3903109)
+- [ProtocolLib (Use Build 616 for 1.19.3)](https://ci.dmulloy2.net/job/ProtocolLib/)  
+- [CinemaMod Bukkit (Not latest version, instructions for building it from source provided)](https://github.com/CinemaMod/CinemaMod-Bukkit/releases/tag/1.2-SNAPSHOT)
+
+---
+
+
+## Step 1: Build the CinemaMod plugin from source
+
+:::info
+This step is optional if you don't mind using an old version, it will work with the old version provided
+:::
+
+You'll want to have git and maven installed in your computer for this.
+
+1. Open the terminal and run `git clone https://github.com/CinemaMod/CinemaMod`
+2. Go into the bukkit folder (`cd CinemaMod\bukkit` if you're on Windows, `cd CinemaMod/bukkit` if you're on Linux or MacOS)
+3. Build the plugin with maven by running `mvn clean install`
+4. You'll have a folder in the bukkit folder called target. Open it and you'll see the CinemaMod plugin jar, move it into the plugins folder
+
+## Step 2: Create the theatres
+
+ You'll want to know the coords of the screens. I recommend making the screens have a ratio of 16:9 (16 blocks lenght, 9 blocks height), so most videos will work with no issues. You can also make a preview screen, and the recommended size for it is 3 \* 2.
+
+   ![Screen](https://i.imgur.com/iac3hps.png)
+
+## Step 3: Setting up the WorldGuard regions
+
+After setting up the theatre, you'll want to grab a WorldEdit want (wooden axe), and select 2 corners that cover the entire theatre
+
+   ![Region selection](https://i.imgur.com/pEi1eE3.jpg)
+
+and then create a region with the command `/rg define (region name)`, I recommend putting the area of the theatre + theatre as the region name, so for example, if it's in a cave, use `cave_theatre`  
+as the region name and etcetera. This will determine who can hear and see the screen (within restrictions). If you don’t create a region, CinemaMod will auto-generate a temporary 200x200x64 region around the screen, as long you have that enabled in `config.yml`, which is probably a bit too big for you.
+
+The region isn’t the only deciding factor, in the current version, if you go out of a 64 block  
+radius of the screen location, the video stops rendering but audio still plays. Make sure to keep  
+your theater under a 64 block radius from the upper left corner of the screen.
+
+## Step 4: Getting theater info
+
+We need to get some info about the theatre before we can plug it into the config file, these thing are:
+
+* Coordinates of the upper left corner of your screen
+* Direction your screen will be facing
+* Width and height of your screen
+* World the screen is in (by default, this is `world`)
+
+### Finding coordinates of screen
+
+You can just use WorldEdit for this, just put a block in your top left corner, and left click it with the wand, you'll see a message with the coords of the block
+
+   ![Top Left](https://i.imgur.com/avn51wm.png)
+   ![Top left corner WE](https://i.imgur.com/6IP40w1.png)
+
+### Getting the direction of the screen
+
+To figure out the direction, look at the screen, as if you were watching it, then turn around backwards, open you F3 menu and look for Facing
+
+   ![Direction](https://i.imgur.com/8Jmm7iz.png)
+
+Then, you'll want to mark down the opposite direction (In this example, I have east, so I would put west), Input this in all capital letters
+
+### Finding Width and Height of screen
+
+We'll also use WorldEdit for this, since it's the easiest. Just put 3 blocks in each of the corners.
+
+   ![Screen Corners](https://i.imgur.com/Gdqmw5I.png)
+
+Measure the distance between A and B, that will be your lenght,
+
+   ![lenght](https://i.imgur.com/ydmzDLv.png)
+
+and measure the distance between B and C, that will be your height.
+
+   ![height](https://i.imgur.com/CjiZoAS.png)
+
+### Finding world of the screen
+
+Unless you're running Multiverse Core 2, this should be `world`, although if you're in the nether or end, it will be `world_nether` and `world_the_end` respectively
+
+## Step 5: Changing the configuration
+
+### Setting up YouTube support:
+
+If you want to play YouTube videos with CinemaMod, you'll need to get an API key. You can do that by:
+
+1. Going into the [Google Cloud page for the API](https://console.cloud.google.com/apis/library/youtube.googleapis.com)
+
+   ![Enable API](https://i.imgur.com/vaWX57m.png)
+
+1. Click on `Credentials`
+
+   ![Credentials menu](https://i.imgur.com/7BCDOQ1.png)
+
+1. Click on `Create Credentials` and then `API Key` .
+
+   ![Cloud credentials](https://i.imgur.com/BBmmAsy.png)
+
+After getting the API key, we need to input it in the `config.yml` of the plugin, where it says `youtube-data-api-key:`, it should be around the top.
+
+### Setting up the theatres:
+
+:::note
+If you join in a theater region while a video is playing, it may not play for you. To fix this just leave the theater region and walk back in. 
+:::
+
+After getting all the info in Step 5, we can just drop the dimensions and everything about the theatre in the config file, and change the name if you want. This would be the example config following the the examples in the screenshots
+
+   ![Theatre config](https://i.imgur.com/LIO8ZyO.png)
+
+And with that, you've finished! All that's left to do is restart the server, and that's it!
+
+   ![Bad Apple](https://i.imgur.com/LlkOSW0.png)
+
+The supported services are YouTube videos/streams, Twitch streams, and direct links to videos
+(For example, https://www.example.com/videos/test.mp4)  
+
+:::note
+If you are going to self-host videos, you must have SSL (https) certified link, and a publicly accessible server 
+:::
