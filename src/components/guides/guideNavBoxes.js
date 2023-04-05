@@ -17,6 +17,7 @@ const FeatureList = [
     title: 'Plugin Tutorials',
     items: [
       {url: "guides/dynmap", text: "Dynmap Configuration"},
+      {url: "guides/CinemaMod", text: "CinemaMod Configuration"},
     ]
   },
   {
