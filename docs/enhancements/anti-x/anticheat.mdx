@@ -71,6 +71,7 @@ This list consists common ACs and some pros and cons of each AC.
 ##### Cons
   - Currently WIP, not ready for production servers
   - Mediocre combat checks
+  - Quite unoptimized
 
 <div>
 <a class="button button--outline button--primary" href="https://github.com/MWHunter/Grim">Github</a>
@@ -97,13 +98,13 @@ This list consists common ACs and some pros and cons of each AC.
 
 ##### Pros
   - 14-day money-back guarantee
-  - Good Bedrock Checks. I wouldn't go as far as saying that you should auto-ban for violations, though.
+  - Good Bedrock Checks. I wouldn't go as far as saying that you should auto-ban for violations, though
   - Decent movement checks.
 
 ##### Cons
   - EUR 22.49
-  - Relatively poor combat checks.
-  - Resource hog - Probably best to not use it on servers which require good performance.
+  - Relatively poor combat checks
+  - Absolutely obliterates server performance, often eating >20% of the ticks when scaled to higher player counts. Do not use if you have a large server
 
 <div>
 <a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/25638/">Spigot</a>
@@ -131,11 +132,11 @@ This list consists common ACs and some pros and cons of each AC.
 
 ##### Pros
   - Free.
-  - Proper Geyser-Floodgate (Bedrock Players) checks. (Only reason to use this anti-cheat.)
+  - Proper Geyser-Floodgate (Bedrock Players) checks. (Only reason to use this anti-cheat)
 
 ##### Cons
   - Bad Combat & Mediocre Movement checks (Bad Elytra, Timer, KillAura Checks)
-  - Lack of checks in general.
+  - Lack of checks in general
 
 <div>
 <a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/themis-anti-cheat-1-17-1-18-bedrock-support-paper-compatibility-free-optimized.90766/">Spigot</a>
@@ -151,12 +152,12 @@ This anti-cheat is optimised for bedrock players.
 #### SoaromaSAC (Config 6)
 
 ##### Pros
-  - Free.
+  - Free
 
 ##### Cons
   - Bad Checks
   - Infinite False Positives
-  - Fake Open Source Link. Leads to a Rick Roll.
+  - Fake Open Source Link. Leads to a Rick Roll
 
 <div>
 <a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/">Spigot</a>
@@ -172,8 +173,8 @@ This anti-cheat is optimised for bedrock players.
   - v2 supports a lot of platforms (Minestom, Sponge, Fabric & more)
 
 ##### Cons
-  - Lacks some important checks. (No Elytra Checks, NoSlow Checks)
-  - Poor movement and combat checks.
+  - Lacks some important checks. (No Elytra Checks, NoSlow Checks etc)
+  - Poor movement and combat checks
 
 <div>
 <a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/48399/">Spigot</a>
@@ -189,7 +190,7 @@ This anti-cheat is optimised for bedrock players.
 
 ##### Cons
   - USD 30.00
-  - Poor timer checks
+  - Timer checks false incredibly often
 
 <div>
 <a class="button button--outline button--primary" href="https://astroac.cc/">Page</a>
@@ -204,7 +205,7 @@ This anti-cheat is optimised for bedrock players.
   - Good default config
 
 ##### Cons
-  - Monthly subscriptions starting at EUR 19.00/Mo.
+  - Monthly subscriptions starting at EUR 19.00/Mo
   - Player count limitations
   - Server instance limitations
   - Dedicated server limitations
@@ -212,3 +213,9 @@ This anti-cheat is optimised for bedrock players.
 <div>
 <a class="button button--outline button--primary" href="https://polar.top/#pricing">Page</a>
 </div>
+
+### Recommendations
+
+Personally, I recommend that you use Vulcan or Astro as your anti-cheat, as both perform quite well while being somewhat cheap. Astro will be a bit less resource-intensive, while Vulcan has slightly better checks & will be getting Geyser checks soon. If you're looking for a Geyser anti-cheat and don't mind poor performance (at larger player counts), consider using Spartan Bedrock Edition (or waiting for Vulcan V3).
+
+Remember, no anti-cheat is perfect. Players will be able to bypass anti-cheats, so we recommend having a moderator or two online to keep an eye out for any cheaters.
