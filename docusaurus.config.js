@@ -179,7 +179,7 @@ const config = {
       announcementBar: {
         id: 'support_us',
         content:
-          '📣 We have a temporary domain while we resolve an issue with setup.md and our registrar adding absurd fees onto our renewal.',
+          'setup.md is back in action 🎉',
         backgroundColor: '#fafbfc',
         textColor: '#091E42',
         isCloseable: true,
