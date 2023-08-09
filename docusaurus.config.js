@@ -179,7 +179,7 @@ const config = {
       announcementBar: {
         id: 'support_us',
         content:
-          'setup.md is back in action 🎉',
+          '🚨 Mojang updated the EULA, make sure you\'re familiar with the [changes](https://www.setup.md/eula).',
         backgroundColor: '#fafbfc',
         textColor: '#091E42',
         isCloseable: true,
