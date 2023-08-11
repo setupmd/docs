@@ -66,3 +66,6 @@ I recommend that you use AdvancedVanish instead of plugins like SuperVanish and 
 <div>
 <a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/advancedvanish.86036/">Spigot</a>
 </div>
+
+### Geyser
+To offload Geyser's performance impact on your Spigot/Proxy server, you can use Geyser Standalone. Worth it for servers that have a lot of bedrock players.
