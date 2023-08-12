@@ -1,6 +1,6 @@
 ---
 slug: /optimizing/basic
-title: Optimizing Checklist
+title: Basic Optimization Checklist
 description: Your checklist for improving server performance. 
 sidebar_position: 3
 ---
