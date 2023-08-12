@@ -26,6 +26,7 @@ const FeatureList = [
       {url: "guides/pterodactyl", text: "Pterodactyl Deployment"},
       {url: "guides/pufferpanel", text: "Pufferpanel Deployment"},
       {url: "guides/ssl", text: "SSL Configuration"},
+      {url: "guides/optimizing", text: "Server Optimization"},
     ]
   },
 ];
