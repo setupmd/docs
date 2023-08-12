@@ -1,12 +1,12 @@
 ---
-slug: /optimising
-title: Optimising Checklist
+slug: /optimizing/basic
+title: Optimizing Checklist
 description: Your checklist for improving server performance. 
 sidebar_position: 3
 ---
 
-# Optimising Your Server
-Optimising your server means to improve the performance of the server by implementing tweaks without heavily modifying desired mechanics. Over-optimisation is only recommended for large servers suffering from poor performance.
+# Optimizing Your Server
+optimizing your server means to improve the performance of the server by implementing tweaks without heavily modifying desired mechanics. Over-optimization is only recommended for large servers suffering from poor performance.
 
 ### Spark Profiler
 You should use the Spark Profiler for monitoring server performance e.g. vanilla mechanics, plugins, GC pauses and cycles, memory usage etc.
@@ -14,18 +14,18 @@ You should use the Spark Profiler for monitoring server performance e.g. vanilla
 ### Server JAR
 Pufferfish is currently the fastest, most stable free Paper fork available. Another alternative would be Purpur, which provides additional mechanics for players at the expensive of rather negligible performance loss against Pufferfish. Velocity is the best option for the proxy. Although it doesn't have as many plugins as Bungeecord, it is far more stable and secure by default. Most important plugins have already added support for Velocity.
 
-### Basic Optimisation
-The setup.md recommended optimisation guides have been linked below, keep in mind that these optimizations can heavily impact mechanics such as entity behavior, despawn ranges etc.
+### Basic optimization
+The setup.md recommended optimization guides have been linked below, keep in mind that these optimizations can heavily impact mechanics such as entity behavior, despawn ranges etc.
 
 <div>
-<a class="button button--outline button--primary" href="/e/anti-x/al#guides-to-optimisation">Guides</a>
+<a class="button button--outline button--primary" href="https://www.setup.md/guides/optimizing">Guides</a>
 </div>
 
-### Advanced Optimisation
+### Advanced Optimization
 This section covers plugins that you can modify/replace to improve performance. Only recommended at higher player counts.
 
 #### TAB
-The plugin author's optimisation guide is linked below.. The `anti-override` options are especially important as TAB's overriding is quite intensive. An additional config worth changing to false is `unlimited-nametag-mode`.
+The plugin author's optimization guide is linked below.. The `anti-override` options are especially important as TAB's overriding is quite intensive. An additional config worth changing to false is `unlimited-nametag-mode`.
 
 Regarding anti-override, first make sure that none of your plugins mess with the tablist or scoreboard other than TAB itself. Some common culprits might be BetterTeams, eGlow, Paper's collision rules and CMI. 
 
