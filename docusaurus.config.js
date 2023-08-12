@@ -165,11 +165,11 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                to: 'https://mcadm.in/repo',
+                to: 'https://github.com/setupmd',
               },
               {
                 label: 'Discord',
-                to: 'https://mcadm.in/discord',
+                to: 'https://discord.gg/pXaQgzneed',
               },
             ],
           },

@@ -7,7 +7,6 @@ const FeatureList = [
     title: 'Getting Started',
     icon: 'img/icons/getting-started.svg',
     items: [
-      {url: "discord", text: "Community Support"},
       {url: "t/server-software", text: "Server Jars"},
       {url: "h/hardware", text: "Hosting Hardware"},
       {url: "h/types", text: "Types of Hosting"},
@@ -34,11 +33,10 @@ const FeatureList = [
     items: [
       {url: "e/anti-x/ac", text: "Anti-Cheat"},
       {url: "e/anti-x/al", text: "Anti-Lag"},
-      {url: "e/eco/shop", text: "Shop Plugins"},
-      {url: "e/pl/essentialsx", text: "EssentialsX"},
-      {url: "e/pl/litebans", text: "Litebans"},
+      {url: "e/eco", text: "Economy"},
+      {url: "guides/optimising", text: "Optimisation"},
       {url: "e/perms", text: "Permissions"},
-
+      {url: "e/pl", text: "Plugin Recommendations"},
     ]
   },
   {
@@ -47,7 +45,6 @@ const FeatureList = [
     items: [
       {url: "https://discord.gg/WYYxXBRUwE", text: "Admincraft Discord"},
       {url: "https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md", text: "KennyTV's Signed Chat Gist"},
-      {url: "https://github.com/YouHaveTrouble/minecraft-optimization", text: "Config Optimisation Guide"},
       {url: "https://spark.lucko.me/docs/guides/Finding-lag-spikes", text: "Understanding Spark"},
       {url: "https://help.minecraft.net/hc/en-us/articles/4416199399693-Security-Vulnerability-in-Minecraft-Java-Edition", text: "Apache Log4J RCEs"},
       {url: "https://madelinemiller.dev/blog/root-minecraft-server/", text: "Never run as Root"},
