@@ -12,7 +12,7 @@ Optimising your server means to improve the performance of the server by impleme
 You should use the Spark Profiler for monitoring server performance e.g. vanilla mechanics, plugins, GC pauses and cycles, memory usage etc.
 
 ### Server JAR
-Pufferfish is currently the fastest, most stable free Paper fork available. Another alternative would be Purpur, which provides additional mechanics for players at the expensive of rather negligible performance loss against Pufferfish.
+Pufferfish is currently the fastest, most stable free Paper fork available. Another alternative would be Purpur, which provides additional mechanics for players at the expensive of rather negligible performance loss against Pufferfish. Velocity is the best option for the proxy. Although it doesn't have as many plugins as Bungeecord, it is far more stable and secure by default. Most important plugins have already added support for Velocity.
 
 ### Basic Optimisation
 The setup.md recommended optimisation guides have been linked below, keep in mind that these optimizations can heavily impact mechanics such as entity behavior, despawn ranges etc.
@@ -37,7 +37,7 @@ Finally, switch `anti-override` from true to false. If your tablist does not hav
 </div>
 
 #### ProtocolLib & it's Dependents
-It is recommended that you do not install ProtocolLib on larger servers, the reason being that it is not very well optimized. Lots of plugins also abuse ProtocolLib a lot, causing even worse performance. Examples are DeluxeCombat (If ProtocolLib hook is enabled) and InteractiveChat. 
+ProtocolLib is not very well optimized. Lots of plugins also abuse ProtocolLib a lot, causing even worse performance. Examples are DeluxeCombat (If ProtocolLib hook is enabled) and InteractiveChat. Removal has resulted in significantly better performance in all large servers.
 
 Consider finding alternatives to plugins that use ProtocolLib, or recode them to use PacketEvents.
 
@@ -56,11 +56,11 @@ ajLeaderboards is incredibly unstable and unoptimized. It is recommend to use Le
 </div>
 
 #### AntiCheat
-Vulcan as an anti-cheat does not scale well at higher player counts, where every last drop of performance matters. >1.6% ticks eaten at 350+ players is supoptimal. AstroAC on the other hand only eats 0.03% of ticks at 330 players while having checks that are around as good as Vulcan's. 
+Vulcan as an anti-cheat does not scale well at higher player counts, where every bit of performance matters. >1.6% ticks eaten at 350+ players is supoptimal. AstroAC on the other hand only eats 0.03% of ticks at 330 players while having checks that are around as good as Vulcan's. 
 
 Polar might also be worth it but the plugin has not had performance validated at scale.
 
-Spartan is an absolute no-go for even medium-sized servers. Performance is extremely poor and checks are subpar.
+Spartan is an absolute no-go for even medium-sized servers. Performance is extremely poor and checks are subpar, bedrock edition anti-cheat included.
 
 <div>
 <a class="button button--outline button--primary" href="https://astroac.cc/">Astro</a>
@@ -80,3 +80,15 @@ It is recommended to use AdvancedVanish instead of plugins like SuperVanish and 
 
 #### Geyser
 To offload Geyser's performance impact on your Spigot/Proxy server, you can use Geyser Standalone. Worth it for servers that have a lot of bedrock players.
+
+#### DiscordSRV
+If you are fine with losing a few features, consider replacing DiscordSRV with Essentials Discord as it isn't as bloated.
+
+#### Auction House Plugins
+zAuctionHouse is recommended as it runs the smoothest while also having the most features. PlayerAuctions is an alright alternative if you want a free plugin, but it's performance is marginally inferior.
+
+#### Stacking Plugins
+RoseStacker is currently the only stacking plugin which I can recommend. It's performance impact is <0.1% on a server with 400 players.
+
+#### WorldGuard
+WorldGuard allows you to prevent it from listening to certain events in it's configuration file. Could prove useful for very specific servers, but not something the average server should tinker with.
