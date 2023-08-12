@@ -11,7 +11,6 @@ If you're having trouble connecting to your Minecraft server there's a process y
 The first thing to check is that your server binds to the right port when you start it up, firstly you should see some errors in the console. This error will normally come from having two server processes running at the same time or you run an application on the same port as your Minecraft server.
 
 ```bash
-
 ... 
 
 **** FAILED TO BIND PORT! ****
@@ -19,7 +18,6 @@ The exception was: java.net.BindException: Address already in use
 Perhaps a server is already running on that port? 
 
 ... 
-
 ```
 
 You can fix this by going to the `server.properties` file and look for the `server-port` variable and increase the number by 1. When you restart the server you should see the server start up without issues.
@@ -68,3 +66,28 @@ The first thing we need to check is port forwarding is configured correctly, you
 It might not be possible to reach your external IP from inside your own network so a tool like <a href="https://portchecker.co/canyouseeme">canyouseeme</a> can help check the port 25565 from an external source.
 
 If all has been successful you should see 'OPEN' in green letters, if you still see a 'CLOSED' in red letters it could be possible you're running behind CGNAT. You can find a great explanation on CGNAT <a href="./ip#cg-nat">here</a>.
+
+---
+
+### SRV Troubleshooting
+
+Since release 1.3 Minecraft supports a method of connectivity called 'SRV' Record, in principle they allow you to bind a hostname such as `play.mycoolserver.net` to an ip and a random port. The difference when using an SRV record over an A record is if you have a non standard port e.g. 25570 for your Minecraft server an A record would require you to type `play.mycoolserver.net:25570` into your client.
+
+In using an SRV record you bind the hostname and the service you're running (a Minecraft server) to the specific port so when you go to your client you would only have to type `play.mycoolserver.net` into your client and the SRV record would tell your client "hey use this port".
+
+Sometimes an end user may be using a DNS provider that doesn't support SRV records, any issues they have with connectivity can be resolved by changing their local DNS to a free public resolver such as:
+
+- Quad9: 9.9.9.9
+- Cloudflare: 1.1.1.1
+- Google: 8.8.8.8
+
+When you create the record you should ensure it's configured as follows:
+
+`_minecraft._tcp.<host> <TTL> IN SRV 1 1 <port> <subdomain>`
+
+<ul>
+  <li><strong>host</strong> - this should be your current providers connection hostname</li>
+  <li><strong>TTL</strong> - set this to auto if using Cloudflare DNS or 3600 in any other dns providers panel</li>
+  <li><strong>port</strong> - this should be the port you're currently using to connect to your server with</li>
+  <li><strong>subdomain</strong> - this should represent what you want your players to connect with</li>
+</ul>
