@@ -176,14 +176,14 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} setup.md  All rights reserved.`,
       },
-      announcementBar: {
-        id: 'support_us',
-        content:
-          '🚨 Mojang updated the EULA, make sure you\'re familiar with the [changes](https://www.setup.md/eula).',
-        backgroundColor: '#fafbfc',
-        textColor: '#091E42',
-        isCloseable: true,
-      },
+      //announcementBar: {
+      //  id: 'support_us',
+      //  content:
+      //    '🚨 Mojang updated the EULA, make sure you\'re familiar with the [changes](https://www.setup.md/eula).',
+      //  backgroundColor: '#fafbfc',
+      //  textColor: '#091E42',
+      //  isCloseable: false,
+      //},
       prism: {
         theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
