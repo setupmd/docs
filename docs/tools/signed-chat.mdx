@@ -102,8 +102,6 @@ Joining a server with `enforce-secure-profile=true` on a client with No Chat Rep
 
 FreedomChat effectively serves the same purpose as No Chat Reports would on a modded server, it converts player chat messages to system messages at the packet level, making them once again non-reportable by players.
 
-<strong>This is the de facto standard for disabling player chat reporting on Spigot+ servers as it is perfectly compatible with tested chat plugins.</strong>
-
 <div>
 <a class="button button--outline button--primary" href="https://modrinth.com/mod/freedomchat">Modrinth</a>
 </div>
@@ -111,8 +109,6 @@ FreedomChat effectively serves the same purpose as No Chat Reports would on a mo
 ##### AntiPopup
 
 While this plugin works, manual setup is required - the command `/antipopup setup` must be ran in console unless `enforce-secure-profile` is set to `false` already.  
-
-This plugin also has a tendency to spew warnings in console, and is not guaranteed to be compatible with some chat plugins
 
 <div>
 <a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/%E2%9C%A8-antipopup-no-chat-reports-and-popup-%E2%9C%A8.103782/">SpigotMC</a>
@@ -125,3 +121,9 @@ This plugin works by removing signed information from commands and messages sent
 <div>
 <a class="button button--outline button--primary" href="https://github.com/4drian3d/UnSignedVelocity">GitHub</a>
 </div>
+
+:::caution
+
+All of the above plugins could give you issues with the recent EULA changes as of Aug 2023, the above plugins are no-longer considered endorsed by setup.md.
+
+:::
