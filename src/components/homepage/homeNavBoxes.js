@@ -34,7 +34,7 @@ const FeatureList = [
       {url: "e/anti-x/ac", text: "Anti-Cheat"},
       {url: "e/anti-x/al", text: "Anti-Lag"},
       {url: "e/eco", text: "Economy"},
-      {url: "guides/optimising", text: "Optimisation"},
+      {url: "guides/optimizing", text: "Optimisation"},
       {url: "e/perms", text: "Permissions"},
       {url: "e/pl", text: "Plugin Recommendations"},
     ]
