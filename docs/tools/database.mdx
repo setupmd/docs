@@ -13,11 +13,29 @@ Databases are used for centralised storage with unrestricted limitations to read
 
 ---
 
+### Common database types
+
+If you're hosting a server the most common types of databases you'll be interacting with are 'SQL' based. This will most likely be one of the following solutions:
+
+- MySQL (Legacy project)
+- MariaDB (Modern MySQL fork)
+- MSSQL (The Microsoft edition of MySQL)
+
+From an end user perspective all database types will produce a `.sql` file when exported and can be maintained through a common interface like phpMyAdmin, Adminer or MySQL Workbench. 
+
+:::tip
+
+You should also be able to move your databases between all three without any major difficulties but this may depend on implementation
+:::
+
+---
+
 ### When to use a database
 
 In a Minecraft environment you're most likely going to come across databases in a 'Network' environment e.g. when you're using a tool such as ['Velocity'](/t/server-software#velocity), or ['Bungee'](/t/server-software#bungeecord), this will allow you to share information between your backend servers and have one consistent dataset e.g. economy balances, synced ranks and permissions etc just to name a few examples. 
-If you're running a server with a hosting provider they too will most likely give you the ability to create databases for your plugin data as this gives them greater availability and performance at scale.
+
+If you're running a server with a hosting provider they too will most likely give you the ability to create databases for your plugin data, if you're limited on local disk space using SQL for plugin data may off-lift some local capacity constraints.
 
 :::info 
-If you're looking to deploy your own Private SQL instance, it's recommended to follow this tutorial from the [Digital Ocean community forums](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-22-04) that covers installation, configuration and securing your instance 
+If you're looking to deploy your own Private SQL instance, you can follow a tutorial such as the one on the [Digital Ocean community forums](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-22-04) that covers installation, configuration and securing your instance.
 :::
