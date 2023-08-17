@@ -33,7 +33,11 @@ A fork of Paper which provides numerous gameplay-enhancing features without havi
 
 A fork of Paper which groups nearby loaded chunks to form an "independent region." Each independent region has its own tick loop, which is ticked at the regular Minecraft tickrate (20TPS). The tick loops are executed on a thread pool in parallel. There is no main thread anymore, as each region effectively has its own "main thread" that executes the entire tick loop.
 
-Yes, Folia is relatively usable. Do you need to use it? Highly unlikely. Can you use it? Probably. Will a good chunk of your plugins break? Definitely. Solutions to said plugin breakages are probably not too complicated, though. Only recommended for very large servers that are vanilla/semi-vanilla, have a beefy enough CPU and enough threads as well. If you do end up using it, make sure to test it thoroughly. Every command and feature should be tested.
+:::warn
+#### Yes, Folia is relatively usable.
+
+Do you need to use it? Highly unlikely. Can you use it? Probably. Will a good chunk of your plugins break? Definitely. Solutions to said plugin breakages are probably not too complicated, though. Only recommended for very large servers that are vanilla/semi-vanilla, have a beefy enough CPU and enough threads as well. If you do end up using it, make sure to test it thoroughly. Every command and feature should be tested.
+:::
 
 #### Legacy 1.8 Jars
 
