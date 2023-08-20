@@ -4,29 +4,26 @@ import styles from './guideNavBoxes.module.css';
 
 const FeatureList = [
   {
-    title: 'Infrastructure Tutorials',
+    title: 'Categories',
     items: [
-      {url: "guides/self-host/docker", text: "Deploy using Docker"},
-      {url: "guides/oracle-cloud", text: "Deploy with Oracle Cloud"},
-      {url: "guides/self-host/win", text: "Deploy using Windows"},
-      {url: "guides/lab/monitoring", text: "Monitoring your server"},
-      {url: "guides/lab/hardening", text: "Securing your infrastructure"},
+      {url: "guides/cloud", text: "Cloud Deployments"},
+      {url: "guides/panels", text: "Control Panels"},
+      {url: "guides/optimisation", text: "Minecraft Optimisation"},
+      {url: "guides/plugins", text: "Minecraft Plugins"},
+      {url: "guides/self-host", text: "Self Hosting"},
+      {url: "guides/service", text: "Additional Services"},
     ]
   },
   {
-    title: 'Plugin Tutorials',
+    title: 'Featured',
     items: [
-      {url: "guides/dynmap", text: "Dynmap Configuration"},
-      {url: "guides/CinemaMod", text: "CinemaMod Configuration"},
-    ]
-  },
-  {
-    title: 'Service Tutorials',
-    items: [
-      {url: "guides/pterodactyl", text: "Pterodactyl Deployment"},
-      {url: "guides/pufferpanel", text: "Pufferpanel Deployment"},
-      {url: "guides/ssl", text: "SSL Configuration"},
-      {url: "guides/optimizing", text: "Server Optimization"},
+      {url: "guides/oracle-cloud", text: "Deploy a server in Oracle Cloud"},
+      {url: "guides/lab/hardening", text: "Hardening Servers"},
+      {url: "guides/ssl/tools", text: "HTTPS Everywhere!"},
+      {url: "guides/lab", text: "OVH Lab"},
+      {url: "guides/optimisation", text: "Optimisation 101"},
+      {url: "guides/pterodactyl/panel", text: "Pterodactyl Deployment"},
+      {url: "guides/dynmap/proxy", text: "Proxying Dynmap"},
     ]
   },
 ];
@@ -42,7 +39,7 @@ function Feature({title, icon, items }) {
 
 
   return (
-    <article className={clsx('col col--3')}>
+    <article className={clsx('col col--2')}>
       <div className={styles.homecard}>
         <br/>
         <h2>{title}</h2>

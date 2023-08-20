@@ -78,18 +78,8 @@ const config = {
           },
           {
             label: 'Guides',
-            to: 'guides',
+            to: '/guides',
             position: 'left'
-          },
-          {
-            label: 'FAQs',
-            to: 'faqs',
-            position: 'left',
-          },
-          {
-            label: 'Contribute',
-            to: 'contribute',
-            position: 'left',
           },
           {
             href: 'https://github.com/setupmd/docs',
@@ -102,7 +92,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Documentation',
+            title: 'Docs',
             items: [
               {
                 label: 'Enhancements',
@@ -123,36 +113,40 @@ const config = {
             ],
           },
           {
-            title: 'Complete Guides',
+            title: 'Guides',
             items: [
               {
-                label: 'Cloud Deployments',
+                label: 'Cloud',
                 to: '/guides/cloud',
               },
               {
-                label: 'Plugin Configurations',
-                to: '/guides/plugins',
+                label: 'Minecraft',
+                to: '/guides/minecraft',
               },
               {
-                label: 'Self Hosting',
+                label: 'Self-Hosting',
                 to: '/guides/self-host',
               },
               {
-                label: 'Service Tutorials',
+                label: 'Services',
                 to: '/guides/service',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'PROJECT',
             items: [
               {
-                label: 'Become a Contributor',
-                to: 'https://github.com/setupmd/.github/blob/master/CONTRIBUTING.md',
+                label: 'Affiliated Services',
+                to: '/affiliates',
               },
               {
-                label: 'Content Guidelines',
-                to: 'https://setup.md/contribute',
+                label: 'Contribution Guidelines',
+                to: '/contribute',
+              },
+              {
+                label: 'Frequent Questions',
+                to: '/faq',
               },
               {
                 label: 'Sponsor via Github',
@@ -161,11 +155,11 @@ const config = {
             ],
           },
           {
-            title: 'Social Links',
+            title: 'Social',
             items: [
               {
-                label: 'GitHub',
-                to: 'https://github.com/setupmd',
+                label: 'GitHub Repo',
+                to: 'https://github.com/setupmd/docs',
               },
               {
                 label: 'Discord',
