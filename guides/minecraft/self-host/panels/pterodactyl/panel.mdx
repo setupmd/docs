@@ -2,13 +2,12 @@
 slug: /pterodactyl/panel
 description: A short guide based on Ubuntu for how to deploy the Pterodactyl web panel.
 sidebar_position: 2
+title: Panel
 ---
 
 # Panel Deployment
 
-This guide is based on Pterodactyl's own [documentation](https://pterodactyl.io/panel/1.0/getting_started.html)
-
-This guide assumes that you have the following, for further assistance consult the setup.md [Discord server](https://discord.gg/pXaQgzneed)  
+This guide is based on Pterodactyl's own [documentation](https://pterodactyl.io/panel/1.0/getting_started.html). This guide also assumes that you have the following, for further assistance consult the setup.md [Discord server](https://discord.gg/pXaQgzneed).  
 
 ### You Will Need
 * An Ubuntu server with root access - this tutorial assumes that the panel and Wings are running on the same machine.
@@ -29,7 +28,7 @@ PHP 8.1, MariaDB and Nginx will be used as the server stack.
 
 The following packages are required for the panel to work
 
-* PHP >=7.4 with the following extensions: `cli`, `openssl`, `gd`, `mysql`, `PDO`, `mbstring`, `tokenizer`, `bcmath`, `xml` or `dom`, `curl`, `zip`, `fpm`
+* PHP >=8.0 with the following extensions: `cli`, `openssl`, `gd`, `mysql`, `PDO`, `mbstring`, `tokenizer`, `bcmath`, `xml` or `dom`, `curl`, `zip`, `fpm`
 * MySQL >=5.7.22 (8 recommended) or **MariaDB >=10.2**
 * Redis
 * A web server e.g Apache, **Nginx**, Caddy
@@ -42,6 +41,8 @@ The following packages are required for the panel to work
 Installing them are easy!
 
 ```bash
+...
+
 # Add "add-apt-repository" command
 apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
 
@@ -57,6 +58,8 @@ apt update
 
 # Install dependencies
 apt -y install php8.1 php8.1-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
+
+...
 ```
 
 #### Downloading the Panel
@@ -64,22 +67,33 @@ apt -y install php8.1 php8.1-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,z
 Next, we need to download the latest version of the panel. Create the directory that the web server will use as the root for the panel.
 
 ```bash
+...
+
 mkdir -p /var/www/pterodactyl
 cd /var/www/pterodactyl
+
+...
 ```
 
 Use cURL to download the latest version of the panel and extract it. Make sure to set the appropriate permissions for the `storage` and `bootstrap/cache` directories
 
 ```bash
+...
+
 curl -sL https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz | tar -xzv
 chmod -R +x storage/* bootstrap/cache/
+
+...
 ```
 
-#### Configuring the Panel Core
+---
+
+### Configuring the Panel
 
 Set up a database and user with permissions for the panel to access. For more detailed instruction, see [this guide](https://pterodactyl.io/tutorials/mysql_setup.html).
 
 ```sql
+...
 
 $ mysql -u root -p
 
@@ -87,36 +101,50 @@ CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY '<password>';
 CREATE DATABASE panel;
 GRANT ALL PRIVILEGES ON panel.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
 exit
+
+...
 ```
 
 Optionally, if you want to configure the database for remote access, open your my.cnf file (typically in /etc/mysql) and add the following:
-```
+```yaml
+...
+
 [mysqld]
 bind-address=0.0.0.0
+
+...
 ```
 
 Enable the example .env file, install Composer dependencies and generate an application encryption key using artisan
 
 ```bash
+...
+
 cp .env.example .env
 composer install --no-dev --optimize-autoloader
 
 # Do not run this command if there already is existing panel data in the database
 php artisan key:generate --force
+
+...
 ```
 
-**Make sure to back up your encryption key (APP_KEY in .env) somewhere safe - if you lose it, you no longer have access to any encrypted data**
+:::note
+Make sure to back up your encryption key (APP_KEY in .env) somewhere safe - if you lose it, you no longer have access to any encrypted data
+:::
 
 #### Configuring the Environment
 
 All it takes to configure the environment of the panel is a few more artisan commands
 
 ```bash
+...
+
 php artisan p:environment:setup
 php artisan p:environment:database
+php artisan p:environment:smtp
 
-# To use PHP's internal mail sending (not recommended), select "mail". To use a custom SMTP server, select "smtp".
-php artisan p:environment:(mail|smtp)
+...
 ```
 
 #### Filling the Database
@@ -125,7 +153,11 @@ This command will fill the database with all required data for the panel - inclu
 **Do not exit this process until it is completed.**
 
 ```bash
+...
+
 php artisan migrate --seed --force
+
+...
 ```
 
 #### Creating the Administrator User
@@ -133,8 +165,16 @@ php artisan migrate --seed --force
 Run this interactive command to create an administrator user so you can log in to the panel.  
 Passwords must be 8 characters, mixed case and have at least one number
 ```bash
+...
+
 php artisan p:user:make
+
+...
 ```
+
+---
+
+### Service Configuration
 
 #### Queue Listeners
 
@@ -145,7 +185,11 @@ Pterodactyl uses queues to improve speed and handle background tasks. You'll nee
 Add the following entry to your root crontab by opening `sudo crontab -e`
 
 ```
+...
+
 * * * * * php /var/www/pterodactyl/artisan schedule:run >> /dev/null 2>&1
+
+...
 ```
 
 #### Systemd Service
@@ -153,6 +197,8 @@ Add the following entry to your root crontab by opening `sudo crontab -e`
 To run your queue processes in the background, set up a systemd service
 
 ```
+...
+
 # /etc/systemd/system/pteroq.service
 # Pterodactyl Queue Worker File
 # ----------------------------------
@@ -174,32 +220,51 @@ RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
+
+...
 ```
 
 Enable the services so they start on boot with the following commands:
 
 ```bash
+...
+
 systemctl enable --now redis-server
 systemctl restart pteroq
+
+...
 ```
 
-## Configuring the Web Server
+---
 
-This part assumes we are using Nginx with SSL enabled. To generate SSL certificates, we need to use certbot:
+### Configuring NGINX
+
+This part assumes we are using Nginx with SSL enabled. To generate SSL certificates, we will be using ZeroSSL:
 ```bash
+...
+
 sudo ufw allow 'Nginx Full' # allow 80 and 443 connections
 
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot certonly --nginx -d panel.example.com
+sudo bash <(curl -s https://zerossl.com/get-zerosslbot.sh)
+sudo zerossl-bot --nginx -m me@example.com -d pterodactyl.example.com
+
+...
 ```
 
 To automatically renew your certificates, create another cron job:
 ```
+...
+
 0 23 * * * certbot renew --quiet --deploy-hook "systemctl restart nginx"
+
+...
 ```
 
 Create the following nginx configuration file in /etc/nginx/sites-available/pterodactyl, replacing `panel.example.com` with your own:
 ```nginx
+...
+
 server_tokens off;
 
 server {
@@ -266,13 +331,19 @@ server {
         deny all;
     }
 }
+
+...
 ```
 
 Enable it with the following commands:
 
 ```bash
+...
+
 sudo ln -s /etc/nginx/sites-available/pterodactyl.conf /etc/nginx/sites-enabled/pterodactyl.conf
 sudo systemctl restart nginx
+
+...
 ```
 
 Congratulations! Pterodactyl Panel should now be configured! The next step is to configure Wings, the backend used for interacting with servers.
