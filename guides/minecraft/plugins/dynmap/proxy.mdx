@@ -1,69 +1,97 @@
 ---
 slug: /dynmap/proxy
-description: A short guide on how to configure a Nginx proxy with the Dynmap web-server.
+description: Deploy a Caddy webserver and automate SSL deployment in only a few minutes.
 sidebar_position: 3
+title: Caddy Setup
 ---
-
-# Proxying Dynmap with Nginx
 
 This tutorial covers how to proxy your Dynmap server behind Nginx with a free SSL certificate from Let's Encrypt installed
 
-### You Will Need
+### Requirements
 
-* A Minecraft server with Dynmap installed - see the previous page
-* Root access to your proxy server
+* A Minecraft server with Dynmap configured
+* A VPS with atleast Ubuntu 22.04 deployed
+* A [ZeroSSL account](https://zerossl.com/?fpr=setupmd) (Optional)
+* Root access to the aforementioned VPS
 
-:::info
-This tutorial assumes we are using Ubuntu 22.04 as the server OS and UFW as our firewall. Let's get started!
-:::
+If you haven't got access to the above, you should consult your service providers.
 
 ---
 
-### Reverse Proxy Setup
+### Caddy Deployment
 
-#### Installing Nginx
+#### Installation
 
-First off, we need to install Nginx, Certbot and allow HTTP access
+First off, we need to install Caddy and add allow rules for both HTTP and HTTPS traffic to the UFW firewall.
 
 ```
-cobalt@proxy-server:~$ sudo apt update && sudo apt install nginx python3-certbot-nginx ufw -y
 ...
-cobalt@proxy-server:~$ sudo ufw allow 'Nginx Full' && sudo ufw enable
+
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update && sudo apt install caddy
+sudo ufw allow http
+sudo ufw allow https
+
+...
 ```
 
+#### Generate ZeroSSL API Keys (Optional)
 
-#### Configuration File
+This step is optiona if you don't want to use ZeroSSL as you're provider. If you chose not to use ZeroSSL your certs will be deployed via LetsEncrypt however support for Google Trust Services can also be configured.
 
-Below is an example configuration file. Edit it and save it as `/etc/nginx/sites-available/dynmap`
-```nginx
-# /etc/nginx/sites-available/dynmap
-server {
-  server_name map.yourdomain.com # change me
-  listen 80;
-  location / {
-    proxy_pass http://localhost:8123/; # change me
-    proxy_set_header Host $http_host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  }
+You can go to the [ZeroSSL developer console](https://app.zerossl.com/developer) and select 'Generate' under 'EAB Credentials'.
+
+
+#### Caddyfile Config
+
+Below is an example configuration file. Edit it and save it as `/etc/caddy/Caddyfile`
+
+```yaml
+...
+
+# Define ACME credentials (Optional but required for ZeroSSL)
+{
+        acme_ca https://acme.zerossl.com/v2/DV90
+        acme_eab {
+                key_id <yourAPIkey>
+                mac_key <yourMACkey>
+        }
 }
+
+# Required for all deployments
+map.mydomain.com {
+        reverse_proxy http://<dynmapIP>:<dynmapPort>
+}
+
+...
 ```
 
-Enable the site and restart Nginx:
+To enable the site run the following command
+
 ```bash
-cobalt@proxy-server:~$ sudo ln -s /etc/nginx/sites-available/dynmap /etc/nginx/sites-enabled/dynmap
-cobalt@proxy-server:~$ sudo systemctl restart nginx
+...
+
+caddy reload
+
+...
+```
+
+If you get an error with formatting you should run the following command and then re-run the reload command.
+
+```bash
+...
+
+sudo caddy fmt --overwrite
+
+...
 ```
 
 ---
 
-### SSL Certificate Deployment
+### Testing Configuration
 
-We should be able to access our proxied map: type `http://map.yourdomain.com` into your web browser - if the Dynmap webpage shows up then huzzah!  
-Now all we need to do is set up an SSL certificate to secure our Dynmap - it's easy as 1, 2, 3!
-```bash
-cobalt@proxy-server:~$ sudo certbot --nginx --agree-tos --no-eff-email -m johndoe@example.com -d map.yourdomain.com
-...
-```
-With that, you should be done! Just to be sure, restart Nginx to apply the configuration changes.  
-Now we should be able to access our secured Dynmap - type `https://map.yourdomain.com` into your web browser - if no SSL errors show up and the padlock is present in the URL bar, then you're all done!
+If you're using ZeroSSL you should check you see a provisioned SSL certificate under you account dashboard, when you select 'Certificates' > 'Issued' it will be marked as a 'Certificate' and not '90-Day SSL'.
+
+All users should be able to use https://map.mydomain.com, if you're not using the ACME setup within
