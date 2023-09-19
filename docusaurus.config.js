@@ -17,13 +17,13 @@ const config = {
   projectName: 'docs',
   trailingSlash: false,
 
-  scripts: [
-    {
-      src: '//acscdn.com/script/atg.js',
-      async: true,
-      czid: 'tg0dfcvves',
-    },
-  ],
+  //scripts: [
+  //  {
+  //    src: '//acscdn.com/script/atg.js',
+  //    async: true,
+  //    czid: 'tg0dfcvves',
+  //  },
+  //],
 
   presets: [
     [
