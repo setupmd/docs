@@ -13,9 +13,17 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'setupmd', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'setupmd',
+  projectName: 'docs',
   trailingSlash: false,
+
+  scripts: [
+    {
+      src: '//acscdn.com/script/atg.js',
+      async: true,
+      czid: 'tg0dfcvves',
+    },
+  ],
 
   presets: [
     [
@@ -27,8 +35,6 @@ const config = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars-home.js'),
           breadcrumbs: false,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/setupmd/docs/tree/v2/',
         },
         theme: {
@@ -65,7 +71,6 @@ const config = {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        // title: 'My Site',
         logo: {
           alt: 'setup.md Logo',
           src: 'img/logo.png',
@@ -170,14 +175,14 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} setup.md  All rights reserved.`,
       },
-      //announcementBar: {
-      //  id: 'support_us',
-      //  content:
-      //    '🚨 Mojang updated the EULA, make sure you\'re familiar with the [changes](https://www.setup.md/eula).',
-      //  backgroundColor: '#fafbfc',
-      //  textColor: '#091E42',
-      //  isCloseable: false,
-      //},
+      announcementBar: {
+        id: 'support_us',
+        content:
+          'We are experimenting with non-intrusive ads to support the upkeep for setup.md. Please submit feedback via our Discord server.',
+        backgroundColor: '#fafbfc',
+        textColor: '#091E42',
+        isCloseable: true,
+      },
       prism: {
         theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
