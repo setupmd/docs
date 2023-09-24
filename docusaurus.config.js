@@ -178,10 +178,10 @@ const config = {
       announcementBar: {
         id: 'support_us',
         content:
-          'We are experimenting with non-intrusive ads to support the upkeep for setup.md. Please submit feedback via our Discord server.',
+          'Get yourself a FREE minecraft server today using the following link: https://setup.md/freeserver',
         backgroundColor: '#fafbfc',
         textColor: '#091E42',
-        isCloseable: true,
+        isCloseable: false,
       },
       prism: {
         theme: darkCodeTheme,
