@@ -151,7 +151,7 @@ const config = {
               },
               {
                 label: 'Frequent Questions',
-                to: '/faq',
+                to: '/faqs',
               },
               {
                 label: 'Sponsor via Github',
