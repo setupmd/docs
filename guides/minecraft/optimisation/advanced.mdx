@@ -38,7 +38,9 @@ Citizens often eats up >5% of ticks on larger servers. It is recommended that yo
 ---
 
 #### ajLeaderboards
-ajLeaderboards is incredibly unstable and unoptimised. It is recommend to use LeaderHeadsRevamped instead. Although it has not received an update in a while, it still functions as expected. Support however might be limited.
+Although ajLeaderboards has seen great optimization patches in recent times, it is still a tad laggier than it really should be. We recommend LeaderHeadsRevamped instead. Yes, LHR still works perfectly even though it lacks updates.
+
+If you insist on using ajLeaderboards, make sure `register-lp-contexts` is set to false.
 
 <div>
 <a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/leaderheads.2079/">Spigot</a>
@@ -47,7 +49,7 @@ ajLeaderboards is incredibly unstable and unoptimised. It is recommend to use Le
 ---
 
 #### AntiCheat
-Vulcan as an anti-cheat does not scale well at higher player counts, where every bit of performance matters. >1.6% ticks eaten at 350+ players is supoptimal. AstroAC on the other hand only eats 0.03% of ticks at 330 players while having checks that are around as good as Vulcan's. 
+Vulcan as an anti-cheat does not scale well at higher player counts, where every bit of performance matters. >1.6% ticks eaten at 350+ players is supoptimal. AstroAC on the other hand only eats 0.03% of ticks at 330 players while having checks that are almost as good as Vulcan's. 
 
 Polar might also be worth it but we have yet to check it's performance at higher player counts
 
@@ -82,7 +84,7 @@ To offload Geyser's performance impact on your Spigot/Proxy server, you can use 
 If you are fine with losing a few features, consider replacing DiscordSRV with Essentials Discord as it isn't as bloated.
 
 #### Auction House Plugins
-zAuctionHouse is recommended as it runs the smoothest while also having the most features. PlayerAuctions is an alright alternative if you want a free plugin, but it's performance is marginally inferior.
+zAuctionHouse is recommended as it runs the smoothest while also having the most features. PlayerAuctions is an alright alternative if you want a free plugin, but it's performance is marginally inferior. Consider enabling zAuctionHouse's cacheItems setting as well.
 
 #### Stacking Plugins
 Stacking plugins can be very detrimental to server performance depending on their implementations and configurations. RoseStacker is the best we've used thus far, but might end up lagging the server a bit more than if you didn't have it installed.
