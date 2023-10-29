@@ -7,6 +7,54 @@ Sometimes you can have issues at the first hurdle, getting your server to boot. 
 
 ### Missing PATH variable
 
+Depending on the OS you're running there are multiple ways to set the ENV / PATH location to call upon the java executable.
+
+#### Windows 
+
+If you're on windows this can be done entirely via the UI however some steps maybe slightly different depending on your Windows release. Below are steps based on Windows 11.
+
+- Navigate to `c:\program files\java` and identify the JDK version folder name e.g. `jdk-19`.
+- Open the bin folder within the JDK folder and copy the full folder path from file explorer.
+- Select the Windows icon open the start menu and go to 'Settings'
+- Select the 'System' tab on the left hand side and go to the 'About' menu
+- Open 'Advanced System Settings'
+- Select the 'Advanced' tab
+- Select 'Environment Variables'
+- Under 'System Variables' scroll down until you see 'Path'
+- Select 'Edit'
+- Now select 'New' and paste in the file explorer path you copied earlier
+- Press 'OK' to save changes
+
+You can verify the above steps have worked as expected by running the following command in a command prompt window.
+
+`java --version` or `javac`
+
+#### MacOS
+
+If you're running MacOS there's two different commands you could possibly run, the first (bash) is more for older devices and the latter (zsh) is for anything running Catalina or newer.
+
+##### Bash Command 
+
+```bash
+...
+
+echo export "JAVA_HOME=\$(/usr/libexec/java_home)" >> ~/.bash_profile
+exec bash -l
+
+...
+```
+
+##### ZSH Command
+
+```bash
+...
+
+echo export "JAVA_HOME=\$(/usr/libexec/java_home)" >> ~/.zshrc
+exec zsh -l
+
+...
+```
+
 --- 
 
 ### Memory allocation

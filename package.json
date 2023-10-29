@@ -1,6 +1,6 @@
 {
   "name": "setupmd-docs",
-  "version": "2.4.1",
+  "version": "2.4.3",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -15,9 +15,9 @@
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "0.11.0",
-    "@docusaurus/core": "2.4.1",
-    "@docusaurus/preset-classic": "2.4.1",
-    "@docusaurus/theme-search-algolia": "^2.4.1",
+    "@docusaurus/core": "2.4.3",
+    "@docusaurus/preset-classic": "2.4.3",
+    "@docusaurus/theme-search-algolia": "^2.4.3",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",

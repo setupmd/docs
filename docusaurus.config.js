@@ -178,7 +178,7 @@ const config = {
       announcementBar: {
         id: 'support_us',
         content:
-          'Get yourself a <a target="_blank" rel="noopener noreferrer" href="https://setup.md/freeserver">FREE Minecraft Server Today</a>!',
+          'Get yourself a <a target="_blank" rel="noopener noreferrer" href="http://link.setup.md/freeserver">FREE Minecraft Server Today</a>!',
         backgroundColor: '#fafbfc',
         textColor: '#091E42',
         isCloseable: false,
