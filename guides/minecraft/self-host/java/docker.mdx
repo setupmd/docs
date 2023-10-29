@@ -102,12 +102,12 @@ If you do not have a Minecraft world you would like to bring over you can skip t
 Firstly navigate to where your world is stored, if you're world is in a singleplayer state this will be located in your `.minecraft\saves` folder.
 
  - You should compress your world utilising a `zip` folder, the steps will vary slightly based on OS
- - Start a SFTP shell using `sftp {username}@{server-ip}`
+ - Start a SFTP shell using `sftp username@server-ip`
  - Navigate to `/svr/minecraft` using `cd /svr/minecraft`
  - Upload the file by using `put /path/to/folder/world.zip /svr/minecraft/world.zip`
    - This may take a few minutes depending on your internet upload speeds
  - Exit the SFTP session using `exit`
- - Start an SSH sessions using `ssh {username}@{server-ip}`
+ - Start an SSH sessions using `ssh username@server-ip`
  - Install the `unzip` package using `sudo apt install unzip`
  - Unzip the world we just uploaded using `unzip /svr/minecraft/world.zip`
 
@@ -126,7 +126,7 @@ Prometheus is very similar tool to InfluxDB (a tool we use in our lab series) an
 
 #### Grafana 
 
-For our installation Grafana can be found in the browser via http://{server-ip} (utilising port 80 by default unless changed within the compose file). 
+For our installation Grafana can be found in the browser via http://server-ip (utilising port 80 by default unless changed within the compose file). 
 
 The process of setting up Grafana and adding sources / dashboards can be found within our [lab series](/guides/lab/monitoring).
 
