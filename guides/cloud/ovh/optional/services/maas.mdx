@@ -46,7 +46,7 @@ Login to your router appliance, from here select 'Interfaces'.
     - You do not need to define a priority as we only have one VLAN created.
   - Description - 'PXE'
 - Select 'Interfaces'
-- Available Network Ports - {Select your created VLAN}
+- Available Network Ports - (Select your created VLAN)
 - Select the newly created 'OPTX' interface 
 - Select 'Enable'
 - IPv4 Configuration - Static
@@ -94,7 +94,7 @@ Because we have not configured pfSense to deliver DHCP for this VLAN you should 
 - Gateway - 192.168.100.1
 - IP Address - 192.168.100.2
 - Name Servers - 1.1.1.1, 1.0.0.1
-- Search Domain - {lab.local}
+- Search Domain - (lab.local)
 :::
 
 Once the installer has completed you will need to reboot your VM and login using the credentials you configured during setup.
@@ -197,10 +197,10 @@ Within the UI you have few settings that need to be configured
 
 Complete the below fields as required
 
-- Region Name - {define own value}
+- Region Name - (define own value)
 - DNS Forwarder - 1.1.1.1, 1.0.0.1
 - Leave Ubuntu archive and extra as default
-- Proxy Server - {only configure if you have on-prem proxy}
+- Proxy Server - (only configure if you have on-prem proxy)
 
 Select 'Next'
 
@@ -236,8 +236,8 @@ Our MAAS environment should now be ready for our first PXE guest, let's create a
 - Select the blue 'Create VM' button
 - Complete the fields as required
   - Node - PVE
-  - VM ID - {auto}
-  - NAME - {insert VM name}
+  - VM ID - (auto)
+  - NAME - (insert VM name)
 - Select 'Next'
 - Complete the fields as required
   - Select 'Do not use any media'
@@ -246,7 +246,7 @@ Our MAAS environment should now be ready for our first PXE guest, let's create a
 - Create a disk bigger than 8GB
 - Complete the fields as required
   - Sockets - '1'
-  - Cores - '{user defined value}'
+  - Cores - '(user defined value)'
   - Type - 'Host'
 - Select 'Next'
 - Memory use no less than 2GB

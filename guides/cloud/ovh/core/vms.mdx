@@ -30,8 +30,8 @@ In this page you will see a button that says 'Upload ISO', you will need to uplo
 
 - Select the blue 'Create VM' button, as we need to upload an ISO we cannot use an LXC container for this device.
 - Ensure the following settings have been adjusted
-  - Node - '{Host with F.O. IP attached}'
-  - Name - '{Identifiable virtual machine name}'
+  - Node - '(Host with F.O. IP attached)'
+  - Name - '(Identifiable virtual machine name)'
     - Press the 'Advanced' checkbox to get access to the below settings
   - Start at boot - 'Enable'
   - Start / Shutdown order - '1'
@@ -84,7 +84,7 @@ You now need to select the newly created VM and go to the hardware tab.
   - Bridge - 'vmbr0'
   - Firewall - 'Untick'
   - Model - 'VirtIO (paravirtualized)'
-  - MAC Address - '{Paste from OVH IP Manager}' 
+  - MAC Address - '(Paste from OVH IP Manager)' 
 - Select 'Done'
 
 Save changes and you should now be able to boot the VM.
@@ -108,14 +108,14 @@ You <strong>must</strong> complete this step from a VM inside of your new virtua
 - Select 'Manual Configuration'
 - Ensure the following settings have been adjusted
   - Interface Type - 'Static IP'
-  - IP Address - '{Input OVH Failover IP}'
+  - IP Address - '(Input OVH Failover IP)'
   - Subnet - '/30'
   - Gateway Name - 'OVH_GWIP'
-  - Gateway IP - '{Same as public IP but change the numbers after the 4th . to 254}'
+  - Gateway IP - '(Same as public IP but change the numbers after the 4th . to 254)'
   - DNS Server 1 / 2 - '1.1.1.1, 1.0.0.1'
 - Select 'Continue'
-- Firewall Name - '{XGFW}'
-- Date & Time - '{Set your date & time}'
+- Firewall Name - '(XGFW)'
+- Date & Time - '(Set your date & time)'
 - Select 'Continue'
 - Untick the customer experience program box
 - Select 'Continue'
@@ -148,8 +148,8 @@ In this page you will see a button that says 'Upload ISO', you will need to uplo
 
 - Select the blue 'Create VM' button, as we need to upload an ISO we cannot use an LXC container for this device.
 - Ensure the following settings have been adjusted
-  - Node - '{select any node}'
-  - Name - '{Identifiable virtual machine name}'
+  - Node - '(select any node)'
+  - Name - '(Identifiable virtual machine name)'
     - Press the 'Advanced' checkbox to get access to the below settings
   - Start at boot - 'Enable'
   - Start / Shutdown order - '2'

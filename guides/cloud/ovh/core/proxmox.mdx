@@ -129,7 +129,7 @@ The following is configured under the 'ACME' heading
 - Select 'Add'
 - Ensure your page has the following information filled out
   - Challenge Type - 'DNS'
-  - Plugin - '{One You Just Configured}'
+  - Plugin - '(One You Just Configured)'
   - Domain - 'FQDN Without HTTPS://'
 - Select 'Add'
 - Next to the words 'Using Account: None' press the 'Edit' button
@@ -169,7 +169,7 @@ Once your VS01 server is back online we can create a cluster
 Clusters are created at 'Datacentre' level, you will then see a 'Cluster' option on the left hand menu. 
 
 - Select 'Create Cluster'
-- Cluster Name '{Name of Choice}'
+- Cluster Name '(Name of Choice)'
 - Cluster Network - 'Link 0 (ensure public ip is listed)'
 - Select 'Create'
 - Select 'Join Information'
@@ -185,7 +185,7 @@ You will need to open a new tab, navigate to the second host and login with the 
 - Paste the 'Join Information' key into the box provided
 - Enter your `root@PAM` password in the box highlighted red
 - Cluster Network - 'From the dropdown select the public IP of VS02'
-- Select 'Join {Cluster Name}'
+- Select 'Join (Cluster Name)'
 
 You will then need to wait for the join process to complete, this could take a few minutes.
 
@@ -203,7 +203,7 @@ Unfortunately, the following steps will need to be created on a per host level, 
 - Select 'Linux Bridge'
   - Name - 'vmbr1'
   - Autostart - 'Tick'
-  - Bridge Ports - '{second network adapter name here that isn't already bridged}'
+  - Bridge Ports - '(second network adapter name here that isn't already bridged)'
 - Select 'Create'
 - Select 'Apply Configuration'
 

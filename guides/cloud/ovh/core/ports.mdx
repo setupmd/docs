@@ -16,10 +16,10 @@ Firstly, select the 'Hosts and services' tab on the left hand side within the UI
 
 - Select 'Add'
 - Ensure the following has been completed
-  - Name - '{VM hostname}'
+  - Name - '(VM hostname)'
   - IP Version - 'IPv4'
   - Type - 'IP'
-  - IP Address - '{Internal VM IP}'
+  - IP Address - '(Internal VM IP)'
 - Select 'Save'
 
 This will allow us to use DNAT wizard within the Sophos UI.
@@ -34,7 +34,7 @@ Selct 'Rules and policies' on the left hand side within the UI and ensure you're
 
 - Select 'Add firewall rule'
 - Select 'Server access assistant (DNAT)'
-- Select the {IP HOST} we defined in the step above
+- Select the (IP HOST) we defined in the step above
 - Select 'Next'
 - Select '#Port2' from the WAN interface dropdown
 - Select 'Add new item' from the Services menu
@@ -52,10 +52,10 @@ Selct 'Hosts and services' on the left hand side within the UI and ensure you're
 - Select 'Add'
 - Select 'Next'
 - Ensure the following has been completed
-  - Name - '{Service name}'
+  - Name - '(Service name)'
   - Type - 'TCP/UDP'
-  - Protocol - '{Select TCP / UDP as needed}'
+  - Protocol - '(Select TCP / UDP as needed)'
   - Source Port - 'Leave unchanged'
-  - Destination Port - '{Service port}'
+  - Destination Port - '(Service port)'
 - Select 'Save and Finish'
 
