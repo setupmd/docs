@@ -1,4 +1,8 @@
-# 📝 setup.md
+# Branch Archived
+
+We're currently now working on V3, please move to the V3 branch for active commits.
+
+## 📝 setup.md
 
 Welcome to the Minecraft server administration knowledgebase designed to provide accurate and meaningful data in one place.
 
