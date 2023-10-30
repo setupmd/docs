@@ -24,31 +24,6 @@ $ git clone https://github.com/setupmd/docs.git
 $ cd docs
 ```
 
-  Install the dependencies:
-```bash
-// with npm
-$ npm i
-
-// or with yarn
-$ yarn
-```
-
-  Run the local dev environment:
-```bash
-// with npm
-$ npm run start
-
-// or with yarn
-$ yarn start
-```
-
- Now Visit:
-```
-http://localhost:3000
-```
-
-## 🚀 Deployment
-
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
