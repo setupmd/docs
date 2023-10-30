@@ -3,6 +3,7 @@
 
 # Production
 /build
+/nuxt
 
 # Generated files
 .docusaurus
