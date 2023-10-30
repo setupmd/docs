@@ -4,6 +4,7 @@
 # Production
 /build
 /nuxt
+/dist
 
 # Generated files
 .docusaurus
