@@ -1,0 +1,1 @@
+{"version":3,"file":"default-dedac01e.js","sources":["../../../../node_modules/@nuxt-themes/docus/layouts/default.vue"],"sourcesContent":["<template>\n  <DocsPageLayout>\n    <slot />\n  </DocsPageLayout>\n</template>\n"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2BAAU,2BAAA,QAAA;AAAA;;;;eAAA;AAAA;;;;;;;;;;;;;;","x_google_ignoreList":[0]}
