@@ -1,41 +1,53 @@
-# Starlight Starter Kit: Basics
+# 📝 setup.md
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Welcome to the Minecraft server administration knowledgebase designed to provide accurate and meaningful data in one place.
 
-```
-npm create astro@latest -- --template starlight
-```
+## 👨‍💻 Contributing
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
+- Contributions make the open source community such an amazing place to learn, inspire, and create.
+- Any contributions you make are **truly appreciated**
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 💻 Development
 
-## 🚀 Project Structure
+1. Fork the project: Click the gray `Fork` button in the top right of this page. This creates _your_ copy of the project and saves it as a new repository in your github account
+2. Click on the green `Code` button, then either the HTTPS or SSH option and, click the icon to copy the URL. Now you have a copy of the project. Thus, you can play around with it locally on your computer.
+3. Run the following commands into a terminal window (Command Prompt, Powershell, Terminal, Git Bash, ZSH): 
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   │   └── config.ts
-│   └── env.d.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+Do this to download the forked copy of this repository to your computer:
+ 
+```bash
+$ git clone https://github.com/setupmd/docs.git
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+  Step into the directory:
+```bash
+$ cd docs
+```
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+  Install the dependencies:
+```bash
+// with npm
+$ npm i
 
-Static assets, like favicons, can be placed in the `public/` directory.
+// or with yarn
+$ yarn
+```
 
-## 🧞 Commands
+  Run the local dev environment:
+```bash
+// with npm
+$ npm run start
+
+// or with yarn
+$ yarn start
+```
+
+ Now Visit:
+```
+http://localhost:3000
+```
+
+## 🚀 Deployment
 
 All commands are run from the root of the project, from a terminal:
 
@@ -48,6 +60,16 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+## 🙏 Thanks to all Contributors
+Thanks a lot for spending your time in helping setup.md grow. Thanks a lot! ❤️
+ <a href = "https://github.com/setupmd/docs/graphs/contributors">
+   <img src = "https://contrib.rocks/image?repo=setupmd/docs" alt="Contributors to setup.md docs"/>
+ </a>
+
+## 📑 License
+Licensed under [MIT](https://github.com/setupmd/docs/blob/master/LICENSE).
+
+## ⭐️ One more thing
+
+Don't forget to leave us a star ⭐️
