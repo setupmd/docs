@@ -14,8 +14,24 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
-					label: 'Docs',
-					autogenerate: { directory: 'docs' },
+					label: 'Project Information',
+					autogenerate: { directory: '/information/' },
+				},
+				{
+					label: 'Enhancements',
+					autogenerate: { directory: '/enhancements/' },
+				},
+				{
+					label: 'Hosting Tips',
+					autogenerate: { directory: '/hosting/' },
+				},
+				{
+					label: 'Server Tools',
+					autogenerate: { directory: '/tools/' },
+				},
+				{
+					label: 'Server Troubleshooting',
+					autogenerate: { directory: '/troubleshooting/' },
 				},
 				{
 					label: 'Guides',

@@ -185,281 +185,281 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"docs": {
-"docs/Project Information/discord.mdx": {
-	id: "docs/Project Information/discord.mdx";
+"Project Information/discord.mdx": {
+	id: "Project Information/discord.mdx";
   slug: "discord";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Project Information/docs.mdx": {
-	id: "docs/Project Information/docs.mdx";
+"Project Information/docs.mdx": {
+	id: "Project Information/docs.mdx";
   slug: "docs";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Project Information/eula.mdx": {
-	id: "docs/Project Information/eula.mdx";
+"Project Information/eula.mdx": {
+	id: "Project Information/eula.mdx";
   slug: "eula";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Project Information/releases.mdx": {
-	id: "docs/Project Information/releases.mdx";
+"Project Information/releases.mdx": {
+	id: "Project Information/releases.mdx";
   slug: "release";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Anti-X Tools/anticheat.mdx": {
-	id: "docs/Server Enhancements/Anti-X Tools/anticheat.mdx";
+"Server Enhancements/Anti-X Tools/anticheat.mdx": {
+	id: "Server Enhancements/Anti-X Tools/anticheat.mdx";
   slug: "e/anti-x/ac";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Anti-X Tools/antiexploit.mdx": {
-	id: "docs/Server Enhancements/Anti-X Tools/antiexploit.mdx";
+"Server Enhancements/Anti-X Tools/antiexploit.mdx": {
+	id: "Server Enhancements/Anti-X Tools/antiexploit.mdx";
   slug: "e/anti-x/ae";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Anti-X Tools/antilag.mdx": {
-	id: "docs/Server Enhancements/Anti-X Tools/antilag.mdx";
+"Server Enhancements/Anti-X Tools/antilag.mdx": {
+	id: "Server Enhancements/Anti-X Tools/antilag.mdx";
   slug: "e/anti-x/al";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Anti-X Tools/antixray.mdx": {
-	id: "docs/Server Enhancements/Anti-X Tools/antixray.mdx";
+"Server Enhancements/Anti-X Tools/antixray.mdx": {
+	id: "Server Enhancements/Anti-X Tools/antixray.mdx";
   slug: "e/anti-x/ax";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Anti-X Tools/intro.mdx": {
-	id: "docs/Server Enhancements/Anti-X Tools/intro.mdx";
+"Server Enhancements/Anti-X Tools/intro.mdx": {
+	id: "Server Enhancements/Anti-X Tools/intro.mdx";
   slug: "e/anti-x";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Economy/chest.mdx": {
-	id: "docs/Server Enhancements/Economy/chest.mdx";
+"Server Enhancements/Economy/chest.mdx": {
+	id: "Server Enhancements/Economy/chest.mdx";
   slug: "e/eco/chest";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Economy/gui.mdx": {
-	id: "docs/Server Enhancements/Economy/gui.mdx";
+"Server Enhancements/Economy/gui.mdx": {
+	id: "Server Enhancements/Economy/gui.mdx";
   slug: "e/eco/gui";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Economy/intro.mdx": {
-	id: "docs/Server Enhancements/Economy/intro.mdx";
+"Server Enhancements/Economy/intro.mdx": {
+	id: "Server Enhancements/Economy/intro.mdx";
   slug: "e/eco";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Economy/shop.mdx": {
-	id: "docs/Server Enhancements/Economy/shop.mdx";
+"Server Enhancements/Economy/shop.mdx": {
+	id: "Server Enhancements/Economy/shop.mdx";
   slug: "e/eco/shop";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Permissions/breakdown.mdx": {
-	id: "docs/Server Enhancements/Permissions/breakdown.mdx";
+"Server Enhancements/Permissions/breakdown.mdx": {
+	id: "Server Enhancements/Permissions/breakdown.mdx";
   slug: "e/perms";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Permissions/luckperms.mdx": {
-	id: "docs/Server Enhancements/Permissions/luckperms.mdx";
+"Server Enhancements/Permissions/luckperms.mdx": {
+	id: "Server Enhancements/Permissions/luckperms.mdx";
   slug: "e/perms/luckperms";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Plugins/Free/essentialsx.mdx": {
-	id: "docs/Server Enhancements/Plugins/Free/essentialsx.mdx";
+"Server Enhancements/Plugins/Free/essentialsx.mdx": {
+	id: "Server Enhancements/Plugins/Free/essentialsx.mdx";
   slug: "e/pl/essentialsx";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Plugins/Free/npcs.mdx": {
-	id: "docs/Server Enhancements/Plugins/Free/npcs.mdx";
+"Server Enhancements/Plugins/Free/npcs.mdx": {
+	id: "Server Enhancements/Plugins/Free/npcs.mdx";
   slug: "e/pl/npcplugins";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Plugins/Free/timber.mdx": {
-	id: "docs/Server Enhancements/Plugins/Free/timber.mdx";
+"Server Enhancements/Plugins/Free/timber.mdx": {
+	id: "Server Enhancements/Plugins/Free/timber.mdx";
   slug: "e/pl/ultimatetimber";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Plugins/Free/vault.mdx": {
-	id: "docs/Server Enhancements/Plugins/Free/vault.mdx";
+"Server Enhancements/Plugins/Free/vault.mdx": {
+	id: "Server Enhancements/Plugins/Free/vault.mdx";
   slug: "e/pl/vault";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Plugins/Free/worldedit.mdx": {
-	id: "docs/Server Enhancements/Plugins/Free/worldedit.mdx";
+"Server Enhancements/Plugins/Free/worldedit.mdx": {
+	id: "Server Enhancements/Plugins/Free/worldedit.mdx";
   slug: "e/pl/worldedit";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Plugins/Free/worldguard.mdx": {
-	id: "docs/Server Enhancements/Plugins/Free/worldguard.mdx";
+"Server Enhancements/Plugins/Free/worldguard.mdx": {
+	id: "Server Enhancements/Plugins/Free/worldguard.mdx";
   slug: "e/pl/worldguard";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Plugins/Premium/litebans.mdx": {
-	id: "docs/Server Enhancements/Plugins/Premium/litebans.mdx";
+"Server Enhancements/Plugins/Premium/litebans.mdx": {
+	id: "Server Enhancements/Plugins/Premium/litebans.mdx";
   slug: "e/pl/litebans";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Enhancements/Plugins/intro.mdx": {
-	id: "docs/Server Enhancements/Plugins/intro.mdx";
+"Server Enhancements/Plugins/intro.mdx": {
+	id: "Server Enhancements/Plugins/intro.mdx";
   slug: "e/pl";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Hosting/hardware.mdx": {
-	id: "docs/Server Hosting/hardware.mdx";
+"Server Hosting/hardware.mdx": {
+	id: "Server Hosting/hardware.mdx";
   slug: "h/hardware";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Hosting/intro.mdx": {
-	id: "docs/Server Hosting/intro.mdx";
+"Server Hosting/intro.mdx": {
+	id: "Server Hosting/intro.mdx";
   slug: "h";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Hosting/os.mdx": {
-	id: "docs/Server Hosting/os.mdx";
+"Server Hosting/os.mdx": {
+	id: "Server Hosting/os.mdx";
   slug: "h/os";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Hosting/panels.mdx": {
-	id: "docs/Server Hosting/panels.mdx";
+"Server Hosting/panels.mdx": {
+	id: "Server Hosting/panels.mdx";
   slug: "h/ui";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Hosting/providers.mdx": {
-	id: "docs/Server Hosting/providers.mdx";
+"Server Hosting/providers.mdx": {
+	id: "Server Hosting/providers.mdx";
   slug: "h/providers";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Hosting/self.mdx": {
-	id: "docs/Server Hosting/self.mdx";
+"Server Hosting/self.mdx": {
+	id: "Server Hosting/self.mdx";
   slug: "h/self";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Hosting/types.mdx": {
-	id: "docs/Server Hosting/types.mdx";
+"Server Hosting/types.mdx": {
+	id: "Server Hosting/types.mdx";
   slug: "h/types";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Tools/database.mdx": {
-	id: "docs/Server Tools/database.mdx";
+"Server Tools/database.mdx": {
+	id: "Server Tools/database.mdx";
   slug: "t/database";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Tools/offline-mode.mdx": {
-	id: "docs/Server Tools/offline-mode.mdx";
+"Server Tools/offline-mode.mdx": {
+	id: "Server Tools/offline-mode.mdx";
   slug: "t/offline";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Tools/server-software.mdx": {
-	id: "docs/Server Tools/server-software.mdx";
+"Server Tools/server-software.mdx": {
+	id: "Server Tools/server-software.mdx";
   slug: "t/server-software";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Tools/signed-chat.mdx": {
-	id: "docs/Server Tools/signed-chat.mdx";
+"Server Tools/signed-chat.mdx": {
+	id: "Server Tools/signed-chat.mdx";
   slug: "t/signed-chat";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Tools/startup.mdx": {
-	id: "docs/Server Tools/startup.mdx";
+"Server Tools/startup.mdx": {
+	id: "Server Tools/startup.mdx";
   slug: "t/flags";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Tools/textures.mdx": {
-	id: "docs/Server Tools/textures.mdx";
+"Server Tools/textures.mdx": {
+	id: "Server Tools/textures.mdx";
   slug: "t/textures";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Troubleshooting/connectivity.mdx": {
-	id: "docs/Server Troubleshooting/connectivity.mdx";
+"Server Troubleshooting/connectivity.mdx": {
+	id: "Server Troubleshooting/connectivity.mdx";
   slug: "ts/connection";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Troubleshooting/ip.mdx": {
-	id: "docs/Server Troubleshooting/ip.mdx";
+"Server Troubleshooting/ip.mdx": {
+	id: "Server Troubleshooting/ip.mdx";
   slug: "ts/ip";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Troubleshooting/java.mdx": {
-	id: "docs/Server Troubleshooting/java.mdx";
+"Server Troubleshooting/java.mdx": {
+	id: "Server Troubleshooting/java.mdx";
   slug: "ts/java";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"docs/Server Troubleshooting/latency.mdx": {
-	id: "docs/Server Troubleshooting/latency.mdx";
+"Server Troubleshooting/latency.mdx": {
+	id: "Server Troubleshooting/latency.mdx";
   slug: "ts/latency";
   body: string;
   collection: "docs";
