@@ -1,0 +1,55 @@
+---
+sidebar:
+  order: 1
+  badge:
+    text: Updated
+    variant: danger
+description: A breakdown of how our contributor lab was deployed in the cloud.
+title: Breakdown
+slug: guides/lab
+---
+
+# Our Lab
+
+In the process of making our project better to work on one of our first tasks was ensuring all our contributors had access to a clean workspace when they needed it. This encouraged the development of our 'Lab' environment that consists of the following hardware:
+
+<ul>
+    <li>x2 E-2386G Xeon CPUs</li>
+    <li>64GB DDR4 3200Mhz RAM</li>
+    <li>1 TB NVMe SSD</li>
+</ul>
+
+The above hardware was chosen with one important factor in mind. VM lifespan is relatively short and while high-core count and large ram capacity servers are great, we don't have the demand for that caliber of server.
+
+:::note
+If you also select OVHCloud as your provider, vRACK support is NOT offered on their Rise or ECO ranges.
+:::
+
+### Cloud Provider 
+
+We chose to utilise 'OVH' for a few reasons highlighted below, yes other hosting providers can also deliver on a few of the points listed at the time of enquiring only OVH was able to deliver all of them.
+
+<ul>
+    <li> Hardware - Current-gen Xeon-E CPUs</li>
+    <li> Location - London, UK</li>
+    <li> Price - Cheap IPv4 addresses & summer sale hardware deal</li>
+    <li> Software - OVH is an official Proxmox hosting partner</li>
+</ul>
+
+---
+
+### Software Used
+
+This is a brief summary of the application stack we're utilising to make the Lab environment work for our needs, most are not required but the ones that are have been highlighted with a ✔ symbol.
+
+Required | Article | Tool | Purpose | Summary
+------------ |------------ |------------ | ------- | -------
+✔ | [Core/Proxmox](https://setup.md/guides/lab/proxmox) | Proxmox | Hypervisor | Proxmox was the easiest solution to get up and running without the need for ESXi hosts and enhanced Windows configuration.
+✔ | [Core/Virtual Machines](https://setup.md/guides/lab/vms#router-vm) | Sophos XG | Firewall | Product familiarity and ease of use compared to other OSS products, support included with all licenses.
+❌ | N/A | Windows Server | Domain Controller | Utilises AD w/ AAD Sync and provides DHCP and DNS for the network.
+✔ | [Optional/Docker](https://setup.md/guides/lab/docker) | Docker | Containerisation | Containers are much lighter than running full blown VMs for every application.
+✔ | [Optional/Docker](https://setup.md/guides/lab/docker#portainer) | Portainer | Management | Management interface for Docker containers utilising M365 Auth.
+❌ | N/A | Nginx Proxy Manager | Reverse Proxy | NPM is a docker file ready to go purpose built for our needs.
+✔ | [Optional/Monitoring](https://setup.md/guides/lab/monitoring) | Uptime Kuma | Monitoring | Montior our environment and sends Discord webhooks when down.
+❌ | N/A | Homer | QoL | Single pane of glass for shortcuts to services.
+

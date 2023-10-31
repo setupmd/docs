@@ -16,29 +16,32 @@ export default defineConfig({
 				{
 					label: 'Project Information',
 					autogenerate: { directory: '/information/' },
+					collapsed: false,
 				},
 				{
 					label: 'Enhancements',
 					autogenerate: { directory: '/enhancements/' },
+					collapsed: true,
 				},
 				{
 					label: 'Hosting Tips',
 					autogenerate: { directory: '/hosting/' },
+					collapsed: true,
 				},
 				{
 					label: 'Server Tools',
 					autogenerate: { directory: '/tools/' },
+					collapsed: true,
 				},
 				{
 					label: 'Server Troubleshooting',
 					autogenerate: { directory: '/troubleshooting/' },
+					collapsed: true,
 				},
 				{
 					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
-					],
+					autogenerate: { directory: '/guides/' },
+					collapsed: true,
 				},
 			],
 		}),

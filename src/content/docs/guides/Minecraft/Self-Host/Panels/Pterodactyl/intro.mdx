@@ -1,0 +1,28 @@
+---
+description: Pterodactyl introuction page, understand what the product is and when it's ideal to use it.
+slug: guides/pterodactyl
+title: Breakdown
+sidebar:
+  order: 1
+---
+
+If you're new to hosting you first need to understand a couple of concepts before you continue here, the
+recommended topics to read are:
+
+- [Types of Hosting](/h/types)
+- [Control panels](/h/ui)
+
+Now with a basic understanding of control panels and the types of hosting available this should hopefully help you understand the principles behind Pterodactyl. 
+
+Pterodactyl is a PHP/Golang-based web panel that allows for easy management of game servers in isolated Docker containers with a simplistic UI.
+The panel communicates with Wings, which allows for interaction with game servers and web/SFTP file access through the panel.  
+
+### Who is Pterodactyl for 
+
+The primary target audience is hosting providers, many providers have started migrating from the likes of Multicraft or have built their entire business around this modern solution. As the project doesn't have crazy requirements and has a large, active community behind it the bar low for anyone who wants a nice front end for their game server management.
+
+### Why would you use it 
+
+Pterodactyl is modular by design so with time (and potentially money) you can have the panel built out to suit your requirements. You don't need to use all of it's functionality, you can change it's functionality with third party modifications from various different marketplaces and it's also scalable. Third-party SaaS provider [WISP](https://wisp.gg) is a geo-replicated version of Pterodactyl with many modifications that can ensure close to 100% uptime.
+
+Those with multiple bare metal servers (such as hosting providers) just have one management interface to look after for their clients and everything else is managed in the background using the Wings docker agent, WISP however does automates the process of updating this service which otherwise could still be a lenghty manual task.

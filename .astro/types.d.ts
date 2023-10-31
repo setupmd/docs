@@ -185,299 +185,600 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"docs": {
-"Project Information/discord.mdx": {
-	id: "Project Information/discord.mdx";
-  slug: "discord";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Project Information/docs.mdx": {
-	id: "Project Information/docs.mdx";
-  slug: "docs";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Project Information/eula.mdx": {
-	id: "Project Information/eula.mdx";
-  slug: "eula";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Project Information/releases.mdx": {
-	id: "Project Information/releases.mdx";
-  slug: "release";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Enhancements/Anti-X Tools/anticheat.mdx": {
-	id: "Server Enhancements/Anti-X Tools/anticheat.mdx";
+"enhancements/Anti-X Tools/anticheat.mdx": {
+	id: "enhancements/Anti-X Tools/anticheat.mdx";
   slug: "e/anti-x/ac";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Anti-X Tools/antiexploit.mdx": {
-	id: "Server Enhancements/Anti-X Tools/antiexploit.mdx";
+"enhancements/Anti-X Tools/antiexploit.mdx": {
+	id: "enhancements/Anti-X Tools/antiexploit.mdx";
   slug: "e/anti-x/ae";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Anti-X Tools/antilag.mdx": {
-	id: "Server Enhancements/Anti-X Tools/antilag.mdx";
+"enhancements/Anti-X Tools/antilag.mdx": {
+	id: "enhancements/Anti-X Tools/antilag.mdx";
   slug: "e/anti-x/al";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Anti-X Tools/antixray.mdx": {
-	id: "Server Enhancements/Anti-X Tools/antixray.mdx";
+"enhancements/Anti-X Tools/antixray.mdx": {
+	id: "enhancements/Anti-X Tools/antixray.mdx";
   slug: "e/anti-x/ax";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Anti-X Tools/intro.mdx": {
-	id: "Server Enhancements/Anti-X Tools/intro.mdx";
+"enhancements/Anti-X Tools/intro.mdx": {
+	id: "enhancements/Anti-X Tools/intro.mdx";
   slug: "e/anti-x";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Economy/chest.mdx": {
-	id: "Server Enhancements/Economy/chest.mdx";
+"enhancements/Economy/chest.mdx": {
+	id: "enhancements/Economy/chest.mdx";
   slug: "e/eco/chest";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Economy/gui.mdx": {
-	id: "Server Enhancements/Economy/gui.mdx";
+"enhancements/Economy/gui.mdx": {
+	id: "enhancements/Economy/gui.mdx";
   slug: "e/eco/gui";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Economy/intro.mdx": {
-	id: "Server Enhancements/Economy/intro.mdx";
+"enhancements/Economy/intro.mdx": {
+	id: "enhancements/Economy/intro.mdx";
   slug: "e/eco";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Economy/shop.mdx": {
-	id: "Server Enhancements/Economy/shop.mdx";
+"enhancements/Economy/shop.mdx": {
+	id: "enhancements/Economy/shop.mdx";
   slug: "e/eco/shop";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Permissions/breakdown.mdx": {
-	id: "Server Enhancements/Permissions/breakdown.mdx";
+"enhancements/Permissions/breakdown.mdx": {
+	id: "enhancements/Permissions/breakdown.mdx";
   slug: "e/perms";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Permissions/luckperms.mdx": {
-	id: "Server Enhancements/Permissions/luckperms.mdx";
+"enhancements/Permissions/luckperms.mdx": {
+	id: "enhancements/Permissions/luckperms.mdx";
   slug: "e/perms/luckperms";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Plugins/Free/essentialsx.mdx": {
-	id: "Server Enhancements/Plugins/Free/essentialsx.mdx";
+"enhancements/Plugins/Free/essentialsx.mdx": {
+	id: "enhancements/Plugins/Free/essentialsx.mdx";
   slug: "e/pl/essentialsx";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Plugins/Free/npcs.mdx": {
-	id: "Server Enhancements/Plugins/Free/npcs.mdx";
+"enhancements/Plugins/Free/npcs.mdx": {
+	id: "enhancements/Plugins/Free/npcs.mdx";
   slug: "e/pl/npcplugins";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Plugins/Free/timber.mdx": {
-	id: "Server Enhancements/Plugins/Free/timber.mdx";
+"enhancements/Plugins/Free/timber.mdx": {
+	id: "enhancements/Plugins/Free/timber.mdx";
   slug: "e/pl/ultimatetimber";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Plugins/Free/vault.mdx": {
-	id: "Server Enhancements/Plugins/Free/vault.mdx";
+"enhancements/Plugins/Free/vault.mdx": {
+	id: "enhancements/Plugins/Free/vault.mdx";
   slug: "e/pl/vault";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Plugins/Free/worldedit.mdx": {
-	id: "Server Enhancements/Plugins/Free/worldedit.mdx";
+"enhancements/Plugins/Free/worldedit.mdx": {
+	id: "enhancements/Plugins/Free/worldedit.mdx";
   slug: "e/pl/worldedit";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Plugins/Free/worldguard.mdx": {
-	id: "Server Enhancements/Plugins/Free/worldguard.mdx";
+"enhancements/Plugins/Free/worldguard.mdx": {
+	id: "enhancements/Plugins/Free/worldguard.mdx";
   slug: "e/pl/worldguard";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Plugins/Premium/litebans.mdx": {
-	id: "Server Enhancements/Plugins/Premium/litebans.mdx";
+"enhancements/Plugins/Premium/litebans.mdx": {
+	id: "enhancements/Plugins/Premium/litebans.mdx";
   slug: "e/pl/litebans";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Enhancements/Plugins/intro.mdx": {
-	id: "Server Enhancements/Plugins/intro.mdx";
+"enhancements/Plugins/intro.mdx": {
+	id: "enhancements/Plugins/intro.mdx";
   slug: "e/pl";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Hosting/hardware.mdx": {
-	id: "Server Hosting/hardware.mdx";
+"guides/cloud/oracle.mdx": {
+	id: "guides/cloud/oracle.mdx";
+  slug: "guides/oracle-cloud";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/core/ovh.mdx": {
+	id: "guides/cloud/ovh/core/ovh.mdx";
+  slug: "guides/lab/ovh";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/core/ports.mdx": {
+	id: "guides/cloud/ovh/core/ports.mdx";
+  slug: "guides/lab/pforward";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/core/proxmox.mdx": {
+	id: "guides/cloud/ovh/core/proxmox.mdx";
+  slug: "guides/lab/proxmox";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/core/remote.mdx": {
+	id: "guides/cloud/ovh/core/remote.mdx";
+  slug: "guides/lab/remote";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/core/vms.mdx": {
+	id: "guides/cloud/ovh/core/vms.mdx";
+  slug: "guides/lab/vms";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/intro.mdx": {
+	id: "guides/cloud/ovh/intro.mdx";
+  slug: "guides/lab";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/optional/configurations/aad.mdx": {
+	id: "guides/cloud/ovh/optional/configurations/aad.mdx";
+  slug: "guides/lab/aad";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/optional/configurations/azure.mdx": {
+	id: "guides/cloud/ovh/optional/configurations/azure.mdx";
+  slug: "guides/lab/arc";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/optional/configurations/hardening.mdx": {
+	id: "guides/cloud/ovh/optional/configurations/hardening.mdx";
+  slug: "guides/lab/hardening";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/optional/services/Zero Trust/cloudflare.mdx": {
+	id: "guides/cloud/ovh/optional/services/Zero Trust/cloudflare.mdx";
+  slug: "guides/lab/cloudflare";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/optional/services/docker.mdx": {
+	id: "guides/cloud/ovh/optional/services/docker.mdx";
+  slug: "guides/lab/docker";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/optional/services/maas.mdx": {
+	id: "guides/cloud/ovh/optional/services/maas.mdx";
+  slug: "guides/lab/maas";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/optional/services/macos.mdx": {
+	id: "guides/cloud/ovh/optional/services/macos.mdx";
+  slug: "guides/lab/mac";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/ovh/optional/services/uptimekuma.mdx": {
+	id: "guides/cloud/ovh/optional/services/uptimekuma.mdx";
+  slug: "guides/lab/monitoring";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/cloud/topics.mdx": {
+	id: "guides/cloud/topics.mdx";
+  slug: "guides/cloud";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/optimisation/advanced.mdx": {
+	id: "guides/minecraft/optimisation/advanced.mdx";
+  slug: "/optimisation/advanced";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/optimisation/basic.mdx": {
+	id: "guides/minecraft/optimisation/basic.mdx";
+  slug: "/optimisation/basic";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/optimisation/intro.mdx": {
+	id: "guides/minecraft/optimisation/intro.mdx";
+  slug: "/optimisation";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/CinemaMod/commands.mdx": {
+	id: "guides/minecraft/plugins/CinemaMod/commands.mdx";
+  slug: "guides/cinemamod/commands/";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/CinemaMod/intro.mdx": {
+	id: "guides/minecraft/plugins/CinemaMod/intro.mdx";
+  slug: "guides/cinemamod";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/CinemaMod/setup.mdx": {
+	id: "guides/minecraft/plugins/CinemaMod/setup.mdx";
+  slug: "guides/cinemanod/setup";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/cinemamod/commands.mdx": {
+	id: "guides/minecraft/plugins/cinemamod/commands.mdx";
+  slug: "guides/cinemamod/commands/";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/cinemamod/intro.mdx": {
+	id: "guides/minecraft/plugins/cinemamod/intro.mdx";
+  slug: "guides/cinemamod";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/cinemamod/setup.mdx": {
+	id: "guides/minecraft/plugins/cinemamod/setup.mdx";
+  slug: "guides/cinemanod/setup";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/dynmap/intro.mdx": {
+	id: "guides/minecraft/plugins/dynmap/intro.mdx";
+  slug: "guides/dynmap";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/dynmap/proxy.mdx": {
+	id: "guides/minecraft/plugins/dynmap/proxy.mdx";
+  slug: "guides/dynmap/proxy";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/dynmap/setup.mdx": {
+	id: "guides/minecraft/plugins/dynmap/setup.mdx";
+  slug: "guides/dynmap/setup";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/plugins/intro.mdx": {
+	id: "guides/minecraft/plugins/intro.mdx";
+  slug: "/plugins";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/java/docker.mdx": {
+	id: "guides/minecraft/self-host/java/docker.mdx";
+  slug: "guides/self-host/docker";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/java/linux.mdx": {
+	id: "guides/minecraft/self-host/java/linux.mdx";
+  slug: "guides/self-host/linux";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/java/win.mdx": {
+	id: "guides/minecraft/self-host/java/win.mdx";
+  slug: "guides/self-host/win";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/panels/pterodactyl/intro.mdx": {
+	id: "guides/minecraft/self-host/panels/pterodactyl/intro.mdx";
+  slug: "guides/pterodactyl";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/panels/pterodactyl/node.mdx": {
+	id: "guides/minecraft/self-host/panels/pterodactyl/node.mdx";
+  slug: "guides/pterodactyl/node";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/panels/pterodactyl/panel.mdx": {
+	id: "guides/minecraft/self-host/panels/pterodactyl/panel.mdx";
+  slug: "guides/pterodactyl/panel";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/panels/pterodactyl/wings.mdx": {
+	id: "guides/minecraft/self-host/panels/pterodactyl/wings.mdx";
+  slug: "guides/pterodactyl/wings";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/panels/pufferpanel/installation.mdx": {
+	id: "guides/minecraft/self-host/panels/pufferpanel/installation.mdx";
+  slug: "guides/pufferpanel";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/panels/pufferpanel/ssl.mdx": {
+	id: "guides/minecraft/self-host/panels/pufferpanel/ssl.mdx";
+  slug: "guides/pufferpanel/ssl";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/self-host/topics.mdx": {
+	id: "guides/minecraft/self-host/topics.mdx";
+  slug: "/self-host";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/minecraft/topics.mdx": {
+	id: "guides/minecraft/topics.mdx";
+  slug: "/minecraft";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/services/folia.mdx": {
+	id: "guides/services/folia.mdx";
+  slug: "/build-folia";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/services/intro.mdx": {
+	id: "guides/services/intro.mdx";
+  slug: "/service";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/services/ssl/intro.mdx": {
+	id: "guides/services/ssl/intro.mdx";
+  slug: "/ssl";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"guides/services/ssl/tools.mdx": {
+	id: "guides/services/ssl/tools.mdx";
+  slug: "/ssl/tools";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"hosting/hardware.mdx": {
+	id: "hosting/hardware.mdx";
   slug: "h/hardware";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Hosting/intro.mdx": {
-	id: "Server Hosting/intro.mdx";
+"hosting/intro.mdx": {
+	id: "hosting/intro.mdx";
   slug: "h";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Hosting/os.mdx": {
-	id: "Server Hosting/os.mdx";
+"hosting/os.mdx": {
+	id: "hosting/os.mdx";
   slug: "h/os";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Hosting/panels.mdx": {
-	id: "Server Hosting/panels.mdx";
+"hosting/panels.mdx": {
+	id: "hosting/panels.mdx";
   slug: "h/ui";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Hosting/providers.mdx": {
-	id: "Server Hosting/providers.mdx";
+"hosting/providers.mdx": {
+	id: "hosting/providers.mdx";
   slug: "h/providers";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Hosting/self.mdx": {
-	id: "Server Hosting/self.mdx";
+"hosting/self.mdx": {
+	id: "hosting/self.mdx";
   slug: "h/self";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Hosting/types.mdx": {
-	id: "Server Hosting/types.mdx";
+"hosting/types.mdx": {
+	id: "hosting/types.mdx";
   slug: "h/types";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
 } & { render(): Render[".mdx"] };
-"Server Tools/database.mdx": {
-	id: "Server Tools/database.mdx";
-  slug: "t/database";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Tools/offline-mode.mdx": {
-	id: "Server Tools/offline-mode.mdx";
-  slug: "t/offline";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Tools/server-software.mdx": {
-	id: "Server Tools/server-software.mdx";
-  slug: "t/server-software";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Tools/signed-chat.mdx": {
-	id: "Server Tools/signed-chat.mdx";
-  slug: "t/signed-chat";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Tools/startup.mdx": {
-	id: "Server Tools/startup.mdx";
-  slug: "t/flags";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Tools/textures.mdx": {
-	id: "Server Tools/textures.mdx";
-  slug: "t/textures";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Troubleshooting/connectivity.mdx": {
-	id: "Server Troubleshooting/connectivity.mdx";
-  slug: "ts/connection";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Troubleshooting/ip.mdx": {
-	id: "Server Troubleshooting/ip.mdx";
-  slug: "ts/ip";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Troubleshooting/java.mdx": {
-	id: "Server Troubleshooting/java.mdx";
-  slug: "ts/java";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"Server Troubleshooting/latency.mdx": {
-	id: "Server Troubleshooting/latency.mdx";
-  slug: "ts/latency";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"guides/example.md": {
-	id: "guides/example.md";
-  slug: "guides/example";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".md"] };
 "index.mdx": {
 	id: "index.mdx";
   slug: "index";
   body: string;
   collection: "docs";
-  data: InferEntrySchema<"docs">
+  data: any
+} & { render(): Render[".mdx"] };
+"information/discord.mdx": {
+	id: "information/discord.mdx";
+  slug: "discord";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"information/docs.mdx": {
+	id: "information/docs.mdx";
+  slug: "docs";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"information/eula.mdx": {
+	id: "information/eula.mdx";
+  slug: "eula";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"information/releases.mdx": {
+	id: "information/releases.mdx";
+  slug: "release";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"tools/database.mdx": {
+	id: "tools/database.mdx";
+  slug: "t/database";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"tools/offline-mode.mdx": {
+	id: "tools/offline-mode.mdx";
+  slug: "t/offline";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"tools/server-software.mdx": {
+	id: "tools/server-software.mdx";
+  slug: "t/server-software";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"tools/signed-chat.mdx": {
+	id: "tools/signed-chat.mdx";
+  slug: "t/signed-chat";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"tools/startup.mdx": {
+	id: "tools/startup.mdx";
+  slug: "t/flags";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"tools/textures.mdx": {
+	id: "tools/textures.mdx";
+  slug: "t/textures";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"troubleshooting/connectivity.mdx": {
+	id: "troubleshooting/connectivity.mdx";
+  slug: "ts/connection";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"troubleshooting/ip.mdx": {
+	id: "troubleshooting/ip.mdx";
+  slug: "ts/ip";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"troubleshooting/java.mdx": {
+	id: "troubleshooting/java.mdx";
+  slug: "ts/java";
+  body: string;
+  collection: "docs";
+  data: any
+} & { render(): Render[".mdx"] };
+"troubleshooting/latency.mdx": {
+	id: "troubleshooting/latency.mdx";
+  slug: "ts/latency";
+  body: string;
+  collection: "docs";
+  data: any
 } & { render(): Render[".mdx"] };
 };
 
@@ -489,5 +790,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	type ContentConfig = never;
 }

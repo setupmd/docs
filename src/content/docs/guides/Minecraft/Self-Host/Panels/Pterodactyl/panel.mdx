@@ -1,0 +1,348 @@
+---
+slug: guides/pterodactyl/panel
+description: A short guide based on Ubuntu for how to deploy the Pterodactyl web panel.
+sidebar:
+  order: 2
+title: Panel
+---
+
+This guide is based on Pterodactyl's own [documentation](https://pterodactyl.io/panel/1.0/getting_started.html). This guide also assumes that you have the following, for further assistance consult the setup.md [Discord server](https://discord.gg/pXaQgzneed).  
+
+### You Will Need
+* An Ubuntu server with root access - this tutorial assumes that the panel and Wings are running on the same machine.
+This means that OpenVZ or LXC-based servers, which will not work with Docker, cannot be used.
+* Root access to the aforementioned server
+* A computer with Internet access - required to SSH into the server and interact with the panel
+
+---
+
+### Getting Started
+
+:::info
+This tutorial uses Ubuntu 20.04 LTS as the base operating system and UFW as the firewall.
+PHP 8.1, MariaDB and Nginx will be used as the server stack.
+:::
+
+#### Installing Dependencies for the Panel
+
+The following packages are required for the panel to work
+
+* PHP >=8.0 with the following extensions: `cli`, `openssl`, `gd`, `mysql`, `PDO`, `mbstring`, `tokenizer`, `bcmath`, `xml` or `dom`, `curl`, `zip`, `fpm`
+* MySQL >=5.7.22 (8 recommended) or **MariaDB >=10.2**
+* Redis
+* A web server e.g Apache, **Nginx**, Caddy
+* cURL
+* tar
+* unzip
+* git
+* composer v2
+
+Installing them are easy!
+
+```bash
+...
+
+# Add "add-apt-repository" command
+apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
+
+# Add additional repositories for PHP, Redis, and MariaDB
+LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
+add-apt-repository ppa:redislabs/redis -y
+
+# MariaDB repo setup script - can be skipped on Ubuntu 22.04
+sudo bash -c "$(curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup)"
+
+# Update repositories list
+apt update
+
+# Install dependencies
+apt -y install php8.1 php8.1-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
+
+...
+```
+
+#### Downloading the Panel
+
+Next, we need to download the latest version of the panel. Create the directory that the web server will use as the root for the panel.
+
+```bash
+...
+
+mkdir -p /var/www/pterodactyl
+cd /var/www/pterodactyl
+
+...
+```
+
+Use cURL to download the latest version of the panel and extract it. Make sure to set the appropriate permissions for the `storage` and `bootstrap/cache` directories
+
+```bash
+...
+
+curl -sL https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz | tar -xzv
+chmod -R +x storage/* bootstrap/cache/
+
+...
+```
+
+---
+
+### Configuring the Panel
+
+Set up a database and user with permissions for the panel to access. For more detailed instruction, see [this guide](https://pterodactyl.io/tutorials/mysql_setup.html).
+
+```sql
+...
+
+$ mysql -u root -p
+
+CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY '<password>';
+CREATE DATABASE panel;
+GRANT ALL PRIVILEGES ON panel.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
+exit
+
+...
+```
+
+Optionally, if you want to configure the database for remote access, open your my.cnf file (typically in /etc/mysql) and add the following:
+```yaml
+...
+
+[mysqld]
+bind-address=0.0.0.0
+
+...
+```
+
+Enable the example .env file, install Composer dependencies and generate an application encryption key using artisan
+
+```bash
+...
+
+cp .env.example .env
+composer install --no-dev --optimize-autoloader
+
+# Do not run this command if there already is existing panel data in the database
+php artisan key:generate --force
+
+...
+```
+
+:::note
+Make sure to back up your encryption key (APP_KEY in .env) somewhere safe - if you lose it, you no longer have access to any encrypted data
+:::
+
+#### Configuring the Environment
+
+All it takes to configure the environment of the panel is a few more artisan commands
+
+```bash
+...
+
+php artisan p:environment:setup
+php artisan p:environment:database
+php artisan p:environment:smtp
+
+...
+```
+
+#### Filling the Database
+
+This command will fill the database with all required data for the panel - including tables, nests and eggs.  
+**Do not exit this process until it is completed.**
+
+```bash
+...
+
+php artisan migrate --seed --force
+
+...
+```
+
+#### Creating the Administrator User
+
+Run this interactive command to create an administrator user so you can log in to the panel.  
+Passwords must be 8 characters, mixed case and have at least one number
+```bash
+...
+
+php artisan p:user:make
+
+...
+```
+
+---
+
+### Service Configuration
+
+#### Queue Listeners
+
+Pterodactyl uses queues to improve speed and handle background tasks. You'll need to set up the queue worker to process these.
+
+#### Crontab
+
+Add the following entry to your root crontab by opening `sudo crontab -e`
+
+```
+...
+
+* * * * * php /var/www/pterodactyl/artisan schedule:run >> /dev/null 2>&1
+
+...
+```
+
+#### Systemd Service
+
+To run your queue processes in the background, set up a systemd service
+
+```
+...
+
+# /etc/systemd/system/pteroq.service
+# Pterodactyl Queue Worker File
+# ----------------------------------
+
+[Unit]
+Description=Pterodactyl Queue Worker
+After=redis-server.service
+
+[Service]
+# On some systems the user and group might be different.
+# Some systems use `apache` or `nginx` as the user and group.
+User=www-data
+Group=www-data
+Restart=always
+ExecStart=/usr/bin/php /var/www/pterodactyl/artisan queue:work --queue=high,standard,low --sleep=3 --tries=3
+StartLimitInterval=180
+StartLimitBurst=30
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+
+...
+```
+
+Enable the services so they start on boot with the following commands:
+
+```bash
+...
+
+systemctl enable --now redis-server
+systemctl restart pteroq
+
+...
+```
+
+---
+
+### Configuring NGINX
+
+This part assumes we are using Nginx with SSL enabled. To generate SSL certificates, we will be using ZeroSSL:
+```bash
+...
+
+sudo ufw allow 'Nginx Full' # allow 80 and 443 connections
+
+sudo apt install -y certbot python3-certbot-nginx
+sudo bash <(curl -s https://zerossl.com/get-zerosslbot.sh)
+sudo zerossl-bot --nginx -m me@example.com -d pterodactyl.example.com
+
+...
+```
+
+To automatically renew your certificates, create another cron job:
+```
+...
+
+0 23 * * * certbot renew --quiet --deploy-hook "systemctl restart nginx"
+
+...
+```
+
+Create the following nginx configuration file in /etc/nginx/sites-available/pterodactyl, replacing `panel.example.com` with your own:
+```nginx
+...
+
+server_tokens off;
+
+server {
+    listen 80;
+    server_name panel.example.com;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name panel.example.com;
+
+    root /var/www/pterodactyl/public;
+    index index.php;
+
+    access_log /var/log/nginx/pterodactyl.app-access.log;
+    error_log  /var/log/nginx/pterodactyl.app-error.log error;
+
+    # allow larger file uploads and longer script runtimes
+    client_max_body_size 100m;
+    client_body_timeout 120s;
+
+    sendfile off;
+
+    # SSL Configuration - Replace the example with your own domain
+    ssl_certificate /etc/letsencrypt/live/panel.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/panel.example.com/privkey.pem;
+    ssl_session_cache shared:SSL:10m;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384";
+    ssl_prefer_server_ciphers on;
+
+    # See https://hstspreload.org/ before uncommenting the line below.
+    # add_header Strict-Transport-Security "max-age=15768000; preload;";
+    add_header X-Content-Type-Options nosniff;
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Robots-Tag none;
+    add_header Content-Security-Policy "frame-ancestors 'self'";
+    add_header X-Frame-Options DENY;
+    add_header Referrer-Policy same-origin;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param PHP_VALUE "upload_max_filesize = 100M \n post_max_size=100M";
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTP_PROXY "";
+        fastcgi_intercept_errors off;
+        fastcgi_buffer_size 16k;
+        fastcgi_buffers 4 16k;
+        fastcgi_connect_timeout 300;
+        fastcgi_send_timeout 300;
+        fastcgi_read_timeout 300;
+        include /etc/nginx/fastcgi_params;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+
+...
+```
+
+Enable it with the following commands:
+
+```bash
+...
+
+sudo ln -s /etc/nginx/sites-available/pterodactyl.conf /etc/nginx/sites-enabled/pterodactyl.conf
+sudo systemctl restart nginx
+
+...
+```
+
+Congratulations! Pterodactyl Panel should now be configured! The next step is to configure Wings, the backend used for interacting with servers.
