@@ -395,6 +395,76 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
+"docs/Server Tools/database.mdx": {
+	id: "docs/Server Tools/database.mdx";
+  slug: "t/database";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"docs/Server Tools/offline-mode.mdx": {
+	id: "docs/Server Tools/offline-mode.mdx";
+  slug: "t/offline";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"docs/Server Tools/server-software.mdx": {
+	id: "docs/Server Tools/server-software.mdx";
+  slug: "t/server-software";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"docs/Server Tools/signed-chat.mdx": {
+	id: "docs/Server Tools/signed-chat.mdx";
+  slug: "t/signed-chat";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"docs/Server Tools/startup.mdx": {
+	id: "docs/Server Tools/startup.mdx";
+  slug: "t/flags";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"docs/Server Tools/textures.mdx": {
+	id: "docs/Server Tools/textures.mdx";
+  slug: "t/textures";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"docs/Server Troubleshooting/connectivity.mdx": {
+	id: "docs/Server Troubleshooting/connectivity.mdx";
+  slug: "ts/connection";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"docs/Server Troubleshooting/ip.mdx": {
+	id: "docs/Server Troubleshooting/ip.mdx";
+  slug: "ts/ip";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"docs/Server Troubleshooting/java.mdx": {
+	id: "docs/Server Troubleshooting/java.mdx";
+  slug: "ts/java";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"docs/Server Troubleshooting/latency.mdx": {
+	id: "docs/Server Troubleshooting/latency.mdx";
+  slug: "ts/latency";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
 "guides/example.md": {
 	id: "guides/example.md";
   slug: "guides/example";
