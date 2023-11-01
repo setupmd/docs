@@ -1,0 +1,3 @@
+files:
+  - source: /src/content/docs
+    translation: /folder/%two_letters_code%/%original_path%/%original_file_name%.%file_extension%
