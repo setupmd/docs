@@ -9,7 +9,7 @@ export default defineConfig({
 		starlight({
 			title: 'setup.md',
 			editLink: {
-				baseUrl: 'https://github.com/setupmd/docs/edit/v3/src/content',
+				baseUrl: 'https://github.com/setupmd/docs/edit/v3',
 			},
 			social: {
 				discord: 'https://link.setup.md/discord',
