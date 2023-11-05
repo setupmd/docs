@@ -9,8 +9,9 @@ export default defineConfig({
 		starlight({
 			title: 'setup.md',
 			social: {
+				discord: 'https://link.setup.md/discord',
 				github: 'https://link.setup.md/repo',
-				discord: 'https://link.setup.md/discord'
+				patreon: 'https://link.setup.md/patreon'
 			},
 			sidebar: [
 				{
