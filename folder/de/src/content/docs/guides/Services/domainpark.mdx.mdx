@@ -4,30 +4,30 @@ slug: guides/domain-parking
 title: Domain Parking
 ---
 
-Wenn du mehrere Domains besitzt, kann es sich lohnen, einen Dienst wie `domain-park` zu nutzen. Somit wird sichergestellt, dass diese Domains sicher bleiben, auch wenn du sie nicht benutzt. Zum Glück ist domain-park ein Open-Source-Projekt und implementiert die folgenden Funktionen.
+Wenn du mehrere Domains besitzt, kann es sich lohnen, einen Dienst wie `domain-park` zu nutzen. Somit wird sichergestellt, dass diese Domains sicher bleiben, auch wenn du sie nicht benutzt. Zum Glück ist domain-park ein Open-Source-Projekt und implementiert die folgenden Funktionen:
 
--   Best practices for SPF, DKIM, DMARC and MX compliance for parked domains
--   Easy to deploy with no server configuration per domain
--   Ability to configure DMARC reports
+-   Beste Vorgehensweise für das Einhalten der Vorschriften von SPF, DKIM, DMARC und MX für geparkte domains
+-   Einfacher Bereitstellung ohne Serverkonfiguration pro Domain
+-   Möglichkeit zur Konfiguration von DMARC-Berichten
 
-If you do decide to run an instance (or two) of domain park you should aim for the following setup.
+Wenn du dich dafür entscheidest, eine Instanz (oder zwei) von Domain Park zu betreiben, solltest du die folgende Konfiguration anstreben:
 
--   A domain you use for everything e.g. `servers.fun`
--   A domain you want to park e.g. `urho.st`
--   A VPS (or two) that have static (and public) IP addresses we can assign hostnames to
--   A DNS management panel such as `Cloudflare DNS`
+-   Eine Domain, die du für alles benutzt, z.B. `servers.fun`
+-   Eine Domain, die du parken willst, z.B. `urho.st`
+-   Einen VPS (oder zwei) mit statischen (und öffentlichen) IP-Adressen, denen wir Hostnamen zuweisen können
+-   Ein DNS-Verwaltungspanel wie `Cloudflare DNS`
 
 :::danger
-Cloudflare registry doesn't support using external name servers, if your domain you wish to park is registered with Cloudflare you will need to use an alternative solution.
+Die Cloudflare-Registry unterstützt keine externen Nameserver. Wenn du eine Domain bei Cloudflare registriert hast und diese dann auch parken möchtest, musst du eine alternative Lösung verwenden.
 :::
 
 * * *
 
-### Creating a VPS
+### Einen VPS erstellen
 
-If you're looking for a solid VPS provider, checkout Hetzner. You can use our affiliate link https://link.setup.md/joinhetzner for €20 free credit and in return we'll also get a little bit back from Hetzner.
+Wenn du auf der Suche nach einem soliden VPS-Anbieter bist, schau dir Hetzner an. Du kannst unseren Affiliate-Link https://link.setup.md/joinhetzner für 20 € kostenloses Guthaben nutzen. Im Gegenzug bekommen wir von Hetzner einen kleinen Teil des Geldes zurück.
 
-If you're using Hetzner you should be able to get away with deploying x2 `CPX11 instances` with the latest LTS build of Ubuntu (Debian works too) which should set you back €9/mo. It's also recommended that you add an SSH key and avoid using password based authentication.
+Wenn du Hetzner verwendest, solltest du 2x `CPX11 Instanzen` bestellen. Für das Betriebssystem sollte der neuste LTS-Build von Ubuntu (Debian funktioniert auch) installiert werden. Die Kosten sollten sich auf ca. 10€/Monat Belaufen. Es wird außerdem empfohlen, einen SSH-Schlüssel hinzuzufügen um eine passwortbasierte Authentifizierung zu vermeiden.
 
 * * *
 
