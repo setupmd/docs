@@ -22,15 +22,15 @@ Finally, switch `anti-override` from true to false. If your tablist does not hav
 
 ---
 
-#### ProtocolLib & it's Dependents
+#### ProtocolLib & it's Dependants
 ProtocolLib is not very well optimised. Lots of plugins also abuse ProtocolLib a lot, causing even worse performance. Examples are DeluxeCombat (If ProtocolLib hook is enabled) and InteractiveChat. Removal has resulted in significantly better performance in all large servers.
 
-Consider finding alternatives to plugins that use ProtocolLib, or recode them to use PacketEvents.
+Consider finding alternatives to plugins that use ProtocolLib, or fork them to use PacketEvents.
 
 ---
 
 #### Citizens
-Citizens often eats up >5% of ticks on larger servers. It is recommended that you use ZNPCsPlus instead if you don't mind a smaller catalogue of supported plugins. Overall, ZNPCsPlus was using 0.03% of the ticks at 330 players in a spark report.
+Citizens often eats up >5% of ticks on larger servers. It is recommended that you use ZNPCsPlus instead if you don't mind a smaller catalogue of supported plugins. Overall, ZNPCsPlus was using 0.03% of the ticks at 330 players according to a spark report.
 
 <div>
 <a class="button button--outline button--primary" href="https://github.com/Pyrbu/ZNPCsPlus/tree/2.X">GitHub</a>
@@ -39,7 +39,7 @@ Citizens often eats up >5% of ticks on larger servers. It is recommended that yo
 ---
 
 #### ajLeaderboards
-Although ajLeaderboards has seen great optimization patches in recent times, it is still a tad laggier than it really should be. We recommend LeaderHeadsRevamped instead. Yes, LHR still works perfectly even though it lacks updates.
+Although ajLeaderboards has seen great optimization patches in recent times, it is still a tad laggier than it really should be. We recommend LeaderHeadsRevamped instead. Yes, LHR still works perfectly even though it hasn't seen an update in ages.
 
 If you insist on using ajLeaderboards, make sure `register-lp-contexts` is set to false.
 
@@ -70,7 +70,7 @@ If you nor any of your plugins are actively using FAWE, consider switching to st
 ---
 
 #### Vanish Plugins
-It is recommended to use AdvancedVanish instead of plugins like SuperVanish and Premium vanish as their performance is rather poor in comparison.
+It is recommended to use AdvancedVanish instead of plugins like SuperVanish and PremiumVanish as their performance is rather poor in comparison.
 
 <div>
 <a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/advancedvanish.86036/">Spigot</a>
