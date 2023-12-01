@@ -1,0 +1,122 @@
+---
+description: You don't always want to be using the CLI to manage your server, consider a web panel and share the responsibility with your other administrators.
+slug: h/ui
+title: Panels
+---
+
+If you're running a Minecraft server the chances are you'll want an easier method of management, this is where panels come into play. Every [shared hosting](types#shared-hosting) provider will come with a control panel, this is how you'll interface with your server normally at a URL similar to https://panel.mydomain.com. Depending on how long the provider has been in business they'll either be using Multicraft or Pterodactyl (newer hosts using the latter). 
+
+While Multicraft and Pterodactyl became the widely adopted platforms for Minecraft hosting this doesn't mean they're the only players in the game and with a VPS / Bare Metal you can install any one of a number of different solutions. We could write this article for the next six months documenting every single different panel and why it should be used but we're going to focus on a couple.
+
+The top 4 shortlisted panels this article will be covering are.
+
+-   AMP
+-   Multicraft
+-   Pterodactyl
+-   PufferPanel
+
+### AMP
+
+AMP is a licensed panel produced by CubeCoders which supports both Windows and Linux including Ubuntu, Debian, Arch, Cent OS and more. CubeCrafters are by no means new to the hosting game, their previous product McMyAdmin launched all the way back in 2013.
+
+At this time there is **NO** Apple builds so for legacy McMyAdmin2 users this product may not be suitable for you unless you're running boot camp or run your servers on a different machine.
+
+#### Pros
+
+-   Community backed game contributions
+-   Migration path for McMyAdmin2 users
+-   One click/line installers
+-   Proactive support
+-   Support for many popular titles
+
+#### Cons
+
+-   Licensed
+-   Multiple security requirements before installable (principle isn't a con but it's a pain)
+-   Not open-source
+
+<div>
+<a class="button button--outline button--primary" href="https://cubecoders.com/AMP">Website</a>&nbsp;
+<a class="button button--outline button--primary" href="https://github.com/CubeCoders/AMP/wiki">Github Wiki</a>
+</div>
+
+* * *
+
+### Multicraft
+
+Multicraft is the old-school industry panel that is still in use by some providers today, most notably [Pebblehost](https://pebblehost.com) who run a highly modified setup.  Multicraft is also our oldest panel having launched all the way back in 2010 during [the hmod era](https://github.com/traitor/Minecraft-Server-Mod). While a great panel of the 2010s, it's ship has sailed and shouldn't be used for new production environments.
+
+Like AMP, Multicraft **does not** (and at this point probably never will) have an Apple build. Mac users should look at [Pterodactyl](#pterodactyl) if they wish to localhost a panel.
+
+#### Pros
+
+-   Billing integration for WHMCS / Blesta
+-   One click/line installers
+-   Proven solution that has served thousands of servers over the last 10 years.
+
+#### Cons
+
+-   Dated product with better alternatives
+-   Licensed
+-   Lack of third party modifications
+
+<div>
+<a class="button button--outline button--primary" href="https://www.multicraft.org/">Website</a>
+</div>
+
+* * *
+
+### Pterodactyl
+
+Multicraft had to die for Pterodactyl to breathe, an open source panel in active development and great support behind it. For those who like the sound of pterodactyl but not the self-hosting setup process you can look at the SaaS version [WISP](https://wisp.gg) which will cost you around $15 a month for the entry plan.
+
+Pterodactyl boasts a two part setup, a web-server and a docker agent (wings) that only has official support for Linux. WSL has no official support same with Mac OS, you may find better luck utilising their 'panel-in-docker' and 'wings-in-docker' if you wish to attempt an install on either of these platforms.
+
+#### Pros
+
+-   ARM instruction set support
+-   Billing integration for WHMCS / Blesta
+-   Industry standard tool
+-   Marketplaces for third party panel enhancements
+-   Open source product
+-   Support for many popular titles
+
+#### Cons
+
+-   Complex multi-stage setup process
+-   Setup support can be hit or miss (you're normally told to RTFM)
+
+<div>
+<a class="button button--outline button--primary" href="https://pterodactyl.io">Website</a>&nbsp;
+<a class="button button--outline button--primary" href="https://discord.gg/pterodactyl">Discord</a>&nbsp;
+<a class="button button--outline button--primary" href="https://github.com/pterodactyl/panel">Github</a>
+</div>
+
+* * *
+
+### PufferPanel
+
+PufferPanel could have been the Pterodactyl industry standard tool today, a panel formerly developed by a Pterodactyl team member prior to a clashing of heads and a splitting of the product, however PufferPanel remains open source and in active development by the original founder and an long-time dev. 
+
+The situation is the same for PufferPanel as it is for Pterodactyl, only has official support for Linux, however Windows builds are available (if unsupported).
+
+#### Pros
+
+-   One click/line installers via APT/YUM
+-   ARM instruction set support
+-   Open source product
+
+#### Cons
+
+-   Lack of industry adoption / third party support
+-   No billing modules
+
+:::note
+PufferPanel (OSS Project) should not be confused with the proprietary puffer panel used by https://pufferfish.host, **these are two separate entities**.
+:::
+
+<div>
+<a class="button button--outline button--primary" href="https://www.pufferpanel.com/">Website</a>&nbsp;
+<a class="button button--outline button--primary" href="https://discord.gg/v8dz49e">Discord</a>&nbsp;
+<a class="button button--outline button--primary" href="https://github.com/pufferpanel/pufferpanel">Github</a>
+</div>
