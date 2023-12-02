@@ -4,18 +4,23 @@ slug: h/ui
 title: Panels
 ---
 
+import MainStatusPill from '../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
 If you're running a Minecraft server the chances are you'll want an easier method of management, this is where panels come into play. Every [shared hosting](types#shared-hosting) provider will come with a control panel, this is how you'll interface with your server normally at a URL similar to https://panel.mydomain.com. Depending on how long the provider has been in business they'll either be using Multicraft or Pterodactyl (newer hosts using the latter). 
 
 While Multicraft and Pterodactyl became the widely adopted platforms for Minecraft hosting this doesn't mean they're the only players in the game and with a VPS / Bare Metal you can install any one of a number of different solutions. We could write this article for the next six months documenting every single different panel and why it should be used but we're going to focus on a couple.
 
 The top 4 shortlisted panels this article will be covering are.
 
--   AMP
--   Multicraft
--   Pterodactyl
--   PufferPanel
+<ul class="pl-5 list-disc">
+    <li>AMP</li>
+    <li>Moonlight</li>
+    <li>Pterodactyl</li>
+    <li>PufferPanel</li>
+</ul>
 
-### AMP
+### AMP <MainStatusPill info>Windows & Linux only</MainStatusPill>
 
 AMP is a licensed panel produced by CubeCoders which supports both Windows and Linux including Ubuntu, Debian, Arch, Cent OS and more. CubeCrafters are by no means new to the hosting game, their previous product McMyAdmin launched all the way back in 2013.
 
@@ -23,50 +28,57 @@ At this time there is **NO** Apple builds so for legacy McMyAdmin2 users this pr
 
 #### Pros
 
--   Community backed game contributions
--   Migration path for McMyAdmin2 users
--   One click/line installers
--   Proactive support
--   Support for many popular titles
+<ul class="pl-5 list-disc">
+    <li>Community backed game contributions</li>
+    <li>Migration path for McMyAdmin2 users</li>
+    <li>One click/line installers</li>
+    <li>Proactive support</li>
+    <li>Support for many popular titles</li>
+</ul>
 
 #### Cons
 
--   Licensed
--   Multiple security requirements before installable (principle isn't a con but it's a pain)
--   Not open-source
+<ul class="pl-5 list-disc">
+    <li>Licensed</li>
+    <li>Multiple security requirements before installable (principle isn't a con but it's a pain)</li>
+    <li>Not open-source</li>
+</ul>
 
-<div>
-<a class="button button--outline button--primary" href="https://cubecoders.com/AMP">Website</a>&nbsp;
-<a class="button button--outline button--primary" href="https://github.com/CubeCoders/AMP/wiki">Github Wiki</a>
-</div>
+<CardGrid>
+  <LinkCard title="Website" href="https://cubecoders.com/AMP" />
+  <LinkCard title="Github Wiki" href="https://github.com/CubeCoders/AMP/wiki" />
+</CardGrid>
 
 * * *
 
-### Multicraft
+### Moonlight <MainStatusPill info>Linux only</MainStatusPill>
 
-Multicraft is the old-school industry panel that is still in use by some providers today, most notably [Pebblehost](https://pebblehost.com) who run a highly modified setup.  Multicraft is also our oldest panel having launched all the way back in 2010 during [the hmod era](https://github.com/traitor/Minecraft-Server-Mod). While a great panel of the 2010s, it's ship has sailed and shouldn't be used for new production environments.
-
-Like AMP, Multicraft **does not** (and at this point probably never will) have an Apple build. Mac users should look at [Pterodactyl](#pterodactyl) if they wish to localhost a panel.
+Moonlight is an up and coming panel solution that is aimed towards those looking to replace Pterodactyl. The project is still in it's early phase and we've been pleased with the outcome so far in small scale testing and has therefore made our list as a one to watch.
 
 #### Pros
 
--   Billing integration for WHMCS / Blesta
--   One click/line installers
--   Proven solution that has served thousands of servers over the last 10 years.
-
+<ul class="pl-5 list-disc">
+    <li>Automatic plugin installer</li>
+    <li>Automatic SRV record creator</li>
+    <li>One click/line installers</li>
+    <li>Migration guide for Pterodactyl installs</li>
+    <li>Support for pterodactyl eggs (kind of)</li>
+    <li>Many more features constantly being added</li>
+</ul>
 #### Cons
+<ul class="pl-5 list-disc">
+    <li>No billing support at this time</li>
+    <li>Lack of third party modifications</li>
+</ul>
 
--   Dated product with better alternatives
--   Licensed
--   Lack of third party modifications
-
-<div>
-<a class="button button--outline button--primary" href="https://www.multicraft.org/">Website</a>
-</div>
+<CardGrid>
+  <LinkCard title="Website" href="https://moonlightpanel.xyz" />
+  <LinkCard title="Github Project" href="https://github.com/Moonlight-Panel/Moonlight" />
+</CardGrid>
 
 * * *
 
-### Pterodactyl
+### Pterodactyl <MainStatusPill info>Linux only</MainStatusPill>
 
 Multicraft had to die for Pterodactyl to breathe, an open source panel in active development and great support behind it. For those who like the sound of pterodactyl but not the self-hosting setup process you can look at the SaaS version [WISP](https://wisp.gg) which will cost you around $15 a month for the entry plan.
 
@@ -74,27 +86,27 @@ Pterodactyl boasts a two part setup, a web-server and a docker agent (wings) tha
 
 #### Pros
 
--   ARM instruction set support
--   Billing integration for WHMCS / Blesta
--   Industry standard tool
--   Marketplaces for third party panel enhancements
--   Open source product
--   Support for many popular titles
-
+<ul class="pl-5 list-disc">
+    <li>ARM instruction set support</li>
+    <li>Billing integration for WHMCS / Blesta</li>
+    <li>Industry standard tool</li>
+    <li>Marketplaces for third party panel enhancements</li>
+</ul>
 #### Cons
+<ul class="pl-5 list-disc">
+    <li>Complex multi-stage setup process</li>
+    <li>Setup support can be hit or miss (you're normally told to RTFM)</li>
+</ul>
 
--   Complex multi-stage setup process
--   Setup support can be hit or miss (you're normally told to RTFM)
-
-<div>
-<a class="button button--outline button--primary" href="https://pterodactyl.io">Website</a>&nbsp;
-<a class="button button--outline button--primary" href="https://discord.gg/pterodactyl">Discord</a>&nbsp;
-<a class="button button--outline button--primary" href="https://github.com/pterodactyl/panel">Github</a>
-</div>
+<CardGrid>
+  <LinkCard title="Website" href="https://pterodactyl.io" />
+  <LinkCard title="Discord" href="https://discord.gg/pterodactyl" />
+  <LinkCard title="Github" href="https://github.com/pterodactyl/panel" />
+</CardGrid>
 
 * * *
 
-### PufferPanel
+### PufferPanel <MainStatusPill info>Linux only</MainStatusPill>
 
 PufferPanel could have been the Pterodactyl industry standard tool today, a panel formerly developed by a Pterodactyl team member prior to a clashing of heads and a splitting of the product, however PufferPanel remains open source and in active development by the original founder and an long-time dev. 
 
@@ -102,21 +114,24 @@ The situation is the same for PufferPanel as it is for Pterodactyl, only has off
 
 #### Pros
 
--   One click/line installers via APT/YUM
--   ARM instruction set support
--   Open source product
+<ul class="pl-5 list-disc">
+    <li>One click/line installers via APT/YUM</li>
+    <li>ARM instruction set support</li>
+</ul>
 
 #### Cons
 
--   Lack of industry adoption / third party support
--   No billing modules
+<ul class="pl-5 list-disc">
+    <li>Lack of industry adoption / third party support</li>
+    <li>No billing modules</li>
+</ul>
 
 :::note
 PufferPanel (OSS Project) should not be confused with the proprietary puffer panel used by https://pufferfish.host, **these are two separate entities**.
 :::
 
-<div>
-<a class="button button--outline button--primary" href="https://www.pufferpanel.com/">Website</a>&nbsp;
-<a class="button button--outline button--primary" href="https://discord.gg/v8dz49e">Discord</a>&nbsp;
-<a class="button button--outline button--primary" href="https://github.com/pufferpanel/pufferpanel">Github</a>
-</div>
+<CardGrid>
+  <LinkCard title="Website" href="https://www.pufferpanel.com/" />
+  <LinkCard title="Discord" href="https://discord.gg/v8dz49e" />
+  <LinkCard title="Github" href="https://github.com/pufferpanel/pufferpanel" />
+</CardGrid>
