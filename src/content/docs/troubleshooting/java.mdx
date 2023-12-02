@@ -12,18 +12,19 @@ Depending on the OS you're running there are multiple ways to set the ENV / PATH
 #### Windows 
 
 If you're on windows this can be done entirely via the UI however some steps maybe slightly different depending on your Windows release. Below are steps based on Windows 11.
-
-- Navigate to `c:\program files\java` and identify the JDK version folder name e.g. `jdk-19`.
-- Open the bin folder within the JDK folder and copy the full folder path from file explorer.
-- Select the Windows icon open the start menu and go to 'Settings'
-- Select the 'System' tab on the left hand side and go to the 'About' menu
-- Open 'Advanced System Settings'
-- Select the 'Advanced' tab
-- Select 'Environment Variables'
-- Under 'System Variables' scroll down until you see 'Path'
-- Select 'Edit'
-- Now select 'New' and paste in the file explorer path you copied earlier
-- Press 'OK' to save changes
+<ul class="pl-5 list-disc">
+    <li>Navigate to `c:\program files\java` and identify the JDK version folder name e.g. `jdk-19`</li>
+    <li>Open the bin folder within the JDK folder and copy the full folder path from file explorer</li>
+    <li>Select the Windows icon open the start menu and go to 'Settings'</li>
+    <li>Select the 'System' tab on the left hand side and go to the 'About' menu</li>
+    <li>Open 'Advanced System Settings'</li>
+    <li>Select the 'Advanced' tab</li>
+    <li>Select 'Environment Variables'</li>
+    <li>Under 'System Variables' scroll down until you see 'Path'</li>
+    <li>Select 'Edit'</li>
+    <li>Now select 'New' and paste in the file explorer path you copied earlier</li>
+    <li>Press 'OK' to save changes</li>
+</ul>
 
 You can verify the above steps have worked as expected by running the following command in a command prompt window.
 
@@ -64,17 +65,19 @@ exec zsh -l
 ### Wrong version of Java installed
 
 When it comes to the 'wrong version installed' there's a few factors to consider.
-
-- Bit edition (x86 or x64 or ARM etc)
-- Major LTS revision
+<ul class="pl-5 list-disc">
+    <li>Bit edition (x86 or x64 or ARM etc)</li>
+    <li>Major LTS revision</li>
+</ul>
 
 You can identify if you're having issues due to the bit version by lowering the start-up args from a value greater than `4` for -Xms and -Xmx. If your server boots without issues to the `Done in X seconds` line you will need to uninstall your java release and download the 64 bit edition as this doesn't have the 4GB RAM memory limitation.
 
 If your server still doesn't boot after decreasing the RAM it's most likely that your machine has the wrong edition of Java installed, certain major releases of Java dropped legacy builds as time has gone on.
 
 The most commonly adopted Java releases are as follows:
-
-- Java 8 (LTS)
-- Java 11 (LTS)
-- Java 17 (LTS)
-- Java 19 (LTS)
+<ul class="pl-5 list-disc">
+    <li>Java 8 (LTS)</li>
+    <li>Java 11 (LTS)</li>
+    <li>Java 17 (LTS)</li>
+    <li>Java 19 (LTS)</li>
+</ul>

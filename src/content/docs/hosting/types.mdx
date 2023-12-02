@@ -8,9 +8,11 @@ When you start looking at hosting your server online you'll see many different a
 
 
 The three most common types you'll find in forum responses are:
-- Shared Hosting
-- Virtual Private Servers (VPS)
-- Dedicated Servers (Bare Metal / VDS)
+<ul class="pl-5 list-disc">
+    <li>Shared Hosting</li>
+    <li>Virtual Private Servers (VPS)</li>
+    <li>Dedicated Servers (Bare Metal / VDS)</li>
+</ul>
 
 ### Shared Hosting
 
@@ -25,13 +27,14 @@ Traditionally this space was dominated by the likes of Nitrado, MCProHosting, Sh
 The other common response you'll see people mention is 'grab yourself a VPS from Digital Ocean or Linode'. While you certainly can, it won't be much better than using [oracle cloud](/guides/oracle-cloud) on ARM (which is free). 
 
 VPS instances have some differences to shared hosting, the core differences are.
-- Linux knowledge is required for setup
-- Patching becomes your responsibility
-- Shell access which allows you to run more than just Minecraft servers
-- Slower but higher core count CPUs
-- You get a Dedicated IP address rather than a Shared one
-- You can install a custom panel such as [Pterodactyl](/h/ui#pterodactyl)
-
+<ul class="pl-5 list-disc">
+    <li>Linux knowledge is required for setup</li>
+    <li>Patching becomes your responsibility</li>
+    <li>Shell access which allows you to run more than just Minecraft servers</li>
+    <li>Slower but higher core count CPUs</li>
+    <li>You get a Dedicated IP address rather than a Shared one</li>
+    <li>You can install a custom panel such as [Pterodactyl](/h/ui#pterodactyl)</li>
+</ul>
 There are times when a VPS can make sense, a prime example is using a VPS provider that uses consumer 'Gaming Grade' CPUs (Intel Core i9 / AMD Ryzen 7 / 9). These would provide the same experience for Minecraft as using a regular 'shared hosting' provider and it would allow you to host say a web / database server, a discord bot or anything else you could imagine.
 
 ---
@@ -41,12 +44,15 @@ There are times when a VPS can make sense, a prime example is using a VPS provid
 The final common type of hosting you'll see people mention is, "go all out and own your hardware". While yes, this has some advantages for a novice the prospect of having no one around for support can be unsettling. Bare metal gives you full, dedicated, system normally in 32 / 64 or 128 GB RAM configurations with 256 / 512 or multi-TB disk configs. Bare metal can either be built yourself and shipped to a data centre for a monthly fee or you can rent from providers such as Hetzner, OVH or ReliableSite for a monthly fee. This option can set you back multiple hundreds of dollars per month and would only be recommended for larger scale deployments.
 
 Bare metal has a few advantages over the other types of solutions such as.
-- Complete ownership of the server data
-- Complete ownership of physical and networking resources
-- Some providers will offer a managed solution for an additional fee
-
+<ul class="pl-5 list-disc">
+    <li>Complete ownership of the server data</li>
+    <li>Complete ownership of physical and networking resources</li>
+    <li>Some providers will offer a managed solution for an additional fee</li>
+</ul>
 Bare metal also carries the same differences to shared hosting as a VPS.
 
-:::info
+:::tip
+
 If you don't already know what level of hardware you should be looking at then please consider reading our [hardware guide](hardware) first, then once you know what hardware and solution you're looking for head on over to our [recommendation page](providers) for vendors that can deliver what you're looking for.
+
 :::

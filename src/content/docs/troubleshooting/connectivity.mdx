@@ -50,18 +50,23 @@ You can find your host devices internal LAN address by running `ipconfig` within
 Providing you can connect internally to your server, the issue most likely falls with either your router and port forwarding or your IPS and their use of CGNAT.
 
 The first thing we need to check is port forwarding is configured correctly, you will need to slightly adjust the below steps as the wording on every router model / firewall is different.
-
-- Login to the admin interface (normally on http(s)://192.168.1.254 or http(s)://192.168.1.1)
-  - Admin username and password is normally on the bottom but a Google search may also help
-- Look for a 'Port Forwarding / NAT folder'
-  - You may need to go into any 'Advanced Settings' tab first
-- You should ensure the rule has been configured as expected 
-  - Service Name - 'Minecraft'
-  - Protocol - 'TCP'
-  - Internal IP - '(Internal LAN IP of Host Device)'
-  - Internal Port - '(Match server.properties file)'
-  - External Port - '(Match server.properties file)'
-- Save changes 
+<ul class="pl-5 list-disc">
+  <li>Login to the admin interface (normally on http(s)://192.168.1.254 or http(s)://192.168.1.1)</li>
+    <ul class="pl-5 list-disc">
+      <li> Admin username and password is normally on the bottom but a Google search may also help</li>
+    </ul>
+  <li> Look for a 'Port Forwarding / NAT folder'</li>
+  <li> You may need to go into any 'Advanced Settings' tab first</li>
+  <li> You should ensure the rule has been configured as expected</li>
+    <ul class="pl-5 list-disc">
+      <li><strong>Service Name</strong> - 'Minecraft'</li>
+      <li><strong>Protocol</strong> - 'TCP'</li>
+      <li><strong>Internal IP</strong> - '(Internal LAN IP of Host Device)'</li>
+      <li><strong>Internal Port</strong> - '(Match server.properties file)'</li>
+      <li><strong>External Port</strong> - '(Match server.properties file)'</li>
+    </ul>
+  <li> Save changes</li>
+</ul>
 
 It might not be possible to reach your external IP from inside your own network so a tool like <a href="https://portchecker.co/canyouseeme">canyouseeme</a> can help check the port 25565 from an external source.
 
@@ -76,18 +81,19 @@ Since release 1.3 Minecraft supports a method of connectivity called 'SRV' Recor
 In using an SRV record you bind the hostname and the service you're running (a Minecraft server) to the specific port so when you go to your client you would only have to type `play.mycoolserver.net` into your client and the SRV record would tell your client "hey use this port".
 
 Sometimes an end user may be using a DNS provider that doesn't support SRV records, any issues they have with connectivity can be resolved by changing their local DNS to a free public resolver such as:
-
-- Quad9: 9.9.9.9
-- Cloudflare: 1.1.1.1
-- Google: 8.8.8.8
+<ul class="pl-5 list-disc">
+  <li>Quad9: 9.9.9.9</li>
+  <li>Cloudflare: 1.1.1.1</li>
+  <li>Google: 8.8.8.8</li>
+</ul>
 
 When you create the record you should ensure it's configured as follows:
 
 `_minecraft._tcp.<host> <TTL> IN SRV 1 1 <port> <subdomain>`
 
-<ul>
-  <li><strong>host</strong> - this should be your current providers connection hostname</li>
+<ul class="pl-5 list-disc">
+  <li><strong>Host</strong> - this should be your current providers connection hostname</li>
   <li><strong>TTL</strong> - set this to auto if using Cloudflare DNS or 3600 in any other dns providers panel</li>
-  <li><strong>port</strong> - this should be the port you're currently using to connect to your server with</li>
-  <li><strong>subdomain</strong> - this should represent what you want your players to connect with</li>
+  <li><strong>Port</strong> - this should be the port you're currently using to connect to your server with</li>
+  <li><strong>Subdomain</strong> - this should represent what you want your players to connect with</li>
 </ul>

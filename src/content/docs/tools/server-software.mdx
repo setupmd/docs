@@ -4,6 +4,9 @@ description: This page covers a list of well known server.jars.
 title: Server Software
 ---
 
+import MainStatusPill from '../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
 When creating a server there are multiple different names you will come across. Each server software has its own uses.
 
 Server Software is very often referred to as "Server Jar(s)".
@@ -16,50 +19,45 @@ A "Fork" is a modified version of server software. These often share the same co
 
 There are hundreds (if not thousands) of different forks. This document will only include the recommended, stable, widely-used ones.
 
-#### Vanilla
+#### Vanilla <MainStatusPill warning>No Plugin Support</MainStatusPill>
 
-As the name suggests, it is a completely Vanilla server from Mojang itself without any modifications. Great for those who want to host a small server for a couple of friends without altering any mechanics, but definitely not good for large servers. It uses datapacks instead of plugins.
+As the name suggests, it is a completely Vanilla server from Mojang itself without any modifications. Great for those who want to host a small server for a couple of friends without altering any mechanics, but definitely not good for large servers.
 
-<div>
-<a class="button button--outline button--primary" href="https://getbukkit.org/download/vanilla">Download</a>
-</div>
+<LinkCard
+  title="Download"
+  description="Download a copy of the Vanilla installer via getbukkit.org"
+  href="https://getbukkit.org/download/vanilla"
+/>
 
-
-#### Paper
+#### Paper <MainStatusPill success>Recommended</MainStatusPill>
 
 Paper is the most widely-used Server Jar nowadays. A fork of Spigot with its own API, numerous optimizations alongside tons of glitch/dupe fixes make Paper the main choice for most server owners.
 
-<div>
-<a class="button button--outline button--primary" href="https://papermc.io/downloads">Website</a>
-</div>
-
+<LinkCard
+  title="Download"
+  description="Download a copy of PaperMC via papermc.io"
+  href="https://papermc.io/downloads"
+/>
 
 #### Purpur
 
 A fork of Paper which provides numerous gameplay-enhancing features without having to download/create plugins. These include being able to adjust gameplay behaviors not seen in Paper, mob health, and more. Only has a couple of optimization options, but it does allow you to toggle some dupes.
 
-<div>
-<a class="button button--outline button--primary" href="https://purpurmc.org/downloads">Website</a>
-</div>
-
+<LinkCard
+  title="Download"
+  description="Download a copy of PurpurMC via purpurmc.org"
+  href="https://purpurmc.org/downloads"
+/>
 
 #### Pufferfish
 
 A fork of Paper which greatly improves performance without causing any noticeable impact to gameplay. Includes hopper, entity, map rendering and many other optimizations. Highly recommended for most servers. 
 
-<div>
-<a class="button button--outline button--primary" href="https://pufferfish.host/downloads">Website</a>
-</div>
-
-
-#### UniverseSpigot
-
-High-Performance fork of Pufferfish consisting of countless optimizations. The best bang for the buck option, costing only $60. Only recommended for larger networks experiencing lag in case the [advanced optimization checklist](https://www.setup.md/guides/optimisation/advanced) was insufficient.
-
-<div>
-<a class="button button--outline button--primary" href="https://polymart.org/resource/universespigot-1-20-1.4805">PolyMart</a>
-</div>
-
+<LinkCard
+  title="Download"
+  description="Download a copy of Pufferfish via pufferfish.host"
+  href="https://pufferfish.host/downloads"
+/>
 
 #### Folia
 
@@ -73,27 +71,33 @@ Do you need to use it? Highly unlikely.  Can you use it? Probably.  Will a good 
 **Every command and feature should be tested.**
 :::
 
-<div>
-<a class="button button--outline button--primary" href="https://github.com/PaperMC/Folia">Github</a>
-</div>
+<LinkCard
+  title="Download"
+  description="Download a copy of Folia via github.com from PaperMC"
+  href="https://github.com/PaperMC/Folia"
+/>
 
 
 #### Legacy 1.8 Jars
 
 It is highly recommended that you do not use 1.8 or any of its other releases. However, if it's a requirement for whatever reason these are the better jars to use.
- - [NachoSpigot](https://github.com/CobbleSword/NachoSpigot)
- - [BurritoSpigot](https://github.com/CobbleSword/BurritoSpigot)
- - [SportPaper](https://github.com/Electroid/SportPaper)
- - [PandaSpigot](https://github.com/hpfxd/PandaSpigot)
- - [WindSpigot](https://github.com/Wind-Development/WindSpigot)
+ <CardGrid>
+  <LinkCard title="NachoSpigot" href="https://github.com/CobbleSword/NachoSpigot" />
+  <LinkCard title="BurritoSpigot" href="https://github.com/CobbleSword/BurritoSpigot" />
+  <LinkCard title="SportPaper" href="https://github.com/Electroid/SportPaper" />
+  <LinkCard title="PandaSpigot" href="https://github.com/hpfxd/PandaSpigot" />
+  <LinkCard title="WindSpigot" href="https://github.com/Wind-Development/WindSpigot" />
+</CardGrid>
 
 #### Forge
 
 Forge is a modding API and server jar. It is most commonly used for servers with large modpacks. However, it is not very optimized and suffers from poor performance.
+<LinkCard
+  title="Download"
+  description="Download a copy of Forge via minecraftforge.net"
+  href="https://files.minecraftforge.net/net/minecraftforge/forge/"
+/>
 
-<div>
-<a class="button button--outline button--primary" href="https://files.minecraftforge.net/net/minecraftforge/forge/">Download</a>
-</div>
 
 #### Fabric
 
@@ -105,9 +109,11 @@ Fabric is similar to Forge (but not a fork) in the sense that it also supports m
 Do not use any server software such as Magma or Mohist. These are generally unstable. [Mohist also replaces EssentialsX jars with modified jars](https://essentialsx.net/do-not-use-mohist.html), which might not be safe.
 :::
 
-<div>
-<a class="button button--outline button--primary" href="https://fabricmc.net/">Website</a>
-</div>
+<LinkCard
+  title="Download"
+  description="Download a copy of Fabric via fabricmc.net"
+  href="https://fabricmc.net/use/installer/"
+/>
 
 ---
 
@@ -119,19 +125,23 @@ Proxies are used to connect multiple regular servers (such as Paper servers) tog
 
 A more recent project, now run by the Paper developers. Velocity uses its own API, meaning it does not work with Bungeecord / Waterfall (Unless you use [SNAP!](https://forums.papermc.io/threads/snap-run-bungeecord-plugins-on-velocity.31/), which allows you to use Bungeecord plugins on Velocity. Not recommended, though.)
 
-Velocity is practically superior to Bungeecord / Waterfall unless you're hosting older than 1.13 servers. However, many developers haven't added Velocity support to their plugins.
+Velocity is a superior solution compared to Bungeecord / Waterfall unless you're hosting older than 1.13 servers but many developers haven't added Velocity support to their plugins.
 
-<div>
-<a class="button button--outline button--primary" href="https://papermc.io/downloads#Velocity">Website</a>
-</div>
+<LinkCard
+  title="Download"
+  description="Download a copy of Velocity via papermc.io"
+  href="https://papermc.io/downloads#Velocity"
+/>
 
 #### Waterfall
 
 A fork of Bungeecord run by the Paper developers, Waterfall supports most if not all Bungeecord plugins. It also comes with a couple of networking optimizations.
 
-<div>
-<a class="button button--outline button--primary" href="https://papermc.io/downloads#Waterfall">Website</a>
-</div>
+<LinkCard
+  title="Download"
+  description="Download a copy of Waterfall via papermc.io"
+  href="https://papermc.io/downloads#Waterfall"
+/>
 
 ---
 
@@ -143,9 +153,11 @@ If you're using Pterodactyl, consider using the [Geyser Standalone Egg](https://
 
 Geyser Standalone also allows you to connect to servers that you do not own. However, this is not recommended as it will more than likely lead to a swift ban from the anti-cheat.
 
-<div>
-<a class="button button--outline button--primary" href="https://geysermc.org/download#standalone">Website</a>
-</div>
+<LinkCard
+  title="Download"
+  description="Download a copy of GeyserMC via geysermc.org"
+  href="https://geysermc.org/download#standalone"
+/>
 
 ---
 
@@ -153,10 +165,10 @@ Geyser Standalone also allows you to connect to servers that you do not own. How
 
 There are sometimes cool spin-offs that we feel are worthy of mentioning their existance, please note they may no longer be in active development at the time you're viewing this article.
 
-- [Petal](https://github.com/Bloom-host/Petal) by Bloom Host
-- [PaperRecorder](https://github.com/Bryan1029384756/PaperRecorder) by Bryan1029384756
-
-
+ <CardGrid>
+  <LinkCard title="Petal" href="https://github.com/Bloom-host/Petal" />
+  <LinkCard title="PaperRecorder" href="https://github.com/Bryan1029384756/PaperRecorder" />
+</CardGrid>
 
 
 

@@ -15,11 +15,11 @@ Databases are used for centralised storage with unrestricted limitations to read
 ### Common database types
 
 If you're hosting a server the most common types of databases you'll be interacting with are 'SQL' based. This will most likely be one of the following solutions:
-
-- MySQL (Legacy project)
-- MariaDB (Modern MySQL fork)
-- MSSQL (The Microsoft edition of MySQL)
-
+<ul class="pl-5 list-disc">
+    <li>MySQL (Legacy project)</li>
+    <li>MariaDB (Modern MySQL fork)</li>
+    <li>MSSQL (The Microsoft edition of MySQL)</li>
+</ul>
 From an end user perspective all database types will produce a `.sql` file when exported and can be maintained through a common interface like phpMyAdmin, Adminer or MySQL Workbench. 
 
 :::tip
@@ -35,6 +35,6 @@ In a Minecraft environment you're most likely going to come across databases in 
 
 If you're running a server with a hosting provider they too will most likely give you the ability to create databases for your plugin data, if you're limited on local disk space using SQL for plugin data may off-lift some local capacity constraints.
 
-:::info 
+:::note
 If you're looking to deploy your own Private SQL instance, you can follow a tutorial such as the one on the [Digital Ocean community forums](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-22-04) that covers installation, configuration and securing your instance.
 :::
