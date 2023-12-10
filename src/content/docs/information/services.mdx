@@ -1,0 +1,37 @@
+---
+description: Services that are hosted by the setup.md team.
+title: Additional Services
+slug: services
+sidebar:
+  order: 2
+---
+
+import MainStatusPill from '../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+We want to be more than just an administration wiki which is why we're also starting to offer some first party services. 
+
+### That's Hosted Over There
+
+Starting off strong, we're pleased to announce the expansion of our 'UGC' (User Generated Content) platform and have migrated everything over to a standalone product called "That's Hosted Over There" (THOT for short).
+
+#### Features
+
+<ul class="pl-5 list-disc">
+    <li>100MB file upload limit per upload</li>
+    <li>Custom domain support <MainStatusPill info>premium</MainStatusPill></li>
+    <li>'Link in bio' style pages</li>
+    <li>QR code generator <MainStatusPill warning>coming soon</MainStatusPill></li>
+    <li>URL Shortener</li>
+</ul>
+
+:::note
+#### V1 End of Life
+
+If you're a user of our legacy platform https://uk.thot.cc then please migrate your assets manually to the new THOT by May 2024 else your data will be deleted and non recoverable.
+:::
+
+ <CardGrid>
+  <LinkCard title="Dashboard" href="https://thot.cc/dashboard" />
+  <LinkCard title="Community Libraries" href="https://github.com/setupmd/thot" />
+</CardGrid>
