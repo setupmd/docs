@@ -7,7 +7,10 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.setup.md',
-  trailingSlash: "never",
+  trailingSlash: 'never',
+  build: {
+    format: 'file',
+  },
   integrations: [starlight({
     title: 'setup.md',
     editLink: {
