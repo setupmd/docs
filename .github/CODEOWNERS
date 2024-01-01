@@ -1,8 +1,9 @@
 # Default owners of the repository
-*       @setupmd/docs
+*       @setupmd
 
 # Owners for JS, JSX, TS, and TSX files
-*.js    @dyte-in/web
-*.jsx   @dyte-in/web
-*.ts    @dyte-in/web
-*.tsx   @dyte-in/web
+*.js    @setupmd
+*.jsx   @setupmd
+*.mdx   @setupmd
+*.ts    @setupmd
+*.tsx   @setupmd
