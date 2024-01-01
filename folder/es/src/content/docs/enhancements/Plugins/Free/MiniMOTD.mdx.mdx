@@ -2,25 +2,32 @@
 description: MiniMOTD has the functionality to add an MOTD (Message Of The Day) to your server, which shows on the Multiplayer page of Minecraft before a player logs into your server.
 slug: e/pl/minimotd
 title: MiniMOTD
-sidebar:
-  badge:
-    text: New
-    variant: note
+lastUpdated: 2024-01-01
 ---
 
+import MainStatusPill from '../../../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+#### This enhancement supports
+
+<br/>
+<MainStatusPill success>Bungeecord, Waterfall & Velocity</MainStatusPill> <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill> 
+<br/>
 MiniMOTD is a plugin of which allows you to **fully** customize your server's MOTD by:
 
--   Adding multiple MOTD messages that can alternate between one another,
--   Adding RGB gradients,
--   Adding Placeholders,
--   and much more...,
+<ul class="pl-5 list-disc">
+    <li>Adding multiple MOTD messages that can alternate between one another</li>
+    <li>Adding RGB gradients</li>
+    <li>Adding Placeholders</li>
+    <li>and much more...</li>
+</ul>
 
-### Note
+#### Note
 
 Whilst MiniMOTD can run on your backend server, if you are running a network via a proxy such as Bungeecord or Velocity, MiniMOTD will be ran on your proxy. Therefore, you should download MiniMOTD to your proxy rather than your individual servers. If you are just running one singular server, MiniMOTD will run directly on that server.
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/minimotd-server-list-motd-plugin-with-rgb-gradients.81254/">Download (SpigotMC)</a> &nbsp;
-<a class="button button--outline button--primary" href="https://modrinth.com/plugin/minimotd">Download (Modrinth)</a> &nbsp;
-<a class="button button--outline button--primary" href="https://docs.advntr.dev/minimessage/">Documentation</a> &nbsp;
-</div>
+<CardGrid>
+  <LinkCard title="Download (SpigotMC)" href="https://www.spigotmc.org/resources/minimotd-server-list-motd-plugin-with-rgb-gradients.81254/" />
+  <LinkCard title="Download (Modrinth)" href="https://modrinth.com/plugin/minimotd" />
+  <LinkCard title="Documentation" href="https://docs.advntr.dev/minimessage/" />
+</CardGrid>
