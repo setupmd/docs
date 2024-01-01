@@ -2,17 +2,26 @@
 description: Vault API is a core framework for most economy, permission and chat plugins and has become a key dependency for many plugins.
 slug: e/pl/vault
 title: Vault API
+lastUpdated: 2023-12-16
 sidebar:
   badge:
     text: Essential
     variant: success
 ---
+import MainStatusPill from '../../../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+#### This enhancement supports
+<br/>
+<MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
+<br/>
 
 The Vault API is the longest standing, most reliable permissions, chat and economy API backbone for Minecraft. It's been around for about a decade at this point in time and with every update that passes reliability has always remained.
 
 Vault is a plugin that once added will rarely need updating and with a lot of plugins requiring it, you should make sure it's first on your download list!
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/vault.34315/">Spigot</a>&nbsp;
-<a class="button button--outline button--primary" href="https://github.com/MilkBowl/Vault">Github</a>
-</div>
+<LinkCard
+  title="Spigot"
+  description="View Vault's official Spigot page for downloading the plugin."
+  href="https://www.spigotmc.org/resources/vault.34315/"
+/>

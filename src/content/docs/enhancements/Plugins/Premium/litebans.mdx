@@ -2,27 +2,35 @@
 description: Litebans is a premium plugin that centralises ban management for 'networked' servers.
 slug: e/pl/litebans
 title: Litebans
+lastUpdated: 2024-01-01
 sidebar:
   badge:
     text: Recommended
     variant: tip
 ---
 
+import MainStatusPill from '../../../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+#### This enhancement supports
+<br/>
+<MainStatusPill success>Bungeecord, Waterfall & Velocity</MainStatusPill> <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
+<br/>
 If you're looking for a method of syncing Minecraft bans between multiple Minecraft proxies, servers (or both) or perhaps you're looking for a way to give your end users some transparency over the punishments that are handed out within your community. If this sounds of interest then Litebans is the tool for you.
 
 This plugin allows for central management of all punishments via a database and provides you the ability to host a public punishment website for people to view additional details.
 
 ### Features
 
-- UUID based punishments (no username change ban evasions)
-- UI is fully customisable
-- Punishment templates
-- Punishment scope support (multi-server specific)
-- Web-UI included for free
+<ul class="pl-5 list-disc">
+    <li>UUID based punishments (no username change ban evasions)</li>
+    <li>UI is fully customisable</li>
+    <li>Punishment templates</li>
+    <li>Punishment scope support (multi-server specific)</li>
+    <li>Web-UI included for free</li>
+</ul>
 
-
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/litebans.3715/">Spigot</a> &nbsp;
-<a class="button button--outline button--primary" href="https://discord.gg/axzSDsDpHn">Discord</a> &nbsp;
-<a class="button button--outline button--primary" href="https://gitlab.com/ruany/litebans-php/wikis/Installation">Wiki</a> &nbsp;
-</div>
+ <CardGrid>
+  <LinkCard title="Download" href="https://www.spigotmc.org/resources/litebans.3715" />
+  <LinkCard title="Wiki" href="https://gitlab.com/ruany/litebans-php/wikis/Installation" />
+</CardGrid>
