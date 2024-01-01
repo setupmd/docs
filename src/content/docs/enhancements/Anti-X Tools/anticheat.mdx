@@ -4,7 +4,8 @@ slug: e/anti-x/ac
 title: Anti-Cheats
 ---
 
-import MainStatusPill from '../../../../components/MainStatusPill.vue'
+import MainStatusPill from '../../../../components/MainStatusPill.vue';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 :::info
 Throughout this guide 'Anti-Cheat(s)' may be referred to as 'AC' or 'ACs'
@@ -44,53 +45,77 @@ We highly discourage the usage of auto-bans as no anti-cheat is perfect. If you 
 
 This list consists common ACs and some pros and cons of each AC.
 
-#### NoCheatPlus <MainStatusPill error>Java Only</MainStatusPill>
+#### NoCheatPlus <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - Free and open-source
-  - Good movement checks
+
+  <ul class="pl-5 list-disc">
+    <li>Free and open-source</li>
+    <li>Good movement checks</li>
+  </ul>
 
 ##### Cons
-  - Default configuration will spam false movement positives all over the place, you should buy a good config (eg. [MarkElf's](https://www.mc-market.org/resources/475/)) OR make your own
-  - Mediocre combat checks
 
-<div>
-<a class="button button--outline button--primary" href="https://github.com/Updated-NoCheatPlus/NoCheatPlus">Github</a>
-</div>
+  <ul class="pl-5 list-disc">
+    <li>Default configuration will spam false movement positives all over the place, you should buy a good config (eg. [MarkElf's](https://www.mc-market.org/resources/475/)) OR make your own</li>
+    <li>Mediocre combat checks</li>
+  </ul>
+
+<LinkCard
+  title="Github"
+  description="View NoCheatPlus's official Github page for downloading the plugin."
+  href="https://github.com/Updated-NoCheatPlus/NoCheatPlus"
+/>
 
 ---
 
-#### Grim
+#### Grim <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - Open-source
-  - Great movement checks
-  - Predictive technology
+
+  <ul class="pl-5 list-disc">
+    <li>Open-source</li>
+    <li>Great movement checks</li>
+    <li>Predictive technology</li>
+  </ul>
 
 ##### Cons
-  - Currently WIP, not ready for production servers
-  - Mediocre combat checks
-  - Quite unoptimized
 
-<div>
-<a class="button button--outline button--primary" href="https://github.com/MWHunter/Grim">Github</a>
-</div>
+  <ul class="pl-5 list-disc">
+    <li>Currently WIP, not ready for production servers</li>
+    <li>Mediocre combat checks</li>
+    <li>Quite unoptimized</li>
+  </ul>
+
+<LinkCard
+  title="Github"
+  description="View Grim's official Github page for downloading the plugin."
+  href="https://github.com/MWHunter/Grim"
+/>
 
 ---
 
-#### Vulcan
+#### Vulcan <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - Great movement and combat checks
-  - Good default config
+
+<ul class="pl-5 list-disc">
+    <li>Great movement and combat checks</li>
+    <li>Good default config</li>
+</ul>
 
 ##### Cons
-  - USD 20.00
-  - Suboptimal performance when scaled to high player counts (>3% of ticks at 420 players).
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/83626/">Spigot</a>
-</div>
+<ul class="pl-5 list-disc">
+    <li>USD 20.00</li>
+    <li>Suboptimal performance when scaled to high player counts (>3% of ticks at 420 players).</li>
+</ul>
+
+<LinkCard
+  title="Spigot"
+  description="View Vulcan's official Spigot page for downloading the plugin."
+  href="https://www.spigotmc.org/resources/83626/"
+/>
 
 ---
 
