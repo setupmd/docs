@@ -36,3 +36,28 @@ If you're a user of our legacy platform https://uk.thot.cc then please migrate y
   <LinkCard title="Dashboard" href="https://thot.cc/dashboard" />
   <LinkCard title="Blog Announcement" href="https://smd.gg/thot-v2" />
 </CardGrid>
+
+* * *
+
+### Server Jar API
+
+The setup.md have taken the work produced by PenguiLoader on Github and rewrote some code to work in Cloudflare workers. The API is super simple to use and will remain open source further enhance the API as time progresses.
+
+The base domain is `https://jar.setup.md`
+
+The subsequent slug that follows is syntaxed as below.
+
+`/download/{SOFTWARE}/{VERSION}/{BUILD}`
+
+To grab the latest paper .jar download:
+
+`GET https://jar.setup.md/download/paper/latest/latest`
+
+To grab the latest vanilla server.jar download link: (no build parameter required)
+
+`GET https://jar.setup.md/download/vanilla/latest`
+
+<CardGrid>
+  <LinkCard title="PenguiLoader/MC-SRV-DL-API" href="https://github.com/PenguiLoader/MC-SRV-DL-API" />
+  <LinkCard title="setupmd/mc-jar-api" href="https://github.com/setupmd/mc-jar-api" />
+</CardGrid>
