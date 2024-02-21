@@ -3,8 +3,6 @@ import starlight from '@astrojs/starlight';
 import vue from "@astrojs/vue";
 import tailwind from "@astrojs/tailwind";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.setup.md',
@@ -60,6 +58,4 @@ export default defineConfig({
       collapsed: true
     }]
   }), vue(), tailwind()],
-  output: "server",
-  adapter: cloudflare()
 });
