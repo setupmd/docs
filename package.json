@@ -1,7 +1,7 @@
 {
   "name": "@setupmd/docs",
   "type": "module",
-  "version": "3.1.1",
+  "version": "4.1.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
