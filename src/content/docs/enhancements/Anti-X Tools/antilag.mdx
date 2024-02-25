@@ -2,31 +2,43 @@
 description: A brief introduction to Anti-Lag and alternative performance management tools.
 slug: e/anti-x/al
 title: Anti-Lag
+lastUpdated: 2024-02-25
 ---
+
+import MainStatusPill from '../../../../components/MainStatusPill.vue';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 Below is a list of tools and optimisations you can use to identify and mitigate TPS (server) lag.
 
-:::warning
-Anti-lag plugins such as ClearLagg "don't work". These plugins periodically clear dropped items at a set interval - this makes a negligible difference to lag and most anti-lag plugins have poor detection that can result in more lag. Aside from the fact any "gains" seen by such tools are just hiding performance issues under a thin veil rather than actually fixing them.
+:::caution
+**Anti-lag plugins such as ClearLagg "don't work".**
+
+These plugins periodically clear dropped items at a set interval - this makes a negligible difference to lag and most anti-lag plugins have poor detection that can result in more lag. Aside from the fact any "gains" seen by such tools are just hiding performance issues under a thin veil rather than actually fixing them.
 :::
 
 #### Guides to Optimisation
 
 We have published a couple of proven guides on optimisations below that should be reviewed first.
 
-<div>
-<a class="button button--outline button--primary" href="https://www.setup.md/guides/optimisation">Guide</a>
-</div>
+<LinkCard
+  title="Optimisation - Introduction"
+  description="This section of setup.md goes in-depth for server optimisation"
+  href="https://www.setup.md/guides/optimisation/"
+/>
 
 ---
 
 #### Spark
 
-A modern performance profiler for 1.8+ servers on any platform - Forge, Spigot, Fabric, almost anything that isn't the vanilla server! This isn't an anti-lag plugin per se but it can help you find what's *causing* lag on your server. It now comes built-in with the Purpur performance JAR and its forks.
+A modern performance profiler for 1.8+ servers on any platform - Forge, Spigot, Fabric, almost anything that isn't the vanilla server! This isn't an anti-lag plugin per se but it can help you find what's *causing* lag on your server.
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/spark.57242/">Spigot</a> <a class="button button--outline button--primary" href="https://www.curseforge.com/minecraft/mc-mods/spark">CurseForge</a> <a class="button button--outline button--primary" href="https://github.com/lucko/spark">GitHub</a>
-</div>
+It now comes built-in with the Purpur performance JAR and its forks.
+
+<CardGrid>
+ <LinkCard title="Spigot" href="https://www.spigotmc.org/resources/spark.57242/" />
+ <LinkCard title="CurseForge" href="https://www.curseforge.com/minecraft/mc-mods/spark" />
+ <LinkCard title="Github" href="https://github.com/lucko/spark" />
+</CardGrid>
 
 ---
 
@@ -34,9 +46,10 @@ A modern performance profiler for 1.8+ servers on any platform - Forge, Spigot, 
 
 This plugin allows you to manage certain properties of farms on your server. Among other things, the plugin acts as a farm limiter, can remove the ability of mobs in farms to collide and perform random movements, or can completely disable the AI of mobs in farms. These actions can be performed either passively or in response to the server's performance degrading.
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/farmcontrol-1-15-1-19.86923/">Spigot</a> <a class="button button--outline button--primary" href="https://github.com/froobynooby/FarmControl/">GitHub</a>
-</div>
+<CardGrid>
+ <LinkCard title="Spigot" href="https://www.spigotmc.org/resources/farmcontrol-1-15-1-19.86923/" />
+ <LinkCard title="Github" href="https://github.com/froobynooby/FarmControl/" />
+</CardGrid>
 
 ---
 
@@ -44,9 +57,10 @@ This plugin allows you to manage certain properties of farms on your server. Amo
 
 This plugin lets you quickly find chunks with large quantities of mobs/animals & tile entities. Not an anti-lag plugin, but can be incredibly useful
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/entitydetection-tile-entity-support.20588/">Spigot</a> <a class="button button--outline button--primary" href="https://github.com/Minebench/EntityDetection/">GitHub</a>
-</div>
+<CardGrid>
+ <LinkCard title="Spigot" href="https://www.spigotmc.org/resources/entitydetection-tile-entity-support.20588/" />
+ <LinkCard title="Github" href="https://github.com/Minebench/EntityDetection/" />
+</CardGrid>
 
 ---
 
@@ -54,9 +68,10 @@ This plugin lets you quickly find chunks with large quantities of mobs/animals &
 
 Prevents players from lagging the server with minecarts and boats. If you have FarmLimiter, consider configuring that plugin to do what CAProtect does instead, as CAProtect is a bit more intensive. Otherwise, consider using AjMac's fork.
 
-<div>
-<a class="button button--outline button--primary" href="https://github.com/castaway-gg/CAProtect-Lite">GitHub</a> <a class="button button--outline button--primary" href="https://github.com/AjMaacc/CAProtect-Lite">GitHub (Fork)</a>
-</div>
+<CardGrid>
+ <LinkCard title="Github" href="https://github.com/castaway-gg/CAProtect-Lite" />
+ <LinkCard title="Github (Forked)" href="https://github.com/AjMaacc/CAProtect-Lite" />
+</CardGrid>
 
 ---
 
@@ -64,6 +79,7 @@ Prevents players from lagging the server with minecarts and boats. If you have F
 
 RedstoneLimiter is a plugin that limits how many times individual redstone contraptions can be activated in a customizable amount of time to fix lag machines.
 
-<div>
-<a class="button button--outline button--primary" href="https://builtbybit.com/resources/redstonelimiter-smart-redstone-limiter.23133/">BuiltByBit</a> <a class="button button--outline button--primary" href="https://github.com/arkflame/RedstoneLimiter">GitHub</a>
-</div>
+<CardGrid>
+ <LinkCard title="BuiltByBit" href="https://builtbybit.com/resources/redstonelimiter-smart-redstone-limiter.23133/" />
+ <LinkCard title="Github" href="https://github.com/arkflame/RedstoneLimiter" />
+</CardGrid>
