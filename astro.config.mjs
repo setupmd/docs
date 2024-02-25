@@ -1,62 +1,62 @@
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
 import vue from "@astrojs/vue";
-
 import tailwind from "@astrojs/tailwind";
+
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.setup.md',
-  trailingSlash: 'never',
+  site: "https://www.setup.md",
+  trailingSlash: "never",
   build: {
-    format: 'file',
+    format: "file"
   },
   integrations: [starlight({
-    title: 'setup.md',
+    title: "setup.md",
     editLink: {
-      baseUrl: 'https://github.com/setupmd/docs/edit/v3'
+      baseUrl: "https://github.com/setupmd/docs/edit/v3"
     },
     social: {
-      discord: 'https://link.setup.md/discord',
-      github: 'https://link.setup.md/repo',
-      patreon: 'https://link.setup.md/patreon'
+      discord: "https://link.setup.md/discord",
+      github: "https://link.setup.md/repo"
     },
     sidebar: [{
-      label: 'Project Information',
+      label: "Project Information",
       autogenerate: {
-        directory: '/information/'
+        directory: "/information/"
       },
       collapsed: false
     }, {
-      label: 'Enhancements',
+      label: "Enhancements",
       autogenerate: {
-        directory: '/enhancements/'
+        directory: "/enhancements/"
       },
       collapsed: true
     }, {
-      label: 'Hosting Tips',
+      label: "Hosting Tips",
       autogenerate: {
-        directory: '/hosting/'
+        directory: "/hosting/"
       },
       collapsed: true
     }, {
-      label: 'Server Tools',
+      label: "Server Tools",
       autogenerate: {
-        directory: '/tools/'
+        directory: "/tools/"
       },
       collapsed: true
     }, {
-      label: 'Server Troubleshooting',
+      label: "Server Troubleshooting",
       autogenerate: {
-        directory: '/troubleshooting/'
+        directory: "/troubleshooting/"
       },
       collapsed: true
     }, {
-      label: 'Guides',
+      label: "Guides",
       autogenerate: {
-        directory: '/guides/'
+        directory: "/guides/"
       },
       collapsed: true
     }]
-  }), vue(), tailwind()]
+  }), vue(), tailwind(), sitemap()]
 });

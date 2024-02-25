@@ -5,16 +5,18 @@ description: Understand the types of 'preventative' tools that exist for Minecra
 title: Introduction
 ---
 
+import MainStatusPill from '../../../../components/MainStatusPill.vue';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
 Minecraft is an open game by nature and as great as that is, it doesn't always work in every servers favour and sometimes they need to make changes in order to restrict certain aspects of gameplay for any number of multiple reasons.
 
 The most common types of plugins you'll see in this category are:
 
- - Anti-Cheat
- - Anti-Lag
- - Anti-Exploit
- - Anti-Swear
- - Anti-Xray
- - Anti-Mechanic (where mechanic is a vanilla function server owners don't want)
+ <CardGrid>
+  <LinkCard title="Anti-Cheat" href="/e/anti-x/ac" />
+  <LinkCard title="Anti-Lag" href="/e/anti-x/al" />
+  <LinkCard title="Anti-Exploit" href="/e/anti-x/ae" />
+  <LinkCard title="Anti-X-Ray" href="/e/anti-x/ax" />
+</CardGrid>
 
 We will attempt to cover multiple examples of each where possible.
-

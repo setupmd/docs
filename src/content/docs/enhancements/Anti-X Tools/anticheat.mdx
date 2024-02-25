@@ -2,15 +2,17 @@
 description: A brief introduction to Anti-Cheats and the community recommended solutions.
 slug: e/anti-x/ac
 title: Anti-Cheats
+lastUpdated: 2024-02-25
 ---
 
-import MainStatusPill from '../../../../components/MainStatusPill.vue'
+import MainStatusPill from '../../../../components/MainStatusPill.vue';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 :::info
 Throughout this guide 'Anti-Cheat(s)' may be referred to as 'AC' or 'ACs'
 :::
 
-ACs are an integral part of any public server and help with catching hackers, since Minecraft's built-in anti-cheat is practically useless, it's better to turn it off than to endure the constant false positives it spews out. 
+ACs are an integral part of any public server and help with catching hackers, since Minecraft's built-in anti-cheat is practically useless, it's better to turn it off than to endure the constant false positives it spews out.
 
 You should change the following settings within the  `server.properties` file.
 
@@ -29,7 +31,7 @@ Within the `spigot.yml` file you should also set the following values.
 
      moved-wrongly-threshold: 100000.0
      moved-too-quickly-multiplier: 100000.0
-     
+
 ...
 ```
 
@@ -44,105 +46,149 @@ We highly discourage the usage of auto-bans as no anti-cheat is perfect. If you 
 
 This list consists common ACs and some pros and cons of each AC.
 
-#### NoCheatPlus <MainStatusPill error>Java Only</MainStatusPill>
+#### NoCheatPlus <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - Free and open-source
-  - Good movement checks
+
+  <ul class="pl-5 list-disc">
+    <li>Free and open-source</li>
+    <li>Good movement checks</li>
+  </ul>
 
 ##### Cons
-  - Default configuration will spam false movement positives all over the place, you should buy a good config (eg. [MarkElf's](https://www.mc-market.org/resources/475/)) OR make your own
-  - Mediocre combat checks
 
-<div>
-<a class="button button--outline button--primary" href="https://github.com/Updated-NoCheatPlus/NoCheatPlus">Github</a>
-</div>
+  <ul class="pl-5 list-disc">
+    <li>Default configuration will spam false movement positives all over the place, you should buy a good config (eg. [MarkElf's](https://www.mc-market.org/resources/475/)) OR make your own</li>
+    <li>Mediocre combat checks</li>
+  </ul>
+
+<LinkCard
+  title="Github"
+  description="View NoCheatPlus's official Github page for downloading the plugin."
+  href="https://github.com/Updated-NoCheatPlus/NoCheatPlus"
+/>
 
 ---
 
-#### Grim
+#### Grim <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - Open-source
-  - Great movement checks
-  - Predictive technology
+
+  <ul class="pl-5 list-disc">
+    <li>Open-source</li>
+    <li>Great movement checks</li>
+    <li>Predictive technology</li>
+  </ul>
 
 ##### Cons
-  - Currently WIP, not ready for production servers
-  - Mediocre combat checks
-  - Quite unoptimized
 
-<div>
-<a class="button button--outline button--primary" href="https://github.com/MWHunter/Grim">Github</a>
-</div>
+  <ul class="pl-5 list-disc">
+    <li>Currently WIP, not ready for production servers</li>
+    <li>Mediocre combat checks</li>
+    <li>Quite unoptimized</li>
+  </ul>
+
+<LinkCard
+  title="Github"
+  description="View Grim's official Github page for downloading the plugin."
+  href="https://github.com/MWHunter/Grim"
+/>
 
 ---
 
-#### Vulcan
+#### Vulcan <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - Great movement and combat checks
-  - Good default config
+
+<ul class="pl-5 list-disc">
+    <li>Great movement and combat checks</li>
+    <li>Good default config</li>
+</ul>
 
 ##### Cons
-  - USD 20.00
-  - Suboptimal performance when scaled to high player counts (>3% of ticks at 420 players).
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/83626/">Spigot</a>
-</div>
+<ul class="pl-5 list-disc">
+    <li>USD 20.00</li>
+    <li>Suboptimal performance when scaled to high player counts (>3% of ticks at 420 players)</li>
+</ul>
+
+<LinkCard
+  title="Spigot"
+  description="View Vulcan's official Spigot page for downloading the plugin."
+  href="https://www.spigotmc.org/resources/83626/"
+/>
 
 ---
 
-#### Spartan
+#### Spartan <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - 14-day money-back guarantee
-  - Good Bedrock Checks. I wouldn't go as far as saying that you should auto-ban for violations, though
-  - Decent movement checks.
+
+<ul class="pl-5 list-disc">
+    <li>14-day money-back guarantee</li>
+    <li>Good Bedrock Checks</li>
+    <li>Decent movement checks</li>
+</ul>
 
 ##### Cons
-  - EUR 22.49
-  - Relatively poor combat checks
-  - Crashes on start up at times
-  - Performance so bad you might as well set the max TPS of the server to zero, because that's exactly what Spartan has done in the past.
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/25638/">Spigot</a>
-</div>
+<ul class="pl-5 list-disc">
+    <li>EUR 22.49</li>
+    <li>Relatively poor combat checks</li>
+    <li>Crashes on start up at times</li>
+    <li>Sub-par performance</li>
+</ul>
+
+<LinkCard
+  title="Spigot"
+  description="View Spartan's official Spigot page for downloading the plugin."
+  href="https://www.spigotmc.org/resources/25638/"
+/>
 
 ---
 
-#### Matrix
+#### Matrix <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - Decent movement and combat checks.
+<ul class="pl-5 list-disc">
+  <li> Decent movement and combat checks </li>
+</ul>
 
 ##### Cons
-  - Bad default config, but there are some [good ones](https://github.com/QuantumSuite/MatrixChecks) out there
-  - USD 20.00 (With 95% Checks) and USD 129.00 (All Checks)
-  - Dedicated Server Limit.
-  - Terrible performance; Ate up >5% of the ticks at 135 players.
+<ul class="pl-5 list-disc">
+  <li>Bad default config, but there are some [good ones](https://github.com/QuantumSuite/MatrixChecks) out there</li>
+  <li>USD 20.00 (With 95% Checks) and USD 129.00 (All Checks)</li>
+  <li>Dedicated Server Limit</li>
+  <li>Terrible performance; Ate up >5% of the ticks at 135 players</li>
+</ul>
 
-<div>
-<a class="button button--outline button--primary" href="https://matrix.rip">Website</a>
-</div>
+<LinkCard
+  title="Website"
+  description="View Matrix's official website for downloading the plugin."
+  href="https://matrix.rip"
+/>
 
 ---
 
-#### Themis
+#### Themis <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - Free.
-  - Proper Geyser-Floodgate (Bedrock Players) checks. (Only reason to use this anti-cheat)
+<ul class="pl-5 list-disc">
+  <li>Free</li>
+  <li>Proper Geyser-Floodgate (Bedrock Players) checks (Only reason to use this anti-cheat)</li>
+</ul>
 
 ##### Cons
-  - Bad Combat & Mediocre Movement checks (Bad Elytra, Timer, KillAura Checks)
-  - Lack of checks in general
+<ul class="pl-5 list-disc">
+  <li>Bad Combat & Mediocre Movement checks (Bad Elytra, Timer, KillAura Checks)</li>
+  <li>Lack of checks in general</li>
+</ul>
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/themis-anti-cheat-1-17-1-18-bedrock-support-paper-compatibility-free-optimized.90766/">Spigot</a>
-</div>
+<LinkCard
+  title="Spigot"
+  description="View Thermis's official Spigot page for downloading the plugin."
+  href="https://www.spigotmc.org/resources/themis-anti-cheat-1-17-1-18-bedrock-support-paper-compatibility-free-optimized.90766/"
+/>
 <br/>
 
 :::note
@@ -151,73 +197,98 @@ This anti-cheat is optimised for bedrock players.
 
 ---
 
-#### SoaromaSAC (Config 6)
+#### SoaromaSAC (Config 6) <MainStatusPill warning>Spigot / Paper & forks only</MainStatusPill>
 
 ##### Pros
-  - Free
+
+<ul class="pl-5 list-disc">
+  <li>Free</li>
+</ul>
 
 ##### Cons
-  - Bad Checks
-  - Infinite False Positives
-  - Fake Open Source Link. Leads to a Rick Roll
+<ul class="pl-5 list-disc">
+  <li> Bad Checks </li>
+  <li>Infinite False Positives</li>
+  <li>Fake Open Source Link. Leads to a Rick Roll</li>
+</ul>
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/">Spigot</a>
-</div>
+<LinkCard
+  title="Spigot"
+  description="View SoaromaSAC's official Spigot page for downloading the plugin."
+  href="https://www.spigotmc.org/resources/soaromasac-lightweight-cheat-detection-system.87702/"
+/>
 
 ---
 
-#### Negativity v1 & v2
- 
+#### Negativity v1 & v2 <MainStatusPill success>All major Java platforms</MainStatusPill>
+
 ##### Pros
-  - Free & Open Source.
-  - Paid Version (v2) is Open Source
-  - v2 supports a lot of platforms (Minestom, Sponge, Fabric & more)
+<ul class="pl-5 list-disc">
+  <li>Free & Open Source</li>
+  <li>Paid Version (v2) is Open Source</li>
+  <li>v2 supports a lot of platforms (Minestom, Sponge, Fabric & more)</li>
+</ul>
 
 ##### Cons
-  - Lacks some important checks. (No Elytra Checks, NoSlow Checks etc)
-  - Poor movement and combat checks
+<ul class="pl-5 list-disc">
+  <li>Lacks some important checks (No Elytra Checks, NoSlow Checks etc)</li>
+  <li>Poor movement and combat checks</li>
+</ul>
 
-<div>
-<a class="button button--outline button--primary" href="https://www.spigotmc.org/resources/48399/">Spigot</a>
-</div>
+<LinkCard
+  title="Spigot"
+  description="View Negativity's official Spigot page for downloading the plugin."
+  href="https://www.spigotmc.org/resources/48399/"
+/>
 
 ---
-  
+
 #### Astro
 
 ##### Pros
-  - Great movement and combat checks
-  - Good default config
-  - Great performance - very light on the main thread. Ate only .01% of ticks at 430 players.
-  - Decent Bedrock Checks. Obviously do not auto-ban in case of violations.
+<ul class="pl-5 list-disc">
+  <li>Great movement and combat checks</li>
+  <li>Good default config</li>
+  <li>Great performance - very light on the main thread. Ate only .01% of ticks at 430 players</li>
+  <li>Decent Bedrock Checks, obviously do not auto-ban in case of violations</li>
+</ul>
 
 ##### Cons
-  - USD 30.00
-  - Timer checks false incredibly often
-  - Poor reliability; has broken at least once per quarter so far.
-  - Atrocious ToS which states that you are not allowed to mention that your server is using Astro. Also, to purchase the anti-cheat, the server must have an active player count of 50 or above.
+<ul class="pl-5 list-disc">
+  <li>USD 30.00</li>
+  <li>Timer checks false incredibly often</li>
+  <li>Poor reliability; has broken at least once per quarter so far</li>
+  <li>Atrocious ToS which states that you are not allowed to mention that your server is using Astro. Also, to purchase the anti-cheat, the server must have an active player count of 50 or above</li>
+</ul>
 
-<div>
-<a class="button button--outline button--primary" href="https://astroac.cc/">Page</a>
-</div>
+<LinkCard
+  title="Website"
+  description="View Astro's official website for downloading the plugin."
+  href="https://astroac.cc/"
+/>
 
 ---
 
 #### Polar
 
 ##### Pros
-  - Great movement and combat checks
-  - Works out-of-the-box on most servers
-  - Cloud-based detections, which helps reducing stress on server resources
+<ul class="pl-5 list-disc">
+  <li>Great movement and combat checks</li>
+  <li>Works out-of-the-box on most servers</li>
+  <li>Cloud-based detections, which helps reducing stress on server resources</li>
+</ul>
 
 ##### Cons
-  - Subscription plans starting at EUR 15/month
-  - Limitations on player count, server instances and dedicated servers based on subscription plan
+<ul class="pl-5 list-disc">
+  <li>Subscription plans starting at EUR 15/month</li>
+  <li>Limitations on player count, server instances and dedicated servers based on subscription plan</li>
+</ul>
 
-<div>
-<a class="button button--outline button--primary" href="https://polar.top/">Page</a>
-</div>
+<LinkCard
+  title="Website"
+  description="View Polar's official website for downloading the plugin."
+  href="https://polar.top/"
+/>
 
 ### Recommendations
 
