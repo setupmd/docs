@@ -28,7 +28,7 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.org/
 
-      - name: npm install, build
-        run: |
-          npm install
-          npm run astro build
+    - name: npm install, build
+      run: |
+        npm install
+        npm run astro build
