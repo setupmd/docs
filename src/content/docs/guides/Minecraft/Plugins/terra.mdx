@@ -1,0 +1,85 @@
+---
+description: Configure a Terra world gen world for use in both Single and Multiplayer environments.
+slug: guides/terra
+title: Terra World Generation
+lastUpdated: 2024-03-04
+---
+
+import MainStatusPill from '../../../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The setup.md wiki provides Terra worlds available for download monthly, the principle of this guide can be used in situations with / without our pre-provided files if you wish to generate things for yourself.
+
+Before continuing with configuring Terra we are assuming the following:
+
+<ul class="pl-5 list-disc">
+    <li>You are using one of our provided world files</li>
+    <li>You are running atleast version 1.20.4</li>
+</ul>
+
+Make sure you download one of our maps via our 'Additional Services' page.
+
+<LinkCard
+  title="Additional Services - Pregen Maps"
+  description="Additional resources that are hosted by the setup.md team."
+  href="/services"
+/>
+
+You will then need to scroll down to one of the following topic headers to complete setup.
+
+<ul class="pl-5 list-disc">
+    <li>Paper & Forks</li>
+    <li>Fabric & Forge</li>
+</ul>
+
+### Paper & Forks
+
+Download the latest `.jar` file from the Modrinth page using the link below and add it directly to your `/plugins/` folder inside the server directory.
+
+<LinkCard
+  title="Modrinth"
+  description="View Terra's official Modrinth page for downloading the plugin."
+  href="https://terra.polydev.org/install/versions.html#bukkit-versions"
+/>
+
+You will also need to append the following changes to the end of your `bukkit.yml` file **BEFORE** launching your server, this will ensure your server uses the Terra world gen plugin.
+
+```
+...
+
+worlds:
+  world:
+    generator: Terra:OVERWORLD
+
+...
+```
+
+Once this has been complete you can upload and unzip the World.XXXXXXX.zip folder into your server directory. This will automatically extract into a `world` folder and you should be ready to start your server.
+
+<img src="https://onlinefile.host/dbi80nv" alt="console logs"/>
+
+Once the server is powered on, check for the three lines highlighted above. If these are displayed that means Terra is responsible for your world and chunk management / generation going forward.
+
+---
+
+### Fabric & Forge
+
+Download the latest `.jar` file from the Modrinth page using the link below and add it directly to your `/mods/` folder inside the server directory.
+
+<LinkCard
+  title="Modrinth"
+  description="View Terra's official Modrinth page for downloading the mod."
+  href="https://terra.polydev.org/install/versions.html#fabric"
+/>
+
+Add the following key to your `server.properties` file **BEFORE** launching your server, this will ensure your server uses the Terra world gen plugin.
+
+```
+...
+
+level-type=terra:overworld/overworld
+
+...
+```
+
+Once this has been complete you can upload and unzip the World.XXXXXXX.zip folder into your server directory. This will automatically extract into a `world` folder and you should be ready to start your server.

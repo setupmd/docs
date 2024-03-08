@@ -1,5 +1,5 @@
 ---
-description: Services that are hosted by the setup.md team.
+description: Additional resources that are hosted by the setup.md team.
 title: Additional Services
 slug: services
 sidebar:
@@ -9,34 +9,32 @@ sidebar:
 import MainStatusPill from '../../../components/MainStatusPill.vue'
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-We want to be more than just an administration wiki which is why we're also starting to offer some first party services.
+As time has progressed we've continued to identify ways we can help server owners get up and running, setup.md has launched some additional services to help make your life easier.
 
-### That's Hosted Over There
+### Asset Hosting
 
-Starting off strong, we're pleased to announce the expansion of our 'UGC' (User Generated Content) platform and have migrated everything over to a standalone product called "That's Hosted Over There" (THOT for short).
+We launched a file sharing platform that can be used to share assets quickly with your communities, host resource packs for your server and even create 'link-in-bio' style pages to help bring your community together.
 
 #### Features
 
 <ul class="pl-5 list-disc">
-    <li>100MB file upload limit per upload</li>
+    <li>100MB file upload limit</li>
     <li>Custom domain support <MainStatusPill info>premium</MainStatusPill></li>
-    <li>'Link in bio' style pages</li>
+    <li>'Link-In-Bio' pages</li>
     <li>QR code generator</li>
     <li>URL Shortener</li>
 </ul>
 
  <CardGrid>
   <LinkCard title="Dashboard" href="https://thot.cc/dashboard" />
-  <LinkCard title="Blog Announcement" href="https://smd.gg/posts/thot-v2" />
+  <LinkCard title="Guide" href="/t/textures" />
 </CardGrid>
 
 ---
 
-### Pregen Minecraft Worlds
+### Pregen Maps
 
-Every month we will be offering three pre-generated Minecraft worlds, two will be in the format of a 5000 x 5000 world which will be made available via this website using the links below.
-
-The third map however can be found within our Discord server made available to all of our Github sponsors only, this map is a 15K x 15K map.
+Various services offer this kind of solution but never made it available to the masses, we're giving you two monthly custom world gen maps using [Terra](https://modrinth.com/plugin/terra) that can be downloaded using the links below.
 
 <CardGrid>
  <LinkCard title="5K x 5K Map 1" href="https://link.setup.md/map1" />
@@ -48,29 +46,35 @@ The third map however can be found within our Discord server made available to a
   href="https://link.setup.md/discord"
 />
 
+In case you've never used a world generation plugin before we have a guide on how to get these configured regardless of the platform you're running on.
+
+<LinkCard
+  title="Minecraft - Configure a Terra world"
+  description="Configure a Terra world gen world for use in both Single and Multiplayer environments."
+  href="/guides/terra"
+/>
+
 ---
 
 ### Server Jar API
 
-The setup.md have taken the work produced by PenguiLoader on Github and rewrote some code to work in Cloudflare workers. The API is super simple to use and will remain open source further enhance the API as time progresses.
+We took a cool idea produced by PenguiLoader on Github and we fixed some bugs then made it faster by distributing the workload to Cloudflare workers and running it on their amazing edge network.
+
+#### Quickstart
 
 The base domain is `https://jar.setup.md`
 
-The subsequent slug that follows is syntaxed as below.
+The subsequent URL that follows is syntaxed as below.
 
 `/download/{SOFTWARE}/{VERSION}/{BUILD}`
 
-To grab the latest paper .jar download:
+To grab the latest paper .jar download.
 
-`
-GET https://jar.setup.md/download/paper/latest/latest
-`
+`GET https://jar.setup.md/download/paper/latest/latest`
 
-To grab the latest vanilla server.jar download link: (no build parameter required)
+To grab the latest vanilla server.jar download link. (no build parameter required)
 
-`
-GET https://jar.setup.md/download/vanilla/latest
-`
+`GET https://jar.setup.md/download/vanilla/latest`
 
  <CardGrid>
   <LinkCard title="PenguiLoader/MC-SRV-DL-API" href="https://github.com/PenguiLoader/MC-SRV-DL-API" />

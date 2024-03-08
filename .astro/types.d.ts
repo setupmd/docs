@@ -423,6 +423,13 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
+"guides/Minecraft/Plugins/terra.mdx": {
+	id: "guides/Minecraft/Plugins/terra.mdx";
+  slug: "guides/terra";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
 "guides/Minecraft/Self-Host/Panels/Pterodactyl/intro.mdx": {
 	id: "guides/Minecraft/Self-Host/Panels/Pterodactyl/intro.mdx";
   slug: "guides/pterodactyl";

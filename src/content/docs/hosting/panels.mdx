@@ -7,11 +7,12 @@ title: Panels
 import MainStatusPill from '../../../components/MainStatusPill.vue'
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-If you're running a Minecraft server the chances are you'll want an easier method of management, this is where panels come into play. Every [shared hosting](types#shared-hosting) provider will come with a control panel, this is how you'll interface with your server normally at a URL similar to https://panel.mydomain.com. Depending on how long the provider has been in business they'll either be using Multicraft or Pterodactyl (newer hosts using the latter). 
+If you're running a Minecraft server the chances are you'll want an easier method of management, this is where panels come into play. Every [shared hosting](types#shared-hosting) provider will come with a control panel, this is how you'll interface with your server normally at a URL similar to https://panel.mydomain.com. Depending on how long the provider has been in business they'll either be using Multicraft or Pterodactyl (newer hosts using the latter).
 
 While Multicraft and Pterodactyl became the widely adopted platforms for Minecraft hosting this doesn't mean they're the only players in the game and with a VPS / Bare Metal you can install any one of a number of different solutions. We could write this article for the next six months documenting every single different panel and why it should be used but we're going to focus on a couple.
 
 The top 4 shortlisted panels this article will be covering are.
+
 <ul class="pl-5 list-disc">
     <li>AMP</li>
     <li>Moonlight</li>
@@ -26,6 +27,7 @@ AMP is a licensed panel produced by CubeCoders which supports both Windows and L
 At this time there is **NO** Apple builds so for legacy McMyAdmin2 users this product may not be suitable for you unless you're running boot camp or run your servers on a different machine.
 
 #### Pros
+
 <ul class="pl-5 list-disc">
     <li>Community backed game contributions</li>
     <li>Migration path for McMyAdmin2 users</li>
@@ -35,6 +37,7 @@ At this time there is **NO** Apple builds so for legacy McMyAdmin2 users this pr
 </ul>
 
 #### Cons
+
 <ul class="pl-5 list-disc">
     <li>Licensed</li>
     <li>Multiple security requirements before installable (principle isn't a con but it's a pain)</li>
@@ -53,6 +56,7 @@ At this time there is **NO** Apple builds so for legacy McMyAdmin2 users this pr
 Moonlight is an up and coming panel solution that is aimed towards those looking to replace Pterodactyl. The project is still in it's early phase and we've been pleased with the outcome so far in small scale testing and has therefore made our list as a one to watch.
 
 #### Pros
+
 <ul class="pl-5 list-disc">
     <li>Automatic plugin installer</li>
     <li>Automatic SRV record creator</li>
@@ -76,11 +80,12 @@ Moonlight is an up and coming panel solution that is aimed towards those looking
 
 ### Pterodactyl <MainStatusPill info>Linux only</MainStatusPill>
 
-Multicraft had to die for Pterodactyl to breathe, an open source panel in active development and great support behind it. For those who like the sound of pterodactyl but not the self-hosting setup process you can look at the SaaS version [WISP](https://wisp.gg) which will cost you around $15 a month for the entry plan.
+Multicraft had to die for Pterodactyl to breathe, an open source panel in active development and great support behind it. For those who like the sound of pterodactyl but not the self-hosting setup process you can look at the SaaS version [WISP](https://wisp.gg) which will cost you around $5 a month for the community plan.
 
 Pterodactyl boasts a two part setup, a web-server and a docker agent (wings) that only has official support for Linux. WSL has no official support same with Mac OS, you may find better luck utilising their 'panel-in-docker' and 'wings-in-docker' if you wish to attempt an install on either of these platforms.
 
 #### Pros
+
 <ul class="pl-5 list-disc">
     <li>ARM instruction set support</li>
     <li>Billing integration for WHMCS / Blesta</li>
@@ -103,17 +108,19 @@ Pterodactyl boasts a two part setup, a web-server and a docker agent (wings) tha
 
 ### PufferPanel <MainStatusPill info>Linux only</MainStatusPill>
 
-PufferPanel could have been the Pterodactyl industry standard tool today, a panel formerly developed by a Pterodactyl team member prior to a clashing of heads and a splitting of the product, however PufferPanel remains open source and in active development by the original founder and an long-time dev. 
+PufferPanel could have been the Pterodactyl industry standard tool today, a panel formerly developed by a Pterodactyl team member prior to a clashing of heads and a splitting of the product, however PufferPanel remains open source and in active development by the original founder and an long-time dev.
 
 The situation is the same for PufferPanel as it is for Pterodactyl, only has official support for Linux, however Windows builds are available (if unsupported).
 
 #### Pros
+
 <ul class="pl-5 list-disc">
     <li>One click/line installers via APT/YUM</li>
     <li>ARM instruction set support</li>
 </ul>
 
 #### Cons
+
 <ul class="pl-5 list-disc">
     <li>Lack of industry adoption / third party support</li>
     <li>No billing modules</li>
