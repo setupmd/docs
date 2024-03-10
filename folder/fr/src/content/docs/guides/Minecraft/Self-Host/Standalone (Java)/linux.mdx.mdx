@@ -1,0 +1,230 @@
+---
+description: If you're just looking to setup a Minecraft server within Linux on your own personal machine then this is the tutorial for you.
+slug: guides/self-host/linux
+title: Linux
+---
+
+If you're in the position where you want to host a Minecraft server but you don't want to learn or interface with the command line too frequently then Windows will most likely be your OS of choice either on your own PC or a spare machine you have around the house.
+
+This guide will not cover the basics of deploying Windows, securing your OS and patch automation as we have already covered those within our [lab](https://setup.md/guides/lab) series.
+
+### Installing Java
+
+The first thing you need to do is ensure you have installed the relevant Java JDK version for your desired Minecraft version. The latest release of Minecraft (1.20.1) currently uses Java 17 so that is the version we will be installing in this tutorial.
+
+Ubuntu uses the `APT` package manager, it's generally considered a good idea to run the following commands before trying to install an application for the first time.
+
+```bash
+...
+
+sudo apt update
+sudo apt upgrade -y
+
+...
+```
+
+Once you've ensured the package list has been updated and installed packaged upgraded you can proceed with installing java depending on which Minecraft version you're looking to install you may need to change this command slightly.
+
+To identify which versions of JRE are installable you can run the following command.
+
+```bash
+...
+
+apt search "jre-headless"
+
+...
+```
+
+This should result in the following output.
+
+```bash
+...
+
+Sorting... Done
+Full Text Search... Done
+
+default-jre-headless/stable,stable 2:1.11-72 amd64
+  Standard Java or Java compatible Runtime (headless)
+
+openjdk-11-jre-headless/stable,stable-security,stable,stable-security 11.0.14+9-1~deb11u1 amd64
+  OpenJDK Java runtime, using Hotspot JIT (headless)
+
+openjdk-17-jre-headless/stable,stable-security,stable,stable-security 17.0.2+8-1~deb11u1 amd64
+  OpenJDK Java runtime, using Hotspot JIT (headless)
+
+...
+```
+
+:::info
+Java 16 was not an LTS release and therefore isn't present in the list.
+
+You can now run the following command changing the `version-number` to determine if you would like to install Java 8, Java 11 or Java 17.
+
+:::
+
+```bash
+...
+
+sudo apt install "openjdk-17-jre-headless" -y
+
+...
+```
+
+The above command will install Java 17 and will allow for us to create a server using the latest builds. You can confirm this has installed successfully by running the following command.
+
+```java
+...
+
+java --version
+
+...
+```
+
+The above command should print out the latest build number for the Java 17 release we have just installed. If you have any errors you can checkout the following guide [troubleshooting java](/ts/java).
+
+### Creating the Minecraft server
+
+We are nearing the end of this guide, only a few more things to do!
+
+Before we download anything, we should make a directory to put our server in. You can do this by typing the following commands.
+
+```bash
+...
+
+mkdir minecraft-server-folder
+cd minecraft-server-folder
+
+...
+```
+
+Now we can deploy the server jar we're wanting to use, this tutorial will reference [purpur](https://purpurmc.org) but there are plenty of other server platforms and [this page](/t/server-software) explains the pros and cons of the major ones.
+
+```bash
+...
+
+wget https://jar.smd.gg/download/purpur/latest/latest --content-disposition
+
+...
+```
+
+By adding the `--content-disposition` we're preventing the downloaded file being an extension-less file called `download`.
+
+To confirm the file has downloaded correctly you can use the `ls -al` command to display the contents of the `minecraft-server-folder`.
+
+```bash
+...
+
+-rw-r--r-- 1 root root 42329978 Jul  9 08:07 purpur-1.20.1-2058.jar
+
+...
+```
+
+In order to start our server we need to create a file that accepts the EULA for Mojang. This can be done with the following command.
+
+```bash
+...
+
+bash -c 'echo "eula=true" > eula.txt'
+
+...
+```
+
+We can now run the following command from the console in order to start our server, this will start the server and create all of the files it needs to run as expected.
+
+```bash
+...
+
+java -Xmx4G -Xms4G -jar purpur-1.20.1-2058.jar nogui
+
+...
+```
+
+Once you see the line `Done in (seconds)` you can press `shift + c` to end the session or type `stop` like a normal server.
+
+So now technically everything is setup and ready - If your newly created VPS was sitting in your house you would be able to play right now... but it's not - so we need to open the 25565 port to the internet.
+
+#### Making it accessible over the internet (Port Forwarding)
+
+While we're still connected via SSH it will save time later for us to configure the servers local firewall now.
+
+:::info
+This tutorial uses Ubuntu and UFW. If you chose another another distro at the start of this guide you will most likely have a different wrapper, if this is the case you will need to consult the docs for how best to open ports 25565 for TCP and UDP traffic.
+:::
+
+To open TCP and UDP traffic within Ubuntu we need to use the following commands.
+
+```bash
+...
+
+sudo ufw allow 22/tcp #this will allow us to continue SSH access
+sudo ufw allow 25565/tcp #this will open the tcp port 25565 (minecraft game)
+sudo ufw allow 25565/udp #this will open the udp port 25565 (minecraft query)
+sudo ufw enable
+
+...
+```
+
+You can check UFW has successfully deployed and enabled by typing the following command.
+
+```bash
+...
+
+sudo ufw status
+
+...
+```
+
+Switching back to the server, you should now be able to start the server again using the same command we used previously.
+
+```bash
+...
+
+java -Xmx4G -Xms4G -jar purpur-1.20.1-2058.jar nogui
+
+...
+```
+
+You are now technically complete, you should be able to join your newly created server using the IPv4 address of the Linux box you're hosting on... There's a couple of things to note in the below 'Optional Configuration' settings which will help you down the line.
+
+#### Optional Configuration
+
+The above steps will get you up and running with the basics, but some settings can be adjusted further to make life easier for yourself as an admin.
+
+##### Adjusting RAM Allocation
+
+We go over adjusting the RAM allocation in more depth [here](/t/flags).
+
+##### Installing 'Screen'
+
+Screen is an application that allows for you to run your server in the background even after you close your SSH session.
+
+To install screen run the following command.
+
+```bash
+...
+
+sudo apt install screen -y
+
+...
+```
+
+Now screen has been installed you can run the following commands to launch your server within screen.
+
+```bash
+...
+
+screen
+java -Xmx4G -Xms4G -jar purpur-1.20.1-2058.jar nogui
+
+...
+```
+
+To exit the screen session you should press `CTRL + A + D`. You should now be able to close the command prompt window without the server crashing. If you need to return to your screen windows you can use the command `screen -r`.
+
+##### Installing Plugins
+
+We go over installing plugins in more depth [here](/e/pl).
+
+##### JVM Flags (Aikar)
+
+We go over adjusting the start-up flags in more depth [here](/t/flags).
