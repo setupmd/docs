@@ -591,20 +591,6 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
-"guides/Services/TLS/intro.mdx": {
-	id: "guides/Services/TLS/intro.mdx";
-  slug: "guides/ssl";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
-"guides/Services/TLS/tools.mdx": {
-	id: "guides/Services/TLS/tools.mdx";
-  slug: "guides/ssl/tools";
-  body: string;
-  collection: "docs";
-  data: InferEntrySchema<"docs">
-} & { render(): Render[".mdx"] };
 "guides/Services/domainpark.mdx": {
 	id: "guides/Services/domainpark.mdx";
   slug: "guides/domain-parking";
@@ -664,6 +650,13 @@ declare module 'astro:content' {
 "hosting/self.mdx": {
 	id: "hosting/self.mdx";
   slug: "h/self";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
+"hosting/tls.mdx": {
+	id: "hosting/tls.mdx";
+  slug: "h/ssl";
   body: string;
   collection: "docs";
   data: InferEntrySchema<"docs">

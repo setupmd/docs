@@ -4,17 +4,17 @@ slug: h/hardware
 title: Hardware
 ---
 
-If you're at this part of our hosting tips, we assume you've already decided on the type of hosting you want to go for. If you haven't identified the type of hosting you wish to go for it's highly recommended to read our [types of hosting](types) document first.
+If you haven't identified the type of hosting you wish to go for it's highly recommended to read our [types of hosting](types) document first.
 
 :::note
-The first point we want to stress is **do not go out and buy the latest flagship CPU for your own single Minecraft server**. This is a complete waste of money and you will not be able to utilise the full CPU, you should however find a hosting provider that offers the desired CPU line up and use 'shared hosting'.
+The first point we want to stress is **do not go out and buy the latest flagship CPU for a single Minecraft server**. This is a complete waste of money and you will not be able to utilise the full CPU, you should however find a hosting provider that offers the desired CPU line up and use 'shared hosting'.
 :::
 
-### CPU 
+### CPU
 
-When it comes to finding a CPU (for Minecraft) the most important factor is the [IC](https://www.bbc.co.uk/bitesize/guides/z2342hv/revision/5), this consists of a fetch, decode, read and execute cycle all taking place to complete a single cycle. 
+When it comes to finding a CPU (for Minecraft) the most important factor is the [IC](https://www.bbc.co.uk/bitesize/guides/z2342hv/revision/5), this consists of a fetch, decode, read and execute cycle all taking place to complete a single cycle.
 
-Depending on your workload, CPU Cache & Instruction Sets should also be considered as one CPU might be better at a particular set than another (it's important to complete your own research based on your needs). 
+Depending on your workload, CPU Cache & Instruction Sets should also be considered as one CPU might be better at a particular set than another (it's important to complete your own research based on your needs).
 
 The myth of clock speed being the sole performance factor has been disproven many times over, Apple being the most famous example that often compared a lower clock speed PowerPC to the newer Pentium 3/4 line ups from IBM and similar.
 
@@ -22,11 +22,11 @@ At its core Minecraft's main logic loop is a single thread this is a fundamental
 
 ---
 
-### RAM 
+### RAM
 
-RAM is not nearly as important as people think, fast RAM is as important ([it's benefits only go as far as your chosen CPU](https://premiumbuilds.com/features/ryzen-ram-speed-benchmark-analysis/)) as the capacity and over capacity of RAM can hurt your performance (this is because the JVM garbage collector has more to collect and therefore this intensive CPU task takes longer causing lag spikes). 
+RAM is not nearly as important as people think, fast RAM is as important ([it's benefits only go as far as your chosen CPU](https://premiumbuilds.com/features/ryzen-ram-speed-benchmark-analysis/)) as the capacity and over capacity of RAM can hurt your performance (this is because the JVM garbage collector has more to collect and therefore this intensive CPU task takes longer causing lag spikes).
 
-The general consensus as of late 2022 is to start with using 4GB / 6GB but use no more than 12GB per individual server. 
+The general consensus as of late 2022 is to start with using 4GB / 6GB but use no more than 12GB per individual server.
 
 Memory allocation and Java Flags go hand in hand with one another and some flags (specifically Aikar's) have some values that change based on the total RAM allocation to your server.
 
@@ -34,8 +34,19 @@ If you're running in Docker consider overhead for the JVM, this should be about 
 
 ---
 
-### Storage 
+### Storage
 
 For your server's live application data it's the current consensus to at least be using some form of flash storage as the random read/write speeds can help massively when it comes to users spawning in chunks all over the map.
 
 For backups you are still more than welcome to use spinning disks as this data hopefully isn't used as often - it's also possible to configure archival s3 based storage (cold-site) which could end up cheaper than buying and protecting your own disks.
+
+---
+
+### Recommended Specs
+
+If you're looking for specific specs we'd recommend using the below as a baseline.
+
+| SKU        | CPU                                                 | RAM        | DISK         |
+| ---------- | --------------------------------------------------- | ---------- | ------------ |
+| Budget     | Intel 9th - 12th Gen / Ryzen 9 3000 - Ryzen 7 5800X | 4GB - 6GB  | 30GB (NVMe)  |
+| Enthusiast | Intel 13th & 14th Gen / Ryzen 9 5900X & 7000 Series | 8GB - 12GB | 75GB+ (NVMe) |

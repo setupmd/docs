@@ -102,12 +102,12 @@ Now we can deploy the server jar we're wanting to use, this tutorial will refere
 ```bash
 ...
 
-wget https://api.purpurmc.org/v2/purpur/1.20.1/latest/download --content-disposition
+wget https://jar.smd.gg/download/purpur/latest/latest --content-disposition
 
 ...
 ```
 
-By adding the `--content-disposition` we're preventing the downloaded file being an extension-less file called `download`. 
+By adding the `--content-disposition` we're preventing the downloaded file being an extension-less file called `download`.
 
 To confirm the file has downloaded correctly you can use the `ls -al` command to display the contents of the `minecraft-server-folder`.
 
@@ -145,12 +145,11 @@ So now technically everything is setup and ready - If your newly created VPS was
 
 #### Making it accessible over the internet (Port Forwarding)
 
-While we're still connected via SSH it will save time later for us to configure the servers local firewall now. 
+While we're still connected via SSH it will save time later for us to configure the servers local firewall now.
 
 :::info
 This tutorial uses Ubuntu and UFW. If you chose another another distro at the start of this guide you will most likely have a different wrapper, if this is the case you will need to consult the docs for how best to open ports 25565 for TCP and UDP traffic.
 :::
-
 
 To open TCP and UDP traffic within Ubuntu we need to use the following commands.
 
@@ -190,7 +189,6 @@ You are now technically complete, you should be able to join your newly created 
 #### Optional Configuration
 
 The above steps will get you up and running with the basics, but some settings can be adjusted further to make life easier for yourself as an admin.
-
 
 ##### Adjusting RAM Allocation
 

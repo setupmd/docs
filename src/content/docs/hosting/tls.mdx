@@ -1,0 +1,52 @@
+---
+sidebar_position: 2
+description: Identifiy the different tools available that can be used to help you deploy SSL certificates.
+slug: h/ssl
+title: TLS
+lastUpdated: 2024-01-01
+---
+
+import MainStatusPill from '../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+If you're hosting more than just your Minecraft server, maybe you're using a Map service / forum / server store an SSL / TLS certificate is an absolute must.
+
+### Web Services
+
+If you're accessing the service via a web-browser then this part of the page will be for you, this will not cover successful deployment tutorials - we may decide to include this at a later time.
+
+#### Cloudflare
+
+This is the easiest solution to adding TLS capabilities to your website as Cloudflare can operate as a reverse proxy for the traffic allowing the SSL to terminate at their edge network and transit back to your origin server over HTTP (full SSL to origin is also supported).
+
+<LinkCard
+  title="Cloudflare"
+  description="Make employees, applications and networks faster and more secure everywhere, while reducing complexity and cost."
+  href="https://cloudflare.com"
+/>
+
+#### Caddy
+
+A self-hosted solution similar to Cloudflare but without the additional DDoS protection. Caddy supports automatic SSL deployment from any ACME provider on the market and is our provider of choice in conjunction with ZeroSSL.
+
+<LinkCard
+  title="Caddy"
+  description="Caddy is a powerful, enterprise-ready, open source web server with automatic HTTPS written in Go"
+  href="https://caddyserver.com"
+/>
+
+---
+
+### Linux
+
+This is for tools suitable for generating certificates but perhaps might not be solely for web-servers.
+
+#### Certbot
+
+Certbot is a tool that can be deployed either as a Snap package or a Python module and is designed purely for generating valid Let's Encrypt certificates. The certificates generated from Certbot do not need to solely be used in a Web-Server and can be used system wide.
+
+<LinkCard
+  title="Certbot"
+  description="Certbot is EFF's tool to obtain certs from Let's Encrypt and (optionally) auto-enable HTTPS on your server. It can also act as a client for any other CA that uses the ACME protocol."
+  href="https://certbot.eff.org/"
+/>
