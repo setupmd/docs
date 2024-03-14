@@ -710,6 +710,13 @@ declare module 'astro:content' {
   collection: "docs";
   data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
+"jarapi.mdx": {
+	id: "jarapi.mdx";
+  slug: "service/jar-api";
+  body: string;
+  collection: "docs";
+  data: InferEntrySchema<"docs">
+} & { render(): Render[".mdx"] };
 "mchost.mdx": {
 	id: "mchost.mdx";
   slug: "service/mcho.st";
