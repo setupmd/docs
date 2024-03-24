@@ -116,13 +116,14 @@ Minekube's Connect is a plugin that links Minecraft servers to a global network 
 
 <ul class="pl-5 list-disc">
     <li>Plug and play: just drop the plugin into your server's plugins directory and copy the generated address</li>
-    <li>Subdomain can be changed in the configuration</li>
+    <li>Brandable with free custom domains / sub-domains</li>
     <li>Passive advertising on the Connect network allows for extra player traffic</li>
 </ul>
+
 #### Cons
+
 <ul class="pl-5 list-disc">
-    <li>Custom domains not yet supported</li>
-    <li>Passive advertising not best suited for private servers</li>
+    <li>A paid plan is required to provide an ad-free experience</li>
 </ul>
 
 #### Bottom Line
@@ -133,9 +134,9 @@ This option is best suited for public server owners who want simple setup with o
 :::caution
 Players joining your server through the Connect network will not be able to join if secure chat is enforced. To disable this:
 
--   On your backend server(s), make sure `enforce-secure-profile` is set to `false` in `server.properties`   
--   If using BungeeCord, set `enforce_secure_profile` to `false` in `config.yml`
--   If using Velocity, set `force-key-authentication` to `false` in `velocity.toml`
+- On your backend server(s), make sure `enforce-secure-profile` is set to `false` in `server.properties`
+- If using BungeeCord, set `enforce_secure_profile` to `false` in `config.yml`
+- If using Velocity, set `force-key-authentication` to `false` in `velocity.toml`
 
 This can be a downside for those who want [signed chat](/t/signed-chat) to be enforced on their servers but want to advertise and grow their playerbase on the network.
 :::
@@ -154,8 +155,8 @@ Cloudflared is a server-side daemon that allows the tunnelling of network traffi
 Here are some resources on how to run and tunnel Minecraft servers using cloudflared:
 
 <CardGrid>
-  <LinkCard title="Cloudflare Community" href="https://community.cloudflare.com/t/would-i-be-able-to-use-cloudflare-tunnel-to-host-a-minecraft-server/383942" />
-  <LinkCard title="Cyb3r Jak3" href="https://blog.cyberjake.xyz/post/2022-03-26-cloudflared-minecraft/" />
+<LinkCard title="Cloudflare Community" href="https://community.cloudflare.com/t/would-i-be-able-to-use-cloudflare-tunnel-to-host-a-minecraft-server/383942" />
+<LinkCard title="Cyb3r Jak3" href="https://blog.cyberjake.xyz/post/2022-03-26-cloudflared-minecraft/" />
 </CardGrid>
 
 #### Pros
