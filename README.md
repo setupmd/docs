@@ -38,9 +38,9 @@ All commands are run from the root of the project, from a terminal:
 
 ## 🙏 Thanks to all Contributors
 Thanks a lot for spending your time in helping setup.md grow. Thanks a lot! ❤️
- <a href = "https://github.com/setupmd/docs/graphs/contributors">
-   <img src = "https://contrib.rocks/image?repo=setupmd/docs" alt="Contributors to setup.md docs"/>
- </a>
+<a href="https://github.com/setupmd/docs/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=setupmd/docs" />
+</a>
 
 ## 📑 License
 Licensed under [CC BY-NC-SA 4.0 DEED](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en).
