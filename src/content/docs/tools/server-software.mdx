@@ -2,6 +2,7 @@
 slug: t/server-software
 description: This page covers a list of well known server.jars.
 title: Server Software
+lastUpdated: 2024-03-27
 ---
 
 import MainStatusPill from '../../../components/MainStatusPill.vue'
@@ -25,8 +26,8 @@ As the name suggests, it is a completely Vanilla server from Mojang itself witho
 
 <LinkCard
   title="Download"
-  description="Download a copy of the Vanilla installer via getbukkit.org"
-  href="https://getbukkit.org/download/vanilla"
+  description="Download a copy of the Vanilla installer via jar.smd.gg"
+  href="https://smd.gg/vanilla"
 />
 
 #### Paper <MainStatusPill success>Recommended</MainStatusPill>
@@ -35,8 +36,8 @@ Paper is the most widely-used Server Jar nowadays. A fork of Spigot with its own
 
 <LinkCard
   title="Download"
-  description="Download a copy of PaperMC via papermc.io"
-  href="https://papermc.io/downloads"
+  description="Download a copy of PaperMC via jar.smd.gg"
+  href="https://smd.gg/paper"
 />
 
 #### Purpur
@@ -45,8 +46,8 @@ A fork of Paper which provides numerous gameplay-enhancing features without havi
 
 <LinkCard
   title="Download"
-  description="Download a copy of PurpurMC via purpurmc.org"
-  href="https://purpurmc.org/downloads"
+  description="Download a copy of PurpurMC via jar.smd.gg"
+  href="https://smd.gg/purpur"
 />
 
 #### Pufferfish
@@ -74,8 +75,8 @@ Do you need to use it? Highly unlikely. Can you use it? Probably. Will a good ch
 
 <LinkCard
   title="Download"
-  description="Download a copy of Folia via github.com from PaperMC"
-  href="https://github.com/PaperMC/Folia"
+  description="Download a copy of Folia via jar.smd.gg"
+  href="https://smd.gg/folia"
 />
 
 #### Legacy 1.8 Jars
@@ -110,6 +111,7 @@ NeoForge is a fork of the Forge project with almost all of the original team [ex
 #### Fabric
 
 Fabric is another modding API and server jar. Fabric mods are able to change practically any mechanics of the game, is more lightweight compared to Forge, and generally performs better than vanilla thanks to the wide range of optimization mods avaliable such as Lithium, Starlight, ModernFix etc. Take a look at [this list](https://github.com/NordicGamerFE/usefulmods).
+
 <LinkCard
   title="Download"
   description="Download a copy of Fabric via fabricmc.net"
@@ -130,8 +132,8 @@ Velocity is a superior solution compared to Bungeecord / Waterfall unless you're
 
 <LinkCard
   title="Download"
-  description="Download a copy of Velocity via papermc.io"
-  href="https://papermc.io/downloads#Velocity"
+  description="Download a copy of Velocity via jar.smd.gg"
+  href="https://smd.gg/velocity"
 />
 
 #### Waterfall
@@ -140,9 +142,13 @@ A fork of Bungeecord run by the Paper developers, Waterfall supports most if not
 
 <LinkCard
   title="Download"
-  description="Download a copy of Waterfall via papermc.io"
-  href="https://papermc.io/downloads#Waterfall"
+  description="Download a copy of Waterfall via jar.smd.gg"
+  href="https://smd.gg/waterfall"
 />
+
+:::caution
+The PaperMC team have announced that Waterfall has now reached end of life in favour of Velocity. You can read the full announcement here - https://link.setup.md/waterfall-eol. We will remove this option from our wiki in the coming months.
+:::
 
 ---
 
@@ -176,4 +182,5 @@ There are sometimes cool spin-offs that we feel are worthy of mentioning their e
 #### Avoid any Jar that combines Plugins & Mods
 
 Do not use any hybrid server software such as Magma or Mohist. These are generally unstable. [Mohist also replaces EssentialsX jars with modified jars](https://essentialsx.net/do-not-use-mohist.html), which might not be safe.
+
 :::
