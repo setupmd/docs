@@ -93,7 +93,7 @@ It is highly recommended that you do not use 1.8 or any of its other releases. H
 
 #### Forge
 
-Forge is a modding API and server jar. It is most commonly used for servers with large modpacks. However, it is not very optimized and suffers from poor performance.
+Forge is a modding API and server jar. It is most commonly used for servers with large modpacks. However, it is not very optimized and can suffer from poor performance.
 
 <LinkCard
   title="Download"
@@ -101,9 +101,19 @@ Forge is a modding API and server jar. It is most commonly used for servers with
   href="https://files.minecraftforge.net/net/minecraftforge/forge/"
 />
 
+#### NeoForge
+
+NeoForge is a fork of the Forge project with almost all of the original team [excluding LexManos](https://neoforged.net/news/theproject/), made to fix its community issues and to provide better support to modders and later versions of Minecraft.
+
+<LinkCard
+  title="Download"
+  description="Download a copy of NeoForge via neoforged.net"
+  href="https://neoforged.net/"
+/>
+
 #### Fabric
 
-Fabric is similar to Forge (but not a fork) in the sense that it also supports mods. These mods can change practically any mechanic of the game. Fabric also has a great amount of optimization mods such as Lithium, Starlight, Phosphor etc. Take a look at [this list](https://github.com/NordicGamerFE/usefulmods)
+Fabric is another modding API and server jar. Fabric mods are able to change practically any mechanics of the game, is more lightweight compared to Forge, and generally performs better than vanilla thanks to the wide range of optimization mods avaliable such as Lithium, Starlight, ModernFix etc. Take a look at [this list](https://github.com/NordicGamerFE/usefulmods).
 
 <LinkCard
   title="Download"
@@ -172,7 +182,8 @@ There are sometimes cool spin-offs that we feel are worthy of mentioning their e
 
 :::danger
 
-#### Any Jar that combines Plugins & Mods
+#### Avoid any Jar that combines Plugins & Mods
 
-Do not use any server software such as Magma or Mohist. These are generally unstable. [Mohist also replaces EssentialsX jars with modified jars](https://essentialsx.net/do-not-use-mohist.html), which might not be safe.
+Do not use any hybrid server software such as Magma or Mohist. These are generally unstable. [Mohist also replaces EssentialsX jars with modified jars](https://essentialsx.net/do-not-use-mohist.html), which might not be safe.
+
 :::
