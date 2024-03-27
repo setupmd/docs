@@ -1,0 +1,147 @@
+---
+description: 1.19.1 overhauled the current reporting features and therefore caused a lot of panic, this page is written to cut through the misinformation and provide the facts.
+title: Signed Chat
+slug: t/signed-chat
+---
+
+import MainStatusPill from '../../../components/MainStatusPill.vue'
+import { LinkCard } from '@astrojs/starlight/components';
+
+First things first, it's important to set the story straight. Mojang had always had a reporting toolset for anyone who wished to use it however with the introduction of 1.19.1 changes were made to this system that a reasonable portion of the community didn't like.
+
+This patch specially introduces a couple of new features being:
+
+<ul class="pl-5 list-disc">
+  <li>In-Game UI reporting</li>
+  <li>Cryptography and signing</li>
+</ul>
+
+The purpose of this page serves as an advisory for those who wish to understand further what this means and what options are available to them.
+
+* * *
+
+### How does it work
+
+This is accurate to the best of our abilities, if there is someone with a better understanding of cryptography that can help improve this page please submit a PR.
+
+#### Technical aspects
+
+These new keys are stored in .json format under the '%appdata%/.minecraft/profilekeys' folder on your PC.
+
+:::note
+These keys are regenerated after 48 hours
+:::
+
+The 'process' now works as follows:
+
+<ul class="pl-5 list-disc">
+  <li>User opens up their Minecraft client</li>
+  <li>Check for keys / generation of new keys occurs if required</li>
+  <li>User launches Game</li>
+  <li>User joins their desired Minecraft server</li>
+  <ul class="pl-5 list-disc">
+    <li>On join the client also makes it's public key available to the server</li>
+  </ul>
+  <li>User sends a message in chat</li>
+  <ul class="pl-5 list-disc">
+    <li>Client signs the message using the private key providing a level of authenticity</li>
+    <li>Signed message is sent to the server</li>
+    <li>Server can validate the message came from your client using your public key</li>
+    <li>Server displays the chat messages</li>
+  </ul>
+</ul>
+
+<strong>Every time a message is sent in chat the last 2 steps are repeated.</strong>
+<br/>
+<img src="https://camo.githubusercontent.com/55063c3d3a211b6bf5648f559ee00579f03b1bd651e3980aa358d203a0ca7443/68747470733a2f2f692e696d6775722e636f6d2f6c6a69666d79302e706e67"/>
+
+#### User Reports
+
+When a user is reported via the new in-game screen ui the following process occurs:
+
+<ul class="pl-5 list-disc">
+  <li>User selects the offending user and messages they wish to report</li>
+  <li>The message in question and surrounding message are also sent to Microsoft for review</li>
+</ul>
+
+Once a report is sent, it is reviewed by Mojang's moderation team who will gauge an appropriate punishment for the offender(s). Any Microsoft punishment is in-line with it's current community guidelines and effect your entire account not just the single Minecraft server, these punishments can result in removal of your Multiplayer access.
+
+#### In-depth Review
+
+The best current source of data for the chat reporting is on Github created by KennyTV. A link to the document can be found [here](https://gist.github.com/kennytv/ed783dd244ca0321bbd882c347892874#file-readme-md)
+
+Below is a list of ways server owners and players can effectively disable the new chat reporting feature, by using one or more of these features you may limit either your own or your communities functionality.
+
+* * *
+
+### Options
+
+#### Client Side
+
+Option one is disabling 'chat-signing' within your client, this will prevent you from joining any server where this setting is enforced.
+
+#### Server Side
+
+If you're running your own server there are a few options that can be used depending if you're running vanilla, modded or a plugin based server, these are as follows.
+
+##### Edit server.properties file <MainStatusPill info>Global</MainStatusPill>
+
+You can edit the following switch to 'false' which will disable the requirement for users to use chat-signing. 
+
+```yaml
+...
+
+enforce-secure-profile = false
+
+...
+```
+
+##### No Chat Reports <MainStatusPill info>Modded Only</MainStatusPill>
+
+No Chat Reports is a Minecraft mod created by Aizistral that works on both the client and server sides. It strips cryptographic signatures from player chat messages, effectively converting them to system messages, thus making them non-reportable.
+
+:::note
+Joining a server with `enforce-secure-profile=true` on a client with No Chat Reports installed will display a prompt warning the user that chat will be signed if they agree to it.
+:::
+
+<LinkCard
+  title="Download"
+  description="Download a copy of No Chat Reports via modrinth.com"
+  href="https://modrinth.com/mod/no-chat-reports"
+/>
+
+##### FreedomChat <MainStatusPill info>Spigot / Paper & forks only</MainStatusPill>
+
+FreedomChat effectively serves the same purpose as No Chat Reports would on a modded server, it converts player chat messages to system messages at the packet level, making them once again non-reportable by players.
+
+<LinkCard
+  title="Download"
+  description="Download a copy of freedomchat via modrinth.com"
+  href="https://modrinth.com/mod/freedomchat"
+/>
+
+##### AntiPopup <MainStatusPill info>Spigot / Paper & forks only</MainStatusPill>
+
+While this plugin works, manual setup is required - the command `/antipopup setup` must be ran in console unless `enforce-secure-profile` is set to `false` already.  
+
+<LinkCard
+  title="Download"
+  description="Download a copy of AntiPopup via spigotmc.org"
+  href="https://www.spigotmc.org/resources/%E2%9C%A8-antipopup-no-chat-reports-and-popup-%E2%9C%A8.103782/"
+/>
+
+##### UnSignedVelocity <MainStatusPill info>Velocity only</MainStatusPill>
+
+This plugin works by removing signed information from commands and messages sent by clients 1.19.1 or higher, allowing plugins that cancel proxy messages to work again. Requires VPacketEvents
+
+<LinkCard
+  title="Download"
+  description="Download a copy of UnSignedVelocity via github.com from 4drian3d"
+  href="https://github.com/4drian3d/UnSignedVelocity"
+/>
+
+:::caution
+
+All of the above plugins could give you issues with the recent EULA changes as of Aug 2023, the above plugins are no-longer considered endorsed by setup.md.
+
+:::

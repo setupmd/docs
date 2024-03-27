@@ -1,0 +1,58 @@
+---
+description: One of the core fundamentals of networking, this page outlines the types of addresses you will come across and how you can work around them.
+slug: ts/ip
+title: IP Addresses
+lastUpdated: 2023-12-16
+---
+
+Every connected device has an IP address, similar to how every mobile phone also has a mobile number and we use this number to reference "hey, this is me... you can find me here". Similarly to phone numbers, when it comes to IP addresses we have two different types for internal (private networks) and external (public networks) usage. 
+
+Within your house every laptop, desktop, phone etc has what we call an 'internal' IP, this will normally be represented as 192.168.0.(insert number here). If you run either `ipconfig /all`, `ip addr` or `ifconfig` command you will see your devices individual address. 
+
+Private networks are great because we can reuse these address pools in every household without using any of our global quotas for addresses, when your local device makes a request this is sent to your device's `default gateway` address and requests information on how to proceed. 
+
+If the request is for another local address it sends it where it needs to go and adds this address to it's "table of contents" however if you're trying to reach something outside of your network e.g. youtube.com or netflix.com your router makes a note of the original requesting device and uses it's `external address` to make that request on your behalf. 
+
+We call this technology 'NAT', to understand why NAT exists you need to understand the challenges of IPv4 addresses. 
+
+### Why NAT Exists
+
+With v4 addresses we have a limited supply of uniquely available addresses 4.3 billion to be precise. This number does sound huge until you realise that companies like Google, Microsoft, Facebook, US DoD and many, many more organisations hold tens of thousands IP addresses for business, cloud computing and just because they can which significantly shortens the pool that can be used by consumers. 
+
+In order to combat this, NAT was introduced as a solution to provide a single entry and exit point for a network. This also allows us to bring additional connections online to the digital world which is rapidly becoming difficult to support. As the world becomes more connected and the IPv4 shortage gets worse more residential connections will move from 'Dynamic IPs to CG-NAT'.
+
+* * *
+
+### Interim Technologies
+
+In order to stop the world falling apart, very smart individuals came up with the following solutions starting with the newest first.
+
+#### Dual Stack
+
+Dual Stack connections consist of providing both an IPv4 and IPv6 connection and helps encourage these large organisations to support the future technology (in principle, the more devices that support it the greater compatibility becomes). This is great middle-ground as it uses IPv6 first, then, if there is no IPv6 support implemented by a provider it can fall back to using a universal IPv4 address provided by your ISP (see CGNAT for more). 
+
+Unfortunately progress towards a native IPv6 world is slow and DS will be around for a good few years to come before we can finally start to retire this dated address scheme.
+
+#### CG-NAT
+
+With CGNAT your ISP takes the concept of 'NAT' and applies it to their entire infrastructure. No longer do you have your own address provided for connecting out to the internet you instead utilise a unique private address pool to connect multiple routers to a central break out location (e.g. an internet exchange). With multiple people sharing the same public address this ultimately means no more residential port forwarding, an issue that that proves difficult for the home-hoster.
+
+#### Dynamic IPs
+
+Dynamic addresses allow your ISP to re-allocate your IP to another house waiting to get online in the event you turn off your router / lose power. It prevents idle connections claiming addresses when they're not being used so your ISP doesn't have to try and buy heavily overpriced IPs. 
+
+For the average person this isn't the end of the world, you'll always be able to get online however if you decide to host services at home this can become a problem in the event your allocated IP changes. Anyone who connects to your service will need to be informed of the address changes and this can become a pain if you're on holiday but this can be mitigated with DDNS solutions such as [No-IP](https://noip.com).
+
+* * *
+
+### The Future (IPv6)
+
+To every administrator's disappointment IPv6 is essential if we want to keep devices online. The address pool is significantly larger and there's enough of these IPs to allocate to every atom on the planet and we'd still have enough to repeat it 100 times over! Unfortunately with any new technology this won't become the norm overnight, IPv4 will be around for the next 30 years in one way shape or form. It is a huge learning curve for some and it will require many organisations to reconsider their current networking setups. 
+
+The good news is adoption **IS** underway but there's still a lot of work to be done. A huge list of services that are not yet IPv6 native can be found [here](https://whynoipv6.com/), if you find a service you use on this list - give them a nudge and voice the need for change.
+
+### Cheat Sheets
+
+Avast have produces a nice summary cheat sheet which sums up everything listed above.
+
+<img src="https://onlinefile.host/pxiw0hv"/>

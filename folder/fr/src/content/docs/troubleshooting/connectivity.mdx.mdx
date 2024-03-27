@@ -1,0 +1,170 @@
+---
+description: A foundation for checking connectivity issues with your Minecraft server.
+slug: ts/connection
+title: Connectivity
+lastUpdated: 2023-12-16
+---
+
+import MainStatusPill from '../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+If you're having trouble connecting to your Minecraft server there's a process you should follow in order to try and understand where the issue lies. If you're running on a third party hosting provider it's recommended to reach out to them directly or check their status page.
+
+### Server Binding to Port
+
+The first thing to check is that your server binds to the right port when you start it up, firstly you should see some errors in the console. This error will normally come from having two server processes running at the same time or you run an application on the same port as your Minecraft server.
+
+```bash
+... 
+
+**** FAILED TO BIND PORT! ****
+The exception was: java.net.BindException: Address already in use
+Perhaps a server is already running on that port? 
+
+... 
+```
+
+You can fix this by going to the `server.properties` file and look for the `server-port` variable and increase the number by 1. When you restart the server you should see the server start up without issues.
+
+If you don't see the above error message you can check using Powershell or Bash that your server is listening.
+
+#### Windows
+
+If you're running on windows please use the following command within a Powershell prompt.
+
+```powershell
+...
+
+netstat -ano | find "{SERVER-PORT}" | find "LISTEN"
+
+...
+```
+
+#### Linux
+
+If you're running a linux distribution please use the following command within your active shell session.
+
+```bash
+...
+
+netstat -anpe | grep "{SERVER-PORT}" |grep "LISTEN"
+
+...
+```
+
+Regardless of the operating system being used you should see one entry bound to 0.0.0.0, if you don't go back and ensure the `server-port` variable has been set properly.
+
+:::tip
+If you're still having issues try deleting the server.properties file and then restart the server to recreate the file. One the file is deleted you can try again.
+:::
+
+* * *
+
+### OS Firewalls
+
+Now we know that the server is running on the right port you should check that the connection is allowed to break out past 'localhost' (the pc the server is running on). You can run the following command(s) depending on your OS to ensure the local firewall is configured.
+
+#### Windows
+
+If you're running on windows please use the following command within a Powershell prompt.
+
+```bash
+...
+
+netsh advfirewall firewall add rule name= "Open Port 25565" dir=in action=allow protocol=TCP localport=25565
+
+...
+```
+
+#### Linux
+
+If you're running a linux distribution please use the following command within your active shell session.
+
+```bash
+...
+
+sudo iptables -I INPUT -p tcp -m tcp --dport 25565 -j ACCEPT
+
+...
+```
+
+To ensure things are all working locally within your network, attempt to connect from another device in your house to the internal LAN address. e.g. `192.168.1.58:25565`
+
+You can find your host devices internal LAN address by running `ipconfig` within command prompt or `ip addr` / `ifconfig` will work on Linux within the shell session.
+
+* * *
+
+### External Port Forwarding
+
+Providing you can connect internally to your server, the issue most likely falls with either your router and port forwarding or your ISP and their use of CGNAT.
+
+The first thing we need to check is port forwarding is configured correctly. 
+
+:::note
+You will need to slightly adjust the below steps as the wording on every router model / firewall is different.
+:::
+
+<ul class="pl-5 list-disc">
+  <li>Login to the admin interface (normally on http(s)://192.168.1.254 or http(s)://192.168.1.1)</li>
+    <ul class="pl-5 list-disc">
+      <li> Admin username and password is normally on the bottom but a Google search may also help</li>
+    </ul>
+  <li> Look for a 'Port Forwarding / NAT folder'</li>
+  <li> You may need to go into any 'Advanced Settings' tab first</li>
+  <li> You should ensure the rule has been configured as expected</li>
+    <ul class="pl-5 list-disc">
+      <li><strong>Service Name</strong> - 'Minecraft'</li>
+      <li><strong>Protocol</strong> - 'TCP'</li>
+      <li><strong>Internal IP</strong> - 'Internal LAN IP of Host Device'</li>
+      <li><strong>Internal Port</strong> - 'Match server.properties file'</li>
+      <li><strong>External Port</strong> - 'Match server.properties file'</li>
+    </ul>
+  <li> Save changes</li>
+</ul>
+
+:::note
+It might not be possible to reach your external IP from inside your own network so a tool like <a href="https://portchecker.co/canyouseeme">Can You See Me</a> can check the port 25565 from an external source.
+:::
+
+If all has been successful you should see <MainStatusPill success>OPEN</MainStatusPill> but if you still see <MainStatusPill error>CLOSED</MainStatusPill> it could be possible you're running behind CGNAT. 
+
+You can find a great explanation on CGNAT below.
+
+<LinkCard
+  title="Explaining CGNAT"
+  description="Understand the limitations imposed by the usage of IPv4 and the subsequent limitations of using CGNAT to ensure compatability with legacy infrastructure."
+  href="/ts/ip#cg-nat"
+/>
+
+* * *
+
+### SRV Troubleshooting
+
+Since release 1.3 Minecraft supports a method of connectivity called 'SRV' Record, in principle they allow you to bind a hostname such as `play.mycoolserver.net` to an ip and a random port. The difference when using an SRV record over an A record is if you have a non standard port e.g. 25570 for your Minecraft server an A record would require you to type `play.mycoolserver.net:25570` into your client.
+
+In using an SRV record you bind the hostname and the service you're running (a Minecraft server) to the specific port so when you go to your client you would only have to type `play.mycoolserver.net` into your client and the SRV record would tell your client "hey use this port".
+
+:::note
+Sometimes an end user may be using a DNS provider that <strong>doesn't support SRV records</strong>, any issues they have with connectivity can be resolved by changing their local DNS servers to a free public resolver such as one below.
+
+<ul class="pl-5 list-disc">
+  <li>Quad9: 9.9.9.9</li>
+  <li>Cloudflare: 1.1.1.1</li>
+  <li>Google: 8.8.8.8</li>
+</ul>
+:::
+
+When you create the record you should ensure it's configured as follows:
+
+`_minecraft._tcp.<host> <TTL> IN SRV 1 1 <port> <subdomain>`
+
+<ul class="pl-5 list-disc">
+  <li><strong>Host</strong> - this should be your current providers connection hostname</li>
+  <li><strong>TTL</strong> - set this to auto if using Cloudflare DNS or 3600 in any other dns providers panel</li>
+  <li><strong>Port</strong> - this should be the port you're currently using to connect to your server with</li>
+  <li><strong>Subdomain</strong> - this should represent what you want your players to connect with</li>
+</ul>
+
+An example of a functional SRV record has been provided below, this was created in Cloudflare's DNS manager so if Cloudflare is not your DNS solution then you may have a slightly different interface.
+
+<img src="https://onlinefile.host/35pps8s"/>

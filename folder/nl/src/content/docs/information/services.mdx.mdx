@@ -1,0 +1,82 @@
+---
+description: Additional resources that are hosted by the setup.md team.
+title: Additional Services
+slug: services
+sidebar:
+  order: 2
+---
+
+import MainStatusPill from '../../../components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+As time has progressed we've continued to identify ways we can help server owners get up and running, setup.md has launched some additional services to help make your life easier.
+
+### Asset Hosting
+
+We launched a file sharing platform that can be used to share assets quickly with your communities, host resource packs for your server and even create 'link-in-bio' style pages to help bring your community together.
+
+#### Features
+
+<ul class="pl-5 list-disc">
+    <li>100MB file upload limit</li>
+    <li>Custom domain support <MainStatusPill info>premium</MainStatusPill></li>
+    <li>'Link-In-Bio' pages</li>
+    <li>QR code generator</li>
+    <li>URL Shortener</li>
+</ul>
+
+<CardGrid>
+  <LinkCard title="Dashboard" href="https://thot.cc/dashboard" />
+  <LinkCard title="Guide" href="/t/textures" />
+</CardGrid>
+
+* * *
+
+### Pregen Maps
+
+Various services offer this kind of solution but never made it available to the masses, we're giving you two monthly custom world gen maps using [Terra](https://modrinth.com/plugin/terra) that can be downloaded using the links below.
+
+<CardGrid>
+ <LinkCard title="5K x 5K Map 1" href="https://smd.gg/map1" />
+ <LinkCard title="5K x 5K Map 2" href="https://smd.gg/map2" />
+</CardGrid>
+<LinkCard
+  title="Discord - 15K x 15K Map"
+  description="Become a Github sponsor and join our Discord to claim the 15K x 15K map."
+  href="https://smd.gg/discord"
+/>
+
+In case you've never used a world generation plugin before we have a guide on how to get these configured regardless of the platform you're running on.
+
+<LinkCard
+  title="Minecraft - Configure a Terra world"
+  description="Configure a Terra world gen world for use in both Single and Multiplayer environments."
+  href="/guides/terra"
+/>
+
+* * *
+
+### Server Jar API
+
+We took a cool idea produced by PenguiLoader on Github and we fixed some bugs then made it faster by distributing the workload to Cloudflare workers and running it on their amazing edge network.
+
+#### Quickstart
+
+The base domain is `https://jar.smd.gg`
+
+The subsequent URL that follows is syntaxed as below.
+
+`/download/{SOFTWARE}/{VERSION}/{BUILD}`
+
+To grab the latest paper .jar download.
+
+`GET https://jar.smd.gg/download/paper/latest/latest`
+
+To grab the latest vanilla server.jar download link. (no build parameter required)
+
+`GET https://jar.smd.gg/download/vanilla/latest`
+
+<CardGrid>
+  <LinkCard title="PenguiLoader/MC-SRV-DL-API" href="https://github.com/PenguiLoader/MC-SRV-DL-API" />
+  <LinkCard title="setupmd/mc-jar-api" href="https://github.com/setupmd/mc-jar-api" />
+</CardGrid>

@@ -1,0 +1,183 @@
+---
+slug: t/tunnels
+description: Using tunnels to host without port forwarding
+title: Tunnels
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+If you want to host a Minecraft server that others can access but don't want to or cannot forward ports due to reasons such as security implications or restrictions imposed by your host or Internet service provider, look no further than using tunnels.
+
+Simply put, these are proxies that run on your host and connect your server to a public network without opening a port on your router/firewall.
+
+This page aims to look at a variety of software used to open tunnels, their pros and cons and a bottom line:
+
+* * *
+
+### Ngrok
+
+A single-binary application that exposes local TCP ports to the internet through secure tunnelling: to set up ngrok on your server...
+
+<ul class="pl-5 list-disc">
+    <li>Create an ngrok.com account</li>
+    <li>Download the ngrok binary for your system</li>
+    <li>Copy and paste your authtoken command into the terminal, typically</li>
+</ul>
+```bash
+...
+
+/path/to/ngrok config set-authtoken <token>
+
+...
+
+````
+<ul class="pl-5 list-disc">
+    <li>Run the ngrok agent to expose a port</li>
+</ul>
+```bash
+...
+
+/path/to/ngrok tcp 25565 # or the port you want to expose
+
+...
+````
+
+#### Pros
+
+<ul class="pl-5 list-disc">
+    <li>Relatively quick to set up (single binary)</li>
+    <li>Open-source integrations</li>
+</ul>
+
+#### Cons
+
+The free version of Ngrok is very limited:
+
+<ul class="pl-5 list-disc">
+    <li>Server address changes every time the ngrok agent is restarted (static URLs are only available for HTTP sites)</li>
+    <li>Extremely limited bandwidth (1GB/month)</li>
+</ul>
+
+Additionally, ngrok does not support UDP tunnelling and therefore Geyser cannot be tunnelled for Bedrock Edition players
+
+#### Bottom Line
+
+Ngrok is best suited to development servers that should be able to be accessed from anywhere, as well as smaller servers run by those who cannot forward ports on their network equipment.
+
+<LinkCard
+  title="Website"
+  href="https://ngrok.com"
+/>
+
+* * *
+
+### Playit
+
+A global proxy that exposes your game server to the Internet, securely tunneled through Playit's servers. To set up Playit on your Minecraft server... (assuming you use Bukkit or a fork)
+
+<ul class="pl-5 list-disc">
+    <li>Create an account on [playit.gg](https://playit.gg) and verify your email address</li>
+    <li>Download the Playit agent plugin from [here](https://playit.gg/download/plugins) to your server's plugins folder</li>
+    <li>Restart your server</li>
+    <li>Click on the URL that the plugin outputs to the console or chat and log in to Playit</li>
+    <li>Add the agent to your account and wait for the tunnel to be created</li>
+</ul>
+Your tunnel should then be active! Share the address given by Playit with your players and you should be good to go!
+
+#### Pros
+
+<ul class="pl-5 list-disc">
+    <li>Generous free plan (4 TCP and 4 UDP ports, 6 firewall rules to block IPs and ranges etc.)</li>
+    <li>Premium plan only $3 per month, offers good upgrades such as extra ports and firewall rules, up to 6 external domains and even 3 dedicated IPv6 addresses (provided your network uses IPv6)</li>
+    <li>Static domain name for servers</li>
+    <li>Server plugin allows integration with Playit without running the agent as a separate process</li>
+</ul>
+#### Cons
+<ul class="pl-5 list-disc">
+    <li>Playit only allows for external domains to be used on its premium plan: the free plan assigns a randomly-generated subdomain in the format `name.ply.gg`</li>
+</ul>
+
+#### Bottom Line
+
+Playit is the most common and recommended option when it comes to Minecraft server tunnelling, with a vast community on its forums and Discord server and knowledgebase for common guides and issues.
+
+<LinkCard
+  title="Website"
+  href="https://playit.gg"
+/>
+
+* * *
+
+### Connect
+
+Minekube's Connect is a plugin that links Minecraft servers to a global network in a similar practice to [Minehut](https://minehut.com)
+
+#### Pros
+
+<ul class="pl-5 list-disc">
+    <li>Plug and play: just drop the plugin into your server's plugins directory and copy the generated address</li>
+    <li>Brandable with free custom domains / sub-domains</li>
+    <li>Passive advertising on the Connect network allows for extra player traffic</li>
+</ul>
+
+#### Cons
+
+<ul class="pl-5 list-disc">
+    <li>A paid plan is required to provide an ad-free experience</li>
+</ul>
+
+#### Bottom Line
+
+Out of the options listed on this page, Connect has the easiest setup: just install the plugin and Connect will generate a domain for you!
+This option is best suited for public server owners who want simple setup with organic growth from other players joining from the Connect global network.
+
+:::caution
+Players joining your server through the Connect network will not be able to join if secure chat is enforced. To disable this:
+
+- On your backend server(s), make sure `enforce-secure-profile` is set to `false` in `server.properties`
+- If using BungeeCord, set `enforce_secure_profile` to `false` in `config.yml`
+- If using Velocity, set `force-key-authentication` to `false` in `velocity.toml`
+
+This can be a downside for those who want [signed chat](/t/signed-chat) to be enforced on their servers but want to advertise and grow their playerbase on the network.
+:::
+
+<LinkCard
+  title="Website"
+  href="https://connect.minekube.com/"
+/>
+
+* * *
+
+### Cloudflared
+
+Cloudflared is a server-side daemon that allows the tunnelling of network traffic through Cloudflare's secure network
+
+Here are some resources on how to run and tunnel Minecraft servers using cloudflared:
+
+<CardGrid>
+<LinkCard title="Cloudflare Community" href="https://community.cloudflare.com/t/would-i-be-able-to-use-cloudflare-tunnel-to-host-a-minecraft-server/383942" />
+<LinkCard title="Cyb3r Jak3" href="https://blog.cyberjake.xyz/post/2022-03-26-cloudflared-minecraft/" />
+</CardGrid>
+
+#### Pros
+
+<ul class="pl-5 list-disc">
+    <li>Traffic is proxied through Cloudflare's network, renowned for its terabit-capacity DDoS mitigation.</li>
+</ul>
+
+#### Cons
+
+<ul class="pl-5 list-disc">
+    <li>Setup is very complicated</li>
+    <li>Individual tunnels must be created using cloudflared for each port that you wish to be open</li>
+    <li>All players must have cloudflared installed and running on their computers to access the server</li>
+</ul>
+
+#### Bottom Line
+
+This option is best for server owners and players who are willing to take on the more complicated setup and requirements, allowing for rock-solid security without the need for DDoS protected proxy
+
+<LinkCard
+  title="Developer Docs"
+  href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/downloads/"
+/>

@@ -1,0 +1,85 @@
+---
+description: Hoste selbst eine Instanz von domain-park.org für zusätzliche Domains, welche du nicht nutzt.
+slug: guides/domain-parking
+title: Domain Parking
+---
+
+Wenn du mehrere Domains besitzt, kann es sich lohnen, einen Dienst wie `domain-park` zu nutzen. Somit wird sichergestellt, dass diese Domains sicher bleiben, auch wenn du sie nicht benutzt. Zum Glück ist domain-park ein Open-Source-Projekt und implementiert die folgenden Funktionen:
+
+-   Beste Vorgehensweise für das Einhalten der Vorschriften von SPF, DKIM, DMARC und MX für geparkte domains
+-   Einfacher Bereitstellung ohne Serverkonfiguration pro Domain
+-   Möglichkeit zur Konfiguration von DMARC-Berichten
+
+Wenn du dich dafür entscheidest, eine Instanz (oder zwei) von Domain Park zu betreiben, solltest du die folgende Konfiguration anstreben:
+
+-   Eine Domain, die du für alles benutzt, z.B. `servers.fun`
+-   Eine Domain, die du parken willst, z.B. `urho.st`
+-   Einen VPS (oder zwei) mit statischen (und öffentlichen) IP-Adressen, denen wir Hostnamen zuweisen können
+-   Ein DNS-Verwaltungspanel wie `Cloudflare DNS`
+
+:::danger
+Die Cloudflare-Registry unterstützt keine externen Nameserver. Wenn du eine Domain bei Cloudflare registriert hast und diese dann auch parken möchtest, musst du eine alternative Lösung verwenden.
+:::
+
+* * *
+
+### Einen VPS erstellen
+
+Wenn du auf der Suche nach einem soliden VPS-Anbieter bist, schau dir Hetzner an. Du kannst unseren Affiliate-Link https://link.setup.md/joinhetzner für 20 € kostenloses Guthaben nutzen. Im Gegenzug bekommen wir von Hetzner einen kleinen Teil des Geldes zurück.
+
+Wenn du Hetzner verwendest, solltest du 2x `CPX11 Instanzen` bestellen. Für das Betriebssystem sollte der neuste LTS-Build von Ubuntu (Debian funktioniert auch) installiert werden. Die Kosten sollten sich auf ca. 10€/Monat Belaufen. Es wird außerdem empfohlen, einen SSH-Schlüssel hinzuzufügen um eine passwortbasierte Authentifizierung zu vermeiden.
+
+* * *
+
+### Setting up DNS (Active)
+
+So the first thing we will do is configure the DNS, this is because these _can_ take the longest to update in the background.
+
+-   Login to your DNS provider and head to your DNS record section.
+-   Select 'Add' and create an `A Record` enter `one.ns` and point it to one of your VPS IPs
+    -   **Optional**: If you have an IPv6 also add a `AAA Record` for the same hostname
+-   Repeat this but replace `one.ns` with `two.ns`
+
+:::tip
+
+If you're using Cloudflare for your "Active Domain" you should ensure the orange cloud is disabled.
+
+:::
+
+Once you have configured these addresses your DNS panel should look something like this.
+
+![IMG](https://uk.thot.cc/api/shares/U3NTk4N/files/7bb07f91-af5d-4741-bd3f-7cb20421e586?download=false)
+
+After a short while your records will have propagated and you should be able to check the A and AAA records for your hostname using a tool such as MXToolbox or the `dig` linux package.
+
+#### Dig Commands
+
+```bash
+...
+
+dig one.ns.servers.fun A
+dig one.ns.servers.fun AAA # Not configured in example
+
+dig two.ns.servers.fun A
+dig two.ns.servers.fun AAA # Not configured in example
+
+...
+```
+
+Providing you replace `servers.fun` with your own domain you should see a response with the IP addresses you entered into your panel above.
+
+* * *
+
+### Setting up DNS (Parked)
+
+On the domain you wish to park using your newly setup service you'll need to change your nameservers. You can do this within your domain's control panel (probably in a similar location to the DNS modification page).
+
+You should ensure you fill out the nameservers as per the screenshot below. Once these have been added correctly, save changes and await up-to 48 hours for this to complete.
+
+![IMG](https://uk.thot.cc/api/shares/Y2NjM0O/files/471bcb1d-42bf-4e52-a9b2-be56323eb3c5?download=false)
+
+When using these nameservers you will not be able to host **ANY** content via the domain as domain-park does not allow for it. We have configured our nameservers to redirect to this page when accessing any of our IPs / Hostnames directly.
+
+* * *
+
+### Deploying Domain-Park
