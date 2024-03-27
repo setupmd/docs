@@ -2,6 +2,7 @@
 slug: t/server-software
 description: This page covers a list of well known server.jars.
 title: Server Software
+lastUpdated: 2024-03-27
 ---
 
 import MainStatusPill from '../../../components/MainStatusPill.vue'
@@ -25,8 +26,8 @@ As the name suggests, it is a completely Vanilla server from Mojang itself witho
 
 <LinkCard
   title="Download"
-  description="Download a copy of the Vanilla installer via getbukkit.org"
-  href="https://getbukkit.org/download/vanilla"
+  description="Download a copy of the Vanilla installer via jar.smd.gg"
+  href="https://smd.gg/vanilla"
 />
 
 #### Paper <MainStatusPill success>Recommended</MainStatusPill>
@@ -35,8 +36,8 @@ Paper is the most widely-used Server Jar nowadays. A fork of Spigot with its own
 
 <LinkCard
   title="Download"
-  description="Download a copy of PaperMC via papermc.io"
-  href="https://papermc.io/downloads"
+  description="Download a copy of PaperMC via jar.smd.gg"
+  href="https://smd.gg/paper"
 />
 
 #### Purpur
@@ -45,13 +46,13 @@ A fork of Paper which provides numerous gameplay-enhancing features without havi
 
 <LinkCard
   title="Download"
-  description="Download a copy of PurpurMC via purpurmc.org"
-  href="https://purpurmc.org/downloads"
+  description="Download a copy of PurpurMC via jar.smd.gg"
+  href="https://smd.gg/purpur"
 />
 
 #### Pufferfish
 
-A fork of Paper which greatly improves performance without causing any noticeable impact to gameplay. Includes hopper, entity, map rendering and many other optimizations. Highly recommended for most servers. 
+A fork of Paper which greatly improves performance without causing any noticeable impact to gameplay. Includes hopper, entity, map rendering and many other optimizations. Highly recommended for most servers.
 
 <LinkCard
   title="Download"
@@ -67,15 +68,15 @@ A fork of Paper which groups nearby loaded chunks to form an "independent region
 
 #### Yes, Folia is relatively usable.
 
-Do you need to use it? Highly unlikely.  Can you use it? Probably.  Will a good chunk of your plugins break? Definitely.  It's currently only recommended for very large servers that are vanilla/semi-vanilla, have a beefy enough CPU and enough threads as well. If you do end up using it, make sure to test it thoroughly. If you can, consider implementing some patches from Pufferfish and other jars as well.
+Do you need to use it? Highly unlikely. Can you use it? Probably. Will a good chunk of your plugins break? Definitely. It's currently only recommended for very large servers that are vanilla/semi-vanilla, have a beefy enough CPU and enough threads as well. If you do end up using it, make sure to test it thoroughly. If you can, consider implementing some patches from Pufferfish and other jars as well.
 
 **Every command and feature should be tested.**
 :::
 
 <LinkCard
   title="Download"
-  description="Download a copy of Folia via github.com from PaperMC"
-  href="https://github.com/PaperMC/Folia"
+  description="Download a copy of Folia via jar.smd.gg"
+  href="https://smd.gg/folia"
 />
 
 #### Legacy 1.8 Jars
@@ -83,11 +84,11 @@ Do you need to use it? Highly unlikely.  Can you use it? Probably.  Will a good 
 It is highly recommended that you do not use 1.8 or any of its other releases. However, if it's a requirement for whatever reason these are the better jars to use.
 
 <CardGrid>
-  <LinkCard title="NachoSpigot" href="https://github.com/CobbleSword/NachoSpigot" />
-  <LinkCard title="BurritoSpigot" href="https://github.com/CobbleSword/BurritoSpigot" />
-  <LinkCard title="SportPaper" href="https://github.com/Electroid/SportPaper" />
-  <LinkCard title="PandaSpigot" href="https://github.com/hpfxd/PandaSpigot" />
-  <LinkCard title="WindSpigot" href="https://github.com/Wind-Development/WindSpigot" />
+<LinkCard title="NachoSpigot" href="https://github.com/CobbleSword/NachoSpigot" />
+<LinkCard title="BurritoSpigot" href="https://github.com/CobbleSword/BurritoSpigot" />
+<LinkCard title="SportPaper" href="https://github.com/Electroid/SportPaper" />
+<LinkCard title="PandaSpigot" href="https://github.com/hpfxd/PandaSpigot" />
+<LinkCard title="WindSpigot" href="https://github.com/Wind-Development/WindSpigot" />
 </CardGrid>
 
 #### Forge
@@ -103,13 +104,6 @@ Forge is a modding API and server jar. It is most commonly used for servers with
 #### Fabric
 
 Fabric is similar to Forge (but not a fork) in the sense that it also supports mods. These mods can change practically any mechanic of the game. Fabric also has a great amount of optimization mods such as Lithium, Starlight, Phosphor etc. Take a look at [this list](https://github.com/NordicGamerFE/usefulmods)
-
-:::danger
-
-#### Any Jar that combines Plugins & Mods
-
-Do not use any server software such as Magma or Mohist. These are generally unstable. [Mohist also replaces EssentialsX jars with modified jars](https://essentialsx.net/do-not-use-mohist.html), which might not be safe.
-:::
 
 <LinkCard
   title="Download"
@@ -131,8 +125,8 @@ Velocity is a superior solution compared to Bungeecord / Waterfall unless you're
 
 <LinkCard
   title="Download"
-  description="Download a copy of Velocity via papermc.io"
-  href="https://papermc.io/downloads#Velocity"
+  description="Download a copy of Velocity via jar.smd.gg"
+  href="https://smd.gg/velocity"
 />
 
 #### Waterfall
@@ -141,9 +135,13 @@ A fork of Bungeecord run by the Paper developers, Waterfall supports most if not
 
 <LinkCard
   title="Download"
-  description="Download a copy of Waterfall via papermc.io"
-  href="https://papermc.io/downloads#Waterfall"
+  description="Download a copy of Waterfall via jar.smd.gg"
+  href="https://smd.gg/waterfall"
 />
+
+:::caution
+The PaperMC team have announced that Waterfall has now reached end of life in favour of Velocity. You can read the full announcement here - https://link.setup.md/waterfall-eol. We will remove this option from our wiki in the coming months.
+:::
 
 * * *
 
@@ -171,3 +169,10 @@ There are sometimes cool spin-offs that we feel are worthy of mentioning their e
   <LinkCard title="Petal" href="https://github.com/Bloom-host/Petal" />
   <LinkCard title="PaperRecorder" href="https://github.com/Bryan1029384756/PaperRecorder" />
 </CardGrid>
+
+:::danger
+
+#### Any Jar that combines Plugins & Mods
+
+Do not use any server software such as Magma or Mohist. These are generally unstable. [Mohist also replaces EssentialsX jars with modified jars](https://essentialsx.net/do-not-use-mohist.html), which might not be safe.
+:::
