@@ -1,0 +1,88 @@
+---
+description: Firewalling and Protecting your System(s)
+title: Firewalling
+slug: sec/firewalls
+---
+
+### Server Firewalling
+
+The concept of firewalling is to prohibit access to your system via the network, or allow access to specific services running on the system.
+
+**Why this is important**
+<ul class="pl-5 list-disc">
+    <li>Firewalls help block harmful or unwanted traffic, such as viruses or hackers attempting to access your network.</li>
+    <li>You can configure a firewall to allow only trusted sources to access your network and services.</li>
+    <li>Firewalls can separate parts of your network to reduce the spread of potential security breaches.</li>
+    <li>Firewalls can mitigate Distributed Denial of Service (DDoS) attacks by controlling traffic flow and blocking malicious requests.</li>
+</ul>
+*In the case of DDoS attacks, you must have available bandwidth (the attack volume must be lower than your total available bandwidth) to continue operating during the attack.*  
+*If you forsee anything larger than 10Gbps attacks (common) and don't have DDoS protection, try getting hardware firewall access or a 3rd party DDoS protection provider.*
+
+Depending on your host, your system has some sort of firewall already installed. If not, your host may offer a firewall panel to access and configure a hardware absed firewall, like a switch or a router.
+
+When configuring your firewall, always remember that the top-most rule is the first that will be run. 
+
+For a basic, secure firewall setup on Linux, you could use something like UFW (UncomplicatedFirewall)
+
+For Example:  
+`ufw allow 22 # Allows traffic to the default SSH port`  
+`ufw allow 25565 # Allows traffic to the default Minecraft port`  
+`ufw deny 3306 # Denies all traffic to MySQL/MariaDB`  
+
+*You would not want to use these rules in a production setup, this is just an example of using UFW.*
+
+For Windows, you have the option of using "Windows Defender Firewall with Advanced Security"  
+This does not follow the traditional rule of top-down routines for firewalls, but it will help you secure your system.
+
+---
+
+### UFW Basics
+
+A basic firewall setup on linux for a Minecraft server running Pterodactyl would look like this:  
+`ufw allow from {Your Home IP}` # Allows your home IP to access the server entirely  
+`ufw allow from 172.18.0.0/8` # Allows the Pterodactyl Subnet access to the server's services  
+`ufw allow from {Your Server IP}` # Allows your server to access itself via the public IP  
+`ufw deny 3306` # Denies outside access to your Databases  
+`ufw deny 22` # Denies outside access to SSH  
+`ufw allow 25565` # Allows outside access to your Minecraft Server  
+  
+If you wanted to allow a staff member SSH access:  
+`ufw allow from {Their IP} to any port 22` # Allows their home IP to access port 22
+
+**Note** - Docker (Used with Pterodactyl and other popular panels) bypasses UFW rules. Docker rules MUST be set in IPTables.
+
+You can find many tutorials online about the use of UFW. If you wanted a more advanced approach with more control, you can look into using IPTables.
+
+---
+
+### ICMP
+
+We're going to take a look into ICMP, a protocol enabled by default on most systems.
+
+ICMP is mainly used for diagnostics and error-reporting in networks. It helps your system send error messages or information about the network it's on. The most common ICMP message is the `ping`.
+
+Malicious Actors can use ICMP to aid with Network Reconnaissance.
+<ul class="pl-5 list-disc">
+    <li>Attackers send ICMP Echo Requests (pings) to a range of IPs to see which hosts are active. This is the first step in identifying targets on a network</li>
+    <li>While ICMP itself doesn't scan ports, attackers combine it with other tools (like nmap) to check for open ports after discovering live hosts. ICMP can give clues about the network setup and potential services to attack</li>
+    <li>Attackers may use ICMP to covertly send data (ICMP tunneling) through firewalls that allow ICMP traffic, essentially creating a backdoor communication channel.</li>
+</ul>
+
+While it may make full sense to disable ICMP on your network, there are also some implications to this.
+
+**Trade-Offs**  
+  
+Pros
+<ul class="pl-5 list-disc">
+    <li>If your server doesn’t respond to ICMP requests, it makes it harder for malicious actors to know if your server is live or responsive</li>
+    <li>Blocking ICMP responses (like pings) can prevent attackers from easily identifying active hosts in your network</li>
+</ul>  
+  
+Cons
+<ul class="pl-5 list-disc">
+    <li>ICMP is used for troubleshooting; disabling it means no ping replies, making it difficult to diagnose network issues like connectivity problems</li>
+    <li>Some applications rely on ICMP for network monitoring or load balancing. Disabling it may cause them to malfunction, especially if they use ICMP to check the health of connections</li>
+    <li>Some network protocols use ICMP messages (like "Destination Unreachable" or "Time Exceeded") to properly route traffic or avoid routing loops. Disabling ICMP can lead to inefficient routing and slower network performance</li>
+</ul>
+
+Keep this in mind when setting up your firewall.

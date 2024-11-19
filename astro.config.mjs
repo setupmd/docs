@@ -52,6 +52,13 @@ export default defineConfig({
           collapsed: true,
         },
         {
+          label: "Server Security",
+          autogenerate: {
+            directory: "/security/",
+          },
+          collapsed: true,
+        },
+        {
           label: "Server Troubleshooting",
           autogenerate: {
             directory: "/troubleshooting/",
