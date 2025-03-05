@@ -13,7 +13,7 @@ The plugin author's optimisation guide is linked below.. The `anti-override` opt
 
 Regarding anti-override, first make sure that none of your plugins mess with the tablist or scoreboard other than TAB itself. Some common culprits might be BetterTeams, eGlow, Paper's collision rules and CMI. 
 
-You will need to modify eGlow in order to take full advantage of this optimization. Note that disabling these settings in eGlow will most likely result in incorrect glow colors. Just like TAB, eGlow has an anti-override feature called `smart-packet-blocker` and a setting called `send-eGlow-team-packets` for team packets. Switch this from true to false to disable them. Once you're done modifying/removing such plugins, make sure `enable-player-collisions` in Paper's configuration is true. After you do that, you can disable player collisions in TAB's config by changing `scoreboard-teams.enable-collisions`.
+You will need to modify eGlow in order to take full advantage of this optimization. Note that disabling these settings in eGlow will most likely result in incorrect glow colors unless you add the placeholder %eglow_glowcolor% at the end of the tagprefix in TAB. Just like TAB, eGlow has an anti-override feature called `smart-packet-blocker` and a setting called `send-eGlow-team-packets` for team packets. Switch this from true to false to disable them. Once you're done modifying/removing such plugins, make sure `enable-player-collisions` in Paper's configuration is true. After you do that, you can disable player collisions in TAB's config by changing `scoreboard-teams.enable-collisions`.
 
 Finally, switch `anti-override` from true to false. If your tablist does not have proper order, an external plugin is probably still modifying the tablist.
 <div>
