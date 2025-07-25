@@ -83,7 +83,7 @@ AntiCheats such as Polar haven't seen particularly wide-scale adoption, so we ca
 #### WorldEdit / FastAsyncWorldEdit / WorldGuard
 If you're using FAWE or WorldEdit, we suggest forking it to unregister any useless events (located within the WorldEditListener class.) On idle, these events are the primary culprit of high server thread usage in FAWE/WE.
 
-As for WorldGuard, we suggest using FreshSMP's WG fork. Do note that it is version-specific, so you might have to compile an older commit if you're running an older version. Alongside using the fork, you may also disable listening to specific events and disable `high-frequency-events` within WorldGuard's config.
+As for WorldGuard, we suggest using FreshSMP's WG fork. Do note that it is version-specific, so you might have to compile an older commit if you're running an older version. Alongside using the fork, you may also disable listening to specific events and disable `high-frequency-events` within WorldGuard's config. If you have worlds without any regions, WorldGuard also allows you to disabl elisteners in those worlds by setting `regions.enabled: false` within that world's config.
 
 <LinkCard
   title="WorldGuard Fork"
