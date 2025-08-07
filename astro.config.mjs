@@ -4,11 +4,24 @@ import vue from "@astrojs/vue";
 import tailwind from "@astrojs/tailwind";
 import starlightThemeObsidian from "starlight-theme-obsidian";
 import sitemap from "@astrojs/sitemap";
+import path from "node:path";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.setup.md",
   trailingSlash: "never",
+  vite: {
+    resolve: {
+      alias: {
+        "@components": path.resolve("./src/components"),
+        "@content": path.resolve("./src/content"),
+        "@assets": path.resolve("./src/assets"),
+        "@styles": path.resolve("./src/styles"),
+        "@fonts": path.resolve("./src/fonts"),
+        "@utils": path.resolve("./src/utils"),
+      }
+    }
+  },
   build: {
     format: "file",
   },
