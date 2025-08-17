@@ -6,7 +6,7 @@ sidebar:
   order: 3
 ---
 
-import MainStatusPill from '../../../../../components/MainStatusPill.vue';
+import MainStatusPill from '@components/MainStatusPill.vue';
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 This section covers plugins that you can modify/replace to improve performance. Only recommended at higher player counts.
@@ -36,6 +36,24 @@ Although TAB is already well-optimised, there are still some modifications you c
   description="The official TAB optimisation guide."
   href="https://github.com/NEZNAMY/TAB/wiki/Optimizing-the-plugin"
 />
+
+---
+
+#### FancyHolograms (or other Hologram Plugins)
+Ensure that your holograms are being refreshed at a reasonable interval. `updateTextInterval` in FancyHolograms is measured in ticks, so setting it to any value below `1000` will cause excessive load on the CPU.
+
+For Leaderboards, we recommend setting it to at least `30000`. For static holograms, `-1` will result in no updates.
+
+---
+
+#### FancyGlow
+If you happen to be using FancyGlow, make sure to disable it's TAB integration since it sends an obscene amount of packets. 
+Instead, use `%fancyglow_color%` within TAB's groups.yml in `tagprefix`. For example:
+```yaml
+_DEFAULT_:
+  tabprefix: "%luckperms-prefix%"
+  tagprefix: "%luckperms-prefix%%fancyglow_color%"
+```
 
 ---
 
