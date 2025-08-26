@@ -1,8 +1,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import vue from "@astrojs/vue";
-import tailwind from "@astrojs/tailwind";
-import starlightThemeObsidian from "starlight-theme-obsidian";
 import sitemap from "@astrojs/sitemap";
 import path from "node:path";
 
@@ -27,15 +25,6 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      plugins: [
-        starlightThemeObsidian({
-          graphConfig: {
-            depth: 1,
-            depthDirection: "both",
-            repelForce: 500,
-          },
-        }),
-      ],
       title: "setup.md",
       customCss: [
         './src/styles/custom.css',
@@ -49,10 +38,10 @@ export default defineConfig({
       editLink: {
         baseUrl: "https://github.com/setupmd/docs/edit/v3",
       },
-      social: {
-        discord: "http://www.setup.md/discord-invite",
-        github: "https://github.com/setupmd/docs",
-      },
+      social: [
+        { label: "Discord", icon: "discord", href: "http://www.setup.md/discord-invite" },
+        { label: "GitHub", icon: "github", href: "https://github.com/setupmd/docs" },
+      ],
       sidebar: [
         {
           label: "Project Information",
@@ -99,7 +88,6 @@ export default defineConfig({
       ],
     }),
     vue(),
-    tailwind(),
     sitemap(),
   ],
 });

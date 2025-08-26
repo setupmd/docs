@@ -12,21 +12,22 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/starlight": "^0.29.2",
-    "@astrojs/tailwind": "^5.1.2",
-    "@astrojs/vue": "^4.5.3",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "astro": "^4.16.14",
-    "sharp": "^0.32.6",
-    "starlight-theme-obsidian": "^0.0.10",
-    "tailwindcss": "^3.3.6",
-    "typescript": "^5.3.4",
-    "vue": "^3.3.10"
+    "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/starlight": "^0.35.2",
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/vue": "^5.1.0",
+    "@tailwindcss/postcss": "^4.1.12",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "astro": "^5.13.3",
+    "sharp": "^0.34.3",
+    "starlight-theme-obsidian": "^0.4.0",
+    "tailwindcss": "^4.1.12",
+    "typescript": "^5.9.2",
+    "vue": "^3.5.20"
   },
   "overrides": {
     "starlight-theme-obsidian": {
-      "@astrojs/starlight": "^0.29.2"
+      "@astrojs/starlight": "^0.35.2"
     }
   }
 }
