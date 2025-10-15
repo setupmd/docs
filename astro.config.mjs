@@ -1,16 +1,20 @@
+// astro.config.mjs
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import vue from "@astrojs/vue";
-import tailwind from "@astrojs/tailwind";
-import starlightThemeObsidian from "starlight-theme-obsidian";
+import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import path from "node:path";
+import starlightThemeObsidian from 'starlight-theme-obsidian';
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.setup.md",
   trailingSlash: "never",
   vite: {
+    plugins: [
+      tailwindcss(), // Tailwind 4 is correctly added here
+    ],
     resolve: {
       alias: {
         "@components": path.resolve("./src/components"),
@@ -22,21 +26,22 @@ export default defineConfig({
       }
     }
   },
+  
   build: {
     format: "file",
   },
+  
   integrations: [
     starlight({
+      // ✅ CORRECTED: plugins array is inside the starlight config object
       plugins: [
         starlightThemeObsidian({
-          graphConfig: {
-            depth: 1,
-            depthDirection: "both",
-            repelForce: 500,
-          },
+          backlinks: false,
+          graph: false
         }),
       ],
-      title: "setup.md",
+      
+      title: "setup.md", // ✅ Correctly placed inside the starlight config object
       customCss: [
         './src/styles/custom.css',
         './src/fonts/font-face.css',
@@ -49,10 +54,10 @@ export default defineConfig({
       editLink: {
         baseUrl: "https://github.com/setupmd/docs/edit/v3",
       },
-      social: {
-        discord: "http://www.setup.md/discord-invite",
-        github: "https://github.com/setupmd/docs",
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/setupmd' },
+        { icon: 'discord', label: 'Discord', href: 'http://www.setup.md/discord-invite' },
+      ],
       sidebar: [
         {
           label: "Project Information",
@@ -97,9 +102,8 @@ export default defineConfig({
           collapsed: true,
         },
       ],
-    }),
+    }), // ✅ Correctly closing the starlight function call
     vue(),
-    tailwind(),
     sitemap(),
-  ],
+  ], // ✅ Correctly closing the integrations array
 });
