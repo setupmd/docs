@@ -40,11 +40,40 @@ export default defineConfig({
         }),
         starlightSidebarTopics([
           {
+            label: 'Home',
+            icon: 'starlight',
+            // The URL to the external resource to link to.
+            link: 'https://www.setup.md',
+          },
+          {
             label: 'Project Information',
             link: 'contribute',
             icon: 'rocket',
             items: [
               { label: 'Project Information', autogenerate: { directory: 'project' } },
+            ],
+          },
+          {
+            label: 'Deploy a Server',
+            link: 'deploy/install-java',
+            icon: 'open-book',
+            items: [
+              { label: 'Prerequisits', autogenerate: { directory: 'deploy/prereq' } },
+              { label: 'Self Hosted', autogenerate: { directory: 'deploy/create' } },
+              { label: 'Shared Hosting', autogenerate: { directory: 'deploy/hosted' } },
+            ],
+          },
+          {
+            label: 'Customise your Server',
+            link: 'customise/temp',
+            icon: 'puzzle',
+            items: [
+              {
+                label: 'Breakdown',
+                items: ['customise/temp'],
+              },
+              { label: 'Plugins', autogenerate: { directory: 'customise/plugins' } },
+              { label: 'Mods', autogenerate: { directory: 'customise/mods' } },
             ],
           },
         ])
