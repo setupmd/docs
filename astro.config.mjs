@@ -8,7 +8,6 @@ import path from "node:path";
 import starlightThemeObsidian from 'starlight-theme-obsidian';
 import starlightSidebarTopics from 'starlight-sidebar-topics';
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://www.setup.md",
   trailingSlash: "never",
@@ -42,20 +41,16 @@ export default defineConfig({
         starlightSidebarTopics([
           {
             label: 'Project Information',
-            link: 'docs',
-            icon: 'open-book',
-            items: ['docs', 'discord','services','eula'],
-          },
-          {
-            label: 'Troubleshooting',
-            link: 'help',
+            link: 'about',
             icon: 'rocket',
-            items: ['ts/connection','ts/ip'],
+            items: [
+              { label: 'Project Information', autogenerate: { directory: 'project' } },
+            ],
           },
-        ]),
+        ])
       ],
       components: {
-        Sidebar: './src/components/Sidebar.astro',
+        Sidebar: './src/components/sidebar.astro',
       },
       title: "setup.md",
       customCss: [
