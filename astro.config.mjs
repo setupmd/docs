@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import path from "node:path";
 import starlightThemeObsidian from 'starlight-theme-obsidian';
+import starlightSidebarTopics from 'starlight-sidebar-topics';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
   trailingSlash: "never",
   vite: {
     plugins: [
-      tailwindcss(), // Tailwind 4 is correctly added here
+      tailwindcss(),
     ],
     resolve: {
       alias: {
@@ -33,15 +34,30 @@ export default defineConfig({
   
   integrations: [
     starlight({
-      // ✅ CORRECTED: plugins array is inside the starlight config object
       plugins: [
         starlightThemeObsidian({
           backlinks: false,
           graph: false
         }),
+        starlightSidebarTopics([
+          {
+            label: 'Project Information',
+            link: 'docs',
+            icon: 'open-book',
+            items: ['docs', 'discord','services','eula'],
+          },
+          {
+            label: 'Troubleshooting',
+            link: 'help',
+            icon: 'rocket',
+            items: ['ts/connection','ts/ip'],
+          },
+        ]),
       ],
-      
-      title: "setup.md", // ✅ Correctly placed inside the starlight config object
+      components: {
+        Sidebar: './src/components/Sidebar.astro',
+      },
+      title: "setup.md",
       customCss: [
         './src/styles/custom.css',
         './src/fonts/font-face.css',
@@ -58,52 +74,8 @@ export default defineConfig({
         { icon: 'github', label: 'GitHub', href: 'https://github.com/setupmd' },
         { icon: 'discord', label: 'Discord', href: 'http://www.setup.md/discord-invite' },
       ],
-      sidebar: [
-        {
-          label: "Project Information",
-          autogenerate: {
-            directory: "/information/",
-          },
-          collapsed: false,
-        },
-        {
-          label: "Enhancements",
-          autogenerate: {
-            directory: "/enhancements/",
-          },
-          collapsed: true,
-        },
-        {
-          label: "Hosting Tips",
-          autogenerate: {
-            directory: "/hosting/",
-          },
-          collapsed: true,
-        },
-        {
-          label: "Server Tools",
-          autogenerate: {
-            directory: "/tools/",
-          },
-          collapsed: true,
-        },
-        {
-          label: "Server Troubleshooting",
-          autogenerate: {
-            directory: "/troubleshooting/",
-          },
-          collapsed: true,
-        },
-        {
-          label: "Guides",
-          autogenerate: {
-            directory: "/guides/",
-          },
-          collapsed: true,
-        },
-      ],
-    }), // ✅ Correctly closing the starlight function call
+    }),
     vue(),
     sitemap(),
-  ], // ✅ Correctly closing the integrations array
+  ],
 });
