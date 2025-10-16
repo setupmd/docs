@@ -17,21 +17,13 @@ As time has progressed we've continued to identify ways we can help server owner
 
 We took a cool idea produced by PenguiLoader on GitHub and we fixed some bugs then made it faster by distributing the workload to Cloudflare workers and running it on their amazing edge network.
 
-#### Quickstart
 
-The base domain is `https://jar.setup.md`
-
-The subsequent URL that follows is syntaxed as below.
-
-`/download/{SOFTWARE}/{VERSION}/{BUILD}`
-
-To grab the latest paper .jar download.
-
-`GET https://jar.setup.md/download/paper/latest/latest`
-
-To grab the latest vanilla server.jar download link. (no build parameter required)
-
-`GET https://jar.setup.md/download/vanilla/latest`
+|   Quick Start              | Description                                                                                                                                                                 |
+| :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Base Domain         | https://jar.setup.md                                                                                                     |
+| URL Syntax | `/download/{SOFTWARE}/{VERSION}/{BUILD}` |
+| Latest Paper Build      | https://jar.setup.md/download/paper/latest/latest   (Supports GET requests)                                                         |
+| Latest Vanilla Build             | https://jar.setup.md/download/vanilla/latest (Supports GET requests, no build params required)                                                              |
 
  <CardGrid>
   <LinkCard title="polish-penguin-dev/MC-SRV-DL-API" href="https://github.com/polish-penguin-dev/MC-SRV-DL-API" />
