@@ -41,7 +41,7 @@ export default defineConfig({
         starlightSidebarTopics([
           {
             label: 'Project Information',
-            link: 'about',
+            link: 'contribute',
             icon: 'rocket',
             items: [
               { label: 'Project Information', autogenerate: { directory: 'project' } },
