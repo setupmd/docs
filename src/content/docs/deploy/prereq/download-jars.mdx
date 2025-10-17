@@ -5,4 +5,55 @@ slug: deploy/download-jars
 lastUpdated: 2025-10-16
 ---
 
-Use jar.setup.md for this guide
+import MainStatusPill from '@components/MainStatusPill.vue'
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+For the sake of simplicity, we will be showcasing our own API - jar.setup.md. Our API allows you to download the following server jars, we have provided quick links to download the latest version of each Jar. Full API usage is explained within our Github repo.
+
+| Platform       | Jar File Name               | Download Link                                      |
+|-------------------|-----------------------------|----------------------------------------------------|
+| Vanilla           | server.jar          | [Download Here](https://jar.setup.md/download/vanilla/latest) |
+| Paper             | paper-(version)-(build).jar            | [Download Here](https://jar.setup.md/download/paper/latest/latest)   |
+| Waterfall            | waterfall-(version)-(build).jar           | [Download Here](https://jar.setup.md/download/waterfall/latest/latest )  |
+| Bedrock            | bedrock-server-(version).zip          | [Download Here](https://jar.setup.md/download/bedrock/1.21.114.1)  |
+| Purpur            | purpur-(version)-(build).jar          | [Download Here](https://jar.setup.md/download/purpur/latest/latest )  |
+
+<LinkCard
+  title="setupmd/server-jar-api"
+  description="An API to easily grab popular Minecraft server software via github.com"
+  href="https://github.com/setupmd/server-jar-api"
+/>
+
+### Downloading using CLI
+
+If you don't have access to a web browser on your server, you can use command line tools such as `curl` or `wget` to download the jar files directly to your server.
+
+Example formatting for paper would be.
+
+```bash
+...
+
+curl -o paper.jar https://jar.setup.md/download/paper/latest/latest
+
+# OR
+
+wget https://jar.setup.md/download/paper/latest/latest --content-disposition
+
+...
+```
+
+By adding the `--content-disposition` we're preventing the downloaded file being an extension-less file called `download`.
+
+To confirm the file has downloaded correctly you can use the `ls -al` command to display the contents of your current folder.
+
+```bash
+...
+
+root@vps:~/minecraft-server-folder# ls -al
+total 41348
+drwxr-xr-x 2 root root     4096 Jul  9 16:59 .
+drwx------ 7 root root     4096 Jul  9 16:59 ..
+-rw-r--r-- 1 root root 42329978 Jul  9 08:07 purpur-1.19-1708.jar
+
+...
+```

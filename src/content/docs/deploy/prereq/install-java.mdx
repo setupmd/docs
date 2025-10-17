@@ -7,7 +7,7 @@ sidebar:
     order: 2
 ---
 
-
+You should already have Java installed, but if you don't because you're using a spare PC to host your Minecraft server, follow the instructions below to download and install the Java Runtime Environment (JRE) for your operating system.
 
 ### Downloading JRE for Mac
 
@@ -23,17 +23,57 @@ sidebar:
 3. Download and run the installer.
 4. Follow the on-screen instructions to finish the installation.
 
-### Downloading JRE for Ubuntu
+### Downloading JRE for Ubuntu (Debian)
 
 1. Open a terminal and update your package list:
      ```bash
+     ...
+
      sudo apt update
+     sudo apt upgrade -y
+
+     ...
      ```
-2. Install the default JRE package:
+2. Search for the appropriate JRE package:
      ```bash
-     sudo apt install default-jre
+     ...
+
+     sudo apt search "jre-headless"
+
+     ...
      ```
-3. Verify the installation:
+3. Pick the appropriate package from the search results. For example, to install OpenJDK 17 JRE headless, you would choose `openjdk-17-jre-headless`. This will depend on the version of Minecraft you plan to run.
      ```bash
+     ...
+
+     Sorting... Done
+     Full Text Search... Done
+
+     default-jre-headless/stable,stable 2:1.11-72 amd64
+     Standard Java or Java compatible Runtime (headless)
+
+     openjdk-11-jre-headless/stable,stable-security,stable,stable-security 11.0.14+9-1~deb11u1 amd64
+     OpenJDK Java runtime, using Hotspot JIT (headless)
+
+     openjdk-17-jre-headless/stable,stable-security,stable,stable-security 17.0.2+8-1~deb11u1 amd64
+     OpenJDK Java runtime, using Hotspot JIT (headless)
+
+     ...
+     ```
+4. Install the JRE package:
+     ```bash
+     ...
+
+     sudo apt install openjdk-17-jre-headless -y
+
+     ...
+     ```
+
+5. Verify the installation:
+     ```bash
+     ...
+
      java -version
+
+     ...
      ```
