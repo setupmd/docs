@@ -42,8 +42,7 @@ export default defineConfig({
           {
             label: 'Home',
             icon: 'starlight',
-            // The URL to the external resource to link to.
-            link: 'https://www.setup.md',
+            link: '/',
           },
           {
             label: 'Project',
