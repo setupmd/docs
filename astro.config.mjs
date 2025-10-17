@@ -46,15 +46,15 @@ export default defineConfig({
             link: 'https://www.setup.md',
           },
           {
-            label: 'Project Information',
+            label: 'Project',
             link: 'contribute',
-            icon: 'rocket',
+            icon: 'heart',
             items: [
               { label: 'Project Information', autogenerate: { directory: 'project' } },
             ],
           },
           {
-            label: 'Deploy a Server',
+            label: 'Deploy',
             link: 'deploy/install-java',
             icon: 'open-book',
             items: [
@@ -64,7 +64,7 @@ export default defineConfig({
             ],
           },
           {
-            label: 'Customise your Server',
+            label: 'Customise',
             link: 'customise/temp',
             icon: 'puzzle',
             items: [
@@ -74,6 +74,39 @@ export default defineConfig({
               },
               { label: 'Plugins', autogenerate: { directory: 'customise/plugins' } },
               { label: 'Mods', autogenerate: { directory: 'customise/mods' } },
+            ],
+          },
+          {
+            label: 'Administration',
+            link: 'administer/temp',
+            icon: 'setting',
+            items: [
+              { label: 'Administration Basics', autogenerate: { directory: 'administer' } },
+            ],
+          },
+          {
+            label: 'Optimisation',
+            link: 'optimise/basics/temp',
+            icon: 'rocket',
+            items: [
+              { label: 'Basics', autogenerate: { directory: 'optimise/basics' } },
+              { label: 'Advanced', autogenerate: { directory: 'optimise/advanced' } },
+            ],
+          },
+          {
+            label: 'Troubleshoot',
+            link: 'troubleshoot/temp',
+            icon: 'error',
+            items: [
+              { label: 'Common Issues', autogenerate: { directory: 'troubleshoot' } },
+            ],
+          },
+          {
+            label: 'Extras',
+            link: 'extra/temp',
+            icon: 'star',
+            items: [
+              { label: 'Additional Content', autogenerate: { directory: 'extras' } },
             ],
           },
         ])
