@@ -94,10 +94,11 @@ export default defineConfig({
           },
           {
             label: 'Troubleshoot',
-            link: 'troubleshoot/temp',
+            link: 'fix/connectivity',
             icon: 'error',
             items: [
-              { label: 'Common Issues', autogenerate: { directory: 'troubleshoot' } },
+              { label: 'Technical Issues', autogenerate: { directory: 'troubleshoot/compute' } },
+              { label: 'Network Issues', autogenerate: { directory: 'troubleshoot/network' } },
             ],
           },
           {
