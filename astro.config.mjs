@@ -111,7 +111,7 @@ export default defineConfig({
         ])
       ],
       components: {
-        Sidebar: './src/components/sidebar.astro',
+        Sidebar: './src/components/Sidebar.astro',
       },
       title: "setup.md",
       customCss: [
