@@ -2,6 +2,7 @@
 description: Helping you through those next steps immediately after you have purchased a Minecraft server.
 slug: deploy/purchased-what-next
 title: Purchased, what next?
+lastUpdated: 2025-10-18
 ---
 While we cannot make a purchase decision for you, if you selected from one of the hosting providers in our list here's what you can expect to happen next.
 
@@ -11,8 +12,21 @@ Ensure you see an active service in your billing account and an email confirming
 
 The Wiki cannot assist with these issues and you need to raise a ticket with the respective support team.
 
+---
+
 ### Game panel invite
 
 Within 5-10 minutes you should receive an email from the provider with an invite to their game panel. This is where you will manage your server, including starting, stopping, and configuring it. All of the providers in our list utilise a variant of the Pterodactyl panel and you must set a unique password before attempting to login.
 
 Your username will typically be your email address and the password **DOES NOT SYNC** with your billing account.
+
+---
+
+### Initial setup
+
+When you use a hosted provider, the method in which you can dowload different Java versions, Minecraft server types and versions will vary between providers. Most providers will have a knowledge base or documentation to help you with this process (if they offer it natively within their panel). You should always be able to upload your files using SFTP or the in-build file manager meaning that you could download a jar from our API and upload it yourself if the provider doesn't offer a particular version you're looking for.
+
+:::note
+
+Switching between Modded (e.g. Forge / FTB) and "Bukkit" server types may require your service provider to change the "egg" in the background because of the startup params required are different. This does not include Fabric or Vanilla server types which can typically be swapped between without issue.
+:::
