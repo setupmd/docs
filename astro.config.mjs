@@ -54,10 +54,10 @@ export default defineConfig({
           },
           {
             label: 'Deploy',
-            link: 'deploy/install-java',
+            link: 'deploy/considerations',
             icon: 'open-book',
             items: [
-              { label: 'Prerequisits', autogenerate: { directory: 'deploy/prereq' } },
+              { label: 'Considerations', autogenerate: { directory: 'deploy/considerations' } },
               { label: 'Self Hosted', autogenerate: { directory: 'deploy/create' } },
               { label: 'Shared Hosting', autogenerate: { directory: 'deploy/hosted' } },
             ],
