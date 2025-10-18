@@ -121,8 +121,8 @@ export default defineConfig({
       ],
       logo: {
         replacesTitle: true,
-        light: "./src/assets/logo-dark.png",
-        dark: "./src/assets/logo-light.png",
+        light: "./src/assets/logo_dark-2.svg",
+        dark: "./src/assets/logo_light-2.svg",
       },
       editLink: {
         baseUrl: "https://github.com/setupmd/docs/edit/v3",
