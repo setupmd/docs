@@ -19,6 +19,7 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "astro": "^5.14.5",
     "sharp": "^0.34.4",
+    "starlight-heading-badges": "^0.6.1",
     "starlight-sidebar-topics": "0.6.2",
     "starlight-sidebar-topics-dropdown": "^0.5.1",
     "starlight-theme-obsidian": "^0.4.1",

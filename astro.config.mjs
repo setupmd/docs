@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 import path from "node:path";
 import starlightThemeObsidian from 'starlight-theme-obsidian';
 import starlightSidebarTopics from 'starlight-sidebar-topics';
+import starlightHeadingBadges from 'starlight-heading-badges'
 
 export default defineConfig({
   site: "https://www.setup.md",
@@ -38,6 +39,7 @@ export default defineConfig({
           backlinks: false,
           graph: false
         }),
+        starlightHeadingBadges({}),
         starlightSidebarTopics([
           {
             label: 'Home',

@@ -4,7 +4,6 @@ slug: deploy/panels
 title: Control Panels
 ---
 
-import MainStatusPill from '@components/MainStatusPill.vue';
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 If you're running a Minecraft server the chances are you'll want an easier method of management, this is where panels come into play. Every [shared hosting](types#shared-hosting) provider will come with a control panel, this is how you'll interface with your server normally at a URL similar to https://panel.mydomain.com. Depending on how long the provider has been in business they'll either be using Multicraft or Pterodactyl (newer hosts using the latter).
@@ -20,7 +19,7 @@ The top 4 shortlisted panels this article will be covering are.
     <li>PufferPanel</li>
 </ul>
 
-### AMP <MainStatusPill info>Windows & Linux only</MainStatusPill>
+### AMP :badge[WINDOWS & LINUX]
 
 AMP is a licensed panel produced by CubeCoders which supports both Windows and Linux including Ubuntu, Debian, Arch, Cent OS and more. CubeCrafters are by no means new to the hosting game, their previous product McMyAdmin launched all the way back in 2013.
 
@@ -51,7 +50,11 @@ At this time there is **NO** Apple builds so for legacy McMyAdmin2 users this pr
 
 ---
 
-### Moonlight <MainStatusPill info>Linux only</MainStatusPill>
+### Moonlight :badge[LINUX]
+
+:::note
+We will revisit Moonlight once V2.1 has been released, our review is based on the legacy V1.0 release and does not reflect the current V2.0 release.
+:::
 
 Moonlight is an up and coming panel solution that is aimed towards those looking to replace Pterodactyl. The project is still in it's early phase and we've been pleased with the outcome so far in small scale testing and has therefore made our list as a one to watch.
 
@@ -78,7 +81,7 @@ Moonlight is an up and coming panel solution that is aimed towards those looking
 
 ---
 
-### Pterodactyl <MainStatusPill info>Linux only</MainStatusPill>
+### Pterodactyl :badge[LINUX]
 
 Multicraft had to die for Pterodactyl to breathe, an open source panel in active development and great support behind it. For those who like the sound of pterodactyl but not the self-hosting setup process you can look at the SaaS version [WISP](https://wisp.gg) which will cost you around $5 a month for the community plan.
 
@@ -106,7 +109,7 @@ Pterodactyl boasts a two part setup, a web-server and a docker agent (wings) tha
 
 ---
 
-### PufferPanel <MainStatusPill info>Linux only</MainStatusPill>
+### PufferPanel :badge[LINUX]
 
 PufferPanel could have been the Pterodactyl industry standard tool today, a panel formerly developed by a Pterodactyl team member prior to a clashing of heads and a splitting of the product, however PufferPanel remains open source and in active development by the original founder and an long-time dev.
 
