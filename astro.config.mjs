@@ -66,12 +66,12 @@ export default defineConfig({
           },
           {
             label: 'Customise',
-            link: 'customise/temp',
+            link: 'customisation',
             icon: 'puzzle',
             items: [
               {
                 label: 'Breakdown',
-                items: ['customise/temp'],
+                items: ['customisation'],
               },
               { label: 'Plugins', autogenerate: { directory: 'customise/plugins' } },
               { label: 'Mods', autogenerate: { directory: 'customise/mods' } },
