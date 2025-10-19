@@ -82,7 +82,7 @@ export default defineConfig({
             link: 'administer/sftp',
             icon: 'setting',
             items: [
-              { label: 'Administration Basics', autogenerate: { directory: 'administer' } },
+              { label: 'Administration Basics', autogenerate: { directory: 'administer' }, collapsed: true },
             ],
           },
           {
