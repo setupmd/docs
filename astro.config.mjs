@@ -73,13 +73,13 @@ export default defineConfig({
                 label: 'Breakdown',
                 items: ['customisation'],
               },
-              { label: 'Plugins', autogenerate: { directory: 'customise/plugins' } },
-              { label: 'Mods', autogenerate: { directory: 'customise/mods' } },
+              { label: 'Plugins', autogenerate: { directory: 'customise/plugins' }, collapsed: true},
+              { label: 'Mods', autogenerate: { directory: 'customise/mods' }, collapsed: true },
             ],
           },
           {
             label: 'Administration',
-            link: 'administer/temp',
+            link: 'administer/sftp',
             icon: 'setting',
             items: [
               { label: 'Administration Basics', autogenerate: { directory: 'administer' } },
@@ -105,10 +105,10 @@ export default defineConfig({
           },
           {
             label: 'Extras',
-            link: 'extra/temp',
+            link: 'extra/tls',
             icon: 'star',
             items: [
-              { label: 'Additional Content', autogenerate: { directory: 'extras' } },
+              { label: 'Additional Content', autogenerate: { directory: 'extras' }, collapsed: true },
             ],
           },
         ])

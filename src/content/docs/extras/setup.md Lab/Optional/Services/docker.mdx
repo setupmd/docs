@@ -1,0 +1,91 @@
+---
+description: Our Docker environment and how we use containerisation.
+slug: guides/lab/docker
+title: Docker
+---
+
+The purpose of this document is to outline the build of our Docker LXC that we use internally to host our services and manage them with Portainer. While for us Docker is a core essential part of our network everything completed in our Lab tutorials can be put in it's own Virtual Machine without too much more additional effort minus system management.
+
+### VM Configuration
+
+We're using the following hardware configuration which will be more than enough, we will be using Ubuntu 22.04 LTS as our base operating system.
+
+- Threads - '2'
+- RAM - '3GB'
+- Block Storage - '30GB'
+- Network Interface - 'vmbr1'
+
+This VM is created in the same way all the others have been in [the previous guide](/guides/lab/vms#creating-the-vm-1), you can use this for reference if needed. 
+
+---
+
+### Optional Configuration 
+
+While not required we will complete the following additional steps, deploying Azure Arc and hardening the OS.
+
+#### Device hardening
+
+You should follow the guide posted [here](/guides/lab/hardening#ubuntu-script) which explains what the script does at a high level as well as providing links to download them.
+
+#### Azure Arc 
+
+You should follow the guide posted [here](/guides/lab/arc) which details the process for deploying Azure Arc.
+
+---
+
+### Deployment 
+
+This tutorial will only cover the process of deploying Docker / Docker engine, if you're looking for a tutorial on management interfaces then you should consider our [portainer guide](#). Our steps will reflect the deployment for Ubuntu, your steps may vary based on your distribution.
+
+#### Repository Configuration
+
+The first thing that needs to be done after a fresh install is updating your packages, this can be done with the `apt` package manager. We also need to install a few packages for our install to work. 
+
+```bash
+...
+
+sudo apt-get update 
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+...
+```
+
+Once you have updated `apt` the next thing to do is add Docker's GPG keys and the Docker repository, this can be done with the below command.
+
+```bash
+...
+
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  
+...
+```
+
+#### Engine Install
+
+If you haven't already done so since adding the repository you need to refresh the contents.
+
+```bash
+...
+
+sudo apt-get update
+
+...
+```
+
+Now we're finally ready to deploy Docker using the following command.
+
+```bash
+...
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+...
+```
