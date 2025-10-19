@@ -1,19 +1,19 @@
 ---
 description: A guide for configuring the Puffer panel with SSL.
-slug: guides/pufferpanel/ssl
+slug: pufferpanel/ssl
 title: SSL Configuration
 sidebar:
   order: 2
 ---
 
-# SSL requirements
+### SSL requirements
 * A domain name
 * SSH access
 * sudo privileges
 
 ---
 
-# Installing dependencies
+### Installing dependencies
 
 :::info
 This tutorial will use Ubuntu Jammy 22.04 LTS as the operating system, and Cloudflare as the DNS provider.
@@ -22,36 +22,46 @@ This tutorial will use Ubuntu Jammy 22.04 LTS as the operating system, and Cloud
 To install the dependencies, you will need to run the following commands:
 
 ```bash
+...
+
 sudo apt update && sudo apt upgrade
 sudo apt install nginx certbot python3-certbot-nginx
+
+...
 ```
 
 ---
 
-# Adding a domain name
+### Adding a domain name
 
 For this, we will want to go to Cloudflare, and create an A record for our domain with the name you want and your server's Public IP.
-![img1](https://i.imgur.com/kMBssuQ.png)
+![img1](https://cdn.setup.md/Screenshot%202025-10-19%20at%2016.26.27.png)
 
 ---
 
-# Setting nginx virtual host
+### Setting nginx virtual host
 
 To enable this, we will need to edit the file `/etc/nginx/sites-enabled/pufferpanel.conf`, and we will use nano to edit it. To edit it, run the following command:
 ```bash
+...
+
 sudo nano /etc/nginx/sites-enabled/pufferpanel.conf
+
+...
 ```
 
 And now, you have to add the following:
-Remember to change `panel.examplehost.com` to your domain name!
+Remember to change `pufferpanel.servers.fun` to your domain name!
 
 
-```
+```nginx 
+# /etc/sites-enabled/pufferpanel.conf
+
 server {
          listen 80;
          root /var/www/pufferpanel;
 
-         server_name panel.examplehost.com;
+         server_name pufferpanel.servers.fun; # Change this to your domain name
 
          location ~ ^/\.well-known {
            root /var/www/html;
@@ -70,6 +80,7 @@ server {
              client_max_body_size 100M;
          }
      }
+
 ```
 If you're using PuTTY, you can right click on the terminal to paste it, and if you're using just a terminal, you can press `Ctrl + Shift + V` to paste it.
 
@@ -77,15 +88,23 @@ To save now, you have to press `Ctrl + X`, and then `Y`.
 
 Now you'll want to restart nginx, to do that, run the following command:
 ```bash
+...
+
 sudo systemctl restart nginx
+
+...
 ```
 
 We also need to open ports 80 and 443, so we can access the panel.
 
 ```bash
+...
+ 
 sudo ufw allow 80
 sudo ufw allow 443
 sudo ufw reload
+
+...
 ```
 
 ---
@@ -93,8 +112,12 @@ sudo ufw reload
 # Enabling SSL
 
 To enable SSL, we will need to run the following command:
-```
-sudo certbot --nginx -d (yourdomain)
+```bash
+...
+
+sudo certbot --nginx -d pufferpanel.servers.fun  # Change this to your domain name
+
+...
 ```
 
-And that's it! Now if you go into your browser, and try to go into https://(yourdomain), you should be able to access the panel!
+And that's it! Now if you go into your browser, and try to go into https://panel.yourdomain.com, you should be able to access the panel!

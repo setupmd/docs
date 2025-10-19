@@ -6,7 +6,7 @@ sidebar:
     variant: danger
 description: A breakdown of how our contributor lab was deployed in the cloud.
 title: The Lab
-slug: guides/lab
+slug: lab
 ---
 
 :::danger
@@ -47,12 +47,12 @@ This is a brief summary of the application stack we're utilising to make the Lab
 
 Required | Article | Tool | Purpose | Summary
 ------------ |------------ |------------ | ------- | -------
-✔ | [Core/Proxmox](https://setup.md/guides/lab/proxmox) | Proxmox | Hypervisor | Proxmox was the easiest solution to get up and running without the need for ESXi hosts and enhanced Windows configuration.
-✔ | [Core/Virtual Machines](https://setup.md/guides/lab/vms#router-vm) | Sophos XG | Firewall | Product familiarity and ease of use compared to other OSS products, support included with all licenses.
+✔ | [Core/Proxmox](/lab/proxmox) | Proxmox | Hypervisor | Proxmox was the easiest solution to get up and running without the need for ESXi hosts and enhanced Windows configuration.
+✔ | [Core/Virtual Machines](/lab/vms#router-vm) | Sophos XG | Firewall | Product familiarity and ease of use compared to other OSS products, support included with all licenses.
 ❌ | N/A | Windows Server | Domain Controller | Utilises AD w/ AAD Sync and provides DHCP and DNS for the network.
-✔ | [Optional/Docker](https://setup.md/guides/lab/docker) | Docker | Containerisation | Containers are much lighter than running full blown VMs for every application.
-✔ | [Optional/Docker](https://setup.md/guides/lab/docker#portainer) | Portainer | Management | Management interface for Docker containers utilising M365 Auth.
+✔ | [Optional/Docker](/lab/docker) | Docker | Containerisation | Containers are much lighter than running full blown VMs for every application.
+✔ | [Optional/Docker](/lab/docker#portainer) | Portainer | Management | Management interface for Docker containers utilising M365 Auth.
 ❌ | N/A | Nginx Proxy Manager | Reverse Proxy | NPM is a docker file ready to go purpose built for our needs.
-✔ | [Optional/Monitoring](https://setup.md/guides/lab/monitoring) | Uptime Kuma | Monitoring | Montior our environment and sends Discord webhooks when down.
+✔ | [Optional/Monitoring](/lab/monitoring) | Uptime Kuma | Monitoring | Montior our environment and sends Discord webhooks when down.
 ❌ | N/A | Homer | QoL | Single pane of glass for shortcuts to services.
 

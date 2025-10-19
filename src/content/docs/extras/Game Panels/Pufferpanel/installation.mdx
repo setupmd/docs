@@ -1,6 +1,6 @@
 ---
 description: A short deployment guide for Puffer panel on Ubuntu LTS
-slug: guides/pufferpanel
+slug: pufferpanel/deployment
 title: Deployment
 sidebar:
   order: 1
@@ -8,7 +8,7 @@ sidebar:
 
 PufferPanel is a open source web-based Game Server Management System. PufferPanel allows you to run multiple different game servers all from one central location, and give other users their own servers, or access to your own servers.
 
-# You will need
+### You will need
 
 * A VPS or Dedicated server
 * SSH access to the server
@@ -42,7 +42,7 @@ PufferPanel is a open source web-based Game Server Management System. PufferPane
 
 ---
 
-# Installation
+### Installation
 
 :::info
 This tutorial will use Ubuntu Jammy 22.04 LTS as the operating system and UFW as the firewall.
@@ -66,7 +66,7 @@ sudo systemctl enable pufferpanel
 
 ---
 
-# Port forwarding
+### Port forwarding
 
 After the installation is complete, you will need to configure your firewall.
 
@@ -82,7 +82,7 @@ You will also need to add those ports to your ingress rules in your hosting prov
 
 ---
 
-# Adding the admin user
+### Adding the admin user
 
 To add the admin user, you will need to run the following command:
 
