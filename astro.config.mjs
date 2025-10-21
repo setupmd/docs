@@ -4,8 +4,8 @@ import starlight from "@astrojs/starlight";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import path from "node:path";
-import starlightThemeObsidian from 'starlight-theme-obsidian';
-import starlightSidebarTopics from 'starlight-sidebar-topics';
+import starlightThemeObsidian from "starlight-theme-obsidian";
+import starlightSidebarTopics from "starlight-sidebar-topics";
 
 export default defineConfig({
   site: "https://www.setup.md",
@@ -39,19 +39,19 @@ export default defineConfig({
         }),
         starlightSidebarTopics([
           {
-            id: 'getting-started',
-            label: 'Getting Started',
-            link: 'getting-started',
-            icon: 'heart',
+            id: "getting-started",
+            label: "Getting Started",
+            link: "getting-started",
+            icon: "heart",
             items: [
               {
-                label: 'Project Information',
+                label: "Project Information",
                 items: [
                   "getting-started/contribute",
                   "getting-started/discord",
                   {
                     slug: "getting-started/jar-api",
-                    badge: { text: 'FREE', variant: 'success' },
+                    badge: { text: "FREE", variant: "success" },
                   },
                   "getting-started/license",
                 ],
@@ -59,76 +59,118 @@ export default defineConfig({
             ],
           },
           {
-            id: 'deploy',
-            label: 'Deploy',
-            link: 'deploy',
-            icon: 'open-book',
-            items: [
-              { label: 'Considerations', autogenerate: { directory: 'deploy/considerations' } },
-              { label: 'Self Hosted', autogenerate: { directory: 'deploy/create' } },
-              { label: 'Shared Hosting', autogenerate: { directory: 'deploy/hosted' } },
-            ],
-          },
-          {
-            id: 'customise',
-            label: 'Customise',
-            link: 'customise',
-            icon: 'puzzle',
+            id: "deploy",
+            label: "Deploy",
+            link: "deploy",
+            icon: "open-book",
             items: [
               {
-                label: 'Plugins',
-                items: ['customise/plugins/criteria', { label: 'Popular Plugins', autogenerate: { directory: 'customise/plugins' } }],
+                label: "Considerations",
+                items: ["deploy/considerations", "deploy/considerations/hosting-types", "deploy/considerations/operating-systems", "deploy/considerations/panels"],
               },
-              { label: 'Mods', autogenerate: { directory: 'customise/mods' } },
+              {
+                label: "Self Hosted",
+                items: ["deploy/create/install-java", "deploy/create/download-jars", "deploy/create/startup-scripts"],
+              },
+              {
+                label: "Shared Hosting",
+                items: ["deploy/hosted", "deploy/hosted/providers", "deploy/hosted/hardware", "deploy/hosted/purchased-what-next"],
+              },
             ],
           },
           {
-            id: 'administration',
-            label: 'Administration',
-            link: 'administration',
-            icon: 'setting',
+            id: "customise",
+            label: "Customise",
+            link: "customise",
+            icon: "puzzle",
             items: [
-              { label: 'Administration Basics', autogenerate: { directory: 'administration' }, collapsed: true },
+              {
+                label: "Plugins",
+                items: [
+                  "customise/plugins/criteria",
+                  {
+                    label: "Free",
+                    autogenerate: { directory: "customise/plugins/free" }
+                  },
+                  {
+                    label: "Premium",
+                    autogenerate: { directory: "customise/plugins/premium" }
+                  },
+                ],
+              },
             ],
           },
           {
-            id: 'performance',
-            label: 'Performance',
-            link: 'performance',
-            icon: 'rocket',
+            id: "administration",
+            label: "Administration",
+            link: "administration",
+            icon: "setting",
             items: [
-              { label: 'Basics', autogenerate: { directory: 'performance/basics' } },
-              { label: 'Advanced', autogenerate: { directory: 'performance/advanced' } },
+              {
+                label: "Server Administration",
+                items: [
+                  "administration/databases",
+                  "administration/offline-mode",
+                  "administration/server-software",
+                  "administration/sftp",
+                  "administration/textures",
+                ],
+              },
+              { label: "Permissions", autogenerate: { directory: "administration/permissions" } },
+              { label: "Economy", autogenerate: { directory: "administration/economy" } },
+              { label: "Security", autogenerate: { directory: "administration/security" } },
             ],
           },
           {
-            id: 'troubleshooting',
-            label: 'Troubleshooting',
-            link: 'troubleshooting',
-            icon: 'error',
+            id: "performance",
+            label: "Performance",
+            link: "performance",
+            icon: "rocket",
             items: [
-              { label: 'Technical Issues', autogenerate: { directory: 'troubleshooting/compute' } },
-              { label: 'Network Issues', autogenerate: { directory: 'troubleshooting/network' } },
+              { label: "Basics", autogenerate: { directory: "performance/basics" } },
+              { label: "Advanced", autogenerate: { directory: "performance/advanced" } },
             ],
           },
           {
-            id: 'extras',
-            label: 'Extras',
-            link: 'extras',
-            icon: 'star',
+            id: "troubleshooting",
+            label: "Troubleshooting",
+            link: "troubleshooting",
+            icon: "error",
             items: [
-              { label: 'Additional Content', autogenerate: { directory: 'extras' }, collapsed: true },
+              { label: "Technical Issues", autogenerate: { directory: "troubleshooting/compute" } },
+              { label: "Network Issues", autogenerate: { directory: "troubleshooting/network" } },
+            ],
+          },
+          {
+            id: "extras",
+            label: "Extras",
+            link: "extras",
+            icon: "star",
+            items: [
+              {
+                label: "Server Administration",
+                items: [
+                  "extras/advertising",
+                  "extras/folia",
+                  "extras/oracle",
+                  "extras/signed-chat",
+                  "extras/tls",
+                  "extras/tunnels",
+                ],
+              },
+              { label: "Game Panels", items: [{ label: "Pterodactyl", autogenerate: { directory: "extras/game-panels/pterodactyl" } }, { label: "PufferPanel", autogenerate: { directory: "extras/game-panels/pufferpanel" } }], collapsed: true },
+              { label: "Our Lab", items: [{ label: "Core", autogenerate: { directory: "extras/lab/core" } }, { label: "Optional", autogenerate: { directory: "extras/lab/optional" } }], collapsed: true },
             ],
           },
         ])
       ],
       components: {
-        Sidebar: './src/components/Sidebar.astro',
+        Sidebar: "./src/components/Sidebar.astro",
       },
       title: "setup.md",
       customCss: [
-        './src/styles/custom.css',
-        './src/fonts/font-face.css',
+        "./src/styles/custom.css",
+        "./src/fonts/font-face.css",
       ],
       logo: {
         replacesTitle: true,
@@ -136,11 +178,11 @@ export default defineConfig({
         dark: "./src/assets/logo_light-2.svg",
       },
       editLink: {
-        baseUrl: "https://github.com/setupmd/docs/edit/v3",
+        baseUrl: "https://github.com/setupmd/docs/tree/restructure",
       },
       social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/setupmd' },
-        { icon: 'discord', label: 'Discord', href: 'http://www.setup.md/discord-invite' },
+        { icon: "github", label: "GitHub", href: "https://github.com/setupmd" },
+        { icon: "discord", label: "Discord", href: "http://www.setup.md/discord-invite" },
       ],
     }),
     sitemap(),
