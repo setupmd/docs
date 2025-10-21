@@ -261,8 +261,8 @@ export default defineConfig({
       ],
       logo: {
         replacesTitle: true,
-        light: "./src/assets/logo_dark-2.svg",
-        dark: "./src/assets/logo_light-2.svg",
+        light: "./src/assets/logos/logo-dark.svg",
+        dark: "./src/assets/logos/logo-light.svg",
       },
       editLink: {
         baseUrl: "https://github.com/setupmd/docs/tree/restructure",
