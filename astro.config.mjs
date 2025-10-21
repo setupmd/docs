@@ -66,15 +66,29 @@ export default defineConfig({
             items: [
               {
                 label: "Considerations",
-                items: ["deploy/considerations", "deploy/considerations/hosting-types", "deploy/considerations/operating-systems", "deploy/considerations/panels"],
+                items: [
+                  "deploy/considerations",
+                  "deploy/considerations/hosting-types",
+                  "deploy/considerations/operating-systems",
+                  "deploy/considerations/panels",
+                ],
               },
               {
                 label: "Self Hosted",
-                items: ["deploy/create/install-java", "deploy/create/download-jars", "deploy/create/startup-scripts"],
+                items: [
+                  "deploy/create/install-java",
+                  "deploy/create/download-jars",
+                  "deploy/create/startup-scripts",
+                ],
               },
               {
                 label: "Shared Hosting",
-                items: ["deploy/hosted", "deploy/hosted/providers", "deploy/hosted/hardware", "deploy/hosted/purchased-what-next"],
+                items: [
+                  "deploy/hosted",
+                  "deploy/hosted/providers",
+                  "deploy/hosted/hardware",
+                  "deploy/hosted/purchased-what-next",
+                ],
               },
             ],
           },
@@ -90,11 +104,45 @@ export default defineConfig({
                   "customise/plugins/criteria",
                   {
                     label: "Free",
-                    autogenerate: { directory: "customise/plugins/free" }
+                    items: [
+                      "customise/plugins/free/chestshop",
+                      "customise/plugins/free/discordsrv",
+                      {
+                        slug: "customise/plugins/free/essentialsx",
+                        badge: { text: "CORE", variant: "success" },
+                      },
+                      {
+                        slug: "customise/plugins/free/worldedit",
+                        badge: { text: "CORE", variant: "success" },
+                      },
+                      {
+                        slug: "customise/plugins/free/worldguard",
+                        badge: { text: "CORE", variant: "success" },
+                      },
+                      {
+                        slug: "customise/plugins/free/luckperms",
+                        badge: { text: "CORE", variant: "success" },
+                      },
+                      "customise/plugins/free/minimotd",
+                      "customise/plugins/free/playerauctions",
+                      "customise/plugins/free/quickshop",
+                      {
+                        slug: "customise/plugins/free/vault",
+                        badge: { text: "CORE", variant: "success" },
+                      },
+                      "customise/plugins/free/znpcs",
+                    ],
                   },
                   {
                     label: "Premium",
-                    autogenerate: { directory: "customise/plugins/premium" }
+                    items: [
+                      "customise/plugins/premium/citizens",
+                      {
+                        slug: "customise/plugins/premium/litebans",
+                        badge: { text: "RECOMMENDED", variant: "tip" },
+                      },
+                      "customise/plugins/premium/zauctionhouse",
+                    ],
                   },
                 ],
               },
