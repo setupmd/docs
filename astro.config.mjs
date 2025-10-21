@@ -46,16 +46,15 @@ export default defineConfig({
             items: [
               {
                 label: 'Project Information',
-                items: [{
-                  slug: "getting-started/contribute",
-                }, {
-                  slug: "getting-started/discord",
-                }, {
-                  slug: "getting-started/jar-api",
-                  badge: { text: 'FREE', variant: 'success' },
-                }, {
-                  slug: "getting-started/license",
-                }],
+                items: [
+                  "getting-started/contribute",
+                  "getting-started/discord",
+                  {
+                    slug: "getting-started/jar-api",
+                    badge: { text: 'FREE', variant: 'success' },
+                  },
+                  "getting-started/license",
+                ],
               },
             ],
           },
