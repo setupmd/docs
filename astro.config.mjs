@@ -214,11 +214,17 @@ export default defineConfig({
             items: [
               {
                 label: "Technical Issues",
-                autogenerate: { directory: "troubleshooting/compute" }
+                items: [
+                  "troubleshooting/compute/java"
+                ],
               },
               {
                 label: "Network Issues",
-                autogenerate: { directory: "troubleshooting/network" } 
+                items: [
+                  "troubleshooting/network/connectivity",
+                  "troubleshooting/network/latency",
+                  "troubleshooting/network/nat",
+                ],
               },
             ],
           },
@@ -262,8 +268,16 @@ export default defineConfig({
         baseUrl: "https://github.com/setupmd/docs/tree/restructure",
       },
       social: [
-        { icon: "github", label: "GitHub", href: "https://github.com/setupmd" },
-        { icon: "discord", label: "Discord", href: "http://www.setup.md/discord-invite" },
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/setupmd"
+        },
+        {
+          icon: "discord",
+          label: "Discord",
+          href: "http://www.setup.md/discord-invite"
+        },
       ],
     }),
     sitemap(),

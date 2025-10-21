@@ -6,6 +6,7 @@ topic: troubleshooting
 lastUpdated: 2025-10-21
 ---
 
+import { Image } from 'astro:assets';
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 If you're having trouble connecting to your Minecraft server there's a process you should follow in order to try and understand where the issue lies. If you're running on a third party hosting provider it's recommended to reach out to them directly or check their status page.
@@ -168,4 +169,4 @@ When you create the record you should ensure it's configured as follows:
 
 An example of a functional SRV record has been provided below, this was created in Cloudflare's DNS manager so if Cloudflare is not your DNS solution then you may have a slightly different interface.
 
-<img src="https://cdn.setup.md/Screenshot%202025-10-19%20at%2016.43.23.png"/>
+<Image src="https://cdn.setup.md/Screenshot%202025-10-19%20at%2016.43.23.png" alt="Cloudflare SRV Record" width="750px" height="750px" />
