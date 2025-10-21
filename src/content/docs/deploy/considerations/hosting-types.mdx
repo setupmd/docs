@@ -1,24 +1,32 @@
 ---
+title: Hosting Types
 description: Understand the different types of hosting services available and what may be the best fit for your project.
-slug: deploy/hosting-types
-title: Cloud Hosting Types
+slug: deploy/considerations/hosting-types
+topic: deploy
+lastUpdated: 2025-10-21
+sidebar:
+  order: 2
 ---
 
 import { Badge } from '@astrojs/starlight/components';
 
-:::note
-
-You can skip this article if you're looking to self-host your server on your own hardware, if that's the case please see our [self-hosting considerations](/deploy/selfhosted-considerations) article instead.
-:::
-
 When you start looking at hosting your server online you'll see many different answers of which none are wrong, but they're not always suited to your needs. This page has a goal of helping you identify when you may need each type of hosting.
 
+## Commercial Hosting Options
 
-The three most common types you'll find in forum responses are:
+The three most common commercial hosting types you'll find in forum responses are:
 <ul class="pl-5 list-disc">
     <li>Shared Hosting</li>
     <li>Virtual Private Servers (VPS)</li>
     <li>Dedicated Servers (Bare Metal / VDS)</li>
+</ul>
+
+## Self-Hosting Options
+
+When it comes to running everything yourself you have two options:
+<ul class="pl-5 list-disc">
+    <li>Rent hardware / compute in the 'cloud'</li>
+    <li>Provide your own hardware and run at a data centre / your house</li>
 </ul>
 
 ### Shared Hosting <Badge text="Best for Majority" variant="success" size="medium" />
@@ -29,7 +37,7 @@ Traditionally this space was dominated by the likes of Nitrado, MCProHosting, Sh
 
 ---
 
-### Virtual Private Servers
+### Virtual Private Servers <Badge text="Technical Users" variant="caution" size="medium" />
 
 The other common response you'll see people mention is 'grab yourself a VPS from Digital Ocean or Linode'. While you certainly can, it won't be much better than using [oracle cloud](/extra/oracle-cloud) on ARM (which is free). 
 
@@ -46,17 +54,37 @@ There are times when a VPS can make sense, a prime example is using a VPS provid
 
 ---
 
-### Bare Metal / VDS
+### Bare Metal / VDS <Badge text="Enterprise" variant="default" size="medium" />
 
 The final common type of hosting you'll see people mention is, "go all out and own your hardware". While yes, this has some advantages for a novice the prospect of having no one around for support can be unsettling. Bare metal gives you full, dedicated, system normally in 32 / 64 or 128 GB RAM configurations with 256 / 512 or multi-TB disk configs. Bare metal can either be built yourself and shipped to a data centre for a monthly fee or you can rent from providers such as Hetzner, OVH or ReliableSite for a monthly fee. This option can set you back multiple hundreds of dollars per month and would only be recommended for larger scale deployments.
 
-Bare metal has a few advantages over the other types of solutions such as.
+Bare metal has a few advantages over the other types of solutions such as:
 <ul class="pl-5 list-disc">
     <li>Complete ownership of the server data</li>
     <li>Complete ownership of physical and networking resources</li>
     <li>Some providers will offer a managed solution for an additional fee</li>
 </ul>
 Bare metal also carries the same differences to shared hosting as a VPS.
+
+## Self-Hosting Considerations
+
+### Option 1: Rented Hardware <Badge text="Advanced" variant="danger" size="medium" />
+
+If you can afford it, this is your better option. While this is the most expensive option your monthly bill does include hardware, electricity, internet and in some cases DDoS protection. A mid-range to high-end service will cost you anywhere from $100 per month, so it may not be suitable for those who don't already have an established community.
+
+This option is essentially the same as the Bare Metal option described above, but you take on full responsibility for software configuration and maintenance.
+
+### Option 2: Home Hosting <Badge text="Most Affordable" variant="tip" size="medium" />
+
+The cheapest option but does require some additional considerations. For one or two people this option may still make the most sense.
+<ul class="pl-5 list-disc">
+    <li>Do you have a suitable internet connection? Firstly run a speed test, this will give you an idea of where your current connection sits. A 50mbps connection for both upload and download should be sufficient for your regular household activities **and** your Minecraft server, remember your connection is shared between all devices so downloading something on your internet e.g. steam games will reduce the available connection to Minecraft.</li>
+    <li>Do you have proper IPv4 addresses? Yes, Minecraft *can* support IPv6 but it requires all parties involved to also support V6 connectivity. You also need to consider if you have a [static IPv4 address](/fix/nat).</li>
+    <li>Have you considered the overhead to security, power utilisation, heat generated, noise produced and cost of hardware? Protecting the rest of your network can cost you either in man-hours or hardware if you need to purchase additional tools to get operational. This should all be considered before you commit to running things from home.</li>
+    <li>24/7 Availability? If you're not prepared to run a server 24/7 from your home are you players happy with the fact a server will only be online for a few hours a day.</li>
+</ul>
+
+If you do want to host things yourself we have documentation on how to do such things [here](/deploy/create/standalone/windows).
 
 :::tip
 
