@@ -162,11 +162,32 @@ export default defineConfig({
                   "administration/server-software",
                   "administration/sftp",
                   "administration/textures",
+                  { 
+                    label: "Permissions",
+                    items: ["administration/permissions", "administration/permissions/plugins"],
+                    badge: { text: "IMPORTANT", variant: "danger" },
+                  },
+                  { 
+                    label: "Security",
+                    items: [
+                      "administration/security",
+                      "administration/security/anticheat",
+                      "administration/security/antixray",
+                      "administration/security/antiexploit",
+                      "administration/security/antilag"
+                    ],
+                  },
+                  {
+                    label: "Economy",
+                    items: [
+                      "administration/economy",
+                      "administration/economy/gui",
+                      "administration/economy/chest",
+                      "administration/economy/shop",
+                    ],
+                  },
                 ],
               },
-              { label: "Permissions", autogenerate: { directory: "administration/permissions" } },
-              { label: "Economy", autogenerate: { directory: "administration/economy" } },
-              { label: "Security", autogenerate: { directory: "administration/security" } },
             ],
           },
           {
@@ -175,8 +196,14 @@ export default defineConfig({
             link: "performance",
             icon: "rocket",
             items: [
-              { label: "Basics", autogenerate: { directory: "performance/basics" } },
-              { label: "Advanced", autogenerate: { directory: "performance/advanced" } },
+              {
+                label: "Basics",
+                autogenerate: { directory: "performance/basics" }
+              },
+              {
+                label: "Advanced",
+                autogenerate: { directory: "performance/advanced" }
+              },
             ],
           },
           {
@@ -185,8 +212,14 @@ export default defineConfig({
             link: "troubleshooting",
             icon: "error",
             items: [
-              { label: "Technical Issues", autogenerate: { directory: "troubleshooting/compute" } },
-              { label: "Network Issues", autogenerate: { directory: "troubleshooting/network" } },
+              {
+                label: "Technical Issues",
+                autogenerate: { directory: "troubleshooting/compute" }
+              },
+              {
+                label: "Network Issues",
+                autogenerate: { directory: "troubleshooting/network" } 
+              },
             ],
           },
           {
