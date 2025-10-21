@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./src/assets/logos/logo-light.png">
-  <source media="(prefers-color-scheme: light)" srcset="./src/assets/logos/logo-dark.png">
-  <img alt="Minecraft Bookshelf" src="./src/assets/logos/bookshelf.png">
+  <source media="(prefers-color-scheme: dark)" srcset="src/assets/logos/logo-light.svg">
+  <source media="(prefers-color-scheme: light)" srcset="src/assets/logos/logo-dark.svg">
+  <img alt="Minecraft Bookshelf" src="src/assets/logos/bookshelf.png">
 </picture>
 
 # 📝 setup.md
