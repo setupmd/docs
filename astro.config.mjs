@@ -131,6 +131,39 @@ export default defineConfig({
                         badge: { text: "CORE", variant: "success" },
                       },
                       "customise/plugins/free/znpcs",
+                      {
+                        label: "Cinema Mod",
+                        collapsed: true,
+                        items: [
+                          "customise/plugins/free/cinema-mod",
+                          "customise/plugins/free/cinema-mod/setup",
+                          "customise/plugins/free/cinema-mod/commands",
+                        ],
+                      },
+                      {
+                        label: "Dynmap",
+                        collapsed: true,
+                        items: [
+                          "customise/plugins/free/dynmap",
+                          "customise/plugins/free/dynmap/setup",
+                          "customise/plugins/free/dynmap/proxy",
+                        ],
+                      },
+                      {
+                        label: "LuckPerms",
+                        collapsed: true,
+                        items: [
+                          "customise/plugins/free/luckperms",
+                          "customise/plugins/free/luckperms/config",
+                        ],
+                      },
+                      {
+                        label: "Terra",
+                        collapsed: true,
+                        items: [
+                          "customise/plugins/free/terra",
+                        ],
+                      },
                     ],
                   },
                   {
@@ -195,16 +228,10 @@ export default defineConfig({
             label: "Performance",
             link: "performance",
             icon: "rocket",
-            items: [
-              {
-                label: "Basics",
-                autogenerate: { directory: "performance/basics" }
-              },
-              {
-                label: "Advanced",
-                autogenerate: { directory: "performance/advanced" }
-              },
-            ],
+            items: [{
+              label: "Optimisation",
+              items: ["performance/basic", "performance/advanced"]
+            }],
           },
           {
             id: "troubleshooting",
