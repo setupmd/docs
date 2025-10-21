@@ -4,6 +4,8 @@ slug: deploy/hosting-types
 title: Cloud Hosting Types
 ---
 
+import { Badge } from '@astrojs/starlight/components';
+
 :::note
 
 You can skip this article if you're looking to self-host your server on your own hardware, if that's the case please see our [self-hosting considerations](/deploy/selfhosted-considerations) article instead.
@@ -19,7 +21,7 @@ The three most common types you'll find in forum responses are:
     <li>Dedicated Servers (Bare Metal / VDS)</li>
 </ul>
 
-### Shared Hosting :badge[BEST OPTION FOR MOST PEOPLE]{variant=success}
+### Shared Hosting <Badge text="Best for Majority" variant="success" size="medium" />
 
 The most common type you'll find is 'Shared Hosting', this is where a hosting provider will own a physical server and partition the resources out to clients and you will connect to / manage your server via a [web panel](/deploy/panels) and SFTP. If you select this style of hosting you should be careful and note that some providers will oversell the resources. Overselling allows for them to provide cheaper monthly plans but may come at a performance hit due to this over allocation. Others will provide a dedicated quota that is only allocated to yourself, this will be slightly more expensive but you will have the entire quota to your disposal whenever you need it (plus it will still be cheaper than a VPS / Bare Metal).
 

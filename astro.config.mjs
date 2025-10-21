@@ -1,13 +1,11 @@
 // astro.config.mjs
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import vue from "@astrojs/vue";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import path from "node:path";
 import starlightThemeObsidian from 'starlight-theme-obsidian';
 import starlightSidebarTopics from 'starlight-sidebar-topics';
-import starlightHeadingBadges from 'starlight-heading-badges'
 
 export default defineConfig({
   site: "https://www.setup.md",
@@ -27,11 +25,11 @@ export default defineConfig({
       }
     }
   },
-  
+
   build: {
     format: "file",
   },
-  
+
   integrations: [
     starlight({
       plugins: [
@@ -39,24 +37,32 @@ export default defineConfig({
           backlinks: false,
           graph: false
         }),
-        starlightHeadingBadges({}),
         starlightSidebarTopics([
           {
-            label: 'Home',
-            icon: 'starlight',
-            link: '/',
-          },
-          {
-            label: 'Project',
-            link: 'contribute',
+            id: 'getting-started',
+            label: 'Getting Started',
+            link: 'getting-started',
             icon: 'heart',
             items: [
-              { label: 'Project Information', autogenerate: { directory: 'project' } },
+              {
+                label: 'Project Information',
+                items: [{
+                  slug: "getting-started/contribute",
+                }, {
+                  slug: "getting-started/discord",
+                }, {
+                  slug: "getting-started/jar-api",
+                  badge: { text: 'FREE', variant: 'success' },
+                }, {
+                  slug: "getting-started/license",
+                }],
+              },
             ],
           },
           {
+            id: 'deploy',
             label: 'Deploy',
-            link: 'deploy/considerations',
+            link: 'deploy',
             icon: 'open-book',
             items: [
               { label: 'Considerations', autogenerate: { directory: 'deploy/considerations' } },
@@ -65,47 +71,51 @@ export default defineConfig({
             ],
           },
           {
+            id: 'customise',
             label: 'Customise',
-            link: 'customisation',
+            link: 'customise',
             icon: 'puzzle',
             items: [
               {
-                label: 'Breakdown',
-                items: ['customisation'],
+                label: 'Plugins',
+                items: ['customise/plugins/criteria', { label: 'Popular Plugins', autogenerate: { directory: 'customise/plugins' } }],
               },
-              { label: 'Plugins', autogenerate: { directory: 'customise/plugins' }, collapsed: true},
-              { label: 'Mods', autogenerate: { directory: 'customise/mods' }, collapsed: true },
+              { label: 'Mods', autogenerate: { directory: 'customise/mods' } },
             ],
           },
           {
+            id: 'administration',
             label: 'Administration',
-            link: 'administer/sftp',
+            link: 'administration',
             icon: 'setting',
             items: [
-              { label: 'Administration Basics', autogenerate: { directory: 'administer' }, collapsed: true },
+              { label: 'Administration Basics', autogenerate: { directory: 'administration' }, collapsed: true },
             ],
           },
           {
-            label: 'Optimisation',
-            link: 'optimise/basics/temp',
+            id: 'performance',
+            label: 'Performance',
+            link: 'performance',
             icon: 'rocket',
             items: [
-              { label: 'Basics', autogenerate: { directory: 'optimise/basics' } },
-              { label: 'Advanced', autogenerate: { directory: 'optimise/advanced' } },
+              { label: 'Basics', autogenerate: { directory: 'performance/basics' } },
+              { label: 'Advanced', autogenerate: { directory: 'performance/advanced' } },
             ],
           },
           {
-            label: 'Troubleshoot',
-            link: 'fix/connectivity',
+            id: 'troubleshooting',
+            label: 'Troubleshooting',
+            link: 'troubleshooting',
             icon: 'error',
             items: [
-              { label: 'Technical Issues', autogenerate: { directory: 'troubleshoot/compute' } },
-              { label: 'Network Issues', autogenerate: { directory: 'troubleshoot/network' } },
+              { label: 'Technical Issues', autogenerate: { directory: 'troubleshooting/compute' } },
+              { label: 'Network Issues', autogenerate: { directory: 'troubleshooting/network' } },
             ],
           },
           {
+            id: 'extras',
             label: 'Extras',
-            link: 'extra/tls',
+            link: 'extras',
             icon: 'star',
             items: [
               { label: 'Additional Content', autogenerate: { directory: 'extras' }, collapsed: true },
@@ -134,7 +144,6 @@ export default defineConfig({
         { icon: 'discord', label: 'Discord', href: 'http://www.setup.md/discord-invite' },
       ],
     }),
-    vue(),
     sitemap(),
   ],
 });

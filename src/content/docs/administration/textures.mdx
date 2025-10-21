@@ -1,0 +1,31 @@
+---
+description: Hosting texture packs for your server.
+slug: administration/textures
+title: Resource Pack Hosting
+---
+
+If you're looking to host your texture pack for your Minecraft community you can use a third party file hosting service to deliver your pack to Minecraft clients.
+
+We recommend [mc-packs.net](https://mc-packs.net) as a free and easy to use solution for hosting your resource packs.
+
+### Uploading your pack
+
+mc-packs.net allows you to upload your resource pack in a few simple steps:
+
+1. Navigate to [mc-packs.net](https://mc-packs.net).
+2. Click on the "chose file" button.
+3. Select your resource pack `.zip` file.
+4. Complete the hCaptcha and click "Upload".
+5. Once the upload is complete, copy the generated download link.
+
+---
+
+### Configuring your server
+
+Once you have the download link for your resource pack, you can configure your server to use it by following these steps:
+
+1. Open your `server.properties` file located in your server's root directory.
+2. Locate the `resource-pack=` line.
+3. Paste the download link you copied earlier after the `=` sign.
+4. Save the `server.properties` file.
+5. Restart your server to apply the changes.

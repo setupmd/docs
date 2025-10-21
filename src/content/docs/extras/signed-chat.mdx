@@ -5,7 +5,7 @@ slug: extra/signed-chat
 lastUpdated: 2025-10-19
 ---
 
-import { LinkCard } from '@astrojs/starlight/components';
+import { Badge, LinkCard } from '@astrojs/starlight/components';
 
 First things first, it's important to set the story straight. Mojang had always had a reporting toolset for anyone who wished to use it however with the introduction of 1.19.1 changes were made to this system that a reasonable portion of the community didn't like.
 
@@ -80,7 +80,7 @@ Option one is disabling 'chat-signing' within your client, this will prevent you
 
 If you're running your own server there are a few options that can be used depending if you're running vanilla, modded or a plugin based server, these are as follows.
 
-##### Edit server.properties file :badge[GLOBAL]{variant="success"}
+##### Edit server.properties file <Badge text="GLOBAL" variant="success" />
 
 You can edit the following switch to 'false' which will disable the requirement for users to use chat-signing.
 
@@ -92,7 +92,7 @@ enforce-secure-profile = false
 ...
 ```
 
-##### No Chat Reports :badge[MODDED ONLY]{variant="caution"}
+##### No Chat Reports <Badge text="MODDED ONLY" variant="caution" size="medium" />
 
 No Chat Reports is a Minecraft mod created by Aizistral that works on both the client and server sides. It strips cryptographic signatures from player chat messages, effectively converting them to system messages, thus making them non-reportable.
 
@@ -106,7 +106,7 @@ Joining a server with `enforce-secure-profile=true` on a client with No Chat Rep
   href="https://modrinth.com/mod/no-chat-reports"
 />
 
-##### FreedomChat :badge[SPIGOT/PAPER & FORKS ONLY]{variant="caution"}
+##### FreedomChat <Badge text="SPIGOT/PAPER & FORKS ONLY" variant="caution" size="medium" />
 
 FreedomChat effectively serves the same purpose as No Chat Reports would on a modded server, it converts player chat messages to system messages at the packet level, making them once again non-reportable by players.
 
@@ -116,7 +116,7 @@ FreedomChat effectively serves the same purpose as No Chat Reports would on a mo
   href="https://modrinth.com/mod/freedomchat"
 />
 
-##### AntiPopup :badge[SPIGOT/PAPER & FORKS ONLY]{variant="caution"}
+##### AntiPopup <Badge text="SPIGOT/PAPER & FORKS ONLY" variant="caution" size="medium" />
 
 While this plugin works, manual setup is required - the command `/antipopup setup` must be ran in console unless `enforce-secure-profile` is set to `false` already.
 
@@ -126,7 +126,7 @@ While this plugin works, manual setup is required - the command `/antipopup setu
   href="https://www.spigotmc.org/resources/%E2%9C%A8-antipopup-no-chat-reports-and-popup-%E2%9C%A8.103782/"
 />
 
-##### UnSignedVelocity :badge[VELOCITY ONLY]{variant="caution"}
+##### UnSignedVelocity <Badge text="VELOCITY ONLY" variant="caution" size="medium" />
 
 This plugin works by removing signed information from commands and messages sent by clients 1.19.1 or higher, allowing plugins that cancel proxy messages to work again. Requires VPacketEvents
 
