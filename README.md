@@ -6,7 +6,7 @@
   <img alt="Minecraft Bookshelf" src="src/assets/logos/bookshelf.png" width="25%" height="25%">
 </picture>
 
-# 📝 setup.md
+---
 
 Welcome to the Minecraft server administration knowledgebase designed to provide accurate and meaningful data in one place.
 
