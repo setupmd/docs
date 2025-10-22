@@ -1,6 +1,6 @@
 ---
-description: Learn how to setup a PXE boot environment and save time on all new VMs
 title: Uptime Kuma
+description: Learn how to setup a PXE boot environment and save time on all new VMs
 ---
 
 Knowing when your services go down is a must, you have multiple options when it comes to this requirement either in the form of SaaS or self-hosted. In following on with the nature of this project a self-hosted instance will be deployed.
@@ -15,11 +15,9 @@ If you're completely new to monitoring products Uptime Kuma is basically a self-
 
 ### Deploying in Docker
 
-You can conver the docker run command from the github repo to a compose file manually or you can use the one below.
+You can convert the docker run command from the github repo to a compose file manually or you can use the one below.
 
 ```yml
-...
-
 version: '3.8'
 
 services:
@@ -34,12 +32,8 @@ services:
 
 volumes:
   uptime-kuma:
-
-...
 ```
 
 You should save the above configuration file as `docker-compose.yml`.
 
 You can run the command `docker-compose up -d` from your terminal window to spin up the instance.
-
-
