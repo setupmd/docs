@@ -54,6 +54,20 @@ export default defineConfig({
                     badge: { text: "FREE", variant: "success" },
                   },
                   "getting-started/license",
+                  {
+                    label: "Our Lab",
+                    collapsed: true,
+                    items: [{
+                      label: "Core",
+                      collapsed: true,
+                      autogenerate: { directory: "getting-started/our-lab/core" }
+                    },
+                    {
+                      label: "Optional",
+                      collapsed: true,
+                      autogenerate: { directory: "getting-started/our-lab/optional" }
+                    }],
+                  },
                 ],
               },
             ],
@@ -71,6 +85,7 @@ export default defineConfig({
                   "deploy/considerations/hosting-types",
                   "deploy/considerations/operating-systems",
                   "deploy/considerations/panels",
+                  "deploy/considerations/server-software",
                 ],
               },
               {
@@ -88,6 +103,21 @@ export default defineConfig({
                   "deploy/hosted/providers",
                   "deploy/hosted/hardware",
                   "deploy/hosted/purchased-what-next",
+                  "deploy/hosted/oracle",
+                ],
+              },
+              {
+                label: "Game Panels",
+                collapsed: true,
+                items: [
+                  {
+                    label: "Pterodactyl",
+                    autogenerate: { directory: "deploy/game-panels/pterodactyl" }
+                  },
+                  {
+                    label: "PufferPanel",
+                    autogenerate: { directory: "deploy/game-panels/pufferpanel" }
+                  }
                 ],
               },
             ],
@@ -101,12 +131,21 @@ export default defineConfig({
               {
                 label: "Plugins",
                 items: [
-                  "customise/plugins/criteria",
+                  "customise/plugins",
                   {
                     label: "Free",
                     items: [
                       "customise/plugins/free/chestshop",
                       "customise/plugins/free/discordsrv",
+                      {
+                        label: "LuckPerms",
+                        badge: { text: "CORE", variant: "success" },
+                        collapsed: true,
+                        items: [
+                          "customise/plugins/free/luckperms",
+                          "customise/plugins/free/luckperms/config",
+                        ],
+                      },
                       {
                         slug: "customise/plugins/free/essentialsx",
                         badge: { text: "CORE", variant: "success" },
@@ -117,10 +156,6 @@ export default defineConfig({
                       },
                       {
                         slug: "customise/plugins/free/worldguard",
-                        badge: { text: "CORE", variant: "success" },
-                      },
-                      {
-                        slug: "customise/plugins/free/luckperms",
                         badge: { text: "CORE", variant: "success" },
                       },
                       "customise/plugins/free/minimotd",
@@ -150,14 +185,6 @@ export default defineConfig({
                         ],
                       },
                       {
-                        label: "LuckPerms",
-                        collapsed: true,
-                        items: [
-                          "customise/plugins/free/luckperms",
-                          "customise/plugins/free/luckperms/config",
-                        ],
-                      },
-                      {
                         label: "Terra",
                         collapsed: true,
                         items: [
@@ -179,6 +206,12 @@ export default defineConfig({
                   },
                 ],
               },
+              {
+                label: "Mods",
+                items: [
+                  "customise/mods",
+                ],
+              },
             ],
           },
           {
@@ -192,22 +225,30 @@ export default defineConfig({
                 items: [
                   "administration/databases",
                   "administration/offline-mode",
-                  "administration/server-software",
                   "administration/sftp",
                   "administration/textures",
-                  { 
+                  "administration/advertising",
+                  {
                     label: "Permissions",
-                    items: ["administration/permissions", "administration/permissions/plugins"],
-                    badge: { text: "IMPORTANT", variant: "danger" },
+                    items: [
+                      "administration/permissions",
+                      "administration/permissions/plugins"
+                    ],
+                    badge: {
+                      text: "IMPORTANT",
+                      variant: "danger"
+                    },
                   },
-                  { 
+                  {
                     label: "Security",
                     items: [
                       "administration/security",
                       "administration/security/anticheat",
                       "administration/security/antixray",
                       "administration/security/antiexploit",
-                      "administration/security/antilag"
+                      "administration/security/antilag",
+                      "administration/security/signed-chat",
+                      "administration/security/tls",
                     ],
                   },
                   {
@@ -219,19 +260,17 @@ export default defineConfig({
                       "administration/economy/shop",
                     ],
                   },
+                  {
+                    label: "Performance",
+                    items: [
+                      "administration/performance",
+                      "administration/performance/basic",
+                      "administration/performance/advanced",
+                    ],
+                  },
                 ],
               },
             ],
-          },
-          {
-            id: "performance",
-            label: "Performance",
-            link: "performance",
-            icon: "rocket",
-            items: [{
-              label: "Optimisation",
-              items: ["performance/basic", "performance/advanced"]
-            }],
           },
           {
             id: "troubleshooting",
@@ -251,29 +290,9 @@ export default defineConfig({
                   "troubleshooting/network/connectivity",
                   "troubleshooting/network/latency",
                   "troubleshooting/network/nat",
+                  "troubleshooting/network/tunnels",
                 ],
               },
-            ],
-          },
-          {
-            id: "extras",
-            label: "Extras",
-            link: "extras",
-            icon: "star",
-            items: [
-              {
-                label: "Server Administration",
-                items: [
-                  "extras/advertising",
-                  "extras/folia",
-                  "extras/oracle",
-                  "extras/signed-chat",
-                  "extras/tls",
-                  "extras/tunnels",
-                ],
-              },
-              { label: "Game Panels", items: [{ label: "Pterodactyl", autogenerate: { directory: "extras/game-panels/pterodactyl" } }, { label: "PufferPanel", autogenerate: { directory: "extras/game-panels/pufferpanel" } }], collapsed: true },
-              { label: "Our Lab", items: [{ label: "Core", autogenerate: { directory: "extras/lab/core" } }, { label: "Optional", autogenerate: { directory: "extras/lab/optional" } }], collapsed: true },
             ],
           },
         ])
