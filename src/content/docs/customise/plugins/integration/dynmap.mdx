@@ -1,0 +1,140 @@
+---
+title: Dynmap
+description: Learn about the Dynmap Minecraft plugin and how it can be used in a Minecraft server.
+lastUpdated: 2024-06-12
+---
+
+Dynmap is a free plugin for your Minecraft server that ships with a HTTP server that hosts a Google Maps-like view of your Minecraft world that can be viewed from your browser. 
+It also comes with many other features, including:
+- Configurable maps per world
+- Real-time updates
+- Players and their chat messages are visible on the map as balloons
+- Built-in webchat system linked to the Minecraft server chat
+- In-game time and weather are visible on the map
+- Add-ons for Towny, EssentialsX, WorldGuard among others
+
+### You Will Need
+
+* A Minecraft server with Spigot or any of its forks
+* A secondary port allocation for the web server to listen on if you are using a shared host
+
+---
+
+### Installation
+
+First things first, we need to install the Dynmap plugin on our server. Download it from [here](https://www.spigotmc.org/resources/dynmap%C2%AE.274/) and upload it to `/plugins` on your server, whether through (S)FTP or the web. Restart your server and go to `/plugins/dynmap`.
+
+#### Configuring Dynmap
+
+Once you're in the Dynmap plugin directory, we'll need to tweak the `configuration.txt` file a bit. Open it with your favourite text editor or web editor.
+
+* To adjust the resolution of tiles, find the line that says `deftemplatesuffix` - this'll be the first thing you see when you open up the file - change it to one of [`vlowres`, `lowres`, `medres`, `hires`]
+:::warning
+Fully-generated high resolution maps will take up to hundreds of gigabytes of disk space
+:::
+* To use an SQL database for map storage rather than flat files, comment `type: filetree` and uncomment `#type: sqlite` or `#type: mysql` along with the filename for SQLite or MySQL credentials depending on which you are using.
+Alternatively, you can use Amazon S3 for storing maps, uncomment the lines below `# AWS S3 bucket web site` and change the region and access credentials to match yours
+* To customise the title of the webpage, uncomment the line containing `webpage-title` and change the value as you wish.
+* To save on disk space for  while preserving most quality of tile images, find the line that begins with `image-format` and set it to `jpg-q90`. Alternatively, you can use the more efficient WEBP format - make sure to also uncomment the `cwebpPath` and `dwebpPath` lines as well as installing the appropriate packages
+* To enable the outbound web server, find the line that says `webserver-bindaddress` and uncomment it. Change the `webserver-port` to whatever port you plan to use - if you're on a host with a shared IP, this'll be something way different from the default `8123`. This is practically a must for this guide as it's the whole point - unless you want to use an external web server, which isn't covered here.
+* To enable login support, change `login-enabled` to true - change `login-required` to true to require login for access
+* To require login for the webchat, go back up and find the line that says `webchat-requires-login` - uncomment and change to true.
+:::note
+If you plan to use the login system, SSL is a must to encrypt traffic between users and the web server - unencrypted logins are prone to attacks from hackers. The next page contains a tutorial on how to do this
+:::
+
+Restart your Minecraft server to apply the changes. When done, type `http://<server-ip>:<dynmap-port>` into your web browser - if a webpage shows up, then ta-da! Dynmap's internal web server is working fine and dandy!
+The next page will detail how to set up an Caddy proxy and enable HTTPS for your map.
+
+## Reverse Proxy
+
+This tutorial covers how to proxy your Dynmap server behind Nginx with a free SSL certificate from Let's Encrypt installed
+
+### Requirements
+
+* A Minecraft server with Dynmap configured
+* A VPS with atleast Ubuntu 22.04 deployed
+* A [ZeroSSL account](https://zerossl.com/?fpr=setupmd) (Optional)
+* Root access to the aforementioned VPS
+
+If you haven't got access to the above, you should consult your service providers.
+
+---
+
+### Caddy Deployment
+
+#### Installation
+
+First off, we need to install Caddy and add allow rules for both HTTP and HTTPS traffic to the UFW firewall.
+
+```
+...
+
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update && sudo apt install caddy
+sudo ufw allow http
+sudo ufw allow https
+
+...
+```
+
+#### Generate ZeroSSL API Keys (Optional)
+
+This step is optiona if you don't want to use ZeroSSL as you're provider. If you chose not to use ZeroSSL your certs will be deployed via LetsEncrypt however support for Google Trust Services can also be configured.
+
+You can go to the [ZeroSSL developer console](https://app.zerossl.com/developer) and select 'Generate' under 'EAB Credentials'.
+
+
+#### Caddyfile Config
+
+Below is an example configuration file. Edit it and save it as `/etc/caddy/Caddyfile`
+
+```yaml
+...
+
+# Define ACME credentials (Optional but required for ZeroSSL)
+{
+        acme_ca https://acme.zerossl.com/v2/DV90
+        acme_eab {
+                key_id <yourAPIkey>
+                mac_key <yourMACkey>
+        }
+}
+
+# Required for all deployments
+map.mydomain.com {
+        reverse_proxy http://<dynmapIP>:<dynmapPort>
+}
+
+...
+```
+
+To enable the site run the following command
+
+```bash
+...
+
+caddy reload
+
+...
+```
+
+If you get an error with formatting you should run the following command and then re-run the reload command.
+
+```bash
+...
+
+sudo caddy fmt --overwrite
+
+...
+```
+
+---
+
+### Testing Configuration
+
+If you're using ZeroSSL you should check you see a provisioned SSL certificate under you account dashboard, when you select 'Certificates' > 'Issued' it will be marked as a 'Certificate' and not '90-Day SSL'.
+
+All users should be able to use https://map.mydomain.com, if you're not using the ACME setup within

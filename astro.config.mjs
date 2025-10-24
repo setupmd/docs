@@ -133,76 +133,61 @@ export default defineConfig({
                 items: [
                   "customise/plugins",
                   {
-                    label: "Free",
+                    label: "Core",
+                    collapsed: true,
                     items: [
-                      "customise/plugins/free/chestshop",
-                      "customise/plugins/free/discordsrv",
-                      {
-                        label: "LuckPerms",
-                        badge: { text: "CORE", variant: "success" },
-                        collapsed: true,
-                        items: [
-                          "customise/plugins/free/luckperms",
-                          "customise/plugins/free/luckperms/config",
-                        ],
-                      },
-                      {
-                        slug: "customise/plugins/free/essentialsx",
-                        badge: { text: "CORE", variant: "success" },
-                      },
-                      {
-                        slug: "customise/plugins/free/worldedit",
-                        badge: { text: "CORE", variant: "success" },
-                      },
-                      {
-                        slug: "customise/plugins/free/worldguard",
-                        badge: { text: "CORE", variant: "success" },
-                      },
-                      "customise/plugins/free/minimotd",
-                      "customise/plugins/free/playerauctions",
-                      "customise/plugins/free/quickshop",
-                      {
-                        slug: "customise/plugins/free/vault",
-                        badge: { text: "CORE", variant: "success" },
-                      },
-                      "customise/plugins/free/znpcs",
-                      {
-                        label: "Cinema Mod",
-                        collapsed: true,
-                        items: [
-                          "customise/plugins/free/cinema-mod",
-                          "customise/plugins/free/cinema-mod/setup",
-                          "customise/plugins/free/cinema-mod/commands",
-                        ],
-                      },
-                      {
-                        label: "Dynmap",
-                        collapsed: true,
-                        items: [
-                          "customise/plugins/free/dynmap",
-                          "customise/plugins/free/dynmap/setup",
-                          "customise/plugins/free/dynmap/proxy",
-                        ],
-                      },
-                      {
-                        label: "Terra",
-                        collapsed: true,
-                        items: [
-                          "customise/plugins/free/terra",
-                        ],
-                      },
-                    ],
+                      "customise/plugins/core/essentialsx",
+                      "customise/plugins/core/luckperms",
+                      "customise/plugins/core/worldedit",
+                      "customise/plugins/core/worldguard",
+                      "customise/plugins/core/vault",
+                    ]
                   },
                   {
-                    label: "Premium",
+                    label: "Economy",
+                    collapsed: true,
                     items: [
-                      "customise/plugins/premium/citizens",
+                      "customise/plugins/economy/chestshop",
+                      "customise/plugins/economy/playerauctions",
+                      "customise/plugins/economy/quickshop",
                       {
-                        slug: "customise/plugins/premium/litebans",
-                        badge: { text: "RECOMMENDED", variant: "tip" },
+                        label: "zAuctionHouse",
+                        slug: "customise/plugins/economy/zauctionhouse",
+                        badge: {
+                          text: "PREMIUM",
+                          variant: "note",
+                        },
                       },
-                      "customise/plugins/premium/zauctionhouse",
-                    ],
+                    ]
+                  },
+                  {
+                    label: "Administration",
+                    collapsed: true,
+                    items: [
+                      {
+                        label: "LiteBans",
+                        slug: "customise/plugins/administration/security/litebans",
+                        badge: {
+                          text: "PREMIUM",
+                          variant: "note",
+                        },
+                      },
+                    ]
+                  },
+                  {
+                    label: "Gameplay",
+                    collapsed: true,
+                    items: [
+                      "customise/plugins/gameplay/terra",
+                    ]
+                  },
+                  {
+                    label: "Integration",
+                    collapsed: true,
+                    items: [
+                      "customise/plugins/integration/discordsrv",
+                      "customise/plugins/integration/dynmap",
+                    ]
                   },
                 ],
               },
