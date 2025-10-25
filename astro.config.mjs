@@ -1,13 +1,11 @@
 // astro.config.mjs
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import vue from "@astrojs/vue";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import path from "node:path";
-import starlightThemeObsidian from 'starlight-theme-obsidian';
-import starlightSidebarTopics from 'starlight-sidebar-topics';
-import starlightHeadingBadges from 'starlight-heading-badges'
+import starlightThemeObsidian from "starlight-theme-obsidian";
+import starlightSidebarTopics from "starlight-sidebar-topics";
 
 export default defineConfig({
   site: "https://www.setup.md",
@@ -27,11 +25,11 @@ export default defineConfig({
       }
     }
   },
-  
+
   build: {
     format: "file",
   },
-  
+
   integrations: [
     starlight({
       plugins: [
@@ -39,102 +37,280 @@ export default defineConfig({
           backlinks: false,
           graph: false
         }),
-        starlightHeadingBadges({}),
         starlightSidebarTopics([
           {
-            label: 'Home',
-            icon: 'starlight',
-            link: '/',
-          },
-          {
-            label: 'Project',
-            link: 'contribute',
-            icon: 'heart',
-            items: [
-              { label: 'Project Information', autogenerate: { directory: 'project' } },
-            ],
-          },
-          {
-            label: 'Deploy',
-            link: 'deploy/considerations',
-            icon: 'open-book',
-            items: [
-              { label: 'Considerations', autogenerate: { directory: 'deploy/considerations' } },
-              { label: 'Self Hosted', autogenerate: { directory: 'deploy/create' } },
-              { label: 'Shared Hosting', autogenerate: { directory: 'deploy/hosted' } },
-            ],
-          },
-          {
-            label: 'Customise',
-            link: 'customisation',
-            icon: 'puzzle',
+            id: "getting-started",
+            label: "Getting Started",
+            link: "getting-started",
+            icon: "heart",
             items: [
               {
-                label: 'Breakdown',
-                items: ['customisation'],
+                label: "Project Information",
+                items: [
+                  "getting-started/contribute",
+                  "getting-started/discord",
+                  {
+                    slug: "getting-started/jar-api",
+                    badge: { text: "FREE", variant: "success" },
+                  },
+                  "getting-started/license",
+                  {
+                    label: "Our Lab",
+                    collapsed: true,
+                    items: [{
+                      label: "Core",
+                      collapsed: true,
+                      autogenerate: { directory: "getting-started/our-lab/core" }
+                    },
+                    {
+                      label: "Optional",
+                      collapsed: true,
+                      autogenerate: { directory: "getting-started/our-lab/optional" }
+                    }],
+                  },
+                ],
               },
-              { label: 'Plugins', autogenerate: { directory: 'customise/plugins' }, collapsed: true},
-              { label: 'Mods', autogenerate: { directory: 'customise/mods' }, collapsed: true },
             ],
           },
           {
-            label: 'Administration',
-            link: 'administer/sftp',
-            icon: 'setting',
+            id: "deploy",
+            label: "Deploy",
+            link: "deploy",
+            icon: "open-book",
             items: [
-              { label: 'Administration Basics', autogenerate: { directory: 'administer' }, collapsed: true },
+              {
+                label: "Considerations",
+                items: [
+                  "deploy/considerations",
+                  "deploy/considerations/hosting-types",
+                  "deploy/considerations/operating-systems",
+                  "deploy/considerations/panels",
+                  "deploy/considerations/server-software",
+                ],
+              },
+              {
+                label: "Self Hosted",
+                items: [
+                  "deploy/create/install-java",
+                  "deploy/create/download-jars",
+                  "deploy/create/startup-scripts",
+                ],
+              },
+              {
+                label: "Shared Hosting",
+                items: [
+                  "deploy/hosted",
+                  "deploy/hosted/providers",
+                  "deploy/hosted/hardware",
+                  "deploy/hosted/purchased-what-next",
+                  "deploy/hosted/oracle",
+                ],
+              },
+              {
+                label: "Game Panels",
+                collapsed: true,
+                items: [
+                  {
+                    label: "Pterodactyl",
+                    autogenerate: { directory: "deploy/game-panels/pterodactyl" }
+                  },
+                  {
+                    label: "PufferPanel",
+                    autogenerate: { directory: "deploy/game-panels/pufferpanel" }
+                  }
+                ],
+              },
             ],
           },
           {
-            label: 'Optimisation',
-            link: 'optimise/basics/temp',
-            icon: 'rocket',
+            id: "customise",
+            label: "Customise",
+            link: "customise",
+            icon: "puzzle",
             items: [
-              { label: 'Basics', autogenerate: { directory: 'optimise/basics' } },
-              { label: 'Advanced', autogenerate: { directory: 'optimise/advanced' } },
+              {
+                label: "Plugins",
+                items: [
+                  "customise/plugins",
+                  {
+                    label: "Core",
+                    collapsed: true,
+                    items: [
+                      "customise/plugins/core/essentialsx",
+                      "customise/plugins/core/luckperms",
+                      "customise/plugins/core/worldedit",
+                      "customise/plugins/core/worldguard",
+                      "customise/plugins/core/vault",
+                    ]
+                  },
+                  {
+                    label: "Economy",
+                    collapsed: true,
+                    items: [
+                      "customise/plugins/economy/chestshop",
+                      "customise/plugins/economy/playerauctions",
+                      "customise/plugins/economy/quickshop",
+                      {
+                        label: "zAuctionHouse",
+                        slug: "customise/plugins/economy/zauctionhouse",
+                        badge: {
+                          text: "PREMIUM",
+                          variant: "note",
+                        },
+                      },
+                    ]
+                  },
+                  {
+                    label: "Administration",
+                    collapsed: true,
+                    items: [
+                      {
+                        label: "LiteBans",
+                        slug: "customise/plugins/administration/security/litebans",
+                        badge: {
+                          text: "PREMIUM",
+                          variant: "note",
+                        },
+                      },
+                    ]
+                  },
+                  {
+                    label: "Gameplay",
+                    collapsed: true,
+                    items: [
+                      "customise/plugins/gameplay/terra",
+                    ]
+                  },
+                  {
+                    label: "Integration",
+                    collapsed: true,
+                    items: [
+                      "customise/plugins/integration/discordsrv",
+                      "customise/plugins/integration/dynmap",
+                    ]
+                  },
+                ],
+              },
+              {
+                label: "Mods",
+                items: [
+                  "customise/mods",
+                ],
+              },
             ],
           },
           {
-            label: 'Troubleshoot',
-            link: 'fix/connectivity',
-            icon: 'error',
+            id: "administration",
+            label: "Administration",
+            link: "administration",
+            icon: "setting",
             items: [
-              { label: 'Technical Issues', autogenerate: { directory: 'troubleshoot/compute' } },
-              { label: 'Network Issues', autogenerate: { directory: 'troubleshoot/network' } },
+              {
+                label: "Server Administration",
+                items: [
+                  "administration/databases",
+                  "administration/offline-mode",
+                  "administration/sftp",
+                  "administration/textures",
+                  "administration/advertising",
+                  {
+                    label: "Permissions",
+                    items: [
+                      "administration/permissions",
+                      "administration/permissions/plugins"
+                    ],
+                    badge: {
+                      text: "IMPORTANT",
+                      variant: "danger"
+                    },
+                  },
+                  {
+                    label: "Security",
+                    items: [
+                      "administration/security",
+                      "administration/security/anticheat",
+                      "administration/security/antixray",
+                      "administration/security/antiexploit",
+                      "administration/security/antilag",
+                      "administration/security/signed-chat",
+                      "administration/security/tls",
+                    ],
+                  },
+                  {
+                    label: "Economy",
+                    items: [
+                      "administration/economy",
+                      "administration/economy/gui",
+                      "administration/economy/chest",
+                      "administration/economy/shop",
+                    ],
+                  },
+                  {
+                    label: "Performance",
+                    items: [
+                      "administration/performance",
+                      "administration/performance/basic",
+                      "administration/performance/advanced",
+                    ],
+                  },
+                ],
+              },
             ],
           },
           {
-            label: 'Extras',
-            link: 'extra/tls',
-            icon: 'star',
+            id: "troubleshooting",
+            label: "Troubleshooting",
+            link: "troubleshooting",
+            icon: "error",
             items: [
-              { label: 'Additional Content', autogenerate: { directory: 'extras' }, collapsed: true },
+              {
+                label: "Technical Issues",
+                items: [
+                  "troubleshooting/compute/java"
+                ],
+              },
+              {
+                label: "Network Issues",
+                items: [
+                  "troubleshooting/network/connectivity",
+                  "troubleshooting/network/latency",
+                  "troubleshooting/network/nat",
+                  "troubleshooting/network/tunnels",
+                ],
+              },
             ],
           },
         ])
       ],
       components: {
-        Sidebar: './src/components/Sidebar.astro',
+        Sidebar: "./src/components/Sidebar.astro",
       },
       title: "setup.md",
       customCss: [
-        './src/styles/custom.css',
-        './src/fonts/font-face.css',
+        "./src/styles/custom.css",
+        "./src/fonts/font-face.css",
       ],
       logo: {
         replacesTitle: true,
-        light: "./src/assets/logo_dark-2.svg",
-        dark: "./src/assets/logo_light-2.svg",
+        light: "./src/assets/logos/logo-dark.svg",
+        dark: "./src/assets/logos/logo-light.svg",
       },
       editLink: {
-        baseUrl: "https://github.com/setupmd/docs/edit/v3",
+        baseUrl: "https://github.com/setupmd/docs/tree/restructure",
       },
       social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/setupmd' },
-        { icon: 'discord', label: 'Discord', href: 'http://www.setup.md/discord-invite' },
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/setupmd"
+        },
+        {
+          icon: "discord",
+          label: "Discord",
+          href: "http://www.setup.md/discord-invite"
+        },
       ],
     }),
-    vue(),
     sitemap(),
   ],
 });

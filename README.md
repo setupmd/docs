@@ -1,6 +1,16 @@
-# 📝 setup.md
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="src/assets/logos/logo-light.svg" width="25%" height="25%">
+  <source media="(prefers-color-scheme: light)" srcset="src/assets/logos/logo-dark.svg" width="25%" height="25%">
+  <img alt="Minecraft Bookshelf" src="src/assets/logos/bookshelf.png" width="25%" height="25%">
+</picture>
+
+---
 
 Welcome to the Minecraft server administration knowledgebase designed to provide accurate and meaningful data in one place.
+
+</div>
 
 ## 👨‍💻 Contributing
 
@@ -9,19 +19,18 @@ Welcome to the Minecraft server administration knowledgebase designed to provide
 
 ## 💻 Development
 
-1. Fork the project: Click the gray `Fork` button in the top right of this page. This creates _your_ copy of the project and saves it as a new repository in your github account
-2. Click on the green `Code` button, then either the HTTPS or SSH option and, click the icon to copy the URL. Now you have a copy of the project. Thus, you can play around with it locally on your computer.
-3. Run the following commands into a terminal window (Command Prompt, Powershell, Terminal, Git Bash, ZSH):
+1. Fork the project: Click the gray `Fork` button in the top right of this page. This creates _your_ own copy of the project and saves it as a new repository in your GitHub account.
+2. Run the following commands into a terminal window (Command Prompt, Powershell, Terminal, Git Bash, ZSH):
 
 Do this to download the forked copy of this repository to your computer:
 
 ```bash
-$ git clone https://github.com/setupmd/docs.git
+git clone https://github.com/YOUR_GITHUB_USERNAME/docs.git
 ```
 
-  Step into the directory:
+Step into the directory:
 ```bash
-$ cd docs
+cd docs
 ```
 
 All commands are run from the root of the project, from a terminal:

@@ -1,0 +1,21 @@
+---
+title: Jar API
+description: The setup.md team provides their own Jar API for the most common server types.
+lastUpdated: 2025-10-21
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+We took a cool idea produced by PenguiLoader on GitHub and we fixed some bugs then made it faster by distributing the workload to Cloudflare workers and running it on their amazing edge network.
+
+|   Quick Start              | Example URLs                                                                                                                                                                 |
+| :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Base Domain         | https://jar.setup.md                                                                                                     |
+| URL Syntax | `/download/{SOFTWARE}/{VERSION}/{BUILD}` |
+| Latest Paper Build      | https://jar.setup.md/download/paper/latest/latest   (Supports GET requests)                                                         |
+| Latest Vanilla Build             | https://jar.setup.md/download/vanilla/latest (Supports GET requests, no build params required)                                                              |
+
+ <CardGrid>
+  <LinkCard title="polish-penguin-dev/MC-SRV-DL-API" href="https://github.com/polish-penguin-dev/MC-SRV-DL-API" />
+  <LinkCard title="setupmd/mc-jar-api" href="https://github.com/setupmd/mc-jar-api" />
+</CardGrid>
