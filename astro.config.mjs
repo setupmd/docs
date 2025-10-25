@@ -54,20 +54,6 @@ export default defineConfig({
                     badge: { text: "FREE", variant: "success" },
                   },
                   "getting-started/license",
-                  {
-                    label: "Our Lab",
-                    collapsed: true,
-                    items: [{
-                      label: "Core",
-                      collapsed: true,
-                      autogenerate: { directory: "getting-started/our-lab/core" }
-                    },
-                    {
-                      label: "Optional",
-                      collapsed: true,
-                      autogenerate: { directory: "getting-started/our-lab/optional" }
-                    }],
-                  },
                 ],
               },
             ],
@@ -94,6 +80,9 @@ export default defineConfig({
                   "deploy/create/install-java",
                   "deploy/create/download-jars",
                   "deploy/create/startup-scripts",
+                  "deploy/create/standalone/docker",
+                  "deploy/create/standalone/linux",
+                  "deploy/create/standalone/windows",
                 ],
               },
               {
@@ -179,6 +168,15 @@ export default defineConfig({
                     collapsed: true,
                     items: [
                       "customise/plugins/gameplay/terra",
+                    ]
+                  },
+                  {
+                    label: "Cosmetic",
+                    collapsed: true,
+                    items: [
+                      "customise/plugins/cosmetic/citizens",
+                      "customise/plugins/cosmetic/minimotd",
+                      "customise/plugins/cosmetic/znpcs",
                     ]
                   },
                   {
