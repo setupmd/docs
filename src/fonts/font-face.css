@@ -1,8 +1,14 @@
 @font-face {
   font-family: 'Satoshi';
-  /* Use a relative path to the local font file in `url()`. */
   src: url('./Satoshi.woff2') format('woff2');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi'; 
+  src: url('./Satoshi-Black.woff2') format('woff2'); 
+  font-weight: bold; /* or 700 */
   font-style: normal;
   font-display: swap;
 }
