@@ -4,7 +4,6 @@ description: Learn how to upload files to Pterodactyl panels using SFTP.
 lastUpdated: 2025-10-21
 ---
 
-import { Image } from 'astro:assets';
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 If you're new to hosting a Minecraft server and you are looking to bring across a world file of your own or upload some plugins / mods to make your experience a little bit better,
@@ -47,7 +46,7 @@ For simplicity we're also recommending FileZilla for Debian based distros.
 ### Identifying your Credentials
 
 Once you have installed FileZilla the next step is for you to get connected to your Minecraft server. You can find the information within your provider panel, most providers are now using Pterodactyl so you need to find the following block of information below*.
-<Image src="https://cdn.setup.md/uploads_files_b820148e3bc4c1edd512f8564cc668ef.png" alt="SFTP Credentials" width="750px" height="750px" />
+![img](https://cdn.setup.md/uploads_files_b820148e3bc4c1edd512f8564cc668ef.png)
 <small>*Depending on your provider your panel will look different but they will all display this set of information</small>
 <br/>
 Copy the information from the `SFTP Address` and `Username` fields we will need this information within our FileZilla client.
@@ -63,16 +62,16 @@ Your SFTP password will be the same password you use to login to the panel, you 
 
 Once you have the information we're going to 'create a site' so we don't need to input this data everytime we want to file transfer, to do this select the site manager in the top left corner.
 
-<Image src="https://cdn.setup.md/uploads_files_ecc3d02538493e817cae495e728039ea.png" alt="FileZilla Site Manager" width="750px" height="750px" />
+![img](https://cdn.setup.md/uploads_files_ecc3d02538493e817cae495e728039ea.png)
 
 Select 'New Site' and you can now fill in the section on the right hand side, you should change Protocol from FTP to SFTP else you will run into issues while connecting.
 
-<Image src="https://cdn.setup.md/uploads_files_0cdfe6ecbe9d8988d69fb98384e3ecd5.png" alt="FileZilla New Site" width="750px" height="750px" />
+![img](https://cdn.setup.md/uploads_files_0cdfe6ecbe9d8988d69fb98384e3ecd5.png)
 
 Once you have copied this information over you should press 'Connect' and you will be presented with one final confirmation window, select 'Always trust this host' and then press 'Ok'.
 
-<Image src="https://cdn.setup.md/uploads_files_ab8fc6a290b67b1113228a8221af23a5.png" alt="FileZilla Confirmation" width="750px" height="750px" />
+![img](https://cdn.setup.md/uploads_files_ab8fc6a290b67b1113228a8221af23a5.png)
 
 You will now be connected to your server via SFTP, you can upload/download, edit or delete files from the highlighted window below.
 
-<Image src="https://cdn.setup.md/uploads_files_f51fcd60be39ac00795a7afa6b9e8ec7.png" alt="FileZilla File Browser" width="750px" height="750px" />
+![img](https://cdn.setup.md/uploads_files_f51fcd60be39ac00795a7afa6b9e8ec7.png)
