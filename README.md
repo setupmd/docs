@@ -2,6 +2,8 @@
 
 Welcome to the Minecraft server administration knowledgebase designed to provide accurate and meaningful data in one place.
 
+A point in time archive can be found at: https://smd.pages.dev
+
 ## 👨‍💻 Contributing
 
 - Contributions make the open source community such an amazing place to learn, inspire, and create.
